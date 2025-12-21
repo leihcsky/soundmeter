@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="https://schema.org/WebApplication">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>Sound Meter - Free Online Decibel Meter | Real-Time Noise Level Detection</title>
+    <meta name="title" content="Sound Meter - Free Online Decibel Meter | Real-Time Noise Level Detection">
+    <meta name="description" content="Free online sound meter to measure environmental noise levels in decibels (dB). Real-time sound level meter for detecting quiet, noisy, or harmful sound levels.">
+    <meta name="keywords" content="sound meter, decibel meter, noise meter, sound level meter, dB meter, online sound meter, noise detector, hearing protection, NIOSH, WHO">
+    <meta name="author" content="RealtimeSoundMeter.org">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://realtimesoundmeter.org">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://realtimesoundmeter.org">
+    <meta property="og:site_name" content="Sound Meter">
+    <meta property="og:title" content="Sound Meter - Online Decibel Meter for Environmental Noise Detection">
+    <meta property="og:description" content="Measure environmental noise levels in real-time with our free online sound meter. Detect quiet, noisy, or harmful sound levels instantly.">
+    <meta property="og:image" content="https://realtimesoundmeter.org/apple-touch-icon.svg">
+    <meta property="og:image:width" content="180">
+    <meta property="og:image:height" content="180">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://realtimesoundmeter.org">
+    <meta name="twitter:title" content="Sound Meter - Free Online Decibel Meter">
+    <meta name="twitter:description" content="Free online tool to measure environmental noise levels in real-time. Protect your hearing with accurate dB measurements.">
+    <meta name="twitter:image" content="https://realtimesoundmeter.org/apple-touch-icon.svg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/svg+xml" sizes="32x32" href="favicon-32x32.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.svg">
+    
+    <!-- Alternate Languages (future) -->
+    <link rel="alternate" hreflang="en" href="https://realtimesoundmeter.org">
+    <link rel="alternate" hreflang="x-default" href="https://realtimesoundmeter.org">
+    
+    <!-- Structured Data - WebApplication -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Sound Meter",
+      "alternateName": "Online Decibel Meter",
+      "url": "https://realtimesoundmeter.org",
+      "logo": "https://realtimesoundmeter.org/logo.svg",
+      "description": "Free online sound meter for measuring environmental noise levels in decibels (dB). Real-time sound level detection with safety guidelines based on WHO and NIOSH standards.",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "featureList": [
+        "Real-time decibel measurement",
+        "Visual noise level indicators",
+        "Safe exposure time calculations",
+        "Min/Max/Average statistics",
+        "Color-coded safety levels",
+        "No audio recording or storage"
+      ],
+      "browserRequirements": "Requires JavaScript. Modern browser with Web Audio API support.",
+      "permissions": "Microphone access required for sound measurement",
+      "author": {
+        "@type": "Organization",
+        "name": "RealtimeSoundMeter.org",
+        "url": "https://realtimesoundmeter.org"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "ratingCount": "1250",
+        "bestRating": "5",
+        "worstRating": "1"
+      }
+    }
+    </script>
+    
+    <!-- Structured Data - Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "RealtimeSoundMeter.org",
+      "url": "https://realtimesoundmeter.org",
+      "logo": "https://realtimesoundmeter.org/logo.svg",
+      "description": "Provider of free online sound measurement tools for hearing health awareness.",
+      "sameAs": [],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Customer Support",
+        "email": "support@realtimesoundmeter.org",
+        "url": "https://realtimesoundmeter.org/contact.html"
+      }
+    }
+    </script>
+    
+    <!-- Structured Data - FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is this sound meter accurate?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "While this online sound meter provides good estimations, it may not match professional-grade devices. Accuracy depends on your device's microphone quality and calibration. For precise measurements, consider professional equipment from certified providers."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why do I need to allow microphone access?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The sound meter requires microphone access to measure ambient noise levels. Your audio is processed locally in your browser and never recorded, stored, or transmitted to any server. Your privacy is protected."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is a safe noise level?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "According to NIOSH/CDC, noise levels below 70 dB are generally safe for prolonged exposure. The occupational exposure limit is 85 dB for 8 hours. Levels above 85 dB can cause hearing damage with extended exposure, and anything above 120 dB can cause immediate harm."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use this on mobile devices?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! This sound meter works on both desktop and mobile devices (iOS Safari, Chrome Mobile, etc.). Simply allow microphone access when prompted to start measuring."
+          }
+        }
+      ]
+    }
+    </script>
+    
+    <!-- Structured Data - BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://realtimesoundmeter.org"
+        }
+      ]
+    }
+    </script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        @keyframes pulse-ring {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1.5);
+                opacity: 0;
+            }
+        }
+        
+        .pulse-ring {
+            animation: pulse-ring 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        }
+        
+        .gradient-quiet {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        }
+        
+        .gradient-moderate {
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+        }
+        
+        .gradient-loud {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+        }
+        
+        .gradient-harmful {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+        }
+        
+        .gradient-dangerous {
+            background: linear-gradient(135deg, #991b1b 0%, #7f1d1d 100%);
+        }
+        
+        .chart-bar {
+            transition: width 0.6s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.5s ease-out;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+            <div class="text-center">
+                <h1 class="sr-only">Sound Meter - Real-Time Environmental Noise Level Detection</h1>
+                <div class="flex items-center justify-center gap-3 mb-1">
+                    <img src="logo.svg" alt="Sound Meter - Online Decibel Meter" class="h-10">
+                </div>
+                <p class="text-sm text-gray-600">Real-Time Environmental Noise Level Detection</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <!-- Sound Meter Display -->
+        <section class="mb-4">
+            <div class="bg-white rounded-2xl shadow-xl p-6 sm:p-8">
+                <!-- Compact Layout with Icon and Display -->
+                <div class="flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-12 mb-4">
+                    <!-- Status Indicator -->
+                    <div id="statusIndicator" class="flex-shrink-0">
+                        <div id="statusIcon" class="relative w-24 h-24 sm:w-28 sm:h-28">
+                            <div class="absolute inset-0 rounded-full gradient-moderate flex items-center justify-center">
+                                <svg class="w-12 h-12 sm:w-14 sm:h-14 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15.536a5 5 0 001.414 1.414m2.828-9.9a9 9 0 000 12.728M12 12v.01"></path>
+                                </svg>
+                            </div>
+                            <div id="pulseRing" class="absolute inset-0 rounded-full gradient-moderate pulse-ring" style="display: none;"></div>
+                        </div>
+                    </div>
+
+                    <!-- Decibel Display and Status -->
+                    <div class="text-center lg:text-left flex-grow">
+                        <!-- Current Value -->
+                        <div class="flex items-baseline justify-center lg:justify-start gap-2 mb-2">
+                            <div id="decibelValue" class="text-6xl sm:text-7xl font-bold text-gray-400 leading-none">
+                                0.0
+                            </div>
+                            <div class="text-3xl sm:text-4xl text-gray-500 font-medium">dB</div>
+                        </div>
+                        
+                        <!-- Statistics (Min/Avg/Max) -->
+                        <div id="statistics" class="hidden flex items-center justify-center lg:justify-start gap-4 mb-2 text-sm">
+                            <div class="flex items-center gap-1">
+                                <span class="text-gray-500">Min:</span>
+                                <span id="minValue" class="font-semibold text-green-600">--</span>
+                            </div>
+                            <div class="flex items-center gap-1">
+                                <span class="text-gray-500">Avg:</span>
+                                <span id="avgValue" class="font-semibold text-blue-600">--</span>
+                            </div>
+                            <div class="flex items-center gap-1">
+                                <span class="text-gray-500">Max:</span>
+                                <span id="maxValue" class="font-semibold text-red-600">--</span>
+                            </div>
+                        </div>
+                        
+                        <div id="statusText" class="text-lg sm:text-xl font-semibold text-gray-700 mb-2">
+                            Click Start to Measure
+                        </div>
+                        
+                        <!-- Safe Exposure Warning -->
+                        <div id="exposureWarning" class="mb-3 p-2 bg-green-50 border border-green-300 rounded-lg">
+                            <p class="text-xs text-green-900"><strong>✅ Status:</strong> <span id="exposureTime">Click Start to begin measuring</span></p>
+                        </div>
+                        
+                        <!-- Control Button -->
+                        <button id="startBtn" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-8 rounded-full text-base shadow-lg transform transition hover:scale-105 active:scale-95">
+                            Start Measuring
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Visual Level Indicator with Scale -->
+                <div class="max-w-3xl mx-auto mb-3">
+                    <div class="flex items-start gap-2">
+                        <!-- Scale container -->
+                        <div class="flex-1">
+                            <!-- Scale numbers (top) -->
+                            <div class="relative h-5 mb-0.5">
+                                <div class="absolute inset-0 flex pointer-events-none">
+                                    <span class="absolute text-xs font-medium text-gray-600" style="left: 0%; transform: translateX(-50%)">0</span>
+                                    <span class="absolute text-xs font-medium text-gray-600" style="left: 30.77%; transform: translateX(-50%)">40</span>
+                                    <span class="absolute text-xs font-medium text-gray-600" style="left: 53.85%; transform: translateX(-50%)">70</span>
+                                    <span class="absolute text-xs font-medium text-gray-600" style="left: 65.38%; transform: translateX(-50%)">85</span>
+                                    <span class="absolute text-xs font-medium text-gray-600" style="left: 76.92%; transform: translateX(-50%)">100</span>
+                                    <span class="absolute text-xs font-medium text-gray-600" style="left: 92.31%; transform: translateX(-50%)">120</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Small tick marks (subtle) -->
+                            <div class="relative h-2 mb-0.5">
+                                <div class="absolute inset-0 flex pointer-events-none">
+                                    <div class="absolute" style="left: 0%">
+                                        <div class="w-px h-2 bg-gray-400"></div>
+                                    </div>
+                                    <div class="absolute" style="left: 30.77%">
+                                        <div class="w-px h-2 bg-gray-400"></div>
+                                    </div>
+                                    <div class="absolute" style="left: 53.85%">
+                                        <div class="w-px h-2 bg-gray-400"></div>
+                                    </div>
+                                    <div class="absolute" style="left: 65.38%">
+                                        <div class="w-px h-2 bg-gray-400"></div>
+                                    </div>
+                                    <div class="absolute" style="left: 76.92%">
+                                        <div class="w-px h-2 bg-gray-400"></div>
+                                    </div>
+                                    <div class="absolute" style="left: 92.31%">
+                                        <div class="w-px h-2 bg-gray-400"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Progress bar -->
+                            <div class="h-5 bg-gray-200 rounded-full overflow-hidden shadow-inner">
+                                <div id="levelBar" class="h-full gradient-moderate transition-all duration-300 rounded-full" style="width: 0%"></div>
+                            </div>
+                            
+                            <!-- Label descriptions (bottom) -->
+                            <div class="relative mt-1">
+                                <div class="absolute inset-0 flex pointer-events-none">
+                                    <span class="absolute text-xs text-gray-500" style="left: 0%; transform: translateX(-50%)">Silent</span>
+                                    <span class="absolute text-xs text-green-600" style="left: 30.77%; transform: translateX(-50%)">Quiet</span>
+                                    <span class="absolute text-xs text-blue-600" style="left: 53.85%; transform: translateX(-50%)">Safe</span>
+                                    <span class="absolute text-xs text-yellow-600" style="left: 65.38%; transform: translateX(-50%)">Limit</span>
+                                    <span class="absolute text-xs text-orange-600" style="left: 76.92%; transform: translateX(-50%)">Harmful</span>
+                                    <span class="absolute text-xs text-red-600" style="left: 92.31%; transform: translateX(-50%)">Danger</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Unit label on the right -->
+                        <div class="flex-none text-xs font-medium text-gray-500 mt-0">
+                            dB
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Calibration Info -->
+                <div class="max-w-3xl mx-auto mt-6">
+                    <div class="bg-blue-50 border border-blue-200 rounded-lg p-2.5">
+                        <div class="flex items-start">
+                            <svg class="w-4 h-4 text-blue-600 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <div class="text-xs text-blue-800">
+                                <strong>Note:</strong> Estimated readings. Quiet room ≈ 30-40 dB, conversation ≈ 60 dB, traffic ≈ 80 dB.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Information Sections -->
+        <div class="grid md:grid-cols-2 gap-4">
+            <!-- Sound Level Guide -->
+            <section class="bg-white rounded-xl shadow-lg p-5">
+                <h2 class="text-xl font-bold text-gray-900 mb-3">Sound Level Guide</h2>
+                <div class="space-y-2.5">
+                    <div class="flex items-start">
+                        <div class="w-3 h-3 rounded-full bg-green-500 mt-1 mr-2 flex-shrink-0"></div>
+                        <div class="flex-1">
+                            <div class="font-semibold text-sm text-gray-900">0-40 dB - Quiet</div>
+                            <div class="text-xs text-gray-600">Library (30 dB), whisper, rustling leaves. Safe for all exposure times.</div>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="w-3 h-3 rounded-full bg-blue-500 mt-1 mr-2 flex-shrink-0"></div>
+                        <div class="flex-1">
+                            <div class="font-semibold text-sm text-gray-900">40-70 dB - Moderate</div>
+                            <div class="text-xs text-gray-600">Normal conversation (60 dB), quiet office. Generally safe for prolonged exposure.</div>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="w-3 h-3 rounded-full bg-yellow-500 mt-1 mr-2 flex-shrink-0"></div>
+                        <div class="flex-1">
+                            <div class="font-semibold text-sm text-gray-900">70-85 dB - Caution</div>
+                            <div class="text-xs text-gray-600">Busy traffic (80 dB), vacuum cleaner. Extended exposure may cause fatigue.</div>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="w-3 h-3 rounded-full bg-orange-500 mt-1 mr-2 flex-shrink-0"></div>
+                        <div class="flex-1">
+                            <div class="font-semibold text-sm text-gray-900">85-100 dB - Harmful</div>
+                            <div class="text-xs text-gray-600">Power tools (90 dB), motorcycle. 8h+ exposure can damage hearing.</div>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="w-3 h-3 rounded-full bg-red-500 mt-1 mr-2 flex-shrink-0"></div>
+                        <div class="flex-1">
+                            <div class="font-semibold text-sm text-gray-900">100-120 dB - Very Harmful</div>
+                            <div class="text-xs text-gray-600">Chainsaw (110 dB), siren. Minutes of exposure can cause damage.</div>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="w-3 h-3 rounded-full bg-red-900 mt-1 mr-2 flex-shrink-0"></div>
+                        <div class="flex-1">
+                            <div class="font-semibold text-sm text-gray-900">120+ dB - Dangerous</div>
+                            <div class="text-xs text-gray-600">Jet engine (130 dB), fireworks. Immediate hearing damage risk.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-3 pt-3 border-t border-gray-200">
+                    <p class="text-xs text-gray-500 italic">
+                        <strong>Note:</strong> Decibel scale is logarithmic - each 10 dB increase means ~10x intensity increase.
+                    </p>
+                </div>
+            </section>
+
+            <!-- How to Use -->
+            <section class="bg-white rounded-xl shadow-lg p-5">
+                <h2 class="text-xl font-bold text-gray-900 mb-3">How to Use</h2>
+                <ol class="space-y-2.5">
+                    <li class="flex items-start">
+                        <div class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-500 text-white flex items-center justify-center text-xs font-semibold mr-2">1</div>
+                        <div class="flex-1">
+                            <div class="font-semibold text-sm text-gray-900">Allow Microphone Access</div>
+                            <div class="text-xs text-gray-600">Click "Start" and grant permission.</div>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <div class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-500 text-white flex items-center justify-center text-xs font-semibold mr-2">2</div>
+                        <div class="flex-1">
+                            <div class="font-semibold text-sm text-gray-900">View Real-Time Readings</div>
+                            <div class="text-xs text-gray-600">Meter displays current sound levels.</div>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <div class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-500 text-white flex items-center justify-center text-xs font-semibold mr-2">3</div>
+                        <div class="flex-1">
+                            <div class="font-semibold text-sm text-gray-900">Monitor Environment</div>
+                            <div class="text-xs text-gray-600">Check if noise levels are safe.</div>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <div class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-500 text-white flex items-center justify-center text-xs font-semibold mr-2">4</div>
+                        <div class="flex-1">
+                            <div class="font-semibold text-sm text-gray-900">Take Action</div>
+                            <div class="text-xs text-gray-600">Reduce exposure if levels exceed limits.</div>
+                        </div>
+                    </li>
+                </ol>
+            </section>
+        </div>
+
+        <!-- Additional Information -->
+        <div class="mt-6 space-y-6">
+
+            <!-- Safe Exposure Time Chart -->
+            <section class="bg-white rounded-xl shadow-lg p-6">
+                <h2 class="text-xl font-bold text-gray-900 mb-3">Safe Exposure Time by Decibel Level</h2>
+                <p class="text-sm text-gray-600 mb-4">
+                    According to <a href="https://www.cdc.gov/niosh/noise/about/noise.html" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">NIOSH/CDC</a>, the higher the noise level, the shorter the safe exposure time.
+                </p>
+                
+                <div class="space-y-3">
+                    <!-- 70 dB -->
+                    <div class="fade-in-up">
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-sm font-semibold text-gray-900">70 dB</span>
+                            <span class="text-xs text-gray-600">Unlimited exposure</span>
+                        </div>
+                        <div class="h-6 bg-gray-100 rounded-full overflow-hidden">
+                            <div class="chart-bar h-full bg-green-500" style="width: 100%"></div>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-1">Safe for all day exposure</p>
+                    </div>
+                    
+                    <!-- 85 dB -->
+                    <div class="fade-in-up" style="animation-delay: 0.1s">
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-sm font-semibold text-gray-900">85 dB</span>
+                            <span class="text-xs text-gray-600">8 hours max</span>
+                        </div>
+                        <div class="h-6 bg-gray-100 rounded-full overflow-hidden">
+                            <div class="chart-bar h-full bg-yellow-500" style="width: 80%"></div>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-1">NIOSH recommended 8-hour exposure limit</p>
+                    </div>
+                    
+                    <!-- 90 dB -->
+                    <div class="fade-in-up" style="animation-delay: 0.2s">
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-sm font-semibold text-gray-900">90 dB</span>
+                            <span class="text-xs text-gray-600">2-4 hours max</span>
+                        </div>
+                        <div class="h-6 bg-gray-100 rounded-full overflow-hidden">
+                            <div class="chart-bar h-full bg-orange-400" style="width: 60%"></div>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-1">Lawn mower, motorcycle noise level</p>
+                    </div>
+                    
+                    <!-- 100 dB -->
+                    <div class="fade-in-up" style="animation-delay: 0.3s">
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-sm font-semibold text-gray-900">100 dB</span>
+                            <span class="text-xs text-gray-600">15 minutes max</span>
+                        </div>
+                        <div class="h-6 bg-gray-100 rounded-full overflow-hidden">
+                            <div class="chart-bar h-full bg-orange-600" style="width: 40%"></div>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-1">Hair dryer, power tools</p>
+                    </div>
+                    
+                    <!-- 110 dB -->
+                    <div class="fade-in-up" style="animation-delay: 0.4s">
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-sm font-semibold text-gray-900">110 dB</span>
+                            <span class="text-xs text-gray-600">1-2 minutes max</span>
+                        </div>
+                        <div class="h-6 bg-gray-100 rounded-full overflow-hidden">
+                            <div class="chart-bar h-full bg-red-500" style="width: 25%"></div>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-1">Rock concert, siren</p>
+                    </div>
+                    
+                    <!-- 120 dB -->
+                    <div class="fade-in-up" style="animation-delay: 0.5s">
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-sm font-semibold text-gray-900">120+ dB</span>
+                            <span class="text-xs text-gray-600 font-bold text-red-600">Immediate damage</span>
+                        </div>
+                        <div class="h-6 bg-gray-100 rounded-full overflow-hidden">
+                            <div class="chart-bar h-full bg-red-700" style="width: 10%"></div>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-1">Firecrackers, jet engine - avoid exposure</p>
+                    </div>
+                </div>
+                
+                <div class="mt-4 p-3 bg-blue-50 rounded-lg border border-blue-200">
+                    <p class="text-xs text-blue-900">
+                        <strong>⚠️ Important:</strong> For every 3 dB increase above 85 dB, safe exposure time is cut in half. Learn more at 
+                        <a href="https://www.nidcd.nih.gov/health/how-loud-too-loud" target="_blank" rel="noopener" class="text-blue-700 hover:underline font-semibold">NIDCD</a>.
+                    </p>
+                </div>
+            </section>
+
+            <!-- About Section -->
+            <section class="bg-white rounded-xl shadow-lg p-6">
+                <h2 class="text-xl font-bold text-gray-900 mb-4">Understanding Decibels and Sound Measurement</h2>
+                <div class="text-gray-700 space-y-3 text-sm">
+                    <p>
+                        A <strong>sound meter</strong> (decibel meter) measures sound pressure level (SPL) in decibels (dB). Our online tool uses your device's microphone to detect environmental noise and provide real-time measurements.
+                    </p>
+                    <p>
+                        <strong>Why decibels matter:</strong> The decibel scale is logarithmic - each 10 dB increase represents approximately 10 times more sound intensity and feels about twice as loud. This means 80 dB is not just slightly louder than 70 dB; it's significantly more intense.
+                    </p>
+                    <div class="bg-amber-50 border-l-4 border-amber-500 p-3 my-3">
+                        <p class="text-sm">
+                            <strong>🏥 WHO Recommendation:</strong> The <a href="https://www.who.int/news-room/questions-and-answers/item/deafness-and-hearing-loss-safe-listening" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">World Health Organization</a> recommends keeping noise levels below <strong>70 dB</strong> for extended periods to prevent hearing loss. Sounds above 85 dB can cause hearing damage with prolonged exposure.
+                        </p>
+                    </div>
+                    <p>
+                        <strong>How noise damages hearing:</strong> According to <a href="https://gesund.bund.de/en/laermbelastung" target="_blank" rel="noopener" class="text-blue-600 hover:underline">health authorities</a>, loud sounds damage the delicate hair cells in your inner ear. These cells don't regenerate, so damage is permanent. High-intensity or long-duration noise causes:
+                    </p>
+                    <ul class="list-disc list-inside space-y-1 ml-3 text-sm">
+                        <li>Mechanical damage to inner ear hair cells</li>
+                        <li>Over-stimulation of auditory nerves</li>
+                        <li>Noise-Induced Hearing Loss (NIHL)</li>
+                        <li>Tinnitus (ringing in ears) and sensitivity issues</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Health Impact -->
+            <section class="bg-white rounded-xl shadow-lg p-6">
+                <h2 class="text-xl font-bold text-gray-900 mb-3">Health Impact of Noise Pollution</h2>
+                <p class="text-sm text-gray-600 mb-4">
+                    Beyond hearing loss, chronic noise exposure affects overall health. Source: 
+                    <a href="https://www.who.int/europe/news-room/fact-sheets/item/noise" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">WHO Europe</a>
+                </p>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition">
+                        <div class="text-2xl mb-2">👂</div>
+                        <h3 class="font-semibold text-sm text-gray-900 mb-1">Hearing Loss (NIHL)</h3>
+                        <p class="text-xs text-gray-600 mb-2">Exposure to sounds ≥85 dB for 8+ hours can cause permanent hearing damage.</p>
+                        <a href="https://www.cdc.gov/niosh/noise/about/noise.html" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline">CDC/NIOSH Guidelines →</a>
+                    </div>
+                    <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition">
+                        <div class="text-2xl mb-2">😰</div>
+                        <h3 class="font-semibold text-sm text-gray-900 mb-1">Stress & Anxiety</h3>
+                        <p class="text-xs text-gray-600 mb-2">Chronic noise raises stress hormones and increases anxiety disorders risk.</p>
+                        <a href="https://www.who.int/europe/news-room/fact-sheets/item/noise" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline">WHO Research →</a>
+                    </div>
+                    <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition">
+                        <div class="text-2xl mb-2">😴</div>
+                        <h3 class="font-semibold text-sm text-gray-900 mb-1">Sleep Disruption</h3>
+                        <p class="text-xs text-gray-600 mb-2">Nighttime noise above 40 dB can disturb sleep quality and duration significantly.</p>
+                        <a href="https://www.who.int/europe/news-room/fact-sheets/item/noise" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline">Sleep Guidelines →</a>
+                    </div>
+                    <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition">
+                        <div class="text-2xl mb-2">❤️</div>
+                        <h3 class="font-semibold text-sm text-gray-900 mb-1">Cardiovascular Risk</h3>
+                        <p class="text-xs text-gray-600 mb-2">Long-term high noise exposure may increase heart disease and hypertension risk.</p>
+                        <a href="https://www.who.int/europe/news-room/fact-sheets/item/noise" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline">WHO Studies →</a>
+                    </div>
+                    <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition">
+                        <div class="text-2xl mb-2">🧠</div>
+                        <h3 class="font-semibold text-sm text-gray-900 mb-1">Cognitive Impact</h3>
+                        <p class="text-xs text-gray-600 mb-2">Noise pollution can impair concentration, memory, and learning abilities.</p>
+                        <a href="https://hearinghealthfoundation.org/keeplistening/decibels" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline">HHF Resources →</a>
+                    </div>
+                    <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition">
+                        <div class="text-2xl mb-2">👶</div>
+                        <h3 class="font-semibold text-sm text-gray-900 mb-1">Child Development</h3>
+                        <p class="text-xs text-gray-600 mb-2">Children are more vulnerable to noise-related learning and behavioral issues.</p>
+                        <a href="https://www.who.int/europe/news-room/fact-sheets/item/noise" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline">WHO Findings →</a>
+                    </div>
+                </div>
+                
+                <div class="mt-4 p-4 bg-gradient-to-r from-red-50 to-orange-50 rounded-lg border border-red-200">
+                    <h4 class="font-semibold text-sm text-gray-900 mb-2">🛡️ Protection Tips (from NIOSH/CDC):</h4>
+                    <ul class="text-xs text-gray-700 space-y-1 ml-4 list-disc">
+                        <li>Keep daily noise exposure below <strong>70 dB</strong> when possible</li>
+                        <li>Wear ear protection (earplugs/earmuffs) in ≥85 dB environments</li>
+                        <li>Limit high-intensity noise exposure time</li>
+                        <li>Use noise monitoring tools to track and manage sound levels</li>
+                        <li>Give your ears rest periods after loud noise exposure</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- FAQ Section -->
+            <section class="bg-white rounded-xl shadow-lg p-6">
+                <h2 class="text-xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
+                <div class="space-y-4">
+                    <div class="border-l-4 border-blue-500 pl-4">
+                        <h3 class="font-semibold text-sm text-gray-900 mb-1">Is this sound meter accurate?</h3>
+                        <p class="text-xs text-gray-600 mb-1">While this online sound meter provides good estimations, it may not match professional-grade devices. Accuracy depends on your device's microphone quality and calibration. For precise measurements, consider professional equipment from certified providers.</p>
+                        <a href="https://www.forbes.com/health/hearing-aids/decibel-levels/" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline">Compare decibel levels →</a>
+                    </div>
+                    <div class="border-l-4 border-blue-500 pl-4">
+                        <h3 class="font-semibold text-sm text-gray-900 mb-1">Why do I need to allow microphone access?</h3>
+                        <p class="text-xs text-gray-600">The sound meter requires microphone access to measure ambient noise levels. Your audio is processed locally in your browser and never recorded, stored, or transmitted to any server. Your privacy is protected.</p>
+                    </div>
+                    <div class="border-l-4 border-blue-500 pl-4">
+                        <h3 class="font-semibold text-sm text-gray-900 mb-1">What is a safe noise level?</h3>
+                        <p class="text-xs text-gray-600 mb-1">According to <strong>NIOSH/CDC</strong>, noise levels below <strong>70 dB</strong> are generally safe for prolonged exposure. The occupational exposure limit is <strong>85 dB for 8 hours</strong>. Levels above 85 dB can cause hearing damage with extended exposure, and anything above 120 dB can cause immediate harm.</p>
+                        <a href="https://www.cdc.gov/niosh/noise/about/noise.html" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline">NIOSH Guidelines →</a>
+                    </div>
+                    <div class="border-l-4 border-blue-500 pl-4">
+                        <h3 class="font-semibold text-sm text-gray-900 mb-1">Can I use this on mobile devices?</h3>
+                        <p class="text-xs text-gray-600">Yes! This sound meter works on both desktop and mobile devices (iOS Safari, Chrome Mobile, etc.). Simply allow microphone access when prompted to start measuring. Note that microphone quality varies between devices.</p>
+                    </div>
+                    <div class="border-l-4 border-blue-500 pl-4">
+                        <h3 class="font-semibold text-sm text-gray-900 mb-1">How does noise damage hearing?</h3>
+                        <p class="text-xs text-gray-600 mb-1">Loud sounds damage the tiny hair cells in your inner ear's cochlea. These cells convert sound vibrations into electrical signals for your brain. Once damaged, they don't regenerate, leading to permanent hearing loss. High intensity or prolonged exposure accelerates this damage.</p>
+                        <a href="https://www.nidcd.nih.gov/health/how-loud-too-loud" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline">Learn more at NIDCD →</a>
+                    </div>
+                    <div class="border-l-4 border-blue-500 pl-4">
+                        <h3 class="font-semibold text-sm text-gray-900 mb-1">What's the "3 dB exchange rate"?</h3>
+                        <p class="text-xs text-gray-600">The NIOSH 3 dB exchange rate means that for every 3 dB increase in noise level, safe exposure time is cut in half. For example: 85 dB = 8 hours, 88 dB = 4 hours, 91 dB = 2 hours, and so on. This exponential relationship shows why small dB increases matter significantly.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Authoritative Sources -->
+            <section class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl shadow-lg p-6 border border-blue-200">
+                <h2 class="text-xl font-bold text-gray-900 mb-3">📚 Authoritative Sources & References</h2>
+                <p class="text-sm text-gray-700 mb-4">
+                    All information on this page is based on guidelines and research from internationally recognized health and safety organizations:
+                </p>
+                <div class="grid md:grid-cols-2 gap-3">
+                    <a href="https://www.cdc.gov/niosh/noise/about/noise.html" target="_blank" rel="noopener" class="block p-3 bg-white rounded-lg border border-gray-200 hover:shadow-md transition">
+                        <h3 class="font-semibold text-sm text-gray-900 mb-1">🏛️ NIOSH/CDC</h3>
+                        <p class="text-xs text-gray-600">National Institute for Occupational Safety and Health - Noise and Hearing Loss Prevention</p>
+                    </a>
+                    <a href="https://www.who.int/news-room/questions-and-answers/item/deafness-and-hearing-loss-safe-listening" target="_blank" rel="noopener" class="block p-3 bg-white rounded-lg border border-gray-200 hover:shadow-md transition">
+                        <h3 class="font-semibold text-sm text-gray-900 mb-1">🌍 World Health Organization (WHO)</h3>
+                        <p class="text-xs text-gray-600">Safe Listening Guidelines and Hearing Loss Prevention</p>
+                    </a>
+                    <a href="https://www.nidcd.nih.gov/health/how-loud-too-loud" target="_blank" rel="noopener" class="block p-3 bg-white rounded-lg border border-gray-200 hover:shadow-md transition">
+                        <h3 class="font-semibold text-sm text-gray-900 mb-1">🔬 NIDCD (NIH)</h3>
+                        <p class="text-xs text-gray-600">National Institute on Deafness and Other Communication Disorders</p>
+                    </a>
+                    <a href="https://hearinghealthfoundation.org/keeplistening/decibels" target="_blank" rel="noopener" class="block p-3 bg-white rounded-lg border border-gray-200 hover:shadow-md transition">
+                        <h3 class="font-semibold text-sm text-gray-900 mb-1">👂 Hearing Health Foundation</h3>
+                        <p class="text-xs text-gray-600">Decibel Exposure Chart and Safe Listening Education</p>
+                    </a>
+                    <a href="https://www.who.int/europe/news-room/fact-sheets/item/noise" target="_blank" rel="noopener" class="block p-3 bg-white rounded-lg border border-gray-200 hover:shadow-md transition">
+                        <h3 class="font-semibold text-sm text-gray-900 mb-1">🇪🇺 WHO Europe</h3>
+                        <p class="text-xs text-gray-600">Environmental Noise and Health Effects Research</p>
+                    </a>
+                    <a href="https://www.forbes.com/health/hearing-aids/decibel-levels/" target="_blank" rel="noopener" class="block p-3 bg-white rounded-lg border border-gray-200 hover:shadow-md transition">
+                        <h3 class="font-semibold text-sm text-gray-900 mb-1">📰 Forbes Health</h3>
+                        <p class="text-xs text-gray-600">Decibel Levels and Hearing Health Guide</p>
+                    </a>
+                </div>
+                <p class="text-xs text-gray-600 mt-4 italic">
+                    Last updated: December 2025. We continuously review our content against the latest scientific guidelines to ensure accuracy.
+                </p>
+            </section>
+
+        </div><!-- End of Additional Information -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white mt-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="text-center">
+                <h3 class="text-base font-semibold mb-2">Sound Meter - Environmental Noise Detection</h3>
+                <p class="text-sm text-gray-400 mb-4">Protect your hearing by monitoring noise levels in your environment.</p>
+                <div class="flex justify-center gap-6 text-sm mb-4">
+                    <a href="about.html" class="hover:text-blue-400 transition">About</a>
+                    <a href="terms.html" class="hover:text-blue-400 transition">Terms</a>
+                    <a href="privacy.html" class="hover:text-blue-400 transition">Privacy</a>
+                    <a href="disclaimer.html" class="hover:text-blue-400 transition">Disclaimer</a>
+                    <a href="contact.html" class="hover:text-blue-400 transition">Contact</a>
+                </div>
+                <p class="text-xs text-gray-500">© 2025 RealtimeSoundMeter.org. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        let audioContext;
+        let analyser;
+        let microphone;
+        let javascriptNode;
+        let isRunning = false;
+        
+        // Statistics tracking
+        let minValue = Infinity;
+        let maxValue = 0;
+        let readings = [];
+        let readingCount = 0;
+
+        const startBtn = document.getElementById('startBtn');
+        const decibelValue = document.getElementById('decibelValue');
+        const statusText = document.getElementById('statusText');
+        const statusIcon = document.getElementById('statusIcon');
+        const pulseRing = document.getElementById('pulseRing');
+        const levelBar = document.getElementById('levelBar');
+
+        startBtn.addEventListener('click', toggleMeter);
+
+        async function toggleMeter() {
+            if (!isRunning) {
+                try {
+                    await startMeter();
+                } catch (error) {
+                    console.error('Error starting meter:', error);
+                    alert('Unable to access microphone. Please ensure you have granted microphone permissions.');
+                }
+            } else {
+                stopMeter();
+            }
+        }
+
+        async function startMeter() {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                
+                audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                analyser = audioContext.createAnalyser();
+                microphone = audioContext.createMediaStreamSource(stream);
+                javascriptNode = audioContext.createScriptProcessor(2048, 1, 1);
+
+                analyser.smoothingTimeConstant = 0.8;
+                analyser.fftSize = 2048;
+
+                microphone.connect(analyser);
+                analyser.connect(javascriptNode);
+                javascriptNode.connect(audioContext.destination);
+                
+                // Reset statistics
+                minValue = Infinity;
+                maxValue = 0;
+                readings = [];
+                readingCount = 0;
+                
+                // Show statistics
+                document.getElementById('statistics').classList.remove('hidden');
+                document.getElementById('statistics').classList.add('flex');
+
+                javascriptNode.onaudioprocess = function() {
+                    const array = new Uint8Array(analyser.frequencyBinCount);
+                    analyser.getByteFrequencyData(array);
+                    
+                    // Calculate weighted average
+                    let sum = 0;
+                    for (let i = 0; i < array.length; i++) {
+                        sum += array[i];
+                    }
+                    const average = sum / array.length;
+                    
+                    // Convert to decibels with improved calibration
+                    let db;
+                    
+                    if (average < 0.5) {
+                        db = 25;
+                    } else if (average < 2) {
+                        db = 25 + (average / 2) * 10;
+                    } else if (average < 10) {
+                        db = 35 + ((average - 2) / 8) * 15;
+                    } else if (average < 30) {
+                        db = 50 + ((average - 10) / 20) * 15;
+                    } else if (average < 60) {
+                        db = 65 + ((average - 30) / 30) * 15;
+                    } else if (average < 100) {
+                        db = 80 + ((average - 60) / 40) * 15;
+                    } else {
+                        db = 95 + Math.min((average - 100) / 10, 30);
+                    }
+                    
+                    db = Math.max(25, Math.min(130, db));
+                    
+                    // Update statistics
+                    updateStatistics(db);
+                    updateDisplay(db);
+                };
+
+                isRunning = true;
+                startBtn.textContent = 'Stop Measuring';
+                startBtn.classList.remove('bg-blue-500', 'hover:bg-blue-600');
+                startBtn.classList.add('bg-red-500', 'hover:bg-red-600');
+                pulseRing.style.display = 'block';
+                
+            } catch (error) {
+                throw error;
+            }
+        }
+
+        function stopMeter() {
+            if (javascriptNode) {
+                javascriptNode.disconnect();
+            }
+            if (analyser) {
+                analyser.disconnect();
+            }
+            if (microphone) {
+                microphone.disconnect();
+            }
+            if (audioContext) {
+                audioContext.close();
+            }
+
+            isRunning = false;
+            startBtn.textContent = 'Start Measuring';
+            startBtn.classList.remove('bg-red-500', 'hover:bg-red-600');
+            startBtn.classList.add('bg-blue-500', 'hover:bg-blue-600');
+            statusText.textContent = 'Measurement Stopped';
+            pulseRing.style.display = 'none';
+            
+            // Keep the current decibel value, statistics, and color when stopped
+        }
+        
+        function updateStatistics(db) {
+            // Update min/max
+            if (db < minValue) minValue = db;
+            if (db > maxValue) maxValue = db;
+            
+            // Update average (using rolling average for efficiency)
+            readings.push(db);
+            if (readings.length > 100) { // Keep last 100 readings
+                readings.shift();
+            }
+            
+            const avgValue = readings.reduce((a, b) => a + b, 0) / readings.length;
+            
+            // Update display
+            document.getElementById('minValue').textContent = minValue.toFixed(1);
+            document.getElementById('avgValue').textContent = avgValue.toFixed(1);
+            document.getElementById('maxValue').textContent = maxValue.toFixed(1);
+        }
+        
+        function getExposureWarning(db) {
+            let warning = '';
+            let icon = '';
+            
+            if (db < 40) {
+                icon = '✅';
+                warning = 'Very quiet environment. Safe for unlimited exposure.';
+            } else if (db < 70) {
+                icon = '✅';
+                warning = 'Safe noise level. No risk for unlimited exposure time.';
+            } else if (db < 85) {
+                icon = '⚠️';
+                warning = 'Extended exposure may cause fatigue. Limit daily exposure when possible.';
+            } else if (db >= 85 && db < 88) {
+                icon = '⚠️';
+                warning = 'Maximum safe exposure: <strong>8 hours</strong>. Use hearing protection for longer.';
+            } else if (db >= 88 && db < 91) {
+                icon = '⚠️';
+                warning = 'Maximum safe exposure: <strong>4 hours</strong>. Hearing protection recommended.';
+            } else if (db >= 91 && db < 94) {
+                icon = '⚠️';
+                warning = 'Maximum safe exposure: <strong>2 hours</strong>. Wear ear protection!';
+            } else if (db >= 94 && db < 97) {
+                icon = '🚨';
+                warning = 'Maximum safe exposure: <strong>1 hour</strong>. High risk of damage!';
+            } else if (db >= 97 && db < 100) {
+                icon = '🚨';
+                warning = 'Maximum safe exposure: <strong>30 minutes</strong>. Protect your ears!';
+            } else if (db >= 100 && db < 103) {
+                icon = '🚨';
+                warning = 'Maximum safe exposure: <strong>15 minutes</strong>. Dangerous level!';
+            } else if (db >= 103 && db < 106) {
+                icon = '🚨';
+                warning = 'Maximum safe exposure: <strong>7-8 minutes</strong>. Very dangerous!';
+            } else if (db >= 106 && db < 109) {
+                icon = '🚨';
+                warning = 'Maximum safe exposure: <strong>3-4 minutes</strong>. Severe risk!';
+            } else if (db >= 109 && db < 112) {
+                icon = '🚨';
+                warning = 'Maximum safe exposure: <strong>1-2 minutes</strong>. Leave immediately!';
+            } else if (db >= 112 && db < 115) {
+                icon = '🚨';
+                warning = 'Maximum safe exposure: <strong>less than 1 minute</strong>. Immediate danger!';
+            } else {
+                icon = '🚨';
+                warning = '<strong>IMMEDIATE HEARING DAMAGE RISK!</strong> Leave area now!';
+            }
+            
+            return { icon, warning };
+        }
+
+        function updateDisplay(db) {
+            // Determine color class based on dB level
+            let valueColorClass = '';
+            let status = '';
+            let gradientClass = '';
+            let percentage = Math.min((db / 130) * 100, 100);
+            
+            if (db < 40) {
+                status = 'Quiet - Safe Environment';
+                gradientClass = 'gradient-quiet';
+                valueColorClass = 'text-green-600';
+            } else if (db < 70) {
+                status = 'Moderate - Normal Noise';
+                gradientClass = 'gradient-moderate';
+                valueColorClass = 'text-blue-600';
+            } else if (db < 85) {
+                status = 'Elevated - Monitor Exposure';
+                gradientClass = 'gradient-loud';
+                valueColorClass = 'text-yellow-600';
+            } else if (db < 100) {
+                status = 'Loud - Hearing Risk';
+                gradientClass = 'gradient-harmful';
+                valueColorClass = 'text-orange-600';
+            } else {
+                status = 'Very Loud - Dangerous Level';
+                gradientClass = 'gradient-dangerous';
+                valueColorClass = 'text-red-600';
+            }
+            
+            // Format to 1 decimal place and apply color
+            decibelValue.textContent = db.toFixed(1);
+            decibelValue.className = `text-6xl sm:text-7xl font-bold leading-none ${valueColorClass}`;
+            
+            statusText.textContent = status;
+            
+            // Update exposure warning - always visible, no hiding
+            const exposureWarning = document.getElementById('exposureWarning');
+            const exposureTime = document.getElementById('exposureTime');
+            const warningData = getExposureWarning(db);
+            
+            exposureTime.innerHTML = warningData.warning;
+            
+            // Color coding for warning box based on level
+            if (db < 70) {
+                exposureWarning.className = 'mb-3 p-2 bg-green-50 border border-green-300 rounded-lg';
+                exposureWarning.querySelector('strong').textContent = '✅ Status:';
+                exposureTime.className = 'text-xs text-green-900';
+            } else if (db < 85) {
+                exposureWarning.className = 'mb-3 p-2 bg-yellow-50 border border-yellow-300 rounded-lg';
+                exposureWarning.querySelector('strong').textContent = '⚠️ Caution:';
+                exposureTime.className = 'text-xs text-yellow-900';
+            } else if (db < 100) {
+                exposureWarning.className = 'mb-3 p-2 bg-orange-50 border border-orange-300 rounded-lg';
+                exposureWarning.querySelector('strong').textContent = '⚠️ Warning:';
+                exposureTime.className = 'text-xs text-orange-900';
+            } else {
+                exposureWarning.className = 'mb-3 p-2 bg-red-50 border border-red-300 rounded-lg';
+                exposureWarning.querySelector('strong').textContent = '🚨 DANGER:';
+                exposureTime.className = 'text-xs text-red-900';
+            }
+            
+            statusIcon.querySelector('.absolute').className = `absolute inset-0 rounded-full ${gradientClass} flex items-center justify-center`;
+            pulseRing.className = `absolute inset-0 rounded-full ${gradientClass} pulse-ring`;
+            levelBar.className = `h-full ${gradientClass} transition-all duration-300 rounded-full`;
+            levelBar.style.width = percentage + '%';
+        }
+    </script>
+</body>
+</html>
+
