@@ -813,6 +813,8 @@
                 document.getElementById('statistics').classList.add('flex');
 
                 javascriptNode.onaudioprocess = function() {
+                    if (!isRunning) return;
+
                     const array = new Uint8Array(analyser.frequencyBinCount);
                     analyser.getByteFrequencyData(array);
                     
@@ -861,8 +863,11 @@
         }
 
         function stopMeter() {
+            isRunning = false; // Stop processing immediately
+            
             if (javascriptNode) {
                 javascriptNode.disconnect();
+                javascriptNode.onaudioprocess = null; // Clear the handler
             }
             if (analyser) {
                 analyser.disconnect();
@@ -874,7 +879,33 @@
                 audioContext.close();
             }
 
-            isRunning = false;
+            // Filter out the "click" sound (approx. last 500ms of readings)
+            // A click on the stop button often registers as a loud spike
+            if (readings.length > 15) {
+                // Remove last 12 readings (approx 500ms)
+                const validReadings = readings.slice(0, readings.length - 12);
+                
+                if (validReadings.length > 0) {
+                    // Recalculate average from valid readings
+                    const newAvg = validReadings.reduce((a, b) => a + b, 0) / validReadings.length;
+                    document.getElementById('avgValue').textContent = newAvg.toFixed(1);
+
+                    // Use the average of the last few valid readings as the final "stopped" value
+                    // This provides a stable representation of the environment before the click
+                    const lastFew = validReadings.slice(-5);
+                    const finalDb = lastFew.reduce((a, b) => a + b, 0) / lastFew.length;
+                    
+                    updateDisplay(finalDb);
+
+                    // Check if max value was caused by the click (heuristic)
+                    // If the current max is significantly higher than our valid readings max, 
+                    // and matches one of the discarded readings, it might be the click.
+                    // However, we can't easily recover the "true" max from before the buffer window.
+                    // So we just ensure the displayed Max isn't absurdly higher than what we just measured.
+                    // For now, we leave Max alone as it represents the session max, unless it's the very last reading.
+                }
+            }
+
             startBtn.textContent = 'Start Measuring';
             startBtn.classList.remove('bg-red-500', 'hover:bg-red-600');
             startBtn.classList.add('bg-blue-500', 'hover:bg-blue-600');
