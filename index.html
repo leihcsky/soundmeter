@@ -659,6 +659,84 @@
                 </div>
             </section>
 
+            <!-- Detailed Use Cases and Guide -->
+            <section class="bg-white rounded-xl shadow-lg p-6">
+                <h2 class="text-xl font-bold text-gray-900 mb-4">Practical Uses for Your Online Sound Meter</h2>
+                <div class="prose max-w-none text-gray-600 space-y-4">
+                    <p>
+                        This free online sound meter turns your browser into a functional noise measurement tool. While it's not a replacement for a calibrated professional Class 1 decibel meter, it serves as an excellent reference for daily life situations where understanding noise levels can improve your health and productivity.
+                    </p>
+                    
+                    <div class="grid md:grid-cols-2 gap-6 mt-6">
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <h3 class="font-semibold text-gray-900 mb-2 flex items-center">
+                                <span class="text-xl mr-2">🏠</span> Home & Living
+                            </h3>
+                            <ul class="list-disc list-inside text-sm space-y-2">
+                                <li><strong>Appliance Testing:</strong> Check if your new dishwasher or vacuum cleaner is as quiet as advertised.</li>
+                                <li><strong>Neighbor Noise:</strong> Objectively measure how loud your neighbor's renovation or music actually is from your living room.</li>
+                                <li><strong>Sleep Environment:</strong> Ensure your bedroom stays below the recommended 30-40 dB for optimal sleep quality.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <h3 class="font-semibold text-gray-900 mb-2 flex items-center">
+                                <span class="text-xl mr-2">💼</span> Work & Study
+                            </h3>
+                            <ul class="list-disc list-inside text-sm space-y-2">
+                                <li><strong>Office Distractions:</strong> Identify peak noise times in your open-plan office to schedule focused work better.</li>
+                                <li><strong>Study Zones:</strong> Find the quietest corner in a library or cafe. Ideal study noise is often around 40-50 dB.</li>
+                                <li><strong>Remote Work:</strong> Test your background noise level before joining an important video conference call.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <h3 class="font-semibold text-gray-900 mb-2 flex items-center">
+                                <span class="text-xl mr-2">🎧</span> Audio & Entertainment
+                            </h3>
+                            <ul class="list-disc list-inside text-sm space-y-2">
+                                <li><strong>Safe Listening:</strong> Calibrate your speaker system volume to stay within a safe 70-80 dB range for movies.</li>
+                                <li><strong>Event Monitoring:</strong> Check if the concert or club you're attending exceeds dangerous 100 dB levels.</li>
+                                <li><strong>Gaming Setup:</strong> Measure computer fan noise under load to optimize your silent PC build.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <h3 class="font-semibold text-gray-900 mb-2 flex items-center">
+                                <span class="text-xl mr-2">🩺</span> Health & Wellness
+                            </h3>
+                            <ul class="list-disc list-inside text-sm space-y-2">
+                                <li><strong>Tinnitus Management:</strong> Help identify environments that might trigger ringing in the ears.</li>
+                                <li><strong>Baby Safety:</strong> Ensure the nursery environment is soothingly quiet and white noise machines aren't too loud.</li>
+                                <li><strong>Stress Reduction:</strong> Correlate your stress levels with environmental noise to better manage your sensory input.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Technical Insight Section -->
+            <section class="bg-white rounded-xl shadow-lg p-6">
+                <h2 class="text-xl font-bold text-gray-900 mb-4">How It Works: Browser-Based Audio Analysis</h2>
+                <div class="space-y-4 text-sm text-gray-600">
+                    <p>
+                        Unlike traditional sound level meters that use specialized hardware sensors, this tool leverages the <strong>Web Audio API</strong> standard built into modern web browsers (Chrome, Edge, Safari, Firefox). Here is a simplified breakdown of the process:
+                    </p>
+                    <ol class="list-decimal list-inside space-y-2 ml-2">
+                        <li><strong>Signal Capture:</strong> The browser requests access to your device's microphone (input stream).</li>
+                        <li><strong>Digital Sampling:</strong> The raw analog sound waves are converted into digital data packets (samples) thousands of times per second.</li>
+                        <li><strong>Frequency Analysis:</strong> We use an algorithm called Fast Fourier Transform (FFT) to analyze the intensity of different sound frequencies.</li>
+                        <li><strong>RMS Calculation:</strong> The Root Mean Square (RMS) amplitude is calculated to determine the average power of the audio signal.</li>
+                        <li><strong>Decibel Mapping:</strong> This raw digital value is mapped to a decibel (dB) scale using a calibration algorithm designed to approximate standard room acoustics.</li>
+                    </ol>
+                    <div class="bg-blue-50 border-l-4 border-blue-500 p-3 mt-4">
+                        <p class="text-xs">
+                            <strong>Note on Calibration:</strong> Because every microphone (smartphone, laptop, webcam) has different sensitivity hardware, a web-based meter can never be 100% accurate without external hardware calibration. We use a "best-fit" curve that aligns with common consumer device microphones to provide the most useful relative measurements possible.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
             <!-- FAQ Section -->
             <section class="bg-white rounded-xl shadow-lg p-6">
                 <h2 class="text-xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
