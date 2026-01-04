@@ -1098,6 +1098,14 @@
         }
         
         function generateReport() {
+            // Track event in Google Analytics
+            if (typeof gtag === 'function') {
+                gtag('event', 'generate_report', {
+                    'event_category': 'Engagement',
+                    'event_label': 'Sound Meter Report Download'
+                });
+            }
+
             // Populate report data
             const now = new Date();
             document.getElementById('reportDate').textContent = now.toLocaleDateString();
