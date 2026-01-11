@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="ru" itemscope itemtype="https://schema.org/WebApplication">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VBFVZM0MP6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-VBFVZM0MP6');
+    </script>
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3293976111230987"
+     crossorigin="anonymous"></script>
+    
+    <!-- Primary Meta Tags -->
+    <title>Шумомер - Онлайн измеритель децибел (dB) | Детектор шума</title>
+    <meta name="title" content="Шумомер - Онлайн измеритель децибел (dB) | Детектор шума">
+    <meta name="description" content="Бесплатный онлайн-шумомер для измерения уровня окружающего шума в децибелах (дБ). Измеритель уровня звука в реальном времени для определения тихих, шумных или опасных уровней.">
+    <meta name="keywords" content="шумомер, децибелметр, измеритель звука, дБ метр, онлайн шумомер, детектор шума, защита слуха, ВОЗ, NIOSH">
+    <meta name="author" content="RealtimeSoundMeter.org">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://realtimesoundmeter.org/ru/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://realtimesoundmeter.org/ru/">
+    <meta property="og:site_name" content="Sound Meter">
+    <meta property="og:title" content="Шумомер - Онлайн детектор уровня шума">
+    <meta property="og:description" content="Измеряйте уровень окружающего шума в реальном времени с помощью нашего бесплатного онлайн-шумомера. Мгновенно определяйте безопасные и опасные уровни звука.">
+    <meta property="og:image" content="https://realtimesoundmeter.org/apple-touch-icon.svg">
+    <meta property="og:image:width" content="180">
+    <meta property="og:image:height" content="180">
+    <meta property="og:locale" content="ru_RU">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://realtimesoundmeter.org/ru/">
+    <meta name="twitter:title" content="Шумомер - Бесплатный онлайн измеритель децибел">
+    <meta name="twitter:description" content="Бесплатный инструмент для измерения уровня шума в реальном времени. Защитите свой слух с помощью точных измерений дБ.">
+    <meta name="twitter:image" content="https://realtimesoundmeter.org/apple-touch-icon.svg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="icon" type="image/svg+xml" sizes="32x32" href="../favicon-32x32.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.svg">
+    
+    <!-- Alternate Languages -->
+    <link rel="alternate" hreflang="en" href="https://realtimesoundmeter.org/" />
+    <link rel="alternate" hreflang="hu" href="https://realtimesoundmeter.org/hu/" />
+    <link rel="alternate" hreflang="el" href="https://realtimesoundmeter.org/el/" />
+    <link rel="alternate" hreflang="ru" href="https://realtimesoundmeter.org/ru/" />
+    <link rel="alternate" hreflang="sv" href="https://realtimesoundmeter.org/sv/" />
+    <link rel="alternate" hreflang="fr" href="https://realtimesoundmeter.org/fr/" />
+    <link rel="alternate" hreflang="x-default" href="https://realtimesoundmeter.org/" />
+    
+    <!-- Structured Data - WebApplication -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Sound Meter",
+      "alternateName": "Online Decibel Meter",
+      "url": "https://realtimesoundmeter.org/ru/",
+      "logo": "https://realtimesoundmeter.org/logo.svg",
+      "description": "Бесплатный онлайн-шумомер для измерения уровня окружающего шума в децибелах (дБ). Обнаружение уровня звука в реальном времени с рекомендациями по безопасности на основе стандартов ВОЗ и NIOSH.",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "featureList": [
+        "Измерение децибел в реальном времени",
+        "Визуальные индикаторы уровня шума",
+        "Расчет безопасного времени воздействия",
+        "Статистика Мин/Макс/Среднее",
+        "Цветовая кодировка уровней безопасности",
+        "Без записи и хранения звука"
+      ],
+      "browserRequirements": "Требуется JavaScript. Современный браузер с поддержкой Web Audio API.",
+      "permissions": "Требуется доступ к микрофону для измерения звука",
+      "author": {
+        "@type": "Organization",
+        "name": "RealtimeSoundMeter.org",
+        "url": "https://realtimesoundmeter.org"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "ratingCount": "1250",
+        "bestRating": "5",
+        "worstRating": "1"
+      }
+    }
+    </script>
+    
+    <!-- Structured Data - Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "RealtimeSoundMeter.org",
+      "url": "https://realtimesoundmeter.org",
+      "logo": "https://realtimesoundmeter.org/logo.svg",
+      "description": "Провайдер бесплатных онлайн-инструментов для измерения звука и повышения осведомленности о здоровье слуха.",
+      "sameAs": [],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Customer Support",
+        "email": "support@realtimesoundmeter.org",
+        "url": "https://realtimesoundmeter.org/contact.html"
+      }
+    }
+    </script>
+    
+    <!-- Structured Data - FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Точен ли этот шумомер?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Хотя этот онлайн-шумомер дает хорошие оценки, он может не совпадать с профессиональными приборами. Точность зависит от качества и калибровки микрофона вашего устройства. Для точных измерений используйте профессиональное оборудование."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Зачем нужно разрешать доступ к микрофону?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Шумомеру требуется доступ к микрофону для измерения уровня окружающего шума. Ваш звук обрабатывается локально в вашем браузере и никогда не записывается, не сохраняется и не передается на серверы. Ваша конфиденциальность защищена."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Какой уровень шума считается безопасным?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Согласно NIOSH/CDC, уровень шума ниже 70 дБ обычно безопасен при длительном воздействии. Предел профессионального воздействия составляет 85 дБ в течение 8 часов. Уровни выше 85 дБ могут вызвать повреждение слуха при длительном воздействии."
+          }
+        }
+      ]
+    }
+    </script>
+    
+    <!-- Structured Data - BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Главная",
+          "item": "https://realtimesoundmeter.org/ru/"
+        }
+      ]
+    }
+    </script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- html2canvas for Screenshot Generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    
+    <style>
+        @keyframes pulse-ring {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1.5);
+                opacity: 0;
+            }
+        }
+        
+        .pulse-ring {
+            animation: pulse-ring 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        }
+        
+        .gradient-quiet {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        }
+        
+        .gradient-moderate {
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+        }
+        
+        .gradient-loud {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+        }
+        
+        .gradient-harmful {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+        }
+        
+        .gradient-dangerous {
+            background: linear-gradient(135deg, #991b1b 0%, #7f1d1d 100%);
+        }
+        
+        .chart-bar {
+            transition: width 0.6s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.5s ease-out;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-sm relative">
+        <!-- Language Switcher -->
+    <div class="absolute top-4 right-4 sm:right-6 z-50">
+        <div class="relative inline-block text-left group">
+            <button type="button" class="inline-flex items-center justify-center w-full rounded-full border border-gray-200 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200">
+                <svg class="mr-2 h-5 w-5 text-gray-500 group-hover:text-blue-600 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span class="hidden sm:inline">Русский</span>
+                <svg class="ml-2 -mr-1 h-4 w-4 text-gray-400 group-hover:text-blue-500 transition-colors" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+            </button>
+            <div class="origin-top-right absolute right-0 mt-2 w-40 rounded-xl shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform group-hover:translate-y-0 translate-y-2 z-50 overflow-hidden">
+                <div class="py-1">
+                    <a href="/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors">
+                            <span>English</span>
+                        </a>
+                        <a href="/hu/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors">
+                            <span>Magyar</span>
+                        </a>
+                        <a href="/el/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors">
+                            <span>Ελληνικά</span>
+                        </a>
+                        <a href="/ru/" class="flex items-center px-4 py-3 text-sm text-blue-600 bg-blue-50 font-semibold transition-colors">
+                            <span>Русский</span>
+                        </a>
+                        <a href="/sv/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors">
+                            <span>Svenska</span>
+                        </a>
+                        <a href="/fr/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors">
+                            <span>Français</span>
+                        </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+            <div class="text-center">
+                <h1 class="sr-only">Онлайн Шумомер - Детектор Уровня Шума в Реальном Времени</h1>
+                <div class="flex items-center justify-center gap-3 mb-1">
+                    <img src="../logo.svg" alt="Шумомер - Онлайн Детектор" class="h-10">
+                </div>
+                <p class="text-sm text-gray-600">Этот онлайн-шумомер измеряет уровень окружающего шума в реальном времени, используя ваш микрофон.</p>
+                <p class="text-sm text-gray-600">Работает как бесплатный измеритель звука прямо в вашем браузере.</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <!-- Sound Meter Display -->
+        <section class="mb-4">
+            <div class="bg-white rounded-2xl shadow-xl p-6 sm:p-8">
+                <!-- Compact Layout with Icon and Display -->
+                <div class="flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-12 mb-4">
+                    <!-- Status Indicator -->
+                    <div id="statusIndicator" class="flex-shrink-0">
+                        <div id="statusIcon" class="relative w-24 h-24 sm:w-28 sm:h-28">
+                            <div class="absolute inset-0 rounded-full gradient-moderate flex items-center justify-center">
+                                <svg class="w-12 h-12 sm:w-14 sm:h-14 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15.536a5 5 0 001.414 1.414m2.828-9.9a9 9 0 000 12.728M12 12v.01"></path>
+                                </svg>
+                            </div>
+                            <div id="pulseRing" class="absolute inset-0 rounded-full gradient-moderate pulse-ring" style="display: none;"></div>
+                        </div>
+                    </div>
+
+                    <!-- Decibel Display and Status -->
+                    <div class="text-center lg:text-left flex-grow">
+                        <!-- Current Value -->
+                        <div class="flex items-baseline justify-center lg:justify-start gap-2 mb-2">
+                            <div id="decibelValue" class="text-6xl sm:text-7xl font-bold text-gray-400 leading-none">
+                                0.0
+                            </div>
+                            <div class="text-3xl sm:text-4xl text-gray-500 font-medium">dB</div>
+                        </div>
+                        
+                        <!-- Statistics (Min/Avg/Max) -->
+                        <div id="statistics" class="hidden flex items-center justify-center lg:justify-start gap-4 mb-2 text-sm">
+                            <div class="flex items-center gap-1">
+                                <span class="text-gray-500">Мин:</span>
+                                <span id="minValue" class="font-semibold text-green-600">--</span>
+                            </div>
+                            <div class="flex items-center gap-1">
+                                <span class="text-gray-500">Сред:</span>
+                                <span id="avgValue" class="font-semibold text-blue-600">--</span>
+                            </div>
+                            <div class="flex items-center gap-1">
+                                <span class="text-gray-500">Макс:</span>
+                                <span id="maxValue" class="font-semibold text-red-600">--</span>
+                            </div>
+                        </div>
+                        
+                        <div id="statusText" class="text-lg sm:text-xl font-semibold text-gray-700 mb-2">
+                            Нажмите "Начать" для измерения
+                        </div>
+                        
+                        <!-- Safe Exposure Warning -->
+                        <div id="exposureWarning" class="mb-3 p-2 bg-green-50 border border-green-300 rounded-lg">
+                            <p class="text-xs text-green-900"><strong>✅ Статус:</strong> <span id="exposureTime">Нажмите "Начать" для запуска измерения</span></p>
+                        </div>
+                        
+                        <!-- Control Button -->
+                        <div class="flex flex-col sm:flex-row gap-4 sm:gap-8">
+                            <button id="startBtn" class="flex-1 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-8 rounded-full text-base shadow-lg transform transition hover:scale-105 active:scale-95">
+                                Начать Измерение
+                            </button>
+                            <button id="downloadBtn" disabled class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold py-3 px-6 rounded-full text-base shadow-sm border border-gray-300 transform transition hover:scale-105 active:scale-95 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none disabled:shadow-none disabled:hover:bg-gray-100">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                                Сохранить Отчет
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Visual Level Indicator with Scale -->
+                <div class="max-w-3xl mx-auto mb-3">
+                    <div class="flex items-start gap-2">
+                        <!-- Scale container -->
+                        <div class="flex-1">
+                            <!-- Scale numbers (top) -->
+                            <div class="relative h-5 mb-0.5">
+                                <div class="absolute inset-0 flex pointer-events-none">
+                                    <span class="absolute text-xs font-medium text-gray-600" style="left: 0%; transform: translateX(-50%)">0</span>
+                                    <span class="absolute text-xs font-medium text-gray-600" style="left: 30.77%; transform: translateX(-50%)">40</span>
+                                    <span class="absolute text-xs font-medium text-gray-600" style="left: 53.85%; transform: translateX(-50%)">70</span>
+                                    <span class="absolute text-xs font-medium text-gray-600" style="left: 65.38%; transform: translateX(-50%)">85</span>
+                                    <span class="absolute text-xs font-medium text-gray-600" style="left: 76.92%; transform: translateX(-50%)">100</span>
+                                    <span class="absolute text-xs font-medium text-gray-600" style="left: 92.31%; transform: translateX(-50%)">120</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Small tick marks (subtle) -->
+                            <div class="relative h-2 mb-0.5">
+                                <div class="absolute inset-0 flex pointer-events-none">
+                                    <div class="absolute" style="left: 0%">
+                                        <div class="w-px h-2 bg-gray-400"></div>
+                                    </div>
+                                    <div class="absolute" style="left: 30.77%">
+                                        <div class="w-px h-2 bg-gray-400"></div>
+                                    </div>
+                                    <div class="absolute" style="left: 53.85%">
+                                        <div class="w-px h-2 bg-gray-400"></div>
+                                    </div>
+                                    <div class="absolute" style="left: 65.38%">
+                                        <div class="w-px h-2 bg-gray-400"></div>
+                                    </div>
+                                    <div class="absolute" style="left: 76.92%">
+                                        <div class="w-px h-2 bg-gray-400"></div>
+                                    </div>
+                                    <div class="absolute" style="left: 92.31%">
+                                        <div class="w-px h-2 bg-gray-400"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Progress bar -->
+                            <div class="h-5 bg-gray-200 rounded-full overflow-hidden shadow-inner">
+                                <div id="levelBar" class="h-full gradient-moderate transition-all duration-300 rounded-full" style="width: 0%"></div>
+                            </div>
+                            
+                            <!-- Label descriptions (bottom) -->
+                            <div class="relative mt-1">
+                                <div class="absolute inset-0 flex pointer-events-none">
+                                    <span class="absolute text-xs text-gray-500" style="left: 0%; transform: translateX(-50%)">Тишина</span>
+                                    <span class="absolute text-xs text-green-600" style="left: 30.77%; transform: translateX(-50%)">Тихо</span>
+                                    <span class="absolute text-xs text-blue-600" style="left: 53.85%; transform: translateX(-50%)">Норма</span>
+                                    <span class="absolute text-xs text-yellow-600" style="left: 65.38%; transform: translateX(-50%)">Предел</span>
+                                    <span class="absolute text-xs text-orange-600" style="left: 76.92%; transform: translateX(-50%)">Вредно</span>
+                                    <span class="absolute text-xs text-red-600" style="left: 92.31%; transform: translateX(-50%)">Опасно</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Unit label on the right -->
+                        <div class="flex-none text-xs font-medium text-gray-500 mt-0">
+                            dB
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Calibration Info -->
+                <div class="max-w-3xl mx-auto mt-6">
+                    <div class="bg-blue-50 border border-blue-200 rounded-lg p-2.5">
+                        <div class="flex items-start">
+                            <svg class="w-4 h-4 text-blue-600 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <div class="text-xs text-blue-800">
+                                <strong>Примечание:</strong> Приблизительные значения. Тихая комната ≈ 30-40 дБ, разговор ≈ 60 дБ, трафик ≈ 80 дБ.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-2 text-center text-xs text-gray-500">
+                        <strong>💡 Совет:</strong> Для точного анализа измеряйте в течение 30-60 секунд, чтобы сгладить внезапные шумы.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Information Sections -->
+        <div class="grid md:grid-cols-2 gap-4">
+            <!-- Sound Level Guide -->
+            <section class="bg-white rounded-xl shadow-lg p-5">
+                <h2 class="text-xl font-bold text-gray-900 mb-3">Руководство по уровням шума</h2>
+                <div class="space-y-2.5">
+                    <div class="flex items-start">
+                        <div class="w-3 h-3 rounded-full bg-green-500 mt-1 mr-2 flex-shrink-0"></div>
+                        <div class="flex-1">
+                            <div class="font-semibold text-sm text-gray-900">0-40 дБ - Тишина</div>
+                            <div class="text-xs text-gray-600">Библиотека (30 дБ), шепот, шелест листьев. Безопасно при любой длительности.</div>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="w-3 h-3 rounded-full bg-blue-500 mt-1 mr-2 flex-shrink-0"></div>
+                        <div class="flex-1">
+                            <div class="font-semibold text-sm text-gray-900">40-70 дБ - Умеренно</div>
+                            <div class="text-xs text-gray-600">Обычный разговор (60 дБ), тихий офис. Безопасно при длительном воздействии.</div>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="w-3 h-3 rounded-full bg-yellow-500 mt-1 mr-2 flex-shrink-0"></div>
+                        <div class="flex-1">
+                            <div class="font-semibold text-sm text-gray-900">70-85 дБ - Внимание</div>
+                            <div class="text-xs text-gray-600">Оживленное движение (80 дБ), пылесос. Длительное воздействие может вызвать утомление.</div>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="w-3 h-3 rounded-full bg-orange-500 mt-1 mr-2 flex-shrink-0"></div>
+                        <div class="flex-1">
+                            <div class="font-semibold text-sm text-gray-900">85-100 дБ - Вредно</div>
+                            <div class="text-xs text-gray-600">Электроинструменты (90 дБ), мотоцикл. Более 8 часов — риск повреждения слуха.</div>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="w-3 h-3 rounded-full bg-red-500 mt-1 mr-2 flex-shrink-0"></div>
+                        <div class="flex-1">
+                            <div class="font-semibold text-sm text-gray-900">100-120 дБ - Очень вредно</div>
+                            <div class="text-xs text-gray-600">Бензопила (110 дБ), сирена. Риск повреждения за несколько минут.</div>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="w-3 h-3 rounded-full bg-red-900 mt-1 mr-2 flex-shrink-0"></div>
+                        <div class="flex-1">
+                            <div class="font-semibold text-sm text-gray-900">120+ дБ - Опасно</div>
+                            <div class="text-xs text-gray-600">Реактивный двигатель (130 дБ), фейерверк. Риск мгновенной травмы слуха.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-3 pt-3 border-t border-gray-200">
+                    <p class="text-xs text-gray-500 italic">
+                        <strong>Примечание:</strong> Шкала децибел логарифмическая — каждые 10 дБ означают 10-кратное увеличение интенсивности.
+                    </p>
+                </div>
+            </section>
+
+            <!-- How to Use -->
+            <section class="bg-white rounded-xl shadow-lg p-5">
+                <h2 class="text-xl font-bold text-gray-900 mb-3">Как использовать</h2>
+                <ol class="space-y-2.5">
+                    <li class="flex items-start">
+                        <div class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-500 text-white flex items-center justify-center text-xs font-semibold mr-2">1</div>
+                        <div class="flex-1">
+                            <div class="font-semibold text-sm text-gray-900">Разрешить доступ к микрофону</div>
+                            <div class="text-xs text-gray-600">Нажмите «Начать измерение» и предоставьте разрешение на использование микрофона.</div>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <div class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-500 text-white flex items-center justify-center text-xs font-semibold mr-2">2</div>
+                        <div class="flex-1">
+                            <div class="font-semibold text-sm text-gray-900">Следить за уровнем шума</div>
+                            <div class="text-xs text-gray-600">Наблюдайте за показаниями в реальном времени. <strong>Совет:</strong> Измеряйте ~1 минуту, чтобы исключить случайные пики.</div>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <div class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-500 text-white flex items-center justify-center text-xs font-semibold mr-2">3</div>
+                        <div class="flex-1">
+                            <div class="font-semibold text-sm text-gray-900">Остановить и создать отчет</div>
+                            <div class="text-xs text-gray-600">Нажмите «Остановить», затем «Сохранить отчет» для загрузки подробного PDF-файла.</div>
+                        </div>
+                    </li>
+                    <li class="flex items-start">
+                        <div class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-500 text-white flex items-center justify-center text-xs font-semibold mr-2">4</div>
+                        <div class="flex-1">
+                            <div class="font-semibold text-sm text-gray-900">Принять меры</div>
+                            <div class="text-xs text-gray-600">Используйте данные для выявления вредных источников шума и защиты слуха.</div>
+                        </div>
+                    </li>
+                </ol>
+            </section>
+        </div>
+
+        <!-- Additional Information -->
+        <div class="mt-6 space-y-6">
+
+            <!-- Safe Exposure Time Chart -->
+            <section class="bg-white rounded-xl shadow-lg p-6">
+                <h2 class="text-xl font-bold text-gray-900 mb-3">Безопасное время воздействия</h2>
+                <p class="text-sm text-gray-600 mb-4">
+                    Согласно <a href="https://www.cdc.gov/niosh/noise/about/noise.html" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">NIOSH/CDC</a>, чем выше уровень шума, тем короче безопасное время воздействия.
+                </p>
+                
+                <div class="space-y-3">
+                    <!-- 70 dB -->
+                    <div class="fade-in-up">
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-sm font-semibold text-gray-900">70 дБ</span>
+                            <span class="text-xs text-gray-600">Без ограничений</span>
+                        </div>
+                        <div class="h-6 bg-gray-100 rounded-full overflow-hidden">
+                            <div class="chart-bar h-full bg-green-500" style="width: 100%"></div>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-1">Безопасно в течение всего дня</p>
+                    </div>
+                    
+                    <!-- 85 dB -->
+                    <div class="fade-in-up" style="animation-delay: 0.1s">
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-sm font-semibold text-gray-900">85 дБ</span>
+                            <span class="text-xs text-gray-600">8 часов макс.</span>
+                        </div>
+                        <div class="h-6 bg-gray-100 rounded-full overflow-hidden">
+                            <div class="chart-bar h-full bg-yellow-500" style="width: 80%"></div>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-1">Рекомендованный предел NIOSH (8 часов)</p>
+                    </div>
+                    
+                    <!-- 90 dB -->
+                    <div class="fade-in-up" style="animation-delay: 0.2s">
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-sm font-semibold text-gray-900">90 дБ</span>
+                            <span class="text-xs text-gray-600">2-4 часа макс.</span>
+                        </div>
+                        <div class="h-6 bg-gray-100 rounded-full overflow-hidden">
+                            <div class="chart-bar h-full bg-orange-400" style="width: 60%"></div>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-1">Газонокосилка, шум мотоцикла</p>
+                    </div>
+                    
+                    <!-- 100 dB -->
+                    <div class="fade-in-up" style="animation-delay: 0.3s">
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-sm font-semibold text-gray-900">100 дБ</span>
+                            <span class="text-xs text-gray-600">15 минут макс.</span>
+                        </div>
+                        <div class="h-6 bg-gray-100 rounded-full overflow-hidden">
+                            <div class="chart-bar h-full bg-orange-600" style="width: 40%"></div>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-1">Фен, электроинструменты</p>
+                    </div>
+                    
+                    <!-- 110 dB -->
+                    <div class="fade-in-up" style="animation-delay: 0.4s">
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-sm font-semibold text-gray-900">110 дБ</span>
+                            <span class="text-xs text-gray-600">1-2 минуты макс.</span>
+                        </div>
+                        <div class="h-6 bg-gray-100 rounded-full overflow-hidden">
+                            <div class="chart-bar h-full bg-red-500" style="width: 25%"></div>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-1">Рок-концерт, сирена</p>
+                    </div>
+                    
+                    <!-- 120 dB -->
+                    <div class="fade-in-up" style="animation-delay: 0.5s">
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-sm font-semibold text-gray-900">120+ дБ</span>
+                            <span class="text-xs text-gray-600 font-bold text-red-600">Мгновенный вред</span>
+                        </div>
+                        <div class="h-6 bg-gray-100 rounded-full overflow-hidden">
+                            <div class="chart-bar h-full bg-red-700" style="width: 10%"></div>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-1">Фейерверки, реактивный двигатель — избегать</p>
+                    </div>
+                </div>
+                
+                <div class="mt-4 p-3 bg-blue-50 rounded-lg border border-blue-200">
+                    <p class="text-xs text-blue-900">
+                        <strong>⚠️ Важно:</strong> Каждые 3 дБ сверх 85 дБ сокращают безопасное время воздействия вдвое. Подробнее на <a href="https://www.nidcd.nih.gov/health/how-loud-too-loud" target="_blank" rel="noopener" class="text-blue-700 hover:underline font-semibold">NIDCD</a>.
+                    </p>
+                </div>
+            </section>
+
+            <!-- About Section -->
+            <section class="bg-white rounded-xl shadow-lg p-6">
+                <h2 class="text-xl font-bold text-gray-900 mb-4">Понимание децибел и измерения звука</h2>
+                <div class="text-gray-700 space-y-3 text-sm">
+                    <p>
+                        <strong>Шумомер</strong> (децибелометр) измеряет уровень звукового давления (SPL) в децибелах (дБ). Наш онлайн-инструмент использует микрофон вашего устройства для обнаружения окружающего шума и предоставления измерений в реальном времени.
+                    </p>
+                    <p>
+                        <strong>Почему децибелы важны:</strong> Шкала децибел логарифмическая — увеличение на каждые 10 дБ означает примерно 10-кратное увеличение интенсивности звука и ощущается как удвоение громкости. Это означает, что 80 дБ не просто «немного» громче 70 дБ, а значительно интенсивнее.
+                    </p>
+                    <div class="bg-amber-50 border-l-4 border-amber-500 p-3 my-3">
+                        <p class="text-sm">
+                            <strong>🏥 Рекомендация ВОЗ:</strong> <a href="https://www.who.int/news-room/questions-and-answers/item/deafness-and-hearing-loss-safe-listening" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">Всемирная организация здравоохранения</a> рекомендует поддерживать уровень шума ниже <strong>70 дБ</strong> в течение длительного времени для предотвращения потери слуха. Звуки выше 85 дБ могут вызвать повреждение слуха при длительном воздействии.
+                        </p>
+                    </div>
+                    <p>
+                        <strong>Как шум вредит слуху:</strong> По данным <a href="https://gesund.bund.de/en/laermbelastung" target="_blank" rel="noopener" class="text-blue-600 hover:underline">органов здравоохранения</a>, громкие звуки повреждают чувствительные волосковые клетки во внутреннем ухе. Эти клетки не восстанавливаются, поэтому повреждение необратимо. Шум высокой интенсивности или длительности вызывает:
+                    </p>
+                    <ul class="list-disc list-inside space-y-1 ml-3 text-sm">
+                        <li>Механическое повреждение волосковых клеток внутреннего уха</li>
+                        <li>Чрезмерную стимуляцию слуховых нервов</li>
+                        <li>Потерю слуха, вызванную шумом (NIHL)</li>
+                        <li>Тиннитус (звон в ушах) и проблемы с чувствительностью</li>
+                    </ul>
+                    
+                    <div class="mt-4 pt-4 border-t border-gray-100">
+                        <h3 class="font-bold text-gray-900 mb-2 flex items-center">
+                            <svg class="w-5 h-5 mr-2 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                            Конфиденциальность и безопасность данных
+                        </h3>
+                        <p class="text-sm bg-green-50 text-green-800 p-3 rounded-lg border border-green-200">
+                            <strong>Ваша конфиденциальность — наш приоритет.</strong> Вся обработка звука происходит локально в вашем браузере. Аудиоданные никогда не записываются, не сохраняются и не загружаются на наши серверы. Функция «Сохранить отчет» генерирует PDF-файл непосредственно на вашем устройстве, используя сводную статистику (мин, макс, среднее) из вашего текущего сеанса.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Health Impact -->
+            <section class="bg-white rounded-xl shadow-lg p-6">
+                <h2 class="text-xl font-bold text-gray-900 mb-3">Влияние шумового загрязнения на здоровье</h2>
+                <p class="text-sm text-gray-600 mb-4">
+                    Помимо потери слуха, хроническое воздействие шума влияет на общее состояние здоровья. Источник: 
+                    <a href="https://www.who.int/europe/news-room/fact-sheets/item/noise" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">ВОЗ Европа</a>
+                </p>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition">
+                        <div class="text-2xl mb-2">👂</div>
+                        <h3 class="font-semibold text-sm text-gray-900 mb-1">Потеря слуха (NIHL)</h3>
+                        <p class="text-xs text-gray-600 mb-2">Воздействие звуков ≥85 дБ в течение 8+ часов может вызвать необратимое повреждение слуха.</p>
+                        <a href="https://www.cdc.gov/niosh/noise/about/noise.html" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline">Руководство CDC/NIOSH →</a>
+                    </div>
+                    <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition">
+                        <div class="text-2xl mb-2">😰</div>
+                        <h3 class="font-semibold text-sm text-gray-900 mb-1">Стресс и тревога</h3>
+                        <p class="text-xs text-gray-600 mb-2">Хронический шум повышает уровень гормонов стресса и риск тревожных расстройств.</p>
+                        <a href="https://www.who.int/europe/news-room/fact-sheets/item/noise" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline">Исследования ВОЗ →</a>
+                    </div>
+                    <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition">
+                        <div class="text-2xl mb-2">😴</div>
+                        <h3 class="font-semibold text-sm text-gray-900 mb-1">Нарушение сна</h3>
+                        <p class="text-xs text-gray-600 mb-2">Ночной шум выше 40 дБ может значительно ухудшить качество и продолжительность сна.</p>
+                        <a href="https://www.eea.europa.eu/publications/noise-in-europe-2014" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline">Отчет ЕАОС →</a>
+                    </div>
+                    <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition">
+                        <div class="text-2xl mb-2">❤️</div>
+                        <h3 class="font-semibold text-sm text-gray-900 mb-1">Риск сердечно-сосудистых заболеваний</h3>
+                        <p class="text-xs text-gray-600 mb-2">Длительное воздействие сильного шума может повысить риск сердечных заболеваний и гипертонии.</p>
+                        <a href="https://www.who.int/europe/news-room/fact-sheets/item/noise" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline">Исследования ВОЗ →</a>
+                    </div>
+                    <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition">
+                        <div class="text-2xl mb-2">🧠</div>
+                        <h3 class="font-semibold text-sm text-gray-900 mb-1">Когнитивное воздействие</h3>
+                        <p class="text-xs text-gray-600 mb-2">Шумовое загрязнение может ухудшить концентрацию, память и способности к обучению.</p>
+                        <a href="https://hearinghealthfoundation.org/keeplistening/decibels" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline">Ресурсы HHF →</a>
+                    </div>
+                    <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition">
+                        <div class="text-2xl mb-2">👶</div>
+                        <h3 class="font-semibold text-sm text-gray-900 mb-1">Развитие детей</h3>
+                        <p class="text-xs text-gray-600 mb-2">Дети более уязвимы к проблемам с обучением и поведением, связанным с шумом.</p>
+                        <a href="https://www.who.int/europe/news-room/fact-sheets/item/noise" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline">Выводы ВОЗ →</a>
+                    </div>
+                </div>
+                
+                <div class="mt-4 p-4 bg-gradient-to-r from-red-50 to-orange-50 rounded-lg border border-red-200">
+                    <h4 class="font-semibold text-sm text-gray-900 mb-2">🛡️ Советы по защите (от NIOSH/CDC):</h4>
+                    <ul class="text-xs text-gray-700 space-y-1 ml-4 list-disc">
+                        <li>Держите ежедневное воздействие шума ниже <strong>70 дБ</strong>, когда это возможно</li>
+                        <li>Используйте защиту слуха (беруши/наушники) в средах ≥85 дБ</li>
+                        <li>Ограничьте время воздействия шума высокой интенсивности</li>
+                        <li>Используйте инструменты мониторинга шума для отслеживания и управления уровнями звука</li>
+                        <li>Давайте ушам периоды отдыха после воздействия громкого шума</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 mt-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- About -->
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase mb-4">О нас</h3>
+                    <p class="text-base text-gray-500">
+                        RealtimeSoundMeter.org предоставляет бесплатные доступные инструменты для измерения уровня звука, помогая повысить осведомленность о здоровье слуха и шумовом загрязнении.
+                    </p>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase mb-4">Ссылки</h3>
+                    <ul class="space-y-4">
+                        <li>
+                            <a href="../about.html" class="text-base text-gray-500 hover:text-gray-900">О нас</a>
+                        </li>
+                        <li>
+                            <a href="../privacy.html" class="text-base text-gray-500 hover:text-gray-900">Политика конфиденциальности</a>
+                        </li>
+                        <li>
+                            <a href="../terms.html" class="text-base text-gray-500 hover:text-gray-900">Условия использования</a>
+                        </li>
+                        <li>
+                            <a href="../contact.html" class="text-base text-gray-500 hover:text-gray-900">Контакты</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Disclaimer -->
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase mb-4">Отказ от ответственности</h3>
+                    <p class="text-sm text-gray-500">
+                        Этот сайт предназначен только для информационных целей. Измерения могут отличаться в зависимости от оборудования устройства. Не используйте для критических измерений безопасности или юридических целей.
+                    </p>
+                    <div class="mt-4 flex space-x-6">
+                        <span class="text-gray-400">&copy; 2025 RealtimeSoundMeter.org</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Hidden Report Template (for screenshot) -->
+    <div id="reportTemplate" class="fixed -left-[9999px] top-0 bg-white p-8 w-[600px]" style="font-family: sans-serif;">
+        <div class="border-4 border-gray-100 rounded-xl p-6 relative overflow-hidden">
+            <!-- Background Decoration -->
+            <div class="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-bl-full -mr-8 -mt-8"></div>
+            <div class="absolute bottom-0 left-0 w-24 h-24 bg-green-50 rounded-tr-full -ml-6 -mb-6"></div>
+            
+            <!-- Header -->
+            <div class="flex items-center justify-between mb-8 relative z-10">
+                <div class="flex items-center gap-3">
+                    <img src="../logo.svg" alt="Logo" class="h-12 w-auto">
+                    <div>
+                        <h1 class="text-2xl font-bold text-gray-800">Отчет об уровне шума</h1>
+                        <p class="text-sm text-gray-500">RealtimeSoundMeter.org</p>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <div id="reportDate" class="text-sm font-semibold text-gray-600"></div>
+                    <div id="reportTime" class="text-xs text-gray-400"></div>
+                </div>
+            </div>
+
+            <!-- Main Value -->
+            <div class="text-center py-8 mb-8 bg-gray-50 rounded-xl relative z-10">
+                <div class="text-sm text-gray-500 mb-2 uppercase tracking-wide">Средний уровень шума</div>
+                <div class="flex items-baseline justify-center gap-2">
+                    <span id="reportAvg" class="text-7xl font-bold text-blue-600">--</span>
+                    <span class="text-3xl text-gray-400 font-medium">dB</span>
+                </div>
+                <div id="reportStatus" class="mt-3 inline-block px-4 py-1 rounded-full text-sm font-semibold bg-blue-100 text-blue-800">
+                    --
+                </div>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="grid grid-cols-2 gap-4 mb-8 relative z-10">
+                <div class="bg-green-50 p-4 rounded-lg text-center">
+                    <div class="text-xs text-green-800 mb-1">Мин. уровень</div>
+                    <div class="text-2xl font-bold text-green-700"><span id="reportMin">--</span> <span class="text-sm">dB</span></div>
+                </div>
+                <div class="bg-red-50 p-4 rounded-lg text-center">
+                    <div class="text-xs text-red-800 mb-1">Макс. уровень</div>
+                    <div class="text-2xl font-bold text-red-700"><span id="reportMax">--</span> <span class="text-sm">dB</span></div>
+                </div>
+            </div>
+
+            <!-- Safety Note -->
+            <div class="border-l-4 border-blue-500 bg-blue-50 p-4 rounded-r-lg mb-6 relative z-10">
+                <h3 class="text-sm font-bold text-blue-900 mb-1">Оценка безопасности</h3>
+                <p id="reportWarning" class="text-xs text-blue-800 leading-relaxed">
+                    --
+                </p>
+            </div>
+
+            <!-- Footer -->
+            <div class="text-center border-t border-gray-200 pt-4 relative z-10">
+                <p class="text-xs text-gray-400">
+                    Сгенерировано RealtimeSoundMeter.org - Бесплатный онлайн-шумомер
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="../js/sound-meter.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const ruTranslations = {
+                startBtnStart: 'Начать Измерение',
+                startBtnStop: 'Остановить Измерение',
+                statusStopped: 'Измерение Остановлено',
+                statusQuiet: 'Тихо - Безопасная среда',
+                statusModerate: 'Умеренно - Нормальный шум',
+                statusElevated: 'Повышено - Следите за воздействием',
+                statusLoud: 'Громко - Риск для слуха',
+                statusVeryLoud: 'Очень Громко - Опасный уровень',
+                warningVeryQuiet: 'Очень тихая среда. Безопасно для неограниченного пребывания.',
+                warningSafe: 'Безопасный уровень шума. Нет риска при неограниченном времени воздействия.',
+                warningExtended: 'Длительное воздействие может вызвать утомление. Ограничьте ежедневное воздействие, если возможно.',
+                warning8h: 'Макс. безопасное воздействие: <strong>8 часов</strong>. Используйте защиту слуха при более длительном времени.',
+                warning4h: 'Макс. безопасное воздействие: <strong>4 часа</strong>. Рекомендуется защита слуха.',
+                warning2h: 'Макс. безопасное воздействие: <strong>2 часа</strong>. Носите беруши!',
+                warning1h: 'Макс. безопасное воздействие: <strong>1 час</strong>. Высокий риск повреждения!',
+                warning30m: 'Макс. безопасное воздействие: <strong>30 минут</strong>. Защитите свои уши!',
+                warning15m: 'Макс. безопасное воздействие: <strong>15 минут</strong>. Опасный уровень!',
+                warning7m: 'Макс. безопасное воздействие: <strong>7-8 минут</strong>. Очень опасно!',
+                warning3m: 'Макс. безопасное воздействие: <strong>3-4 минуты</strong>. Серьезный риск!',
+                warning1m: 'Макс. безопасное воздействие: <strong>1-2 минуты</strong>. Уходите немедленно!',
+                warningLess1m: 'Макс. безопасное воздействие: <strong>менее 1 минуты</strong>. Немедленная опасность!',
+                warningImmediate: '<strong>РИСК МГНОВЕННОГО ПОВРЕЖДЕНИЯ СЛУХА!</strong> Покиньте зону немедленно!',
+                labelStatus: '✅ Статус:',
+                labelCaution: '⚠️ Внимание:',
+                labelWarning: '⚠️ Предупреждение:',
+                labelDanger: '🚨 ОПАСНОСТЬ:',
+                reportSafe: 'Безопасная Среда',
+                reportCaution: 'Требуется Внимание',
+                reportHigh: 'Высокий Уровень Шума',
+                errorMic: 'Не удалось получить доступ к микрофону. Убедитесь, что вы дали разрешение на использование микрофона.',
+                errorReport: 'Не удалось создать отчет. Пожалуйста, попробуйте снова.'
+            };
+            
+            SoundMeter.init(ruTranslations);
+        });
+    </script>
+</body>
+</html>
