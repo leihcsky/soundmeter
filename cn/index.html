@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="zh-CN" itemscope itemtype="https://schema.org/WebApplication">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VBFVZM0MP6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-VBFVZM0MP6');
+    </script>
+    
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3293976111230987"
+     crossorigin="anonymous"></script>
+    
+    <!-- Primary Meta Tags -->
+    <title>在线分贝计 - 免费噪音检测工具 | 实时环境噪音监测</title>
+    <meta name="title" content="在线分贝计 - 免费噪音检测工具 | 实时环境噪音监测">
+    <meta name="description" content="免费在线分贝计，用于测量环境噪音水平（dB）。实时声音监测，帮助您检测安静、嘈杂或有害的声音水平。">
+    <meta name="keywords" content="分贝计, 噪音计, 声音测量, 在线分贝计, 噪音检测, 听力保护, NIOSH, WHO, 噪音监测">
+    <meta name="author" content="RealtimeSoundMeter.org">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://realtimesoundmeter.org/cn/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://realtimesoundmeter.org/cn/">
+    <meta property="og:site_name" content="在线分贝计">
+    <meta property="og:title" content="在线分贝计 - 免费噪音检测工具 | 实时环境噪音监测">
+    <meta property="og:description" content="免费在线分贝计，实时测量环境噪音。帮助您快速识别安静、嘈杂或有害的声音水平。">
+    <meta property="og:image" content="https://realtimesoundmeter.org/apple-touch-icon.svg">
+    <meta property="og:image:width" content="180">
+    <meta property="og:image:height" content="180">
+    <meta property="og:locale" content="zh_CN">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://realtimesoundmeter.org/cn/">
+    <meta name="twitter:title" content="在线分贝计 - 免费噪音检测工具">
+    <meta name="twitter:description" content="免费在线工具，实时测量环境噪音水平。保护您的听力，提供准确的分贝读数。">
+    <meta name="twitter:image" content="https://realtimesoundmeter.org/apple-touch-icon.svg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="icon" type="image/svg+xml" sizes="32x32" href="../favicon-32x32.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.svg">
+    
+    <!-- Alternate Languages -->
+    <link rel="alternate" hreflang="en" href="https://realtimesoundmeter.org/" />
+    <link rel="alternate" hreflang="hu" href="https://realtimesoundmeter.org/hu/" />
+    <link rel="alternate" hreflang="el" href="https://realtimesoundmeter.org/el/" />
+    <link rel="alternate" hreflang="ru" href="https://realtimesoundmeter.org/ru/" />
+    <link rel="alternate" hreflang="sv" href="https://realtimesoundmeter.org/sv/" />
+    <link rel="alternate" hreflang="fr" href="https://realtimesoundmeter.org/fr/" />
+    <link rel="alternate" hreflang="de" href="https://realtimesoundmeter.org/de/" />
+    <link rel="alternate" hreflang="ja" href="https://realtimesoundmeter.org/ja/" />
+    <link rel="alternate" hreflang="zh-CN" href="https://realtimesoundmeter.org/cn/" />
+    <link rel="alternate" hreflang="x-default" href="https://realtimesoundmeter.org/" />
+    
+    <!-- Structured Data - WebApplication -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "在线分贝计",
+      "alternateName": "Online Decibel Meter",
+      "url": "https://realtimesoundmeter.org/cn/",
+      "logo": "https://realtimesoundmeter.org/logo.svg",
+      "description": "免费在线分贝计，用于测量环境噪音水平（dB）。基于 WHO 和 NIOSH 标准提供实时声音检测和安全建议。",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "featureList": [
+        "实时分贝测量",
+        "可视化噪音水平指示",
+        "安全暴露时间计算",
+        "最小/最大/平均值统计",
+        "颜色编码安全等级",
+        "无音频录制或存储"
+      ],
+      "browserRequirements": "需要 JavaScript。支持 Web Audio API 的现代浏览器。",
+      "permissions": "需要麦克风权限进行声音测量",
+      "author": {
+        "@type": "Organization",
+        "name": "RealtimeSoundMeter.org",
+        "url": "https://realtimesoundmeter.org/cn/"
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "ratingCount": "1250",
+        "bestRating": "5",
+        "worstRating": "1"
+      }
+    }
+    </script>
+    
+    <!-- Structured Data - Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "RealtimeSoundMeter.org",
+      "url": "https://realtimesoundmeter.org/cn/",
+      "logo": "https://realtimesoundmeter.org/logo.svg",
+      "description": "提供免费的在线声音测量工具，致力于听力健康意识普及。",
+      "sameAs": [],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Customer Support",
+        "email": "support@realtimesoundmeter.org",
+        "url": "https://realtimesoundmeter.org/contact.html"
+      }
+    }
+    </script>
+    
+    <!-- Structured Data - FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "这个分贝计准确吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "虽然这个在线分贝计提供了良好的估算值，但可能无法与专业级设备完全匹配。准确性取决于您设备的麦克风质量和校准情况。如需精确测量，建议使用认证供应商的专业设备。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "为什么需要允许麦克风访问？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "分贝计需要麦克风访问权限来测量环境噪音水平。您的音频数据仅在浏览器本地处理，绝不会录制、存储或传输到任何服务器。您的隐私受到严格保护。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "什么是安全的噪音水平？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "根据 NIOSH/CDC 的标准，低于 70 dB 的噪音水平通常是安全的，即使长时间暴露。职业暴露限值为 85 dB（8小时）。超过 85 dB 的水平长时间暴露可能导致听力受损，超过 120 dB 可能造成立即伤害。"
+          }
+        }
+      ]
+    }
+    </script>
+    
+    <!-- Structured Data - BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://realtimesoundmeter.org/cn/"
+        }
+      ]
+    }
+    </script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- html2canvas for Screenshot Generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    
+    <style>
+        @keyframes pulse-ring {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1.5);
+                opacity: 0;
+            }
+        }
+        
+        .pulse-ring {
+            animation: pulse-ring 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        }
+        
+        .gradient-quiet {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+        }
+        
+        .gradient-moderate {
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+        }
+        
+        .gradient-loud {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+        }
+        
+        .gradient-harmful {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+        }
+        
+        .gradient-dangerous {
+            background: linear-gradient(135deg, #991b1b 0%, #7f1d1d 100%);
+        }
+        
+        .chart-bar {
+            transition: width 0.6s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.5s ease-out;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-sm relative">
+        <!-- Language Switcher -->
+    <div class="absolute top-4 right-4 sm:right-6 z-50">
+        <div class="relative inline-block text-left group">
+            <button type="button" class="inline-flex items-center justify-center w-full rounded-full border border-gray-200 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200">
+                <svg class="mr-2 h-5 w-5 text-gray-500 group-hover:text-blue-600 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span class="hidden sm:inline">简体中文</span>
+                <svg class="ml-2 -mr-1 h-4 w-4 text-gray-400 group-hover:text-blue-500 transition-colors" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+            </button>
+            <div class="origin-top-right absolute right-0 mt-2 w-40 rounded-xl shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform group-hover:translate-y-0 translate-y-2 z-50 overflow-hidden">
+                <div class="py-1">
+                    <a href="/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors">
+                        <span>English</span>
+                    </a>
+                    <a href="/hu/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors">
+                        <span>Magyar</span>
+                    </a>
+                    <a href="/el/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors">
+                        <span>Ελληνικά</span>
+                    </a>
+                    <a href="/ru/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors">
+                        <span>Русский</span>
+                    </a>
+                    <a href="/sv/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors">
+                        <span>Svenska</span>
+                    </a>
+                    <a href="/fr/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors">
+                        <span>Français</span>
+                    </a>
+                    <a href="/de/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors">
+                        <span>Deutsch</span>
+                    </a>
+                    <a href="/ja/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors">
+                        <span>日本語</span>
+                    </a>
+                    <a href="/cn/" class="flex items-center px-4 py-3 text-sm text-blue-600 bg-blue-50 font-semibold transition-colors">
+                        <span>简体中文</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+            <div class="text-center">
+                <h1 class="sr-only">在线分贝计（噪音计） - 实时环境噪音水平检测</h1>
+                <div class="flex items-center justify-center gap-3 mb-1">
+                    <img src="../logo.svg" alt="在线分贝计 - 免费噪音检测工具" class="h-10">
+                </div>
+                <p class="text-sm text-gray-600">此在线分贝计使用您的麦克风实时测量环境噪音水平。</p>
+                <p class="text-sm text-gray-600">这是一个完全免费的浏览器端声音测量工具，无需下载安装。</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+        <!-- Sound Meter Display -->
+        <section class="mb-4">
+            <div class="bg-white rounded-2xl shadow-xl p-6 sm:p-8">
+                <!-- Compact Layout with Icon and Display -->
+                <div class="flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-12 mb-4">
+                    <!-- Status Indicator -->
+                    <div id="statusIndicator" class="flex-shrink-0">
+                        <div id="statusIcon" class="relative w-24 h-24 sm:w-28 sm:h-28">
+                            <div class="absolute inset-0 rounded-full gradient-moderate flex items-center justify-center">
+                                <svg class="w-12 h-12 sm:w-14 sm:h-14 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15.536a5 5 0 001.414 1.414m2.828-9.9a9 9 0 000 12.728M12 12v.01"></path>
+                                </svg>
+                            </div>
+                            <div id="pulseRing" class="absolute inset-0 rounded-full gradient-moderate pulse-ring" style="display: none;"></div>
+                        </div>
+                    </div>
+
+                    <!-- Decibel Display and Status -->
+                    <div class="text-center lg:text-left flex-grow">
+                        <!-- Current Value -->
+                        <div class="flex items-baseline justify-center lg:justify-start gap-2 mb-2">
+                            <div id="decibelValue" class="text-6xl sm:text-7xl font-bold text-gray-400 leading-none">
+                                0.0
+                            </div>
+                            <div class="text-3xl sm:text-4xl text-gray-500 font-medium">dB</div>
+                        </div>
+                        
+                        <!-- Statistics (Min/Avg/Max) -->
+                        <div id="statistics" class="hidden flex items-center justify-center lg:justify-start gap-4 mb-2 text-sm">
+                            <div class="flex items-center gap-1">
+                                <span class="text-gray-500">最小:</span>
+                                <span id="minValue" class="font-semibold text-green-600">--</span>
+                            </div>
+                            <div class="flex items-center gap-1">
+                                <span class="text-gray-500">平均:</span>
+                                <span id="avgValue" class="font-semibold text-blue-600">--</span>
+                            </div>
+                            <div class="flex items-center gap-1">
+                                <span class="text-gray-500">最大:</span>
+                                <span id="maxValue" class="font-semibold text-red-600">--</span>
+                            </div>
+                        </div>
+                        
+                        <div id="statusText" class="text-lg sm:text-xl font-semibold text-gray-700 mb-2">
+                            点击开始测量
+                        </div>
+                        
+                        <!-- Safe Exposure Warning -->
+                        <div id="exposureWarning" class="mb-3 p-2 bg-green-50 border border-green-300 rounded-lg">
+                            <p class="text-xs text-green-900"><strong>✅ 状态:</strong> <span id="exposureTime">点击“开始测量”启动</span></p>
+                        </div>
+                        
+                        <!-- Control Button -->
+                        <div class="flex flex-col sm:flex-row gap-4 sm:gap-8">
+                            <button id="startBtn" class="flex-1 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-8 rounded-full text-base shadow-lg transform transition hover:scale-105 active:scale-95">
+                                开始测量
+                            </button>
+                            <button id="downloadBtn" disabled class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold py-3 px-6 rounded-full text-base shadow-sm border border-gray-300 transform transition hover:scale-105 active:scale-95 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none disabled:shadow-none disabled:hover:bg-gray-100">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                                保存报告
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Visual Level Indicator with Scale -->
+                <div class="max-w-3xl mx-auto mb-3">
+                    <div class="flex items-start gap-2">
+                        <!-- Scale container -->
+                        <div class="flex-1">
+                            <!-- Scale numbers (top) -->
+                            <div class="relative h-5 mb-0.5">
+                                <div class="absolute inset-0 flex pointer-events-none">
+                                    <span class="absolute text-xs font-medium text-gray-600" style="left: 0%; transform: translateX(-50%)">0</span>
+                                    <span class="absolute text-xs font-medium text-gray-600" style="left: 30.77%; transform: translateX(-50%)">40</span>
+                                    <span class="absolute text-xs font-medium text-gray-600" style="left: 53.85%; transform: translateX(-50%)">70</span>
+                                    <span class="absolute text-xs font-medium text-gray-600" style="left: 65.38%; transform: translateX(-50%)">85</span>
+                                    <span class="absolute text-xs font-medium text-gray-600" style="left: 84.62%; transform: translateX(-50%)">110</span>
+                                    <span class="absolute text-xs font-medium text-gray-600" style="left: 100%; transform: translateX(-50%)">130+</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Bar Background -->
+                            <div class="h-6 bg-gray-200 rounded-full overflow-hidden relative">
+                                <!-- Colored segments background -->
+                                <div class="absolute inset-0 flex opacity-30">
+                                    <div class="h-full bg-green-500" style="width: 46.15%"></div>
+                                    <div class="h-full bg-blue-500" style="width: 19.23%"></div>
+                                    <div class="h-full bg-yellow-500" style="width: 19.24%"></div>
+                                    <div class="h-full bg-red-600" style="width: 15.38%"></div>
+                                </div>
+                                
+                                <!-- Active Level Bar -->
+                                <div id="levelBar" class="h-full bg-gradient-to-r from-green-500 via-blue-500 to-red-600 chart-bar relative shadow-inner" style="width: 0%">
+                                    <div class="absolute right-0 top-0 bottom-0 w-1 bg-white opacity-50"></div>
+                                </div>
+                            </div>
+                            
+                            <!-- Labels (bottom) -->
+                            <div class="relative h-6 mt-1">
+                                <div class="absolute inset-0 flex pointer-events-none text-[10px] sm:text-xs font-medium text-gray-500">
+                                    <span class="absolute" style="left: 23%; transform: translateX(-50%)">安全</span>
+                                    <span class="absolute" style="left: 55%; transform: translateX(-50%)">正常</span>
+                                    <span class="absolute" style="left: 75%; transform: translateX(-50%)">风险</span>
+                                    <span class="absolute" style="left: 92%; transform: translateX(-50%)">危险</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Information Sections Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Decibel Scale Reference -->
+            <section class="bg-white rounded-xl shadow-lg p-6">
+                <h2 class="text-xl font-bold text-gray-900 mb-4 flex items-center">
+                    <svg class="w-6 h-6 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                    </svg>
+                    分贝等级对照表
+                </h2>
+                <div class="space-y-3">
+                    <div class="flex items-center justify-between p-2 rounded hover:bg-gray-50">
+                        <span class="text-green-600 font-medium">30 dB</span>
+                        <span class="text-gray-600">轻声耳语</span>
+                    </div>
+                    <div class="flex items-center justify-between p-2 rounded hover:bg-gray-50">
+                        <span class="text-green-600 font-medium">40 dB</span>
+                        <span class="text-gray-600">安静图书馆</span>
+                    </div>
+                    <div class="flex items-center justify-between p-2 rounded hover:bg-gray-50">
+                        <span class="text-blue-600 font-medium">60 dB</span>
+                        <span class="text-gray-600">正常交谈</span>
+                    </div>
+                    <div class="flex items-center justify-between p-2 rounded hover:bg-gray-50">
+                        <span class="text-blue-600 font-medium">70 dB</span>
+                        <span class="text-gray-600">吸尘器</span>
+                    </div>
+                    <div class="flex items-center justify-between p-2 rounded hover:bg-gray-50">
+                        <span class="text-yellow-600 font-medium">85 dB</span>
+                        <span class="text-gray-600">城市交通</span>
+                    </div>
+                    <div class="flex items-center justify-between p-2 rounded hover:bg-gray-50">
+                        <span class="text-orange-600 font-medium">90 dB</span>
+                        <span class="text-gray-600">割草机</span>
+                    </div>
+                    <div class="flex items-center justify-between p-2 rounded hover:bg-gray-50">
+                        <span class="text-red-600 font-medium">100 dB</span>
+                        <span class="text-gray-600">摩托车</span>
+                    </div>
+                    <div class="flex items-center justify-between p-2 rounded hover:bg-gray-50">
+                        <span class="text-red-600 font-medium">110 dB</span>
+                        <span class="text-gray-600">摇滚音乐会</span>
+                    </div>
+                    <div class="flex items-center justify-between p-2 rounded hover:bg-gray-50">
+                        <span class="text-purple-600 font-medium">120+ dB</span>
+                        <span class="text-gray-600">喷气机起飞 / 枪声</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- How it Works & Privacy -->
+            <div class="space-y-6">
+                <section class="bg-white rounded-xl shadow-lg p-6">
+                    <h2 class="text-xl font-bold text-gray-900 mb-4 flex items-center">
+                        <svg class="w-6 h-6 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        工作原理
+                    </h2>
+                    <p class="text-gray-600 mb-4">
+                        此分贝计使用浏览器的 Web Audio API 访问您的麦克风数据。它计算输入声音的均方根（RMS）振幅并将其转换为分贝（dB）。
+                    </p>
+                    <div class="bg-blue-50 border-l-4 border-blue-500 p-4">
+                        <p class="text-sm text-blue-700">
+                            <strong>隐私保护：</strong> 所有音频处理均在您的设备本地完成。音频数据绝不会上传到云端或被保存。
+                        </p>
+                    </div>
+                </section>
+
+                <section class="bg-white rounded-xl shadow-lg p-6">
+                    <h2 class="text-xl font-bold text-gray-900 mb-4 flex items-center">
+                        <svg class="w-6 h-6 mr-2 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                        </svg>
+                        健康影响
+                    </h2>
+                    <ul class="list-disc list-inside text-gray-600 space-y-2">
+                        <li><strong>85 dB 以下：</strong> 通常安全。</li>
+                        <li><strong>85+ dB：</strong> 8小时后可能导致损伤。</li>
+                        <li><strong>100+ dB：</strong> 15分钟内即可造成伤害。</li>
+                        <li><strong>120+ dB：</strong> 可能导致立即听力损伤。</li>
+                    </ul>
+                    <p class="mt-4 text-sm text-gray-500">
+                        来源：NIOSH（美国国家职业安全卫生研究所）及 WHO（世界卫生组织）指南。
+                    </p>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white mt-12 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- About -->
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase mb-4">关于我们</h3>
+                    <p class="text-base text-gray-500">
+                        RealtimeSoundMeter.org 提供免费、易用的声音测量工具，旨在提高公众对听力健康和噪音污染的认识。
+                    </p>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase mb-4">链接</h3>
+                    <ul class="space-y-4">
+                        <li>
+                            <a href="../about.html" class="text-base text-gray-500 hover:text-gray-900">关于</a>
+                        </li>
+                        <li>
+                            <a href="../privacy.html" class="text-base text-gray-500 hover:text-gray-900">隐私政策</a>
+                        </li>
+                        <li>
+                            <a href="../terms.html" class="text-base text-gray-500 hover:text-gray-900">服务条款</a>
+                        </li>
+                        <li>
+                            <a href="../contact.html" class="text-base text-gray-500 hover:text-gray-900">联系我们</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Disclaimer -->
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase mb-4">免责声明</h3>
+                    <p class="text-sm text-gray-500">
+                        本网站仅供参考。测量结果可能因设备硬件不同而异。请勿用于关键安全测量或法律用途。
+                    </p>
+                    <div class="mt-4 flex space-x-6">
+                        <span class="text-gray-400">&copy; 2026 RealtimeSoundMeter.org. 保留所有权利。</span>
+                    </div>
+                </div>
+            </div>
+            
+            <section class="mt-8 pt-8 border-t border-gray-200">
+                <div class="text-center">
+                    <h2 class="text-lg font-semibold text-gray-900 mb-2">权威参考资料</h2>
+                    <p class="text-sm text-gray-500 mb-4">了解更多关于噪音暴露标准和听力保护的信息：</p>
+                    <div class="flex flex-wrap justify-center gap-4 text-sm">
+                        <a href="https://www.cdc.gov/niosh/topics/noise/" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 hover:underline">
+                            NIOSH 噪音与听力损伤预防
+                        </a>
+                        <span class="text-gray-300">|</span>
+                        <a href="https://www.who.int/health-topics/hearing-loss" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 hover:underline">
+                            WHO 听力损失与耳聋
+                        </a>
+                        <span class="text-gray-300">|</span>
+                        <a href="https://www.osha.gov/noise" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 hover:underline">
+                            OSHA 职业噪音暴露
+                        </a>
+                    </div>
+                </div>
+                <p class="text-xs text-gray-600 mt-4 italic text-center">
+                    最后更新：2026年1月。我们根据最新的科学指南持续审查内容以确保准确性。
+                </p>
+            </section>
+        </div>
+    </footer>
+
+    <!-- Hidden Report Template (for screenshot) -->
+    <div id="reportTemplate" class="hidden bg-white p-8 max-w-2xl mx-auto">
+        <div class="border-b-2 border-gray-200 pb-4 mb-6">
+            <h1 class="text-3xl font-bold text-gray-800">声音测量报告</h1>
+            <p class="text-gray-500 mt-2">生成时间：<span id="reportDate"></span></p>
+            <p class="text-gray-500 text-sm mt-1">来源：realtimesoundmeter.org</p>
+        </div>
+        
+        <div class="grid grid-cols-2 gap-8 mb-8">
+            <div class="bg-gray-50 p-4 rounded-lg">
+                <p class="text-sm text-gray-500 mb-1">平均噪音水平</p>
+                <p class="text-3xl font-bold text-blue-600"><span id="reportAvg">--</span> dB</p>
+            </div>
+            <div class="bg-gray-50 p-4 rounded-lg">
+                <p class="text-sm text-gray-500 mb-1">最大噪音水平</p>
+                <p class="text-3xl font-bold text-red-600"><span id="reportMax">--</span> dB</p>
+            </div>
+        </div>
+
+        <div class="mb-8">
+            <h3 class="text-lg font-semibold text-gray-800 mb-3">安全评估</h3>
+            <div id="reportAssessment" class="p-4 rounded-lg border-l-4">
+                <!-- Assessment text injected via JS -->
+            </div>
+        </div>
+
+        <div class="text-sm text-gray-500 border-t border-gray-200 pt-4">
+            <p><strong>注意：</strong> 此测量结果仅供参考。对于专业或法律用途，请使用校准过的声级计。</p>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="../js/sound-meter.js"></script>
+    <script>
+        // Simplified Chinese Translations
+        const cnTranslations = {
+            startBtnStart: '开始测量',
+            startBtnStop: '停止测量',
+            statusStopped: '测量已停止',
+            statusQuiet: '安静 – 安全环境',
+            statusModerate: '适中 – 正常噪音',
+            statusElevated: '偏高 – 注意时长',
+            statusLoud: '嘈杂 – 听力风险',
+            statusVeryLoud: '极响 – 危险水平',
+            warningVeryQuiet: '非常安静的环境。无限制暴露风险。',
+            warningSafe: '安全的噪音水平。无限制暴露风险。',
+            warningExtended: '长时间暴露可能导致疲劳。建议限制每日接触时间。',
+            warning8h: '最大安全暴露时间：<strong>8小时</strong>。超过此时间建议佩戴听力保护装置。',
+            warning4h: '最大安全暴露时间：<strong>4小时</strong>。建议佩戴听力保护装置。',
+            warning2h: '最大安全暴露时间：<strong>2小时</strong>。请佩戴听力保护装置！',
+            warning1h: '最大安全暴露时间：<strong>1小时</strong>。听力损伤风险高！',
+            warning30m: '最大安全暴露时间：<strong>30分钟</strong>。请保护您的听力！',
+            warning15m: '最大安全暴露时间：<strong>15分钟</strong>。危险水平！',
+            warning7m: '最大安全暴露时间：<strong>7-8分钟</strong>。极度危险！',
+            warning3m: '最大安全暴露时间：<strong>3-4分钟</strong>。严重风险！',
+            warning1m: '最大安全暴露时间：<strong>1-2分钟</strong>。立即离开该区域！',
+            warningLess1m: '最大安全暴露时间：<strong>少于1分钟</strong>。严重急性危险！',
+            warningImmediate: '<strong>立即听力损伤风险！</strong> 请立即离开该区域！',
+            labelStatus: '✅ 状态：',
+            labelCaution: '⚠️ 注意：',
+            labelWarning: '⚠️ 警告：',
+            labelDanger: '🚨 危险：',
+            reportSafe: '安全环境',
+            reportCaution: '需注意',
+            reportHigh: '高噪音',
+            errorMic: '无法访问麦克风。请确保您已授权使用麦克风。',
+            errorReport: '生成报告失败，请重试。'
+        };
+
+        // Initialize with translations
+        SoundMeter.init(cnTranslations);
+    </script>
+</body>
+</html>
