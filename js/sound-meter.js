@@ -25,6 +25,18 @@ const SoundMeter = {
         const downloadBtn = document.getElementById('downloadBtn');
 
         if (!this.isRunning) {
+            // GA Event Tracking
+            if (typeof gtag === 'function') {
+                // Simple device detection based on screen width
+                const deviceType = window.innerWidth < 768 ? 'Mobile' : 'Desktop';
+                
+                gtag('event', 'start_measuring', {
+                    'event_category': 'Engagement',
+                    'event_label': `Start Button (${deviceType})`,
+                    'device_type': deviceType
+                });
+            }
+
             try {
                 await this.startMeter();
                 if (downloadBtn) downloadBtn.disabled = true;
@@ -186,6 +198,11 @@ const SoundMeter = {
         if (minEl) minEl.textContent = this.minValue.toFixed(1);
         if (avgEl) avgEl.textContent = avgValue.toFixed(1);
         if (maxEl) maxEl.textContent = this.maxValue.toFixed(1);
+
+        // Dispatch event for visualizers
+        window.dispatchEvent(new CustomEvent('sound-meter-update', { 
+            detail: { db: db } 
+        }));
     },
 
     getExposureWarning: function(db) {
@@ -280,7 +297,11 @@ const SoundMeter = {
         }
         
         decibelValue.textContent = db.toFixed(1);
-        decibelValue.className = `text-6xl sm:text-7xl font-bold leading-none ${valueColorClass}`;
+        
+        // Remove old color classes and add new one
+        decibelValue.classList.remove('text-gray-400', 'text-green-600', 'text-blue-600', 'text-yellow-600', 'text-orange-600', 'text-red-600');
+        decibelValue.classList.add(valueColorClass);
+        
         statusText.textContent = status;
         
         const warningData = this.getExposureWarning(db);

@@ -160,6 +160,22 @@
             "@type": "Answer",
             "text": "Ja! Dieser Schallpegelmesser funktioniert sowohl auf Desktop- als auch auf Mobilgeräten (iOS Safari, Chrome Mobile usw.). Erlauben Sie einfach den Mikrofonzugriff, wenn Sie dazu aufgefordert werden."
           }
+        },
+        {
+          "@type": "Question",
+          "name": "Wie schädigt Lärm das Gehör?",
+          "acceptedAnswer": {
+             "@type": "Answer",
+             "text": "Laute Geräusche schädigen die feinen Haarzellen in der Hörschnecke (Cochlea). Diese Zellen wandeln Schallvibrationen in elektrische Signale für das Gehirn um. Einmal beschädigt, regenerieren sie sich nicht, was zu dauerhaftem Hörverlust führt. Hohe Intensität oder längere Einwirkung beschleunigen diesen Schaden."
+          }
+        },
+        {
+           "@type": "Question",
+           "name": "Was ist die 3-dB-Regel?",
+           "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Die 3-dB-Regel (Exchange Rate) besagt, dass sich bei jedem Anstieg des Lärmpegels um 3 dB die sichere Expositionszeit halbiert. Beispiel: 85 dB = 8 Stunden, 88 dB = 4 Stunden, 91 dB = 2 Stunden. Diese exponentielle Beziehung zeigt, warum kleine dB-Erhöhungen signifikante Auswirkungen haben."
+           }
         }
       ]
     }
@@ -301,238 +317,230 @@
         </div>
     </header>
 
+    <!-- Main Content -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-        <section class="mb-4">
-            <div class="bg-white rounded-2xl shadow-xl p-6 sm:p-8">
-                <div class="flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-12 mb-4">
-                    <div id="statusIndicator" class="flex-shrink-0">
-                        <div id="statusIcon" class="relative w-24 h-24 sm:w-28 sm:h-28">
-                            <div class="absolute inset-0 rounded-full gradient-moderate flex items-center justify-center">
-                                <svg class="w-12 h-12 sm:w-14 sm:h-14 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15.536a5 5 0 001.414 1.414m2.828-9.9a9 9 0 000 12.728M12 12v.01"></path>
-                                </svg>
+        <!-- Unified Dashboard -->
+        <section class="mb-6 bg-white rounded-2xl shadow-xl p-4 sm:p-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-start">
+                <!-- Left Column: Gauge & Controls -->
+                <div class="flex flex-col h-full justify-center">
+                    <div>
+                        <!-- Header with Icon & Status -->
+                        <div class="flex items-center gap-8 mb-8">
+                            <!-- Left: Large Icon -->
+                            <div id="statusIcon" class="relative w-32 h-32 flex-shrink-0">
+                                <div class="absolute inset-0 rounded-full gradient-moderate flex items-center justify-center">
+                                    <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15.536a5 5 0 001.414 1.414m2.828-9.9a9 9 0 000 12.728M12 12v.01"></path>
+                                    </svg>
+                                </div>
+                                <div id="pulseRing" class="absolute inset-0 rounded-full gradient-moderate pulse-ring" style="display: none;"></div>
                             </div>
-                            <div id="pulseRing" class="absolute inset-0 rounded-full gradient-moderate pulse-ring" style="display: none;"></div>
+                            
+                            <!-- Right: Value & Status -->
+                            <div class="flex flex-col items-start text-left">
+                                <!-- Main Value Display -->
+                                <div class="flex items-baseline gap-2 mb-2">
+                                    <div id="decibelValue" class="text-8xl font-bold text-gray-400 leading-none tracking-tight">0.0</div>
+                                    <div class="text-3xl text-gray-400 font-medium">dB</div>
+                                </div>
+                                
+                                <div id="statusText" class="text-2xl font-bold text-gray-800 leading-tight">Klicken Sie auf Start</div>
+                                <div id="statistics" class="hidden flex items-center gap-3 text-sm mt-2">
+                                    <span class="text-gray-500">Min: <b id="minValue" class="text-green-600">--</b></span>
+                                    <span class="text-gray-500">Ø: <b id="avgValue" class="text-blue-600">--</b></span>
+                                    <span class="text-gray-500">Max: <b id="maxValue" class="text-red-600">--</b></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Warning Box -->
+                        <div id="exposureWarning" class="mb-6 p-4 bg-gray-50 border border-gray-200 rounded-xl">
+                            <p class="text-sm text-gray-600"><strong>✅ Status:</strong> <span id="exposureTime">Bereit zum Messen</span></p>
+                        </div>
+                        
+                        <!-- Tips & Info -->
+                        <div class="space-y-3 mb-6">
+                            <div class="flex items-start gap-2 text-xs text-gray-500 bg-blue-50 p-3 rounded-lg border border-blue-100">
+                                <span class="text-base">💡</span>
+                                <p class="leading-relaxed"><strong class="text-blue-700">Profi-Tipp:</strong> Für eine genaue Analyse messen Sie mindestens 30-60 Sekunden, um plötzliche Geräusche auszugleichen.</p>
+                            </div>
+                            <p class="text-xs text-gray-400 italic">
+                                <strong>Hinweis:</strong> Geschätzte Werte. Ruhiger Raum ≈ 30-40 dB, Gespräch ≈ 60 dB, Verkehr ≈ 80 dB.
+                            </p>
                         </div>
                     </div>
 
-                    <div class="text-center lg:text-left flex-grow">
-                        <div class="flex items-baseline justify-center lg:justify-start gap-2 mb-2">
-                            <div id="decibelValue" class="text-6xl sm:text-7xl font-bold text-gray-400 leading-none">
-                                0.0
-                            </div>
-                            <div class="text-3xl sm:text-4xl text-gray-500 font-medium">dB</div>
-                        </div>
-                        
-                        <div id="statistics" class="hidden flex items-center justify-center lg:justify-start gap-4 mb-2 text-sm">
-                            <div class="flex items-center gap-1">
-                                <span class="text-gray-500">Min:</span>
-                                <span id="minValue" class="font-semibold text-green-600">--</span>
-                            </div>
-                            <div class="flex items-center gap-1">
-                                <span class="text-gray-500">Ø:</span>
-                                <span id="avgValue" class="font-semibold text-blue-600">--</span>
-                            </div>
-                            <div class="flex items-center gap-1">
-                                <span class="text-gray-500">Max:</span>
-                                <span id="maxValue" class="font-semibold text-red-600">--</span>
-                            </div>
-                        </div>
-                        
-                        <div id="statusText" class="text-lg sm:text-xl font-semibold text-gray-700 mb-2">
-                            Klicken Sie auf Start, um zu messen
-                        </div>
-                        
-                        <div id="exposureWarning" class="mb-3 p-2 bg-green-50 border border-green-300 rounded-lg">
-                            <p class="text-xs text-green-900"><strong>✅ Status:</strong> <span id="exposureTime">Klicken Sie auf Start, um die Messung zu beginnen</span></p>
-                        </div>
-                        
-                        <div class="flex flex-col sm:flex-row gap-4 sm:gap-8">
-                            <button id="startBtn" class="flex-1 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-8 rounded-full text-base shadow-lg transform transition hover:scale-105 active:scale-95">
-                                Messung starten
-                            </button>
-                            <button id="downloadBtn" disabled class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold py-3 px-6 rounded-full text-base shadow-sm border border-gray-300 transform transition hover:scale-105 active:scale-95 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none disabled:shadow-none disabled:hover:bg-gray-100">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-                                Bericht speichern
-                            </button>
-                        </div>
+                    <!-- Control Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-3 mt-8">
+                        <button id="startBtn" class="flex-1 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-4 px-6 rounded-xl shadow-md transform transition hover:scale-105 active:scale-95 text-base">
+                            Messung starten
+                        </button>
+                        <button id="downloadBtn" disabled class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold py-4 px-6 rounded-xl shadow-sm border border-gray-300 transform transition hover:scale-105 active:scale-95 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed text-base">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                            Bericht speichern
+                        </button>
                     </div>
                 </div>
 
-                <div class="max-w-3xl mx-auto mb-3">
-                    <div class="flex items-start gap-2">
-                        <div class="flex-1">
-                            <div class="relative h-5 mb-0.5">
-                                <div class="absolute inset-0 flex pointer-events-none">
-                                    <span class="absolute text-xs font-medium text-gray-600" style="left: 0%; transform: translateX(-50%)">0</span>
-                                    <span class="absolute text-xs font-medium text-gray-600" style="left: 30.77%; transform: translateX(-50%)">40</span>
-                                    <span class="absolute text-xs font-medium text-gray-600" style="left: 53.85%; transform: translateX(-50%)">70</span>
-                                    <span class="absolute text-xs font-medium text-gray-600" style="left: 65.38%; transform: translateX(-50%)">85</span>
-                                    <span class="absolute text-xs font-medium text-gray-600" style="left: 76.92%; transform: translateX(-50%)">100</span>
-                                    <span class="absolute text-xs font-medium text-gray-600" style="left: 92.31%; transform: translateX(-50%)">120</span>
-                                </div>
+                <!-- Right Column: Visualizations -->
+                <div class="flex flex-col gap-4">
+                    <!-- Spectrum -->
+                    <div class="bg-gray-50 rounded-xl border border-gray-300 p-3 flex flex-col h-56">
+                        <h3 class="text-xs font-semibold text-gray-500 mb-2 flex items-center gap-1">
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                            Frequenz
+                        </h3>
+                        <div class="flex-1 relative overflow-hidden rounded">
+                            <canvas id="spectrumCanvas" class="absolute inset-0 w-full h-full"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- History -->
+                    <div class="bg-gray-50 rounded-xl border border-gray-300 p-3 flex flex-col h-56">
+                        <h3 class="text-xs font-semibold text-gray-500 mb-2 flex items-center gap-1">
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                            Verlauf (30s)
+                        </h3>
+                        <div class="flex-1 relative overflow-hidden rounded">
+                            <canvas id="historyCanvas" class="absolute inset-0 w-full h-full"></canvas>
+                        </div>
+                    </div>
+                    
+                    <!-- Scale Bar (Bottom of Right Column) -->
+                    <div class="mt-2 pt-2 border-t border-gray-300">
+                        <div class="relative h-6">
+                            <!-- Labels -->
+                            <div class="absolute inset-0 flex pointer-events-none text-[10px] text-gray-400 font-medium">
+                                <span class="absolute left-[0%] -translate-x-1/2">0</span>
+                                <span class="absolute left-[30.7%] -translate-x-1/2">40</span>
+                                <span class="absolute left-[53.8%] -translate-x-1/2">70</span>
+                                <span class="absolute left-[65.3%] -translate-x-1/2">85</span>
+                                <span class="absolute left-[76.9%] -translate-x-1/2">100</span>
+                                <span class="absolute left-[92.3%] -translate-x-1/2">120 dB</span>
                             </div>
-                            
-                            <div class="relative h-2 mb-0.5">
-                                <div class="absolute inset-0 flex pointer-events-none">
-                                    <div class="absolute" style="left: 0%">
-                                        <div class="w-px h-2 bg-gray-400"></div>
-                                    </div>
-                                    <div class="absolute" style="left: 30.77%">
-                                        <div class="w-px h-2 bg-gray-400"></div>
-                                    </div>
-                                    <div class="absolute" style="left: 53.85%">
-                                        <div class="w-px h-2 bg-gray-400"></div>
-                                    </div>
-                                    <div class="absolute" style="left: 65.38%">
-                                        <div class="w-px h-2 bg-gray-400"></div>
-                                    </div>
-                                    <div class="absolute" style="left: 76.92%">
-                                        <div class="w-px h-2 bg-gray-400"></div>
-                                    </div>
-                                    <div class="absolute" style="left: 92.31%">
-                                        <div class="w-px h-2 bg-gray-400"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="h-5 bg-gray-200 rounded-full overflow-hidden shadow-inner">
+                            <!-- Bar -->
+                            <div class="absolute bottom-0 left-0 right-0 h-2 bg-gray-200 rounded-full overflow-hidden">
                                 <div id="levelBar" class="h-full gradient-moderate transition-all duration-300 rounded-full" style="width: 0%"></div>
                             </div>
-                            
-                            <div class="relative mt-1">
-                                <div class="absolute inset-0 flex pointer-events-none">
-                                    <span class="absolute text-xs text-gray-500" style="left: 0%; transform: translateX(-50%)">Stille</span>
-                                    <span class="absolute text-xs text-green-600" style="left: 30.77%; transform: translateX(-50%)">Leise</span>
-                                    <span class="absolute text-xs text-blue-600" style="left: 53.85%; transform: translateX(-50%)">Sicher</span>
-                                    <span class="absolute text-xs text-yellow-600" style="left: 65.38%; transform: translateX(-50%)">Grenze</span>
-                                    <span class="absolute text-xs text-orange-600" style="left: 76.92%; transform: translateX(-50%)">Schädlich</span>
-                                    <span class="absolute text-xs text-red-600" style="left: 92.31%; transform: translateX(-50%)">Gefährlich</span>
-                                </div>
-                            </div>
                         </div>
-                        
-                        <div class="flex-none text-xs font-medium text-gray-500 mt-0">
-                            dB
+                        <div class="relative h-4 text-[10px] text-gray-400 mt-1 font-medium">
+                            <span class="absolute left-0">Lautlos</span>
+                            <span class="absolute left-[30.7%] -translate-x-1/2 text-green-600">Leise</span>
+                            <span class="absolute left-[53.8%] -translate-x-1/2 text-blue-600">Sicher</span>
+                            <span class="absolute left-[65.3%] -translate-x-1/2 text-yellow-600">Grenzwert</span>
+                            <span class="absolute left-[76.9%] -translate-x-1/2 text-orange-600">Schädlich</span>
+                            <span class="absolute left-[92.3%] -translate-x-1/2 text-red-600">Gefahr</span>
                         </div>
-                    </div>
-                </div>
-
-                <div class="max-w-3xl mx-auto mt-6">
-                    <div class="bg-blue-50 border border-blue-200 rounded-lg p-2.5">
-                        <div class="flex items-start">
-                            <svg class="w-4 h-4 text-blue-600 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
-                            <div class="text-xs text-blue-800">
-                                <strong>Hinweis:</strong> Geschätzte Werte. Ruhiger Raum ≈ 30–40 dB, Gespräch ≈ 60 dB, Verkehr ≈ 80 dB.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-2 text-center text-xs text-gray-500">
-                        <strong>💡 Tipp:</strong> Messen Sie mindestens 30–60 Sekunden, um kurzzeitige Geräuschspitzen auszugleichen.
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Information Sections -->
         <div class="grid md:grid-cols-2 gap-4">
+            <!-- Sound Level Guide -->
             <section class="bg-white rounded-xl shadow-lg p-5">
-                <h2 class="text-xl font-bold text-gray-900 mb-3">Leitfaden für Lautstärkepegel</h2>
+                <h2 class="text-xl font-bold text-gray-900 mb-3">Schallpegel-Leitfaden</h2>
                 <div class="space-y-2.5">
                     <div class="flex items-start">
                         <div class="w-3 h-3 rounded-full bg-green-500 mt-1 mr-2 flex-shrink-0"></div>
                         <div class="flex-1">
-                            <div class="font-semibold text-sm text-gray-900">0–40 dB – Leise</div>
-                            <div class="text-xs text-gray-600">Bibliothek (30 dB), Flüstern, raschelnde Blätter. Sicher für jede Expositionsdauer.</div>
+                            <div class="font-semibold text-sm text-gray-900">0-40 dB - Leise</div>
+                            <div class="text-xs text-gray-600">Bibliothek (30 dB), Flüstern, Blätterrauschen. Sicher für jede Dauer.</div>
                         </div>
                     </div>
                     <div class="flex items-start">
                         <div class="w-3 h-3 rounded-full bg-blue-500 mt-1 mr-2 flex-shrink-0"></div>
                         <div class="flex-1">
-                            <div class="font-semibold text-sm text-gray-900">40–70 dB – Mäßig</div>
-                            <div class="text-xs text-gray-600">Normales Gespräch (60 dB), ruhiges Büro. In der Regel sicher für längere Exposition.</div>
+                            <div class="font-semibold text-sm text-gray-900">40-70 dB - Mäßig</div>
+                            <div class="text-xs text-gray-600">Normales Gespräch (60 dB), ruhiges Büro. Generell sicher für längere Exposition.</div>
                         </div>
                     </div>
                     <div class="flex items-start">
                         <div class="w-3 h-3 rounded-full bg-yellow-500 mt-1 mr-2 flex-shrink-0"></div>
                         <div class="flex-1">
-                            <div class="font-semibold text-sm text-gray-900">70–85 dB – Vorsicht</div>
-                            <div class="text-xs text-gray-600">Starker Verkehr (80 dB), Staubsauger. Längere Exposition kann ermüden.</div>
+                            <div class="font-semibold text-sm text-gray-900">70-85 dB - Vorsicht</div>
+                            <div class="text-xs text-gray-600">Starker Verkehr (80 dB), Staubsauger. Längere Exposition kann zu Ermüdung führen.</div>
                         </div>
                     </div>
                     <div class="flex items-start">
                         <div class="w-3 h-3 rounded-full bg-orange-500 mt-1 mr-2 flex-shrink-0"></div>
                         <div class="flex-1">
-                            <div class="font-semibold text-sm text-gray-900">85–100 dB – Schädlich</div>
-                            <div class="text-xs text-gray-600">Elektrowerkzeuge (90 dB), Motorrad. 8+ Stunden können das Gehör schädigen.</div>
+                            <div class="font-semibold text-sm text-gray-900">85-100 dB - Schädlich</div>
+                            <div class="text-xs text-gray-600">Elektrowerkzeuge (90 dB), Motorrad. Über 8 Std. kann das Gehör schädigen.</div>
                         </div>
                     </div>
                     <div class="flex items-start">
                         <div class="w-3 h-3 rounded-full bg-red-500 mt-1 mr-2 flex-shrink-0"></div>
                         <div class="flex-1">
-                            <div class="font-semibold text-sm text-gray-900">100–120 dB – Sehr schädlich</div>
-                            <div class="text-xs text-gray-600">Kettensäge (110 dB), Sirene. Minutenlange Exposition kann Schäden verursachen.</div>
+                            <div class="font-semibold text-sm text-gray-900">100-120 dB - Sehr Schädlich</div>
+                            <div class="text-xs text-gray-600">Kettensäge (110 dB), Sirene. Schon wenige Minuten können schaden.</div>
                         </div>
                     </div>
                     <div class="flex items-start">
                         <div class="w-3 h-3 rounded-full bg-red-900 mt-1 mr-2 flex-shrink-0"></div>
                         <div class="flex-1">
-                            <div class="font-semibold text-sm text-gray-900">120+ dB – Gefährlich</div>
-                            <div class="text-xs text-gray-600">Düsentriebwerk (130 dB), Feuerwerk. Sofortiges Risiko für Hörschäden.</div>
+                            <div class="font-semibold text-sm text-gray-900">120+ dB - Gefährlich</div>
+                            <div class="text-xs text-gray-600">Düsentriebwerk (130 dB), Feuerwerk. Risiko sofortiger Hörschäden.</div>
                         </div>
                     </div>
                 </div>
                 <div class="mt-3 pt-3 border-t border-gray-200">
                     <p class="text-xs text-gray-500 italic">
-                        <strong>Hinweis:</strong> Die Dezibelskala ist logarithmisch – jede Erhöhung um 10 dB bedeutet etwa das 10-fache der Schallintensität.
+                        <strong>Hinweis:</strong> Die Dezibel-Skala ist logarithmisch - je 10 dB Anstieg bedeutet etwa 10-fache Intensität.
                     </p>
                 </div>
             </section>
 
+            <!-- How to Use -->
             <section class="bg-white rounded-xl shadow-lg p-5">
-                <h2 class="text-xl font-bold text-gray-900 mb-3">So verwenden Sie das Tool</h2>
+                <h2 class="text-xl font-bold text-gray-900 mb-3">Anleitung</h2>
                 <ol class="space-y-2.5">
                     <li class="flex items-start">
                         <div class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-500 text-white flex items-center justify-center text-xs font-semibold mr-2">1</div>
                         <div class="flex-1">
-                            <div class="font-semibold text-sm text-gray-900">Mikrofonzugriff erlauben</div>
-                            <div class="text-xs text-gray-600">Klicken Sie auf „Messung starten“ und erlauben Sie den Zugriff auf Ihr Mikrofon.</div>
+                            <div class="font-semibold text-sm text-gray-900">Mikrofon zulassen</div>
+                            <div class="text-xs text-gray-600">Klicken Sie auf "Messung starten" und erlauben Sie den Zugriff auf Ihr Mikrofon.</div>
                         </div>
                     </li>
                     <li class="flex items-start">
                         <div class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-500 text-white flex items-center justify-center text-xs font-semibold mr-2">2</div>
                         <div class="flex-1">
-                            <div class="font-semibold text-sm text-gray-900">Lautstärkepegel beobachten</div>
-                            <div class="text-xs text-gray-600">Sehen Sie dB-Werte in Echtzeit. <strong>Empfehlung:</strong> Messen Sie etwa 1 Minute, um kurzzeitige Schwankungen zu glätten.</div>
+                            <div class="font-semibold text-sm text-gray-900">Lärmpegel überwachen</div>
+                            <div class="text-xs text-gray-600">Sehen Sie dB-Werte in Echtzeit. <strong>Empfehlung:</strong> Messen Sie ca. 1 Min. lang.</div>
                         </div>
                     </li>
                     <li class="flex items-start">
                         <div class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-500 text-white flex items-center justify-center text-xs font-semibold mr-2">3</div>
                         <div class="flex-1">
-                            <div class="font-semibold text-sm text-gray-900">Stoppen & Bericht erstellen</div>
-                            <div class="text-xs text-gray-600">Klicken Sie auf „Messung stoppen“ und anschließend auf „Bericht speichern“, um eine detaillierte PDF-Zusammenfassung herunterzuladen.</div>
+                            <div class="font-semibold text-sm text-gray-900">Stoppen & Bericht</div>
+                            <div class="text-xs text-gray-600">Klicken Sie auf "Messung stoppen" und dann "Bericht speichern" für ein PDF.</div>
                         </div>
                     </li>
                     <li class="flex items-start">
                         <div class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-500 text-white flex items-center justify-center text-xs font-semibold mr-2">4</div>
                         <div class="flex-1">
-                            <div class="font-semibold text-sm text-gray-900">Maßnahmen ergreifen</div>
-                            <div class="text-xs text-gray-600">Nutzen Sie die Daten, um schädliche Lärmquellen zu erkennen und Ihr Gehör zu schützen.</div>
+                            <div class="font-semibold text-sm text-gray-900">Handeln</div>
+                            <div class="text-xs text-gray-600">Nutzen Sie die Daten, um schädliche Lärmquellen zu identifizieren und Ihr Gehör zu schützen.</div>
                         </div>
                     </li>
                 </ol>
             </section>
         </div>
 
+        <!-- Additional Information -->
         <div class="mt-6 space-y-6">
+
+            <!-- Safe Exposure Time Chart -->
             <section class="bg-white rounded-xl shadow-lg p-6">
-                <h2 class="text-xl font-bold text-gray-900 mb-3">Sichere Expositionszeit je Dezibelpegel</h2>
+                <h2 class="text-xl font-bold text-gray-900 mb-3">Sichere Expositionszeit nach Dezibelpegel</h2>
                 <p class="text-sm text-gray-600 mb-4">
-                    Laut <a href="https://www.cdc.gov/niosh/noise/about/noise.html" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">NIOSH/CDC</a> gilt: Je höher der Lärmpegel, desto kürzer ist die sichere Expositionszeit.
+                    Laut <a href="https://www.cdc.gov/niosh/noise/about/noise.html" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">NIOSH/CDC</a> sinkt die sichere Expositionszeit, je höher der Lärmpegel ist.
                 </p>
                 
                 <div class="space-y-3">
+                    <!-- 70 dB -->
                     <div class="fade-in-up">
                         <div class="flex items-center justify-between mb-1">
                             <span class="text-sm font-semibold text-gray-900">70 dB</span>
@@ -541,46 +549,50 @@
                         <div class="h-6 bg-gray-100 rounded-full overflow-hidden">
                             <div class="chart-bar h-full bg-green-500" style="width: 100%"></div>
                         </div>
-                        <p class="text-xs text-gray-500 mt-1">Sicher für ganztägige Exposition</p>
+                        <p class="text-xs text-gray-500 mt-1">Sicher für den ganzen Tag</p>
                     </div>
                     
+                    <!-- 85 dB -->
                     <div class="fade-in-up" style="animation-delay: 0.1s">
                         <div class="flex items-center justify-between mb-1">
                             <span class="text-sm font-semibold text-gray-900">85 dB</span>
-                            <span class="text-xs text-gray-600">8 Stunden max.</span>
+                            <span class="text-xs text-gray-600">Max. 8 Stunden</span>
                         </div>
                         <div class="h-6 bg-gray-100 rounded-full overflow-hidden">
                             <div class="chart-bar h-full bg-yellow-500" style="width: 80%"></div>
                         </div>
-                        <p class="text-xs text-gray-500 mt-1">Von NIOSH empfohlene 8‑Stunden-Grenze</p>
+                        <p class="text-xs text-gray-500 mt-1">NIOSH-Empfehlung für 8 Stunden Arbeitstag</p>
                     </div>
                     
+                    <!-- 90 dB -->
                     <div class="fade-in-up" style="animation-delay: 0.2s">
                         <div class="flex items-center justify-between mb-1">
                             <span class="text-sm font-semibold text-gray-900">90 dB</span>
-                            <span class="text-xs text-gray-600">2–4 Stunden max.</span>
+                            <span class="text-xs text-gray-600">Max. 2-4 Stunden</span>
                         </div>
                         <div class="h-6 bg-gray-100 rounded-full overflow-hidden">
                             <div class="chart-bar h-full bg-orange-400" style="width: 60%"></div>
                         </div>
-                        <p class="text-xs text-gray-500 mt-1">Rasenmäher, Motorradlärm</p>
+                        <p class="text-xs text-gray-500 mt-1">Rasenmäher, Motorrad</p>
                     </div>
                     
+                    <!-- 100 dB -->
                     <div class="fade-in-up" style="animation-delay: 0.3s">
                         <div class="flex items-center justify-between mb-1">
                             <span class="text-sm font-semibold text-gray-900">100 dB</span>
-                            <span class="text-xs text-gray-600">15 Minuten max.</span>
+                            <span class="text-xs text-gray-600">Max. 15 Minuten</span>
                         </div>
                         <div class="h-6 bg-gray-100 rounded-full overflow-hidden">
                             <div class="chart-bar h-full bg-orange-600" style="width: 40%"></div>
                         </div>
-                        <p class="text-xs text-gray-500 mt-1">Haartrockner, Elektrowerkzeuge</p>
+                        <p class="text-xs text-gray-500 mt-1">Föhn, laute Elektrowerkzeuge</p>
                     </div>
                     
+                    <!-- 110 dB -->
                     <div class="fade-in-up" style="animation-delay: 0.4s">
                         <div class="flex items-center justify-between mb-1">
                             <span class="text-sm font-semibold text-gray-900">110 dB</span>
-                            <span class="text-xs text-gray-600">1–2 Minuten max.</span>
+                            <span class="text-xs text-gray-600">Max. 1-2 Minuten</span>
                         </div>
                         <div class="h-6 bg-gray-100 rounded-full overflow-hidden">
                             <div class="chart-bar h-full bg-red-500" style="width: 25%"></div>
@@ -588,147 +600,151 @@
                         <p class="text-xs text-gray-500 mt-1">Rockkonzert, Sirene</p>
                     </div>
                     
+                    <!-- 120 dB -->
                     <div class="fade-in-up" style="animation-delay: 0.5s">
                         <div class="flex items-center justify-between mb-1">
                             <span class="text-sm font-semibold text-gray-900">120+ dB</span>
-                            <span class="text-xs text-gray-600 font-bold text-red-600">Sofortige Schädigung</span>
+                            <span class="text-xs text-gray-600 font-bold text-red-600">Sofortige Schäden</span>
                         </div>
                         <div class="h-6 bg-gray-100 rounded-full overflow-hidden">
                             <div class="chart-bar h-full bg-red-700" style="width: 10%"></div>
                         </div>
-                        <p class="text-xs text-gray-500 mt-1">Feuerwerk, Düsentriebwerk – Exposition vermeiden</p>
+                        <p class="text-xs text-gray-500 mt-1">Feuerwerk, Düsenjet - Exposition vermeiden</p>
                     </div>
                 </div>
                 
                 <div class="mt-4 p-3 bg-blue-50 rounded-lg border border-blue-200">
                     <p class="text-xs text-blue-900">
-                        <strong>⚠️ Wichtig:</strong> Jede Erhöhung um 3 dB über 85 dB halbiert die sichere Expositionszeit. Mehr dazu beim 
+                        <strong>⚠️ Wichtig:</strong> Pro 3 dB Anstieg über 85 dB halbiert sich die sichere Expositionszeit. Mehr dazu bei 
                         <a href="https://www.nidcd.nih.gov/health/how-loud-too-loud" target="_blank" rel="noopener" class="text-blue-700 hover:underline font-semibold">NIDCD</a>.
                     </p>
                 </div>
             </section>
 
+            <!-- About Section -->
             <section class="bg-white rounded-xl shadow-lg p-6">
                 <h2 class="text-xl font-bold text-gray-900 mb-4">Dezibel und Schallmessung verstehen</h2>
                 <div class="text-gray-700 space-y-3 text-sm">
                     <p>
-                        Ein <strong>Schallpegelmesser</strong> (Dezibelmessgerät) misst den Schalldruckpegel (SPL) in Dezibel (dB). Unser Online-Tool verwendet das Mikrofon Ihres Geräts, um Umgebungsgeräusche zu erfassen und Messwerte in Echtzeit bereitzustellen.
+                        Ein <strong>Schallpegelmesser</strong> (Dezibelmesser) misst den Schalldruckpegel (SPL) in Dezibel (dB). Unser Online-Tool nutzt das Mikrofon Ihres Geräts, um Umgebungsgeräusche zu erfassen und Echtzeitmessungen zu liefern.
                     </p>
                     <p>
-                        <strong>Warum Dezibel wichtig sind:</strong> Die Dezibelskala ist logarithmisch – jede Erhöhung um 10 dB entspricht etwa der 10‑fachen Schallintensität und wird als ungefähr doppelt so laut wahrgenommen. 80 dB sind also deutlich lauter als 70 dB.
+                        <strong>Warum Dezibel wichtig sind:</strong> Die Dezibel-Skala ist logarithmisch – jede Erhöhung um 10 dB entspricht etwa der 10-fachen Schallintensität und fühlt sich etwa doppelt so laut an. Das bedeutet, 80 dB sind nicht nur etwas lauter als 70 dB, sondern deutlich intensiver.
                     </p>
                     <div class="bg-amber-50 border-l-4 border-amber-500 p-3 my-3">
                         <p class="text-sm">
-                            <strong>🏥 WHO-Empfehlung:</strong> Die <a href="https://www.who.int/news-room/questions-and-answers/item/deafness-and-hearing-loss-safe-listening" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">Weltgesundheitsorganisation</a> empfiehlt, Lärmpegel für längere Zeiträume unter <strong>70 dB</strong> zu halten, um Hörschäden zu vermeiden. Geräusche über 85 dB können bei längerer Exposition das Gehör schädigen.
+                            <strong>🏥 WHO-Empfehlung:</strong> Die <a href="https://www.who.int/news-room/questions-and-answers/item/deafness-and-hearing-loss-safe-listening" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">Weltgesundheitsorganisation</a> empfiehlt, Lärmpegel über längere Zeiträume unter <strong>70 dB</strong> zu halten, um Hörverlust vorzubeugen. Geräusche über 85 dB können bei längerer Einwirkung das Gehör schädigen.
                         </p>
                     </div>
                     <p>
-                        <strong>Wie Lärm das Gehör schädigt:</strong> Laut <a href="https://gesund.bund.de/en/laermbelastung" target="_blank" rel="noopener" class="text-blue-600 hover:underline">Gesundheitsbehörden</a> beschädigen laute Geräusche die empfindlichen Haarzellen im Innenohr. Diese Zellen regenerieren sich nicht, daher sind die Schäden dauerhaft. Hochintensiver oder langanhaltender Lärm führt zu:
+                        <strong>Wie Lärm das Gehör schädigt:</strong> Laut <a href="https://gesund.bund.de/laermbelastung" target="_blank" rel="noopener" class="text-blue-600 hover:underline">Gesundheitsbehörden</a> schädigen laute Geräusche die feinen Haarzellen im Innenohr. Diese Zellen regenerieren sich nicht, sodass Schäden dauerhaft sind. Hohe Intensität oder lange Dauer führen zu:
                     </p>
                     <ul class="list-disc list-inside space-y-1 ml-3 text-sm">
-                        <li>Mechanischen Schäden an den Haarzellen des Innenohrs</li>
-                        <li>Überstimulation der Hörnerven</li>
-                        <li>Lärminduziertem Hörverlust (NIHL)</li>
-                        <li>Tinnitus (Ohrensausen) und Empfindlichkeitsproblemen</li>
+                        <li>Mechanischer Schädigung der Haarzellen im Innenohr</li>
+                        <li>Überreizung der Hörnerven</li>
+                        <li>Lärmschwerhörigkeit (NIHL)</li>
+                        <li>Tinnitus (Ohrgeräusche) und Überempfindlichkeit</li>
                     </ul>
                     
                     <div class="mt-4 pt-4 border-t border-gray-100">
                         <h3 class="font-bold text-gray-900 mb-2 flex items-center">
                             <svg class="w-5 h-5 mr-2 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-                            Datenschutz & Datensicherheit
+                            Datenschutz & Sicherheit
                         </h3>
                         <p class="text-sm bg-green-50 text-green-800 p-3 rounded-lg border border-green-200">
-                            <strong>Ihre Privatsphäre hat Priorität.</strong> Die gesamte Audiobearbeitung erfolgt lokal in Ihrem Browser. Es werden keine Audiodaten aufgezeichnet, gespeichert oder auf unsere Server hochgeladen. Die Funktion „Bericht speichern“ erstellt die Datei direkt auf Ihrem Gerät anhand der Statistikwerte (Min, Max, Durchschnitt) Ihrer aktuellen Sitzung.
+                            <strong>Ihre Privatsphäre hat Priorität.</strong> Die gesamte Audioverarbeitung erfolgt lokal in Ihrem Browser. Es werden keine Audiodaten aufgezeichnet, gespeichert oder auf unsere Server hochgeladen. Die Funktion "Bericht speichern" generiert die PDF-Datei direkt auf Ihrem Gerät basierend auf den Statistiken (Min, Max, Ø) Ihrer Sitzung.
                         </p>
                     </div>
                 </div>
             </section>
 
+            <!-- Health Impact -->
             <section class="bg-white rounded-xl shadow-lg p-6">
                 <h2 class="text-xl font-bold text-gray-900 mb-3">Gesundheitliche Auswirkungen von Lärmbelastung</h2>
                 <p class="text-sm text-gray-600 mb-4">
-                    Über Hörverlust hinaus beeinflusst chronische Lärmbelastung die allgemeine Gesundheit. Quelle: 
+                    Neben Hörverlust beeinträchtigt chronische Lärmbelastung die allgemeine Gesundheit. Quelle: 
                     <a href="https://www.who.int/europe/news-room/fact-sheets/item/noise" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">WHO Europa</a>
                 </p>
                 <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition">
                         <div class="text-2xl mb-2">👂</div>
                         <h3 class="font-semibold text-sm text-gray-900 mb-1">Hörverlust (NIHL)</h3>
-                        <p class="text-xs text-gray-600 mb-2">Exposition gegenüber Geräuschen ≥85 dB über 8+ Stunden kann dauerhafte Hörschäden verursachen.</p>
-                        <a href="https://www.cdc.gov/niosh/noise/about/noise.html" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline">CDC/NIOSH-Richtlinien →</a>
+                        <p class="text-xs text-gray-600 mb-2">Exposition gegenüber ≥85 dB für 8+ Stunden kann dauerhafte Schäden verursachen.</p>
+                        <a href="https://www.cdc.gov/niosh/noise/about/noise.html" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline">CDC/NIOSH Richtlinien →</a>
                     </div>
                     <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition">
                         <div class="text-2xl mb-2">😰</div>
                         <h3 class="font-semibold text-sm text-gray-900 mb-1">Stress & Angst</h3>
                         <p class="text-xs text-gray-600 mb-2">Chronischer Lärm erhöht Stresshormone und das Risiko für Angststörungen.</p>
-                        <a href="https://www.who.int/europe/news-room/fact-sheets/item/noise" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline">WHO-Forschung →</a>
+                        <a href="https://www.who.int/europe/news-room/fact-sheets/item/noise" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline">WHO Forschung →</a>
                     </div>
                     <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition">
                         <div class="text-2xl mb-2">😴</div>
                         <h3 class="font-semibold text-sm text-gray-900 mb-1">Schlafstörungen</h3>
-                        <p class="text-xs text-gray-600 mb-2">Nächtlicher Lärm über 40 dB kann Schlafqualität und -dauer deutlich beeinträchtigen.</p>
-                        <a href="https://www.who.int/europe/news-room/fact-sheets/item/noise" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline">Schlafrichtlinien →</a>
+                        <p class="text-xs text-gray-600 mb-2">Nächtlicher Lärm über 40 dB kann Schlafqualität und -dauer erheblich stören.</p>
+                        <a href="https://www.who.int/europe/news-room/fact-sheets/item/noise" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline">Schlaf-Richtlinien →</a>
                     </div>
                     <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition">
                         <div class="text-2xl mb-2">❤️</div>
-                        <h3 class="font-semibold text-sm text-gray-900 mb-1">Kardiovaskuläres Risiko</h3>
-                        <p class="text-xs text-gray-600 mb-2">Langfristige hohe Lärmbelastung kann das Risiko für Herzerkrankungen und Bluthochdruck erhöhen.</p>
-                        <a href="https://www.who.int/europe/news-room/fact-sheets/item/noise" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline">WHO-Studien →</a>
+                        <h3 class="font-semibold text-sm text-gray-900 mb-1">Herz-Kreislauf-Risiko</h3>
+                        <p class="text-xs text-gray-600 mb-2">Langfristige hohe Lärmbelastung kann das Risiko für Herzkrankheiten erhöhen.</p>
+                        <a href="https://www.who.int/europe/news-room/fact-sheets/item/noise" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline">WHO Studien →</a>
                     </div>
                     <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition">
                         <div class="text-2xl mb-2">🧠</div>
-                        <h3 class="font-semibold text-sm text-gray-900 mb-1">Kognitive Beeinträchtigung</h3>
-                        <p class="text-xs text-gray-600 mb-2">Lärmbelastung kann Konzentration, Gedächtnis und Lernfähigkeit beeinträchtigen.</p>
-                        <a href="https://hearinghealthfoundation.org/keeplistening/decibels" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline">HHF-Ressourcen →</a>
+                        <h3 class="font-semibold text-sm text-gray-900 mb-1">Kognitive Auswirkungen</h3>
+                        <p class="text-xs text-gray-600 mb-2">Lärmverschmutzung kann Konzentration, Gedächtnis und Lernfähigkeit beeinträchtigen.</p>
+                        <a href="https://hearinghealthfoundation.org/keeplistening/decibels" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline">HHF Ressourcen →</a>
                     </div>
                     <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition">
                         <div class="text-2xl mb-2">👶</div>
-                        <h3 class="font-semibold text-sm text-gray-900 mb-1">Entwicklung von Kindern</h3>
-                        <p class="text-xs text-gray-600 mb-2">Kinder sind besonders anfällig für lärmbedingte Lern- und Verhaltensprobleme.</p>
-                        <a href="https://www.who.int/europe/news-room/fact-sheets/item/noise" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline">WHO-Ergebnisse →</a>
+                        <h3 class="font-semibold text-sm text-gray-900 mb-1">Kindesentwicklung</h3>
+                        <p class="text-xs text-gray-600 mb-2">Kinder sind anfälliger für lärmbedingte Lern- und Verhaltensprobleme.</p>
+                        <a href="https://www.who.int/europe/news-room/fact-sheets/item/noise" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline">WHO Erkenntnisse →</a>
                     </div>
                 </div>
                 
                 <div class="mt-4 p-4 bg-gradient-to-r from-red-50 to-orange-50 rounded-lg border border-red-200">
-                    <h4 class="font-semibold text-sm text-gray-900 mb-2">🛡️ Schutztipps (nach NIOSH/CDC):</h4>
+                    <h4 class="font-semibold text-sm text-gray-900 mb-2">🛡️ Schutz-Tipps (von NIOSH/CDC):</h4>
                     <ul class="text-xs text-gray-700 space-y-1 ml-4 list-disc">
-                        <li>Halten Sie die tägliche Lärmbelastung nach Möglichkeit unter <strong>70 dB</strong></li>
-                        <li>Tragen Sie Gehörschutz (Ohrstöpsel/Ohrschützer) in Umgebungen ≥85 dB</li>
-                        <li>Begrenzen Sie die Expositionszeit bei sehr lauten Geräuschen</li>
-                        <li>Nutzen Sie Lärmmess-Tools, um Pegel zu überwachen und zu steuern</li>
+                        <li>Halten Sie die tägliche Lärmbelastung wenn möglich unter <strong>70 dB</strong></li>
+                        <li>Tragen Sie Gehörschutz (Ohrstöpsel/Kapselgehörschutz) in Umgebungen ≥85 dB</li>
+                        <li>Begrenzen Sie die Zeit in sehr lauten Umgebungen</li>
+                        <li>Nutzen Sie Lärmüberwachungstools, um Schallpegel zu verfolgen</li>
                         <li>Gönnen Sie Ihren Ohren Ruhepausen nach lauter Exposition</li>
                     </ul>
                 </div>
             </section>
 
+            <!-- Detailed Use Cases and Guide -->
             <section class="bg-white rounded-xl shadow-lg p-6">
-                <h2 class="text-xl font-bold text-gray-900 mb-4">Praktische Einsatzbereiche für den Online-Schallpegelmesser</h2>
+                <h2 class="text-xl font-bold text-gray-900 mb-4">Praktische Anwendungsmöglichkeiten</h2>
                 <div class="prose max-w-none text-gray-600 space-y-4">
                     <p>
-                        Dieser kostenlose Online-Schallpegelmesser macht Ihren Browser zu einem praktischen Lärmmesswerkzeug. Er ersetzt zwar kein kalibriertes professionelles Klasse‑1-Messgerät, dient aber als hervorragende Referenz in Alltagssituationen, in denen das Verständnis von Lärmpegeln Ihre Gesundheit und Produktivität verbessern kann.
+                        Dieser kostenlose Online-Schallpegelmesser verwandelt Ihren Browser in ein funktionales Lärmmessgerät. Obwohl er kein kalibriertes Klasse-1-Messgerät ersetzt, dient er als hervorragende Referenz für Alltagssituationen, in denen das Verständnis von Lärmpegeln Ihre Gesundheit und Produktivität verbessern kann.
                     </p>
                     
                     <div class="grid md:grid-cols-2 gap-6 mt-6">
                         <div class="bg-gray-50 rounded-lg p-4">
                             <h3 class="font-semibold text-gray-900 mb-2 flex items-center">
-                                <span class="text-xl mr-2">🏠</span> Zuhause & Alltag
+                                <span class="text-xl mr-2">🏠</span> Zuhause & Wohnen
                             </h3>
                             <ul class="list-disc list-inside text-sm space-y-2">
-                                <li><strong>Geräte testen:</strong> Prüfen Sie, ob Geschirrspüler oder Staubsauger so leise sind wie beworben.</li>
-                                <li><strong>Nachbarschaftslärm:</strong> Messen Sie objektiv, wie laut Renovierungen oder Musik der Nachbarn in Ihrer Wohnung ankommen.</li>
-                                <li><strong>Schlafumgebung:</strong> Stellen Sie sicher, dass Ihr Schlafzimmer unter den empfohlenen 30–40 dB für erholsamen Schlaf bleibt.</li>
+                                <li><strong>Gerätetest:</strong> Prüfen Sie, ob Ihre neue Spülmaschine so leise ist wie beworben.</li>
+                                <li><strong>Nachbarschaftslärm:</strong> Messen Sie objektiv, wie laut die Renovierung oder Musik des Nachbarn in Ihrem Wohnzimmer ist.</li>
+                                <li><strong>Schlafumgebung:</strong> Stellen Sie sicher, dass Ihr Schlafzimmer für optimale Schlafqualität unter 30-40 dB bleibt.</li>
                             </ul>
                         </div>
                         
                         <div class="bg-gray-50 rounded-lg p-4">
                             <h3 class="font-semibold text-gray-900 mb-2 flex items-center">
-                                <span class="text-xl mr-2">💼</span> Arbeit & Lernen
+                                <span class="text-xl mr-2">💼</span> Arbeit & Studium
                             </h3>
                             <ul class="list-disc list-inside text-sm space-y-2">
-                                <li><strong>Bürolärm:</strong> Ermitteln Sie Spitzenzeiten der Lärmbelastung im Großraumbüro, um konzentrierte Arbeit besser zu planen.</li>
-                                <li><strong>Lernzonen:</strong> Finden Sie die ruhigste Ecke in Bibliothek oder Café. Optimale Lernumgebung liegt oft bei 40–50 dB.</li>
-                                <li><strong>Homeoffice:</strong> Testen Sie den Hintergrundlärm, bevor Sie an wichtigen Videokonferenzen teilnehmen.</li>
-                                <li><strong>Dokumentation:</strong> Nutzen Sie „Bericht speichern“, um PDF‑Nachweise für Arbeitsplatzschutz oder Streitfälle zu erstellen.</li>
+                                <li><strong>Büro-Ablenkungen:</strong> Identifizieren Sie Lärmspitzen im Großraumbüro, um Fokuszeiten besser zu planen.</li>
+                                <li><strong>Lernbereiche:</strong> Finden Sie die ruhigste Ecke in der Bibliothek. Ideal zum Lernen sind oft 40-50 dB.</li>
+                                <li><strong>Remote Work:</strong> Testen Sie Ihren Hintergrundgeräuschpegel vor wichtigen Videokonferenzen.</li>
+                                <li><strong>Dokumentation:</strong> Nutzen Sie "Bericht speichern", um einen PDF-Nachweis über Lärmpegel zu erstellen.</li>
                             </ul>
                         </div>
                         
@@ -737,93 +753,96 @@
                                 <span class="text-xl mr-2">🎧</span> Audio & Unterhaltung
                             </h3>
                             <ul class="list-disc list-inside text-sm space-y-2">
-                                <li><strong>Sicheres Hören:</strong> Kalibrieren Sie Ihre Lautsprecher, um bei Filmen im sicheren Bereich von 70–80 dB zu bleiben.</li>
-                                <li><strong>Event-Monitoring:</strong> Prüfen Sie, ob Konzert oder Club gefährliche Pegel über 100 dB erreichen.</li>
-                                <li><strong>Gaming-Setup:</strong> Messen Sie Lüftergeräusche des PCs unter Last, um einen leisen Rechner zu optimieren.</li>
+                                <li><strong>Sicheres Hören:</strong> Kalibrieren Sie Ihre Lautsprecher, um bei Filmen im sicheren Bereich von 70-80 dB zu bleiben.</li>
+                                <li><strong>Event-Monitoring:</strong> Prüfen Sie, ob das Konzert oder der Club gefährliche 100 dB überschreitet.</li>
+                                <li><strong>Gaming-Setup:</strong> Messen Sie Lüftergeräusche unter Last, um Ihren Silent-PC zu optimieren.</li>
                             </ul>
                         </div>
                         
                         <div class="bg-gray-50 rounded-lg p-4">
                             <h3 class="font-semibold text-gray-900 mb-2 flex items-center">
-                                <span class="text-xl mr-2">🩺</span> Gesundheit & Wohlbefinden
+                                <span class="text-xl mr-2">🩺</span> Gesundheit & Wellness
                             </h3>
                             <ul class="list-disc list-inside text-sm space-y-2">
-                                <li><strong>Tinnitus-Management:</strong> Identifizieren Sie Umgebungen, die Ohrensausen auslösen können.</li>
-                                <li><strong>Babysicherheit:</strong> Stellen Sie sicher, dass das Kinderzimmer angenehm leise bleibt und Weiß‑Rausch‑Geräte nicht zu laut sind.</li>
-                                <li><strong>Stressreduktion:</strong> Vergleichen Sie Stresslevel mit Umgebungsgeräuschen, um Reize besser zu steuern.</li>
+                                <li><strong>Tinnitus-Management:</strong> Helfen Sie, Umgebungen zu identifizieren, die Ohrgeräusche auslösen könnten.</li>
+                                <li><strong>Baby-Sicherheit:</strong> Stellen Sie sicher, dass das Kinderzimmer beruhigend leise ist.</li>
+                                <li><strong>Stressreduktion:</strong> Korrelieren Sie Ihr Stresslevel mit Umgebungslärm, um Ihren sensorischen Input besser zu steuern.</li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </section>
 
+            <!-- Technical Insight Section -->
             <section class="bg-white rounded-xl shadow-lg p-6">
-                <h2 class="text-xl font-bold text-gray-900 mb-4">Funktionsweise: Audioanalyse im Browser</h2>
+                <h2 class="text-xl font-bold text-gray-900 mb-4">Wie es funktioniert: Browser-basierte Audioanalyse</h2>
                 <div class="space-y-4 text-sm text-gray-600">
                     <p>
-                        Anders als klassische Schallpegelmesser mit spezieller Hardware nutzt dieses Tool den Standard der <strong>Web Audio API</strong> moderner Browser (Chrome, Edge, Safari, Firefox). Der Prozess lässt sich vereinfacht so beschreiben:
+                        Im Gegensatz zu herkömmlichen Schallpegelmessern mit spezieller Hardware nutzt dieses Tool die in modernen Browsern (Chrome, Edge, Safari, Firefox) integrierte <strong>Web Audio API</strong>. Hier ist der Prozess vereinfacht:
                     </p>
                     <ol class="list-decimal list-inside space-y-2 ml-2">
-                        <li><strong>Signalerfassung:</strong> Der Browser fordert Zugriff auf das Mikrofon Ihres Geräts an (Eingangsstrom).</li>
-                        <li><strong>Digitale Abtastung:</strong> Analoge Schallwellen werden tausendfach pro Sekunde in digitale Samples umgewandelt.</li>
-                        <li><strong>Frequenzanalyse:</strong> Ein Algorithmus namens Fast Fourier Transform (FFT) analysiert die Intensität verschiedener Frequenzen.</li>
-                        <li><strong>RMS-Berechnung:</strong> Die Effektivwert-Amplitude (RMS) wird berechnet, um die mittlere Leistung des Audiosignals zu bestimmen.</li>
-                        <li><strong>Zuordnung zu dB:</strong> Dieser digitale Wert wird über einen Kalibrierungsalgorithmus auf eine Dezibelskala abgebildet, die typische Raumakustik annähert.</li>
+                        <li><strong>Signalaufnahme:</strong> Der Browser fordert Zugriff auf das Mikrofon Ihres Geräts an.</li>
+                        <li><strong>Digitales Sampling:</strong> Die analogen Schallwellen werden tausendfach pro Sekunde in digitale Datenpakete umgewandelt.</li>
+                        <li><strong>Frequenzanalyse:</strong> Wir verwenden die Fast Fourier Transformation (FFT), um die Intensität verschiedener Frequenzen zu analysieren.</li>
+                        <li><strong>RMS-Berechnung:</strong> Der Root Mean Square (RMS) wird berechnet, um die durchschnittliche Leistung des Audiosignals zu bestimmen.</li>
+                        <li><strong>Dezibel-Mapping:</strong> Dieser Rohwert wird mittels eines Kalibrierungsalgorithmus auf die Dezibel-Skala (dB) abgebildet.</li>
                     </ol>
                     <div class="bg-blue-50 border-l-4 border-blue-500 p-3 mt-4">
                         <p class="text-xs">
-                            <strong>Hinweis zur Kalibrierung:</strong> Da jedes Mikrofon (Smartphone, Laptop, Webcam) eine andere Empfindlichkeit besitzt, kann ein webbasiertes Messgerät ohne externe Kalibrierung nie 100 % genau sein. Wir verwenden eine „Best‑Fit“-Kurve, die auf gängige Konsumer‑Mikrofone abgestimmt ist, um möglichst nützliche relative Messwerte zu liefern.
+                            <strong>Hinweis zur Kalibrierung:</strong> Da jedes Mikrofon (Smartphone, Laptop, Webcam) eine andere Empfindlichkeit hat, kann ein webbasiertes Messgerät ohne externe Hardware-Kalibrierung nie 100% genau sein. Wir verwenden eine "Best-Fit"-Kurve, die auf gängige Verbrauchergeräte abgestimmt ist, um nützliche relative Messwerte zu liefern.
                         </p>
                     </div>
                 </div>
             </section>
 
+            <!-- FAQ Section -->
             <section class="bg-white rounded-xl shadow-lg p-6">
-                <h2 class="text-xl font-bold text-gray-900 mb-4">Häufig gestellte Fragen</h2>
+                <h2 class="text-xl font-bold text-gray-900 mb-4">Häufig gestellte Fragen (FAQ)</h2>
                 <div class="space-y-4">
                     <div class="border-l-4 border-blue-500 pl-4">
                         <h3 class="font-semibold text-sm text-gray-900 mb-1">Ist dieser Schallpegelmesser genau?</h3>
-                        <p class="text-xs text-gray-600 mb-1">Dieser Online-Schallpegelmesser liefert gute Schätzungen, entspricht aber nicht zwingend professionellen Messgeräten. Die Genauigkeit hängt von Mikrofonqualität und Kalibrierung Ihres Geräts ab. Für exakte Messungen sollten Sie zertifizierte Profigeräte verwenden.</p>
-                        <a href="https://www.forbes.com/health/hearing-aids/decibel-levels/" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline">Dezibelpegel vergleichen →</a>
+                        <p class="text-xs text-gray-600 mb-1">Dieser Online-Messer liefert gute Schätzwerte, kann aber nicht mit professionellen Geräten mithalten. Die Genauigkeit hängt von Ihrem Mikrofon ab. Für präzise Messungen sollten Sie professionelles Equipment nutzen.</p>
+                        <a href="https://www.forbes.com/health/hearing-aids/decibel-levels/" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline">Dezibel-Pegel vergleichen →</a>
                     </div>
                     <div class="border-l-4 border-blue-500 pl-4">
                         <h3 class="font-semibold text-sm text-gray-900 mb-1">Warum muss ich den Mikrofonzugriff erlauben?</h3>
-                        <p class="text-xs text-gray-600">Der Schallpegelmesser benötigt Mikrofonzugriff, um Umgebungsgeräusche zu messen. Ihr Audio wird lokal im Browser verarbeitet und weder aufgezeichnet noch gespeichert oder übertragen. Ihre Privatsphäre bleibt geschützt.</p>
+                        <p class="text-xs text-gray-600">Das Tool benötigt Zugriff, um Umgebungsgeräusche zu messen. Ihr Audio wird lokal im Browser verarbeitet und niemals aufgezeichnet oder gesendet. Ihre Privatsphäre ist geschützt.</p>
                     </div>
                     <div class="border-l-4 border-blue-500 pl-4">
                         <h3 class="font-semibold text-sm text-gray-900 mb-1">Welcher Geräuschpegel ist sicher?</h3>
-                        <p class="text-xs text-gray-600 mb-1">Nach <strong>NIOSH/CDC</strong> sind Lärmpegel unter <strong>70 dB</strong> für längere Exposition meist sicher. Die berufliche Expositionsgrenze liegt bei <strong>85 dB für 8 Stunden</strong>. Werte darüber können bei längerer Einwirkung das Gehör schädigen, und alles über 120 dB kann sofort schaden.</p>
-                        <a href="https://www.cdc.gov/niosh/noise/about/noise.html" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline">NIOSH-Richtlinien →</a>
+                        <p class="text-xs text-gray-600 mb-1">Laut <strong>NIOSH/CDC</strong> sind Pegel unter <strong>70 dB</strong> generell sicher. Die Grenze für berufliche Exposition liegt bei <strong>85 dB für 8 Stunden</strong>. Werte über 85 dB können schaden, alles über 120 dB kann sofortige Schäden verursachen.</p>
+                        <a href="https://www.cdc.gov/niosh/noise/about/noise.html" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline">NIOSH Richtlinien →</a>
                     </div>
                     <div class="border-l-4 border-blue-500 pl-4">
-                        <h3 class="font-semibold text-sm text-gray-900 mb-1">Kann ich das Tool auf mobilen Geräten nutzen?</h3>
-                        <p class="text-xs text-gray-600">Ja. Der Schallpegelmesser funktioniert auf Desktop- und Mobilgeräten (iOS Safari, Chrome Mobile usw.). Erlauben Sie den Mikrofonzugriff, wenn Sie dazu aufgefordert werden. Beachten Sie, dass die Mikrofonqualität je nach Gerät variiert.</p>
+                        <h3 class="font-semibold text-sm text-gray-900 mb-1">Kann ich das Tool mobil nutzen?</h3>
+                        <p class="text-xs text-gray-600">Ja! Es funktioniert auf Desktop und Mobilgeräten (iOS Safari, Chrome Mobile etc.). Einfach Zugriff erlauben. Beachten Sie, dass die Mikrofonqualität variieren kann.</p>
                     </div>
                     <div class="border-l-4 border-blue-500 pl-4">
                         <h3 class="font-semibold text-sm text-gray-900 mb-1">Wie schädigt Lärm das Gehör?</h3>
-                        <p class="text-xs text-gray-600 mb-1">Laute Geräusche schädigen die feinen Haarzellen in der Cochlea Ihres Innenohrs. Diese Zellen wandeln Schwingungen in elektrische Signale für das Gehirn um. Einmal beschädigt, regenerieren sie sich nicht – der Hörverlust ist dauerhaft. Hohe Intensität oder lange Exposition beschleunigen diesen Prozess.</p>
-                        <a href="https://www.nidcd.nih.gov/health/how-loud-too-loud" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline">Mehr erfahren beim NIDCD →</a>
+                        <p class="text-xs text-gray-600 mb-1">Laute Geräusche schädigen die Haarzellen in der Hörschnecke. Einmal zerstört, wachsen sie nicht nach, was zu dauerhaftem Hörverlust führt. Hohe Intensität beschleunigt diesen Prozess.</p>
+                        <a href="https://www.nidcd.nih.gov/health/how-loud-too-loud" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline">Mehr bei NIDCD →</a>
                     </div>
                     <div class="border-l-4 border-blue-500 pl-4">
-                        <h3 class="font-semibold text-sm text-gray-900 mb-1">Was bedeutet die „3‑dB‑Austauschregel“?</h3>
-                        <p class="text-xs text-gray-600">Die 3‑dB‑Austauschrate von NIOSH besagt: Mit jeder Erhöhung um 3 dB halbiert sich die sichere Expositionszeit. Beispiel: 85 dB = 8 Stunden, 88 dB = 4 Stunden, 91 dB = 2 Stunden usw. Kleine dB‑Erhöhungen haben also große Auswirkungen.</p>
+                        <h3 class="font-semibold text-sm text-gray-900 mb-1">Was ist die 3-dB-Regel?</h3>
+                        <p class="text-xs text-gray-600">Die NIOSH 3-dB-Regel besagt: Pro 3 dB Anstieg halbiert sich die sichere Expositionszeit. Beispiel: 85 dB = 8 Std., 88 dB = 4 Std. Das zeigt, warum kleine Erhöhungen wichtig sind.</p>
                     </div>
                 </div>
             </section>
 
+            <!-- Authoritative Sources -->
             <section class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl shadow-lg p-6 border border-blue-200">
-                <h2 class="text-xl font-bold text-gray-900 mb-3">📚 Autoritative Quellen & Referenzen</h2>
+                <h2 class="text-xl font-bold text-gray-900 mb-3">📚 Offizielle Quellen & Referenzen</h2>
                 <p class="text-sm text-gray-700 mb-4">
-                    Alle Informationen auf dieser Seite basieren auf Richtlinien und Forschung international anerkannter Gesundheits- und Sicherheitsorganisationen:
+                    Alle Informationen auf dieser Seite basieren auf Richtlinien und Forschung international anerkannter Gesundheitsorganisationen:
                 </p>
                 <div class="grid md:grid-cols-2 gap-3">
                     <a href="https://www.cdc.gov/niosh/noise/about/noise.html" target="_blank" rel="noopener" class="block p-3 bg-white rounded-lg border border-gray-200 hover:shadow-md transition">
                         <h3 class="font-semibold text-sm text-gray-900 mb-1">🏛️ NIOSH/CDC</h3>
-                        <p class="text-xs text-gray-600">National Institute for Occupational Safety and Health – Prävention von lärmbedingtem Hörverlust</p>
+                        <p class="text-xs text-gray-600">National Institute for Occupational Safety and Health</p>
                     </a>
                     <a href="https://www.who.int/news-room/questions-and-answers/item/deafness-and-hearing-loss-safe-listening" target="_blank" rel="noopener" class="block p-3 bg-white rounded-lg border border-gray-200 hover:shadow-md transition">
-                        <h3 class="font-semibold text-sm text-gray-900 mb-1">🌍 Weltgesundheitsorganisation (WHO)</h3>
-                        <p class="text-xs text-gray-600">Richtlinien für sicheres Hören und Prävention von Hörverlust</p>
+                        <h3 class="font-semibold text-sm text-gray-900 mb-1">🌍 WHO (Weltgesundheitsorganisation)</h3>
+                        <p class="text-xs text-gray-600">Richtlinien für sicheres Hören und Prävention</p>
                     </a>
                     <a href="https://www.nidcd.nih.gov/health/how-loud-too-loud" target="_blank" rel="noopener" class="block p-3 bg-white rounded-lg border border-gray-200 hover:shadow-md transition">
                         <h3 class="font-semibold text-sm text-gray-900 mb-1">🔬 NIDCD (NIH)</h3>
@@ -831,11 +850,11 @@
                     </a>
                     <a href="https://hearinghealthfoundation.org/keeplistening/decibels" target="_blank" rel="noopener" class="block p-3 bg-white rounded-lg border border-gray-200 hover:shadow-md transition">
                         <h3 class="font-semibold text-sm text-gray-900 mb-1">👂 Hearing Health Foundation</h3>
-                        <p class="text-xs text-gray-600">Dezibel-Expositionsdiagramm und Aufklärung über sicheres Hören</p>
+                        <p class="text-xs text-gray-600">Dezibel-Expositionstabelle und Aufklärung</p>
                     </a>
                     <a href="https://www.who.int/europe/news-room/fact-sheets/item/noise" target="_blank" rel="noopener" class="block p-3 bg-white rounded-lg border border-gray-200 hover:shadow-md transition">
                         <h3 class="font-semibold text-sm text-gray-900 mb-1">🇪🇺 WHO Europa</h3>
-                        <p class="text-xs text-gray-600">Forschung zu Umweltlärm und gesundheitlichen Auswirkungen</p>
+                        <p class="text-xs text-gray-600">Forschung zu Umgebungslärm und Gesundheit</p>
                     </a>
                     <a href="https://www.forbes.com/health/hearing-aids/decibel-levels/" target="_blank" rel="noopener" class="block p-3 bg-white rounded-lg border border-gray-200 hover:shadow-md transition">
                         <h3 class="font-semibold text-sm text-gray-900 mb-1">📰 Forbes Health</h3>
@@ -843,17 +862,19 @@
                     </a>
                 </div>
                 <p class="text-xs text-gray-600 mt-4 italic">
-                    Zuletzt aktualisiert: Januar 2026. Wir überprüfen unsere Inhalte regelmäßig anhand aktueller wissenschaftlicher Leitlinien.
+                    Zuletzt aktualisiert: Januar 2026. Wir überprüfen unsere Inhalte kontinuierlich auf Übereinstimmung mit aktuellen wissenschaftlichen Richtlinien.
                 </p>
             </section>
-        </div>
+
+        </div><!-- End of Additional Information -->
     </main>
 
+    <!-- Footer -->
     <footer class="bg-gray-900 text-white mt-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
             <div class="text-center">
-                <h3 class="text-base font-semibold mb-2">Schallpegelmesser – Erfassung von Umgebungsgeräuschen</h3>
-                <p class="text-sm text-gray-400 mb-4">Schützen Sie Ihr Gehör, indem Sie die Lärmpegel in Ihrer Umgebung überwachen.</p>
+                <h3 class="text-base font-semibold mb-2">Schallpegelmesser - Umgebungsgeräusch-Erkennung</h3>
+                <p class="text-sm text-gray-400 mb-4">Schützen Sie Ihr Gehör durch Überwachung der Lärmpegel in Ihrer Umgebung.</p>
                 <div class="flex justify-center gap-6 text-sm mb-4">
                     <a href="../about.html" class="hover:text-blue-400 transition">Über uns</a>
                     <a href="../terms.html" class="hover:text-blue-400 transition">Nutzungsbedingungen</a>
@@ -873,16 +894,19 @@
         </div>
     </footer>
 
+    <!-- Hidden Report Template -->
     <div id="reportTemplate" class="fixed -left-[9999px] top-0 bg-white p-8 w-[600px]" style="font-family: sans-serif;">
         <div class="border-4 border-gray-100 rounded-xl p-6 relative overflow-hidden">
+            <!-- Background Decoration -->
             <div class="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-bl-full -mr-8 -mt-8"></div>
             <div class="absolute bottom-0 left-0 w-24 h-24 bg-green-50 rounded-tr-full -ml-6 -mb-6"></div>
             
+            <!-- Header -->
             <div class="flex items-center justify-between mb-8 relative z-10">
                 <div class="flex items-center gap-3">
                     <img src="../logo.svg" alt="Logo" class="h-12 w-auto">
                     <div>
-                        <h1 class="text-2xl font-bold text-gray-800">Schallpegelbericht</h1>
+                        <h1 class="text-2xl font-bold text-gray-800">Schallpegel-Bericht</h1>
                         <p class="text-sm text-gray-500">RealtimeSoundMeter.org</p>
                     </div>
                 </div>
@@ -892,8 +916,9 @@
                 </div>
             </div>
 
+            <!-- Main Value -->
             <div class="text-center py-8 mb-8 bg-gray-50 rounded-xl relative z-10">
-                <div class="text-sm text-gray-500 mb-2 uppercase tracking-wide">Durchschnittlicher Geräuschpegel</div>
+                <div class="text-sm text-gray-500 mb-2 uppercase tracking-wide">Durchschnittlicher Lärmpegel</div>
                 <div class="flex items-baseline justify-center gap-2">
                     <span id="reportAvg" class="text-7xl font-bold text-blue-600">--</span>
                     <span class="text-3xl text-gray-400 font-medium">dB</span>
@@ -903,17 +928,19 @@
                 </div>
             </div>
 
+            <!-- Stats Grid -->
             <div class="grid grid-cols-2 gap-4 mb-8 relative z-10">
                 <div class="bg-green-50 p-4 rounded-lg text-center">
-                    <div class="text-xs text-green-800 mb-1">Minimaler Pegel</div>
+                    <div class="text-xs text-green-800 mb-1">Minimum</div>
                     <div class="text-2xl font-bold text-green-700"><span id="reportMin">--</span> <span class="text-sm">dB</span></div>
                 </div>
                 <div class="bg-red-50 p-4 rounded-lg text-center">
-                    <div class="text-xs text-red-800 mb-1">Maximaler Pegel</div>
+                    <div class="text-xs text-red-800 mb-1">Maximum</div>
                     <div class="text-2xl font-bold text-red-700"><span id="reportMax">--</span> <span class="text-sm">dB</span></div>
                 </div>
             </div>
 
+            <!-- Safety Note -->
             <div class="border-l-4 border-blue-500 bg-blue-50 p-4 rounded-r-lg mb-6 relative z-10">
                 <h3 class="text-sm font-bold text-blue-900 mb-1">Sicherheitsbewertung</h3>
                 <p id="reportWarning" class="text-xs text-blue-800 leading-relaxed">
@@ -921,48 +948,51 @@
                 </p>
             </div>
 
+            <!-- Footer -->
             <div class="text-center border-t border-gray-200 pt-4 relative z-10">
                 <p class="text-xs text-gray-400">
-                    Erstellt von RealtimeSoundMeter.org – Kostenloser Online-Schallpegelmesser
+                    Generiert von RealtimeSoundMeter.org - Kostenloser Online-Dezibelmesser
                 </p>
             </div>
         </div>
     </div>
 
+    <!-- JavaScript -->
     <script src="../js/sound-meter.js"></script>
+    <script src="../js/visualizer.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const deTranslations = {
                 startBtnStart: 'Messung starten',
                 startBtnStop: 'Messung stoppen',
-                statusStopped: 'Messung beendet',
-                statusQuiet: 'Leise – sichere Umgebung',
-                statusModerate: 'Mäßig – normaler Geräuschpegel',
-                statusElevated: 'Erhöht – Exposition beobachten',
-                statusLoud: 'Laut – Risiko für das Gehör',
-                statusVeryLoud: 'Sehr laut – gefährlicher Pegel',
-                warningVeryQuiet: 'Sehr ruhige Umgebung. Sicher für unbegrenzte Exposition.',
-                warningSafe: 'Sicherer Geräuschpegel. Kein Risiko bei unbegrenzter Dauer.',
-                warningExtended: 'Längere Exposition kann ermüden. Begrenzen Sie die tägliche Lärmbelastung, wenn möglich.',
-                warning8h: 'Maximal sichere Exposition: <strong>8 Stunden</strong>. Für längere Dauer Gehörschutz tragen.',
-                warning4h: 'Maximal sichere Exposition: <strong>4 Stunden</strong>. Gehörschutz empfohlen.',
-                warning2h: 'Maximal sichere Exposition: <strong>2 Stunden</strong>. Tragen Sie Gehörschutz!',
-                warning1h: 'Maximal sichere Exposition: <strong>1 Stunde</strong>. Hohes Schadensrisiko!',
-                warning30m: 'Maximal sichere Exposition: <strong>30 Minuten</strong>. Schützen Sie Ihre Ohren!',
-                warning15m: 'Maximal sichere Exposition: <strong>15 Minuten</strong>. Gefährlicher Pegel!',
-                warning7m: 'Maximal sichere Exposition: <strong>7–8 Minuten</strong>. Sehr gefährlich!',
-                warning3m: 'Maximal sichere Exposition: <strong>3–4 Minuten</strong>. Ernstes Risiko!',
-                warning1m: 'Maximal sichere Exposition: <strong>1–2 Minuten</strong>. Verlassen Sie den Bereich sofort!',
-                warningLess1m: 'Maximal sichere Exposition: <strong>weniger als 1 Minute</strong>. Akute Gefahr!',
-                warningImmediate: '<strong>SOFORTIGES RISIKO FÜR HÖRSCHÄDEN!</strong> Verlassen Sie den Bereich jetzt!',
+                statusStopped: 'Messung gestoppt',
+                statusQuiet: 'Leise - Sichere Umgebung',
+                statusModerate: 'Mäßig - Normaler Lärm',
+                statusElevated: 'Erhöht - Exposition überwachen',
+                statusLoud: 'Laut - Gehörrisiko',
+                statusVeryLoud: 'Sehr laut - Gefährlicher Pegel',
+                warningVeryQuiet: 'Sehr ruhige Umgebung. Sicher für unbegrenzte Zeit.',
+                warningSafe: 'Sicherer Lärmpegel. Kein Risiko bei unbegrenzter Dauer.',
+                warningExtended: 'Längere Exposition kann ermüden. Begrenzen Sie die tägliche Dosis wenn möglich.',
+                warning8h: 'Maximale sichere Exposition: <strong>8 Stunden</strong>. Gehörschutz empfohlen.',
+                warning4h: 'Maximale sichere Exposition: <strong>4 Stunden</strong>. Gehörschutz empfohlen.',
+                warning2h: 'Maximale sichere Exposition: <strong>2 Stunden</strong>. Gehörschutz tragen!',
+                warning1h: 'Maximale sichere Exposition: <strong>1 Stunde</strong>. Hohes Risiko!',
+                warning30m: 'Maximale sichere Exposition: <strong>30 Minuten</strong>. Ohren schützen!',
+                warning15m: 'Maximale sichere Exposition: <strong>15 Minuten</strong>. Gefährlicher Pegel!',
+                warning7m: 'Maximale sichere Exposition: <strong>7-8 Minuten</strong>. Sehr gefährlich!',
+                warning3m: 'Maximale sichere Exposition: <strong>3-4 Minuten</strong>. Ernstes Risiko!',
+                warning1m: 'Maximale sichere Exposition: <strong>1-2 Minuten</strong>. Sofort verlassen!',
+                warningLess1m: 'Maximale sichere Exposition: <strong>weniger als 1 Minute</strong>. Unmittelbare Gefahr!',
+                warningImmediate: '<strong>UNMITTELBARE GEHÖRSCHÄDEN!</strong> Bereich sofort verlassen!',
                 labelStatus: '✅ Status:',
                 labelCaution: '⚠️ Vorsicht:',
                 labelWarning: '⚠️ Warnung:',
                 labelDanger: '🚨 GEFAHR:',
                 reportSafe: 'Sichere Umgebung',
-                reportCaution: 'Vorsicht erforderlich',
-                reportHigh: 'Hoher Geräuschpegel',
-                errorMic: 'Mikrofonzugriff nicht möglich. Bitte stellen Sie sicher, dass Sie die Berechtigung erteilt haben.',
+                reportCaution: 'Vorsicht geboten',
+                reportHigh: 'Hoher Lärmpegel',
+                errorMic: 'Zugriff auf Mikrofon nicht möglich. Bitte überprüfen Sie die Berechtigungen.',
                 errorReport: 'Bericht konnte nicht erstellt werden. Bitte versuchen Sie es erneut.'
             };
             
@@ -971,4 +1001,3 @@
     </script>
 </body>
 </html>
-

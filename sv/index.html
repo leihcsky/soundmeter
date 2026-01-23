@@ -152,6 +152,14 @@
             "@type": "Answer",
             "text": "Enligt NIOSH/CDC är ljudnivåer under 70 dB i allmänhet säkra vid långvarig exponering. Gränsen för yrkesmässig exponering är 85 dB under 8 timmar. Nivåer över 85 dB kan orsaka hörselskador vid långvarig exponering."
           }
+        },
+        {
+          "@type": "Question",
+          "name": "Kan jag använda detta på mobila enheter?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja! Denna ljudmätare fungerar på både stationära och mobila enheter (iOS Safari, Chrome Mobile, etc.). Tillåt bara mikrofonåtkomst när du uppmanas att börja mäta."
+          }
         }
       ]
     }
@@ -298,150 +306,118 @@
     <!-- Main Content -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <!-- Sound Meter Display -->
-        <section class="mb-4">
-            <div class="bg-white rounded-2xl shadow-xl p-6 sm:p-8">
-                <!-- Compact Layout with Icon and Display -->
-                <div class="flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-12 mb-4">
-                    <!-- Status Indicator -->
-                    <div id="statusIndicator" class="flex-shrink-0">
-                        <div id="statusIcon" class="relative w-24 h-24 sm:w-28 sm:h-28">
-                            <div class="absolute inset-0 rounded-full gradient-moderate flex items-center justify-center">
-                                <svg class="w-12 h-12 sm:w-14 sm:h-14 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15.536a5 5 0 001.414 1.414m2.828-9.9a9 9 0 000 12.728M12 12v.01"></path>
-                                </svg>
+        <section class="mb-6 bg-white rounded-2xl shadow-xl p-4 sm:p-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-start">
+                <!-- Left Column: Gauge & Controls -->
+                <div class="flex flex-col h-full justify-center">
+                    <div>
+                        <!-- Header with Icon & Status -->
+                        <div class="flex items-center gap-8 mb-8">
+                            <!-- Left: Large Icon -->
+                            <div id="statusIcon" class="relative w-32 h-32 flex-shrink-0">
+                                <div class="absolute inset-0 rounded-full gradient-moderate flex items-center justify-center">
+                                    <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15.536a5 5 0 001.414 1.414m2.828-9.9a9 9 0 000 12.728M12 12v.01"></path>
+                                    </svg>
+                                </div>
+                                <div id="pulseRing" class="absolute inset-0 rounded-full gradient-moderate pulse-ring" style="display: none;"></div>
                             </div>
-                            <div id="pulseRing" class="absolute inset-0 rounded-full gradient-moderate pulse-ring" style="display: none;"></div>
+                            
+                            <!-- Right: Value & Status -->
+                            <div class="flex flex-col items-start text-left">
+                                <!-- Main Value Display -->
+                                <div class="flex items-baseline gap-2 mb-2">
+                                    <div id="decibelValue" class="text-8xl font-bold text-gray-400 leading-none tracking-tight">0.0</div>
+                                    <div class="text-3xl text-gray-400 font-medium">dB</div>
+                                </div>
+                                
+                                <div id="statusText" class="text-2xl font-bold text-gray-800 leading-tight">Klicka på Start</div>
+                                <div id="statistics" class="hidden flex items-center gap-3 text-sm mt-2">
+                                    <span class="text-gray-500">Min: <b id="minValue" class="text-green-600">--</b></span>
+                                    <span class="text-gray-500">Medel: <b id="avgValue" class="text-blue-600">--</b></span>
+                                    <span class="text-gray-500">Max: <b id="maxValue" class="text-red-600">--</b></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Warning Box -->
+                        <div id="exposureWarning" class="mb-6 p-4 bg-gray-50 border border-gray-200 rounded-xl">
+                            <p class="text-sm text-gray-600"><strong>✅ Status:</strong> <span id="exposureTime">Redo att mäta</span></p>
+                        </div>
+                        
+                        <!-- Tips & Info -->
+                        <div class="space-y-3 mb-6">
+                            <div class="flex items-start gap-2 text-xs text-gray-500 bg-blue-50 p-3 rounded-lg border border-blue-100">
+                                <span class="text-base">💡</span>
+                                <p class="leading-relaxed"><strong class="text-blue-700">Tips:</strong> För en noggrann analys, mät i minst 30-60 sekunder för att jämna ut plötsliga ljud.</p>
+                            </div>
+                            <p class="text-xs text-gray-400 italic">
+                                <strong>Obs:</strong> Ungefärliga värden. Tyst rum ≈ 30-40 dB, samtal ≈ 60 dB, trafik ≈ 80 dB.
+                            </p>
                         </div>
                     </div>
 
-                    <!-- Decibel Display and Status -->
-                    <div class="text-center lg:text-left flex-grow">
-                        <!-- Current Value -->
-                        <div class="flex items-baseline justify-center lg:justify-start gap-2 mb-2">
-                            <div id="decibelValue" class="text-6xl sm:text-7xl font-bold text-gray-400 leading-none">
-                                0.0
-                            </div>
-                            <div class="text-3xl sm:text-4xl text-gray-500 font-medium">dB</div>
-                        </div>
-                        
-                        <!-- Statistics (Min/Avg/Max) -->
-                        <div id="statistics" class="hidden flex items-center justify-center lg:justify-start gap-4 mb-2 text-sm">
-                            <div class="flex items-center gap-1">
-                                <span class="text-gray-500">Min:</span>
-                                <span id="minValue" class="font-semibold text-green-600">--</span>
-                            </div>
-                            <div class="flex items-center gap-1">
-                                <span class="text-gray-500">Medel:</span>
-                                <span id="avgValue" class="font-semibold text-blue-600">--</span>
-                            </div>
-                            <div class="flex items-center gap-1">
-                                <span class="text-gray-500">Max:</span>
-                                <span id="maxValue" class="font-semibold text-red-600">--</span>
-                            </div>
-                        </div>
-                        
-                        <div id="statusText" class="text-lg sm:text-xl font-semibold text-gray-700 mb-2">
-                            Tryck på Start för att mäta
-                        </div>
-                        
-                        <!-- Safe Exposure Warning -->
-                        <div id="exposureWarning" class="mb-3 p-2 bg-green-50 border border-green-300 rounded-lg">
-                            <p class="text-xs text-green-900"><strong>✅ Status:</strong> <span id="exposureTime">Klicka på Start för att börja mäta</span></p>
-                        </div>
-                        
-                        <!-- Control Button -->
-                        <div class="flex flex-col sm:flex-row gap-4 sm:gap-8">
-                            <button id="startBtn" class="flex-1 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-8 rounded-full text-base shadow-lg transform transition hover:scale-105 active:scale-95">
-                                Starta Mätning
-                            </button>
-                            <button id="downloadBtn" disabled class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold py-3 px-6 rounded-full text-base shadow-sm border border-gray-300 transform transition hover:scale-105 active:scale-95 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none disabled:shadow-none disabled:hover:bg-gray-100">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-                                Spara Rapport
-                            </button>
-                        </div>
+                    <!-- Control Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-3 mt-8">
+                        <button id="startBtn" class="flex-1 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-4 px-6 rounded-xl shadow-md transform transition hover:scale-105 active:scale-95 text-base">
+                            Starta Mätning
+                        </button>
+                        <button id="downloadBtn" disabled class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold py-4 px-6 rounded-xl shadow-sm border border-gray-300 transform transition hover:scale-105 active:scale-95 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed text-base">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                            Spara Rapport
+                        </button>
                     </div>
                 </div>
 
-                <!-- Visual Level Indicator with Scale -->
-                <div class="max-w-3xl mx-auto mb-3">
-                    <div class="flex items-start gap-2">
-                        <!-- Scale container -->
-                        <div class="flex-1">
-                            <!-- Scale numbers (top) -->
-                            <div class="relative h-5 mb-0.5">
-                                <div class="absolute inset-0 flex pointer-events-none">
-                                    <span class="absolute text-xs font-medium text-gray-600" style="left: 0%; transform: translateX(-50%)">0</span>
-                                    <span class="absolute text-xs font-medium text-gray-600" style="left: 30.77%; transform: translateX(-50%)">40</span>
-                                    <span class="absolute text-xs font-medium text-gray-600" style="left: 53.85%; transform: translateX(-50%)">70</span>
-                                    <span class="absolute text-xs font-medium text-gray-600" style="left: 65.38%; transform: translateX(-50%)">85</span>
-                                    <span class="absolute text-xs font-medium text-gray-600" style="left: 76.92%; transform: translateX(-50%)">100</span>
-                                    <span class="absolute text-xs font-medium text-gray-600" style="left: 92.31%; transform: translateX(-50%)">120</span>
-                                </div>
+                <!-- Right Column: Visualizations -->
+                <div class="flex flex-col gap-4">
+                    <!-- Spectrum -->
+                    <div class="bg-gray-50 rounded-xl border border-gray-300 p-3 flex flex-col h-56">
+                        <h3 class="text-xs font-semibold text-gray-500 mb-2 flex items-center gap-1">
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                            Frekvens
+                        </h3>
+                        <div class="flex-1 relative overflow-hidden rounded">
+                            <canvas id="spectrumCanvas" class="absolute inset-0 w-full h-full"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- History -->
+                    <div class="bg-gray-50 rounded-xl border border-gray-300 p-3 flex flex-col h-56">
+                        <h3 class="text-xs font-semibold text-gray-500 mb-2 flex items-center gap-1">
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                            Historik (30s)
+                        </h3>
+                        <div class="flex-1 relative overflow-hidden rounded">
+                            <canvas id="historyCanvas" class="absolute inset-0 w-full h-full"></canvas>
+                        </div>
+                    </div>
+                    
+                    <!-- Scale Bar (Bottom of Right Column) -->
+                    <div class="mt-2 pt-2 border-t border-gray-300">
+                        <div class="relative h-6">
+                            <!-- Labels -->
+                            <div class="absolute inset-0 flex pointer-events-none text-[10px] text-gray-400 font-medium">
+                                <span class="absolute left-[0%] -translate-x-1/2">0</span>
+                                <span class="absolute left-[30.7%] -translate-x-1/2">40</span>
+                                <span class="absolute left-[53.8%] -translate-x-1/2">70</span>
+                                <span class="absolute left-[65.3%] -translate-x-1/2">85</span>
+                                <span class="absolute left-[76.9%] -translate-x-1/2">100</span>
+                                <span class="absolute left-[92.3%] -translate-x-1/2">120 dB</span>
                             </div>
-                            
-                            <!-- Small tick marks (subtle) -->
-                            <div class="relative h-2 mb-0.5">
-                                <div class="absolute inset-0 flex pointer-events-none">
-                                    <div class="absolute" style="left: 0%">
-                                        <div class="w-px h-2 bg-gray-400"></div>
-                                    </div>
-                                    <div class="absolute" style="left: 30.77%">
-                                        <div class="w-px h-2 bg-gray-400"></div>
-                                    </div>
-                                    <div class="absolute" style="left: 53.85%">
-                                        <div class="w-px h-2 bg-gray-400"></div>
-                                    </div>
-                                    <div class="absolute" style="left: 65.38%">
-                                        <div class="w-px h-2 bg-gray-400"></div>
-                                    </div>
-                                    <div class="absolute" style="left: 76.92%">
-                                        <div class="w-px h-2 bg-gray-400"></div>
-                                    </div>
-                                    <div class="absolute" style="left: 92.31%">
-                                        <div class="w-px h-2 bg-gray-400"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Progress bar -->
-                            <div class="h-5 bg-gray-200 rounded-full overflow-hidden shadow-inner">
+                            <!-- Bar -->
+                            <div class="absolute bottom-0 left-0 right-0 h-2 bg-gray-200 rounded-full overflow-hidden">
                                 <div id="levelBar" class="h-full gradient-moderate transition-all duration-300 rounded-full" style="width: 0%"></div>
                             </div>
-                            
-                            <!-- Label descriptions (bottom) -->
-                            <div class="relative mt-1">
-                                <div class="absolute inset-0 flex pointer-events-none">
-                                    <span class="absolute text-xs text-gray-500" style="left: 0%; transform: translateX(-50%)">Tyst</span>
-                                    <span class="absolute text-xs text-green-600" style="left: 30.77%; transform: translateX(-50%)">Lugnt</span>
-                                    <span class="absolute text-xs text-blue-600" style="left: 53.85%; transform: translateX(-50%)">Säkert</span>
-                                    <span class="absolute text-xs text-yellow-600" style="left: 65.38%; transform: translateX(-50%)">Gräns</span>
-                                    <span class="absolute text-xs text-orange-600" style="left: 76.92%; transform: translateX(-50%)">Skadligt</span>
-                                    <span class="absolute text-xs text-red-600" style="left: 92.31%; transform: translateX(-50%)">Fara</span>
-                                </div>
-                            </div>
                         </div>
-                        
-                        <!-- Unit label on the right -->
-                        <div class="flex-none text-xs font-medium text-gray-500 mt-0">
-                            dB
+                        <div class="relative h-4 text-[10px] text-gray-400 mt-1 font-medium">
+                            <span class="absolute left-0">Tyst</span>
+                            <span class="absolute left-[30.7%] -translate-x-1/2 text-green-600">Lugnt</span>
+                            <span class="absolute left-[53.8%] -translate-x-1/2 text-blue-600">Säkert</span>
+                            <span class="absolute left-[65.3%] -translate-x-1/2 text-yellow-600">Gräns</span>
+                            <span class="absolute left-[76.9%] -translate-x-1/2 text-orange-600">Skadligt</span>
+                            <span class="absolute left-[92.3%] -translate-x-1/2 text-red-600">Farligt</span>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Calibration Info -->
-                <div class="max-w-3xl mx-auto mt-6">
-                    <div class="bg-blue-50 border border-blue-200 rounded-lg p-2.5">
-                        <div class="flex items-start">
-                            <svg class="w-4 h-4 text-blue-600 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
-                            <div class="text-xs text-blue-800">
-                                <strong>Obs:</strong> Uppskattade värden. Tyst rum ≈ 30-40 dB, samtal ≈ 60 dB, trafik ≈ 80 dB.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-2 text-center text-xs text-gray-500">
-                        <strong>💡 Tips:</strong> För noggrann analys, mät i minst 30-60 sekunder för att jämna ut plötsliga ljud.
                     </div>
                 </div>
             </div>
@@ -543,6 +519,10 @@
                     </p>
                 </div>
             </section>
+        </div>
+
+        <!-- Additional Information -->
+        <div class="mt-6 space-y-6">
 
             <!-- Safe Exposure Time Chart -->
             <section class="bg-white rounded-xl shadow-lg p-6">
@@ -769,55 +749,140 @@
                             <ul class="list-disc list-inside text-sm space-y-2">
                                 <li><strong>Säker Lyssning:</strong> Kalibrera volymen på ditt högtalarsystem för att hålla dig inom ett säkert intervall på 70-80 dB för filmer.</li>
                                 <li><strong>Evenemangsövervakning:</strong> Kontrollera om konserten eller klubben du besöker överskrider farliga 100 dB-nivåer.</li>
+                                <li><strong>Datorspel:</strong> Mät datorfläktens ljud under belastning för att optimera ditt tysta PC-bygge.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <h3 class="font-semibold text-gray-900 mb-2 flex items-center">
+                                <span class="text-xl mr-2">🩺</span> Hälsa & Välmående
+                            </h3>
+                            <ul class="list-disc list-inside text-sm space-y-2">
+                                <li><strong>Tinnitus-hantering:</strong> Hjälp till att identifiera miljöer som kan utlösa ringande i öronen.</li>
+                                <li><strong>Barnsäkerhet:</strong> Se till att barnkammarmiljön är lugnande tyst och att white noise-maskiner inte är för höga.</li>
+                                <li><strong>Stressreducering:</strong> Korrelera dina stressnivåer med omgivande buller för att bättre hantera dina sinnesintryck.</li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </section>
+
+            <!-- Technical Insight Section -->
+            <section class="bg-white rounded-xl shadow-lg p-6">
+                <h2 class="text-xl font-bold text-gray-900 mb-4">Hur det fungerar: Webbläsarbaserad ljudanalys</h2>
+                <div class="space-y-4 text-sm text-gray-600">
+                    <p>
+                        Till skillnad från traditionella ljudnivåmätare som använder specialiserade hårdvarusensorer utnyttjar detta verktyg <strong>Web Audio API</strong>-standarden som är inbyggd i moderna webbläsare (Chrome, Edge, Safari, Firefox). Här är en förenklad uppdelning av processen:
+                    </p>
+                    <ol class="list-decimal list-inside space-y-2 ml-2">
+                        <li><strong>Signalfångst:</strong> Webbläsaren begär åtkomst till din enhets mikrofon (inström).</li>
+                        <li><strong>Digital sampling:</strong> De råa analoga ljudvågorna omvandlas till digitala datapaket (prover) tusentals gånger per sekund.</li>
+                        <li><strong>Frekvensanalys:</strong> Vi använder en algoritm som kallas Fast Fourier Transform (FFT) för att analysera intensiteten hos olika ljudfrekvenser.</li>
+                        <li><strong>RMS-beräkning:</strong> Root Mean Square (RMS)-amplituden beräknas för att bestämma ljudsignalens genomsnittliga effekt.</li>
+                        <li><strong>Decibelmappning:</strong> Detta råa digitala värde mappas till en decibel (dB)-skala med hjälp av en kalibreringsalgoritm utformad för att approximera standardrumsakustik.</li>
+                    </ol>
+                    <div class="bg-blue-50 border-l-4 border-blue-500 p-3 mt-4">
+                        <p class="text-xs">
+                            <strong>Anmärkning om kalibrering:</strong> Eftersom varje mikrofon (smartphone, bärbar dator, webbkamera) har olika känslighetshårdvara, kan en webbaserad mätare aldrig vara 100% exakt utan extern hårdvarukalibrering. Vi använder en "bästa passform"-kurva som stämmer överens med vanliga konsumentenhetsmikrofoner för att ge de mest användbara relativa mätningarna som möjligt.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ Section -->
+            <section class="bg-white rounded-xl shadow-lg p-6">
+                <h2 class="text-xl font-bold text-gray-900 mb-4">Vanliga frågor</h2>
+                <div class="space-y-4">
+                    <div class="border-l-4 border-blue-500 pl-4">
+                        <h3 class="font-semibold text-sm text-gray-900 mb-1">Är denna ljudmätare exakt?</h3>
+                        <p class="text-xs text-gray-600 mb-1">Även om denna online-ljudmätare ger goda uppskattningar, kanske den inte matchar professionella enheter. Noggrannheten beror på din enhets mikrofonkvalitet och kalibrering. För exakta mätningar, överväg professionell utrustning från certifierade leverantörer.</p>
+                        <a href="https://www.forbes.com/health/hearing-aids/decibel-levels/" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline">Jämför decibelnivåer →</a>
+                    </div>
+                    <div class="border-l-4 border-blue-500 pl-4">
+                        <h3 class="font-semibold text-sm text-gray-900 mb-1">Varför måste jag tillåta mikrofonåtkomst?</h3>
+                        <p class="text-xs text-gray-600">Ljudmätaren kräver mikrofonåtkomst för att mäta omgivande bullernivåer. Ditt ljud bearbetas lokalt i din webbläsare och spelas aldrig in, lagras eller överförs till någon server. Din integritet är skyddad.</p>
+                    </div>
+                    <div class="border-l-4 border-blue-500 pl-4">
+                        <h3 class="font-semibold text-sm text-gray-900 mb-1">Vad är en säker ljudnivå?</h3>
+                        <p class="text-xs text-gray-600 mb-1">Enligt <strong>NIOSH/CDC</strong> är ljudnivåer under <strong>70 dB</strong> generellt säkra för långvarig exponering. Gränsvärdet för yrkesmässig exponering är <strong>85 dB i 8 timmar</strong>. Nivåer över 85 dB kan orsaka hörselskador vid långvarig exponering, och allt över 120 dB kan orsaka omedelbar skada.</p>
+                        <a href="https://www.cdc.gov/niosh/noise/about/noise.html" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline">NIOSH Riktlinjer →</a>
+                    </div>
+                    <div class="border-l-4 border-blue-500 pl-4">
+                        <h3 class="font-semibold text-sm text-gray-900 mb-1">Kan jag använda detta på mobila enheter?</h3>
+                        <p class="text-xs text-gray-600">Ja! Denna ljudmätare fungerar på både stationära och mobila enheter (iOS Safari, Chrome Mobile, etc.). Tillåt bara mikrofonåtkomst när du uppmanas att börja mäta. Observera att mikrofonkvaliteten varierar mellan enheter.</p>
+                    </div>
+                    <div class="border-l-4 border-blue-500 pl-4">
+                        <h3 class="font-semibold text-sm text-gray-900 mb-1">Hur skadar buller hörseln?</h3>
+                        <p class="text-xs text-gray-600 mb-1">Höga ljud skadar de små hårcellerna i innerörats snäcka. Dessa celler omvandlar ljudvibrationer till elektriska signaler för din hjärna. När de väl är skadade regenereras de inte, vilket leder till permanent hörselnedsättning. Hög intensitet eller långvarig exponering påskyndar denna skada.</p>
+                        <a href="https://www.nidcd.nih.gov/health/how-loud-too-loud" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline">Läs mer hos NIDCD →</a>
+                    </div>
+                    <div class="border-l-4 border-blue-500 pl-4">
+                        <h3 class="font-semibold text-sm text-gray-900 mb-1">Vad är "3 dB-växelkursen"?</h3>
+                        <p class="text-xs text-gray-600">NIOSH 3 dB-växelkursen innebär att för varje 3 dB ökning av ljudnivån halveras den säkra exponeringstiden. Till exempel: 85 dB = 8 timmar, 88 dB = 4 timmar, 91 dB = 2 timmar, och så vidare. Detta exponentiella förhållande visar varför små dB-ökningar spelar stor roll.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Authoritative Sources -->
+            <section class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl shadow-lg p-6 border border-blue-200">
+                <h2 class="text-xl font-bold text-gray-900 mb-3">📚 Auktoritativa källor och referenser</h2>
+                <p class="text-sm text-gray-700 mb-4">
+                    All information på denna sida baseras på riktlinjer och forskning från internationellt erkända hälso- och säkerhetsorganisationer:
+                </p>
+                <div class="grid md:grid-cols-2 gap-3">
+                    <a href="https://www.cdc.gov/niosh/noise/about/noise.html" target="_blank" rel="noopener" class="block p-3 bg-white rounded-lg border border-gray-200 hover:shadow-md transition">
+                        <h3 class="font-semibold text-sm text-gray-900 mb-1">🏛️ NIOSH/CDC</h3>
+                        <p class="text-xs text-gray-600">National Institute for Occupational Safety and Health - Buller- och hörselnedsättningsförebyggande</p>
+                    </a>
+                    <a href="https://www.who.int/news-room/questions-and-answers/item/deafness-and-hearing-loss-safe-listening" target="_blank" rel="noopener" class="block p-3 bg-white rounded-lg border border-gray-200 hover:shadow-md transition">
+                        <h3 class="font-semibold text-sm text-gray-900 mb-1">🌍 Världshälsoorganisationen (WHO)</h3>
+                        <p class="text-xs text-gray-600">Riktlinjer för säker lyssning och förebyggande av hörselnedsättning</p>
+                    </a>
+                    <a href="https://www.nidcd.nih.gov/health/how-loud-too-loud" target="_blank" rel="noopener" class="block p-3 bg-white rounded-lg border border-gray-200 hover:shadow-md transition">
+                        <h3 class="font-semibold text-sm text-gray-900 mb-1">🔬 NIDCD (NIH)</h3>
+                        <p class="text-xs text-gray-600">National Institute on Deafness and Other Communication Disorders</p>
+                    </a>
+                    <a href="https://hearinghealthfoundation.org/keeplistening/decibels" target="_blank" rel="noopener" class="block p-3 bg-white rounded-lg border border-gray-200 hover:shadow-md transition">
+                        <h3 class="font-semibold text-sm text-gray-900 mb-1">👂 Hearing Health Foundation</h3>
+                        <p class="text-xs text-gray-600">Decibelexponeringsdiagram och utbildning om säker lyssning</p>
+                    </a>
+                    <a href="https://www.who.int/europe/news-room/fact-sheets/item/noise" target="_blank" rel="noopener" class="block p-3 bg-white rounded-lg border border-gray-200 hover:shadow-md transition">
+                        <h3 class="font-semibold text-sm text-gray-900 mb-1">🇪🇺 WHO Europa</h3>
+                        <p class="text-xs text-gray-600">Forskning om omgivningsbuller och hälsoeffekter</p>
+                    </a>
+                    <a href="https://www.forbes.com/health/hearing-aids/decibel-levels/" target="_blank" rel="noopener" class="block p-3 bg-white rounded-lg border border-gray-200 hover:shadow-md transition">
+                        <h3 class="font-semibold text-sm text-gray-900 mb-1">📰 Forbes Health</h3>
+                        <p class="text-xs text-gray-600">Decibelnivåer och guide för hörselhälsa</p>
+                    </a>
+                </div>
+                <p class="text-xs text-gray-600 mt-4 italic">
+                    Senast uppdaterad: Januari 2026. Vi granskar kontinuerligt vårt innehåll mot de senaste vetenskapliga riktlinjerna för att säkerställa noggrannhet.
+                </p>
+            </section>
         </div>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-white border-t border-gray-200 mt-8">
+    <footer class="bg-gray-900 text-white mt-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- About -->
-                <div>
-                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase mb-4">Om Oss</h3>
-                    <p class="text-base text-gray-500">
-                        RealtimeSoundMeter.org tillhandahåller gratis, tillgängliga ljudmätningsverktyg för att öka medvetenheten om hörselhälsa och bullerföroreningar.
-                    </p>
+            <div class="text-center">
+                <h3 class="text-base font-semibold mb-2">Ljudmätare - Miljöbullerdetektering</h3>
+                <p class="text-sm text-gray-400 mb-4">Skydda din hörsel genom att övervaka ljudnivåerna i din omgivning.</p>
+                <div class="flex justify-center gap-6 text-sm mb-4">
+                    <a href="../about.html" class="hover:text-blue-400 transition">Om Oss</a>
+                    <a href="../terms.html" class="hover:text-blue-400 transition">Villkor</a>
+                    <a href="../privacy.html" class="hover:text-blue-400 transition">Integritet</a>
+                    <a href="../disclaimer.html" class="hover:text-blue-400 transition">Ansvarsfriskrivning</a>
+                    <a href="../contact.html" class="hover:text-blue-400 transition">Kontakt</a>
                 </div>
                 
-                <!-- Quick Links -->
-                <div>
-                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase mb-4">Länkar</h3>
-                    <ul class="space-y-4">
-                        <li>
-                            <a href="../about.html" class="text-base text-gray-500 hover:text-gray-900">Om Oss</a>
-                        </li>
-                        <li>
-                            <a href="../privacy.html" class="text-base text-gray-500 hover:text-gray-900">Integritetspolicy</a>
-                        </li>
-                        <li>
-                            <a href="../terms.html" class="text-base text-gray-500 hover:text-gray-900">Användarvillkor</a>
-                        </li>
-                        <li>
-                            <a href="../contact.html" class="text-base text-gray-500 hover:text-gray-900">Kontakt</a>
-                        </li>
-                    </ul>
+                <div class="flex justify-center mb-6">
+                    <a href="https://toolfame.com/item/realtime-sound-meter" target="_blank" rel="noopener noreferrer"> 
+                        <img src="https://toolfame.com/badge-light.svg" alt="Featured on toolfame.com" style="height: 30px; width: auto;" /> 
+                    </a>
                 </div>
 
-                <!-- Disclaimer -->
-                <div>
-                    <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase mb-4">Ansvarsfriskrivning</h3>
-                    <p class="text-sm text-gray-500">
-                        Denna webbplats är endast avsedd för informationsändamål. Mätningar kan variera beroende på enhetens hårdvara. Använd inte för kritiska säkerhetsmätningar eller juridiska ändamål.
-                    </p>
-                    <div class="mt-4 flex space-x-6">
-                        <span class="text-gray-400">&copy; 2026 RealtimeSoundMeter.org</span>
-                    </div>
-                </div>
+                <p class="text-xs text-gray-500">© 2026 RealtimeSoundMeter.org. Alla rättigheter förbehållna.</p>
             </div>
         </div>
     </footer>
@@ -886,6 +951,7 @@
     </div>
 
     <!-- JavaScript -->
+    <script src="../js/visualizer.js"></script>
     <script src="../js/sound-meter.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {

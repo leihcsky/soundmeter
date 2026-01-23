@@ -21,7 +21,7 @@
     <!-- Primary Meta Tags -->
     <title>騒音計 - 無料オンラインデシベルメーター | リアルタイム騒音レベル測定</title>
     <meta name="title" content="騒音計 - 無料オンラインデシベルメーター | リアルタイム騒音レベル測定">
-    <meta name="description" content="周囲の環境騒音をデシベル (dB) で測定できる無料オンライン騒音計。静かな環境から危険なレベルまで、リアルタイムで騒音レベルを確認できます。">
+    <meta name="description" content="周囲の環境騒音をデシベル (dB) で測定できる無料オンライン騒音計。静かな環境から危険なレベルまで、リアルタイムで騒音レベルを確認できます。WHOとNIOSHの基準に基づく安全ガイドライン付き。">
     <meta name="keywords" content="騒音計, デシベル, デジタル騒音計, 騒音レベル, dBメーター, オンライン騒音計, 騒音チェッカー, 聴覚保護, NIOSH, WHO">
     <meta name="author" content="RealtimeSoundMeter.org">
     <meta name="robots" content="index, follow">
@@ -31,7 +31,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://realtimesoundmeter.org/ja/">
     <meta property="og:site_name" content="騒音計">
-    <meta property="og:title" content="騒音計 - 無料オンラインデシベルメーター">
+    <meta property="og:title" content="騒音計 - 無料オンラインデシベルメーター | リアルタイム騒音レベル測定">
     <meta property="og:description" content="無料のオンライン騒音計で周囲の騒音レベルをリアルタイムに測定。静かな環境から危険なレベルまで瞬時にチェックできます。">
     <meta property="og:image" content="https://realtimesoundmeter.org/apple-touch-icon.svg">
     <meta property="og:image:width" content="180">
@@ -158,7 +158,7 @@
           "name": "スマートフォンなどのモバイル端末でも利用できますか？",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "はい。iOS Safari や Chrome モバイルなど、最新のブラウザを搭載したスマートフォンやタブレットでも利用できます。表示されるダイアログでマイクアクセスを許可すると測定が開始されます。端末ごとにマイクの性能が異なる点にはご注意ください。"
+            "text": "はい。iOS Safari や Chrome モバイルなど、最新のブラウザを搭載したスマートフォンやタブレットでも利用できます。表示されるダイアログでマイクアクセスを許可すると測定が開始されます。"
           }
         }
       ]
@@ -243,7 +243,9 @@
     </style>
 </head>
 <body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
     <header class="bg-white shadow-sm relative">
+        <!-- Language Switcher -->
         <div class="absolute top-4 right-4 sm:right-6 z-50">
             <div class="relative inline-block text-left group">
                 <button type="button" class="inline-flex items-center justify-center w-full rounded-full border border-gray-200 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200">
@@ -269,21 +271,21 @@
                         <a href="/ru/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors">
                             <span>Русский</span>
                         </a>
-                    <a href="/sv/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors">
-                        <span>Svenska</span>
-                    </a>
-                    <a href="/fr/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors">
-                        <span>Français</span>
-                    </a>
-                    <a href="/de/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors">
-                        <span>Deutsch</span>
-                    </a>
-                    <a href="/ja/" class="flex items-center px-4 py-3 text-sm text-blue-600 bg-blue-50 font-semibold transition-colors">
-                        <span>日本語</span>
-                    </a>
-                    <a href="/cn/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors">
-                        <span>简体中文</span>
-                    </a>
+                        <a href="/sv/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors">
+                            <span>Svenska</span>
+                        </a>
+                        <a href="/fr/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors">
+                            <span>Français</span>
+                        </a>
+                        <a href="/de/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors">
+                            <span>Deutsch</span>
+                        </a>
+                        <a href="/ja/" class="flex items-center px-4 py-3 text-sm text-blue-600 bg-blue-50 font-semibold transition-colors">
+                            <span>日本語</span>
+                        </a>
+                        <a href="/cn/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors">
+                            <span>简体中文</span>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -291,7 +293,7 @@
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
             <div class="text-center">
-                <h1 class="sr-only">オンライン騒音計 (デシベルメーター) - 周囲の騒音レベルをリアルタイム測定</h1>
+                <h1 class="sr-only">騒音計 (デシベルメーター) - 周囲の騒音レベルをリアルタイム測定</h1>
                 <div class="flex items-center justify-center gap-3 mb-1">
                     <img src="../logo.svg" alt="騒音計 - オンラインデシベルメーター" class="h-10">
                 </div>
@@ -301,564 +303,565 @@
         </div>
     </header>
 
+    <!-- Main Content -->
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-        <section class="mb-4">
-            <div class="bg-white rounded-2xl shadow-xl p-6 sm:p-8">
-                <div class="flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-12 mb-4">
-                    <div id="statusIndicator" class="flex-shrink-0">
-                        <div id="statusIcon" class="relative w-24 h-24 sm:w-28 sm:h-28">
-                            <div class="absolute inset-0 rounded-full gradient-moderate flex items-center justify-center">
-                                <svg class="w-12 h-12 sm:w-14 sm:h-14 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15.536a5 5 0 001.414 1.414m2.828-9.9a9 9 0 000 12.728M12 12v.01"></path>
-                                </svg>
+        <!-- Unified Dashboard -->
+        <section class="mb-6 bg-white rounded-2xl shadow-xl p-4 sm:p-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-start">
+                <!-- Left Column: Gauge & Controls -->
+                <div class="flex flex-col h-full justify-center">
+                    <div>
+                        <!-- Header with Icon & Status -->
+                        <div class="flex items-center gap-8 mb-8">
+                            <!-- Left: Large Icon -->
+                            <div id="statusIcon" class="relative w-32 h-32 flex-shrink-0">
+                                <div class="absolute inset-0 rounded-full gradient-moderate flex items-center justify-center">
+                                    <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15.536a5 5 0 001.414 1.414m2.828-9.9a9 9 0 000 12.728M12 12v.01"></path>
+                                    </svg>
+                                </div>
+                                <div id="pulseRing" class="absolute inset-0 rounded-full gradient-moderate pulse-ring" style="display: none;"></div>
                             </div>
-                            <div id="pulseRing" class="absolute inset-0 rounded-full gradient-moderate pulse-ring" style="display: none;"></div>
+                            
+                            <!-- Right: Value & Status -->
+                            <div class="flex flex-col items-start text-left">
+                                <!-- Main Value Display -->
+                                <div class="flex items-baseline gap-2 mb-2">
+                                    <div id="decibelValue" class="text-8xl font-bold text-gray-400 leading-none tracking-tight">0.0</div>
+                                    <div class="text-3xl text-gray-400 font-medium">dB</div>
+                                </div>
+                                
+                                <div id="statusText" class="text-2xl font-bold text-gray-800 leading-tight">「測定を開始」をクリック</div>
+                                <div id="statistics" class="hidden flex items-center gap-3 text-sm mt-2">
+                                    <span class="text-gray-500">最小: <b id="minValue" class="text-green-600">--</b></span>
+                                    <span class="text-gray-500">平均: <b id="avgValue" class="text-blue-600">--</b></span>
+                                    <span class="text-gray-500">最大: <b id="maxValue" class="text-red-600">--</b></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Warning Box -->
+                        <div id="exposureWarning" class="mb-6 p-4 bg-gray-50 border border-gray-200 rounded-xl">
+                            <p class="text-sm text-gray-600"><strong>✅ ステータス:</strong> <span id="exposureTime">測定準備完了</span></p>
+                        </div>
+                        
+                        <!-- Tips & Info -->
+                        <div class="space-y-3 mb-6">
+                            <div class="flex items-start gap-2 text-xs text-gray-500 bg-blue-50 p-3 rounded-lg border border-blue-100">
+                                <span class="text-base">💡</span>
+                                <p class="leading-relaxed"><strong class="text-blue-700">ヒント:</strong> 正確な環境分析のために、30〜60秒間測定して突発的なノイズを平滑化することをお勧めします。</p>
+                            </div>
+                            <p class="text-xs text-gray-400 italic">
+                                <strong>注:</strong> 推定値です。静かな部屋 ≈ 30-40 dB、会話 ≈ 60 dB、交通騒音 ≈ 80 dB。
+                            </p>
                         </div>
                     </div>
 
-                    <div class="text-center lg:text-left flex-grow">
-                        <div class="flex items-baseline justify-center lg:justify-start gap-2 mb-2">
-                            <div id="decibelValue" class="text-6xl sm:text-7xl font-bold text-gray-400 leading-none">
-                                0.0
-                            </div>
-                            <div class="text-3xl sm:text-4xl text-gray-500 font-medium">dB</div>
-                        </div>
-                        
-                        <div id="statistics" class="hidden flex items-center justify-center lg:justify-start gap-4 mb-2 text-sm">
-                            <div class="flex items-center gap-1">
-                                <span class="text-gray-500">最小:</span>
-                                <span id="minValue" class="font-semibold text-green-600">--</span>
-                            </div>
-                            <div class="flex items-center gap-1">
-                                <span class="text-gray-500">平均:</span>
-                                <span id="avgValue" class="font-semibold text-blue-600">--</span>
-                            </div>
-                            <div class="flex items-center gap-1">
-                                <span class="text-gray-500">最大:</span>
-                                <span id="maxValue" class="font-semibold text-red-600">--</span>
-                            </div>
-                        </div>
-                        
-                        <div id="statusText" class="text-lg sm:text-xl font-semibold text-gray-700 mb-2">
-                            「測定を開始」をクリックして測定を始めてください
-                        </div>
-                        
-                        <div id="exposureWarning" class="mb-3 p-2 bg-green-50 border border-green-300 rounded-lg">
-                            <p class="text-xs text-green-900"><strong>✅ 状態:</strong> <span id="exposureTime">「測定を開始」をクリックすると計測が始まります</span></p>
-                        </div>
-                        
-                        <div class="flex flex-col sm:flex-row gap-4 sm:gap-8">
-                            <button id="startBtn" class="flex-1 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-8 rounded-full text-base shadow-lg transform transition hover:scale-105 active:scale-95">
-                                測定を開始
-                            </button>
-                            <button id="downloadBtn" disabled class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold py-3 px-6 rounded-full text-base shadow-sm border border-gray-300 transform transition hover:scale-105 active:scale-95 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none disabled:shadow-none disabled:hover:bg-gray-100">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-                                レポートを保存
-                            </button>
-                        </div>
+                    <!-- Control Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-3 mt-8">
+                        <button id="startBtn" class="flex-1 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-4 px-6 rounded-xl shadow-md transform transition hover:scale-105 active:scale-95 text-base">
+                            測定を開始
+                        </button>
+                        <button id="downloadBtn" disabled class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold py-4 px-6 rounded-xl shadow-sm border border-gray-300 transform transition hover:scale-105 active:scale-95 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed text-base">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                            レポートを保存
+                        </button>
                     </div>
                 </div>
 
-                <div class="max-w-3xl mx-auto mb-3">
-                    <div class="flex items-start gap-2">
-                        <div class="flex-1">
-                            <div class="relative h-5 mb-0.5">
-                                <div class="absolute inset-0 flex pointer-events-none">
-                                    <span class="absolute text-xs font-medium text-gray-600" style="left: 0%; transform: translateX(-50%)">0</span>
-                                    <span class="absolute text-xs font-medium text-gray-600" style="left: 30.77%; transform: translateX(-50%)">40</span>
-                                    <span class="absolute text-xs font-medium text-gray-600" style="left: 53.85%; transform: translateX(-50%)">70</span>
-                                    <span class="absolute text-xs font-medium text-gray-600" style="left: 65.38%; transform: translateX(-50%)">85</span>
-                                    <span class="absolute text-xs font-medium text-gray-600" style="left: 76.92%; transform: translateX(-50%)">100</span>
-                                    <span class="absolute text-xs font-medium text-gray-600" style="left: 92.31%; transform: translateX(-50%)">120</span>
-                                </div>
+                <!-- Right Column: Visualizations -->
+                <div class="flex flex-col gap-4">
+                    <!-- Spectrum -->
+                    <div class="bg-gray-50 rounded-xl border border-gray-300 p-3 flex flex-col h-56">
+                        <h3 class="text-xs font-semibold text-gray-500 mb-2 flex items-center gap-1">
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                            周波数スペクトル
+                        </h3>
+                        <div class="flex-1 relative overflow-hidden rounded">
+                            <canvas id="spectrumCanvas" class="absolute inset-0 w-full h-full"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- History -->
+                    <div class="bg-gray-50 rounded-xl border border-gray-300 p-3 flex flex-col h-56">
+                        <h3 class="text-xs font-semibold text-gray-500 mb-2 flex items-center gap-1">
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                            履歴 (30秒)
+                        </h3>
+                        <div class="flex-1 relative overflow-hidden rounded">
+                            <canvas id="historyCanvas" class="absolute inset-0 w-full h-full"></canvas>
+                        </div>
+                    </div>
+                    
+                    <!-- Scale Bar (Bottom of Right Column) -->
+                    <div class="mt-2 pt-2 border-t border-gray-300">
+                        <div class="relative h-6">
+                            <!-- Labels -->
+                            <div class="absolute inset-0 flex pointer-events-none text-[10px] text-gray-400 font-medium">
+                                <span class="absolute left-[0%] -translate-x-1/2">0</span>
+                                <span class="absolute left-[30.7%] -translate-x-1/2">40</span>
+                                <span class="absolute left-[53.8%] -translate-x-1/2">70</span>
+                                <span class="absolute left-[65.3%] -translate-x-1/2">85</span>
+                                <span class="absolute left-[76.9%] -translate-x-1/2">100</span>
+                                <span class="absolute left-[92.3%] -translate-x-1/2">120 dB</span>
                             </div>
-                            
-                            <div class="relative h-2 mb-0.5">
-                                <div class="absolute inset-0 flex pointer-events-none">
-                                    <div class="absolute" style="left: 0%">
-                                        <div class="w-px h-2 bg-gray-400"></div>
-                                    </div>
-                                    <div class="absolute" style="left: 30.77%">
-                                        <div class="w-px h-2 bg-gray-400"></div>
-                                    </div>
-                                    <div class="absolute" style="left: 53.85%">
-                                        <div class="w-px h-2 bg-gray-400"></div>
-                                    </div>
-                                    <div class="absolute" style="left: 65.38%">
-                                        <div class="w-px h-2 bg-gray-400"></div>
-                                    </div>
-                                    <div class="absolute" style="left: 76.92%">
-                                        <div class="w-px h-2 bg-gray-400"></div>
-                                    </div>
-                                    <div class="absolute" style="left: 92.31%">
-                                        <div class="w-px h-2 bg-gray-400"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="h-5 bg-gray-200 rounded-full overflow-hidden shadow-inner">
+                            <!-- Bar -->
+                            <div class="absolute bottom-0 left-0 right-0 h-2 bg-gray-200 rounded-full overflow-hidden">
                                 <div id="levelBar" class="h-full gradient-moderate transition-all duration-300 rounded-full" style="width: 0%"></div>
                             </div>
-                            
-                            <div class="relative mt-1">
-                                <div class="absolute inset-0 flex pointer-events-none">
-                                    <span class="absolute text-xs text-gray-500" style="left: 0%; transform: translateX(-50%)">とても静か</span>
-                                    <span class="absolute text-xs text-green-600" style="left: 30.77%; transform: translateX(-50%)">静か</span>
-                                    <span class="absolute text-xs text-blue-600" style="left: 53.85%; transform: translateX(-50%)">安全</span>
-                                    <span class="absolute text-xs text-yellow-600" style="left: 65.38%; transform: translateX(-50%)">注意</span>
-                                    <span class="absolute text-xs text-orange-600" style="left: 76.92%; transform: translateX(-50%)">有害</span>
-                                    <span class="absolute text-xs text-red-600" style="left: 92.31%; transform: translateX(-50%)">危険</span>
-                                </div>
-                            </div>
                         </div>
-                        
-                        <div class="flex-none text-xs font-medium text-gray-500 mt-0">
-                            dB
+                        <div class="relative h-4 text-[10px] text-gray-400 mt-1 font-medium">
+                            <span class="absolute left-0">静寂</span>
+                            <span class="absolute left-[30.7%] -translate-x-1/2 text-green-600">静か</span>
+                            <span class="absolute left-[53.8%] -translate-x-1/2 text-blue-600">安全</span>
+                            <span class="absolute left-[65.3%] -translate-x-1/2 text-yellow-600">境界</span>
+                            <span class="absolute left-[76.9%] -translate-x-1/2 text-orange-600">有害</span>
+                            <span class="absolute left-[92.3%] -translate-x-1/2 text-red-600">危険</span>
                         </div>
-                    </div>
-                </div>
-
-                <div class="max-w-3xl mx-auto mt-6">
-                    <div class="bg-blue-50 border border-blue-200 rounded-lg p-2.5">
-                        <div class="flex items-start">
-                            <svg class="w-4 h-4 text-blue-600 mt-0.5 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
-                            <div class="text-xs text-blue-800">
-                                <strong>参考:</strong> 本ツールの値は概算です。静かな部屋 ≈ 30〜40 dB、会話 ≈ 60 dB、交通量の多い道路 ≈ 80 dB が一般的な目安です。
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-2 text-center text-xs text-gray-500">
-                        <strong>💡 コツ:</strong> 環境全体を把握するには、30〜60 秒程度測定を続け、瞬間的なピークを平均化するとよい結果が得られます。
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Information Sections -->
         <div class="grid md:grid-cols-2 gap-4">
+            <!-- Sound Level Guide -->
             <section class="bg-white rounded-xl shadow-lg p-5">
-                <h2 class="text-xl font-bold text-gray-900 mb-3">騒音レベルの目安</h2>
+                <h2 class="text-xl font-bold text-gray-900 mb-3">騒音レベルガイド</h2>
                 <div class="space-y-2.5">
                     <div class="flex items-start">
                         <div class="w-3 h-3 rounded-full bg-green-500 mt-1 mr-2 flex-shrink-0"></div>
                         <div class="flex-1">
-                            <div class="font-semibold text-sm text-gray-900">0〜40 dB - 静か</div>
-                            <div class="text-xs text-gray-600">図書館 (30 dB)、ささやき声、木の葉の音など。どれだけ長時間でもほぼ安全です。</div>
+                            <div class="font-semibold text-sm text-gray-900">0-40 dB - 静か</div>
+                            <div class="text-xs text-gray-600">図書館 (30 dB)、ささやき、木の葉の音。常に安全。</div>
                         </div>
                     </div>
                     <div class="flex items-start">
                         <div class="w-3 h-3 rounded-full bg-blue-500 mt-1 mr-2 flex-shrink-0"></div>
                         <div class="flex-1">
-                            <div class="font-semibold text-sm text-gray-900">40〜70 dB - 適度</div>
-                            <div class="text-xs text-gray-600">通常の会話 (60 dB)、静かなオフィスなど。一般的には長時間の暴露も問題ありません。</div>
+                            <div class="font-semibold text-sm text-gray-900">40-70 dB - 普通</div>
+                            <div class="text-xs text-gray-600">通常の会話 (60 dB)、静かなオフィス。長時間の暴露でも概ね安全。</div>
                         </div>
                     </div>
                     <div class="flex items-start">
                         <div class="w-3 h-3 rounded-full bg-yellow-500 mt-1 mr-2 flex-shrink-0"></div>
                         <div class="flex-1">
-                            <div class="font-semibold text-sm text-gray-900">70〜85 dB - 注意</div>
-                            <div class="text-xs text-gray-600">交通量の多い道路 (80 dB)、掃除機など。長時間続くと疲労やストレスの原因となります。</div>
+                            <div class="font-semibold text-sm text-gray-900">70-85 dB - 注意</div>
+                            <div class="text-xs text-gray-600">交通騒音 (80 dB)、掃除機。長時間の暴露で疲労の原因に。</div>
                         </div>
                     </div>
                     <div class="flex items-start">
                         <div class="w-3 h-3 rounded-full bg-orange-500 mt-1 mr-2 flex-shrink-0"></div>
                         <div class="flex-1">
-                            <div class="font-semibold text-sm text-gray-900">85〜100 dB - 有害</div>
-                            <div class="text-xs text-gray-600">電動工具 (90 dB)、バイクのエンジン音など。8 時間を超える暴露は聴覚障害のリスクがあります。</div>
+                            <div class="font-semibold text-sm text-gray-900">85-100 dB - 有害</div>
+                            <div class="text-xs text-gray-600">電動工具 (90 dB)、オートバイ。8時間以上の暴露で聴覚障害のリスク。</div>
                         </div>
                     </div>
                     <div class="flex items-start">
                         <div class="w-3 h-3 rounded-full bg-red-500 mt-1 mr-2 flex-shrink-0"></div>
                         <div class="flex-1">
-                            <div class="font-semibold text-sm text-gray-900">100〜120 dB - 非常に有害</div>
-                            <div class="text-xs text-gray-600">チェーンソー (110 dB)、サイレンなど。数分の暴露でもダメージの原因となります。</div>
+                            <div class="font-semibold text-sm text-gray-900">100-120 dB - 非常に有害</div>
+                            <div class="text-xs text-gray-600">チェーンソー (110 dB)、サイレン。短時間の暴露でも損傷の恐れ。</div>
                         </div>
                     </div>
                     <div class="flex items-start">
                         <div class="w-3 h-3 rounded-full bg-red-900 mt-1 mr-2 flex-shrink-0"></div>
                         <div class="flex-1">
-                            <div class="font-semibold text-sm text-gray-900">120+dB - 危険</div>
-                            <div class="text-xs text-gray-600">ジェット機のエンジン (130 dB)、花火の至近距離など。瞬時に聴覚を損なう危険があります。</div>
+                            <div class="font-semibold text-sm text-gray-900">120+ dB - 危険</div>
+                            <div class="text-xs text-gray-600">ジェットエンジン (130 dB)、花火。即座に聴覚を損傷するリスク。</div>
                         </div>
                     </div>
                 </div>
                 <div class="mt-3 pt-3 border-t border-gray-200">
                     <p class="text-xs text-gray-500 italic">
-                        <strong>補足:</strong> デシベルは対数スケールです。10 dB 上がるごとに音のエネルギーは約 10 倍になり、体感的にもかなり大きくなります。
+                        <strong>注:</strong> デシベル尺度は対数です - 10 dB の増加は約10倍のエネルギー増加を意味します。
                     </p>
                 </div>
             </section>
 
+            <!-- How to Use -->
             <section class="bg-white rounded-xl shadow-lg p-5">
                 <h2 class="text-xl font-bold text-gray-900 mb-3">使い方</h2>
                 <ol class="space-y-2.5">
                     <li class="flex items-start">
                         <div class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-500 text-white flex items-center justify-center text-xs font-semibold mr-2">1</div>
                         <div class="flex-1">
-                            <div class="font-semibold text-sm text-gray-900">マイクアクセスを許可する</div>
-                            <div class="text-xs text-gray-600">「測定を開始」をクリックし、ブラウザのダイアログでマイクへのアクセスを許可します。</div>
+                            <div class="font-semibold text-sm text-gray-900">マイクへのアクセスを許可</div>
+                            <div class="text-xs text-gray-600">「測定を開始」をクリックし、マイクの使用を許可してください。</div>
                         </div>
                     </li>
                     <li class="flex items-start">
                         <div class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-500 text-white flex items-center justify-center text-xs font-semibold mr-2">2</div>
                         <div class="flex-1">
-                            <div class="font-semibold text-sm text-gray-900">騒音レベルを確認する</div>
-                            <div class="text-xs text-gray-600">リアルタイムの dB 値と色分けされたバーで騒音レベルを確認できます。<strong>おすすめ:</strong> 少なくとも 1 分ほど測定して、瞬間的なピークをならしましょう。</div>
+                            <div class="font-semibold text-sm text-gray-900">騒音レベルを監視</div>
+                            <div class="text-xs text-gray-600">リアルタイムのdB値を確認します。<strong>推奨:</strong> 突発的な音を除外するため、約1分間測定を続けてください。</div>
                         </div>
                     </li>
                     <li class="flex items-start">
                         <div class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-500 text-white flex items-center justify-center text-xs font-semibold mr-2">3</div>
                         <div class="flex-1">
                             <div class="font-semibold text-sm text-gray-900">停止してレポートを作成</div>
-                            <div class="text-xs text-gray-600">「測定を停止」後に「レポートを保存」をクリックすると、そのセッションの統計をまとめた PDF をダウンロードできます。</div>
+                            <div class="text-xs text-gray-600">「測定を停止」をクリックし、「レポートを保存」で詳細なPDFサマリーをダウンロードできます。</div>
                         </div>
                     </li>
                     <li class="flex items-start">
                         <div class="flex-shrink-0 w-6 h-6 rounded-full bg-blue-500 text-white flex items-center justify-center text-xs font-semibold mr-2">4</div>
                         <div class="flex-1">
-                            <div class="font-semibold text-sm text-gray-900">結果を活用する</div>
-                            <div class="text-xs text-gray-600">測定結果を活かして、耳に負担をかける音源を特定し、騒音対策や生活環境の改善に役立ててください。</div>
+                            <div class="font-semibold text-sm text-gray-900">対策を講じる</div>
+                            <div class="text-xs text-gray-600">データを使用して有害な騒音源を特定し、聴力を保護してください。</div>
                         </div>
                     </li>
                 </ol>
             </section>
         </div>
 
+        <!-- Additional Information -->
         <div class="mt-6 space-y-6">
+
+            <!-- Safe Exposure Time Chart -->
             <section class="bg-white rounded-xl shadow-lg p-6">
-                <h2 class="text-xl font-bold text-gray-900 mb-3">デシベル別の安全な暴露時間</h2>
+                <h2 class="text-xl font-bold text-gray-900 mb-3">デシベルレベル別の安全な暴露時間</h2>
                 <p class="text-sm text-gray-600 mb-4">
-                    <a href="https://www.cdc.gov/niosh/noise/about/noise.html" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">NIOSH/CDC</a> によると、騒音レベルが高くなるほど安全にいられる時間は短くなります。
+                    <a href="https://www.cdc.gov/niosh/noise/about/noise.html" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">NIOSH/CDC</a>によると、騒音レベルが高いほど、安全な暴露時間は短くなります。
                 </p>
                 
                 <div class="space-y-3">
+                    <!-- 70 dB -->
                     <div class="fade-in-up">
                         <div class="flex items-center justify-between mb-1">
                             <span class="text-sm font-semibold text-gray-900">70 dB</span>
-                            <span class="text-xs text-gray-600">ほぼ制限なし</span>
+                            <span class="text-xs text-gray-600">無制限</span>
                         </div>
                         <div class="h-6 bg-gray-100 rounded-full overflow-hidden">
                             <div class="chart-bar h-full bg-green-500" style="width: 100%"></div>
                         </div>
-                        <p class="text-xs text-gray-500 mt-1">一日中浴びてもほぼ問題ないレベル</p>
+                        <p class="text-xs text-gray-500 mt-1">一日中暴露しても安全</p>
                     </div>
                     
+                    <!-- 85 dB -->
                     <div class="fade-in-up" style="animation-delay: 0.1s">
                         <div class="flex items-center justify-between mb-1">
                             <span class="text-sm font-semibold text-gray-900">85 dB</span>
-                            <span class="text-xs text-gray-600">最大 8 時間</span>
+                            <span class="text-xs text-gray-600">最大8時間</span>
                         </div>
                         <div class="h-6 bg-gray-100 rounded-full overflow-hidden">
                             <div class="chart-bar h-full bg-yellow-500" style="width: 80%"></div>
                         </div>
-                        <p class="text-xs text-gray-500 mt-1">NIOSH が推奨する 8 時間の職業暴露限度</p>
+                        <p class="text-xs text-gray-500 mt-1">NIOSH推奨の8時間暴露限度</p>
                     </div>
                     
+                    <!-- 90 dB -->
                     <div class="fade-in-up" style="animation-delay: 0.2s">
                         <div class="flex items-center justify-between mb-1">
                             <span class="text-sm font-semibold text-gray-900">90 dB</span>
-                            <span class="text-xs text-gray-600">最大 2〜4 時間</span>
+                            <span class="text-xs text-gray-600">最大2〜4時間</span>
                         </div>
                         <div class="h-6 bg-gray-100 rounded-full overflow-hidden">
                             <div class="chart-bar h-full bg-orange-400" style="width: 60%"></div>
                         </div>
-                        <p class="text-xs text-gray-500 mt-1">芝刈り機やバイクの騒音レベル</p>
+                        <p class="text-xs text-gray-500 mt-1">芝刈り機、オートバイの騒音レベル</p>
                     </div>
                     
+                    <!-- 100 dB -->
                     <div class="fade-in-up" style="animation-delay: 0.3s">
                         <div class="flex items-center justify-between mb-1">
                             <span class="text-sm font-semibold text-gray-900">100 dB</span>
-                            <span class="text-xs text-gray-600">最大 15 分</span>
+                            <span class="text-xs text-gray-600">最大15分</span>
                         </div>
                         <div class="h-6 bg-gray-100 rounded-full overflow-hidden">
                             <div class="chart-bar h-full bg-orange-600" style="width: 40%"></div>
                         </div>
-                        <p class="text-xs text-gray-500 mt-1">ヘアドライヤーや一部の電動工具など</p>
+                        <p class="text-xs text-gray-500 mt-1">ヘアドライヤー、電動工具</p>
                     </div>
                     
+                    <!-- 110 dB -->
                     <div class="fade-in-up" style="animation-delay: 0.4s">
                         <div class="flex items-center justify-between mb-1">
                             <span class="text-sm font-semibold text-gray-900">110 dB</span>
-                            <span class="text-xs text-gray-600">最大 1〜2 分</span>
+                            <span class="text-xs text-gray-600">最大1〜2分</span>
                         </div>
                         <div class="h-6 bg-gray-100 rounded-full overflow-hidden">
                             <div class="chart-bar h-full bg-red-500" style="width: 25%"></div>
                         </div>
-                        <p class="text-xs text-gray-500 mt-1">ロックコンサートやサイレンの近く</p>
+                        <p class="text-xs text-gray-500 mt-1">ロックコンサート、サイレン</p>
                     </div>
                     
+                    <!-- 120 dB -->
                     <div class="fade-in-up" style="animation-delay: 0.5s">
                         <div class="flex items-center justify-between mb-1">
                             <span class="text-sm font-semibold text-gray-900">120+ dB</span>
-                            <span class="text-xs text-gray-600 font-bold text-red-600">即時に危険</span>
+                            <span class="text-xs text-gray-600 font-bold text-red-600">即座に損傷</span>
                         </div>
                         <div class="h-6 bg-gray-100 rounded-full overflow-hidden">
                             <div class="chart-bar h-full bg-red-700" style="width: 10%"></div>
                         </div>
-                        <p class="text-xs text-gray-500 mt-1">花火やジェット機のエンジン近くなど - 可能な限り避けましょう</p>
+                        <p class="text-xs text-gray-500 mt-1">爆竹、ジェットエンジン - 暴露を避ける</p>
                     </div>
                 </div>
                 
                 <div class="mt-4 p-3 bg-blue-50 rounded-lg border border-blue-200">
                     <p class="text-xs text-blue-900">
-                        <strong>⚠️ 重要:</strong> 85 dB を超えると、3 dB 上がるごとに安全な暴露時間は半分になります。詳しくは 
-                        <a href="https://www.nidcd.nih.gov/health/how-loud-too-loud" target="_blank" rel="noopener" class="text-blue-700 hover:underline font-semibold">NIDCD</a> の解説を参照してください。
+                        <strong>⚠️ 重要:</strong> 85 dBを超えると、3 dB増加するごとに安全な暴露時間は半分になります。詳細は<a href="https://www.nidcd.nih.gov/health/how-loud-too-loud" target="_blank" rel="noopener" class="text-blue-700 hover:underline font-semibold">NIDCD</a>をご覧ください。
                     </p>
                 </div>
             </section>
 
+            <!-- About Section -->
             <section class="bg-white rounded-xl shadow-lg p-6">
-                <h2 class="text-xl font-bold text-gray-900 mb-4">デシベルと音の測定について</h2>
+                <h2 class="text-xl font-bold text-gray-900 mb-4">デシベルと騒音測定について</h2>
                 <div class="text-gray-700 space-y-3 text-sm">
                     <p>
-                        <strong>騒音計</strong> (デシベルメーター) は、音の大きさを表す指標である音圧レベル (SPL) をデシベル (dB) で測定する機器です。このオンラインツールは、お使いのデバイスのマイクを利用して周囲の音を検出し、リアルタイムに騒音レベルを表示します。
+                        <strong>騒音計</strong>（デシベルメーター）は、音圧レベル（SPL）をデシベル（dB）で測定します。当サイトのオンラインツールは、お使いのデバイスのマイクを使用して環境騒音を検出し、リアルタイムで測定値を提供します。
                     </p>
                     <p>
-                        <strong>デシベルが重要な理由:</strong> デシベルスケールは対数的なため、数値が少し変化しただけでも実際のエネルギー量は大きく変わります。10 dB 増えるごとに音のエネルギーは約 10 倍になり、体感的にも「かなり大きくなった」と感じるレベルです。
+                        <strong>なぜデシベルが重要なのか:</strong> デシベルの尺度は対数です。10 dBの増加は音の強度が約10倍になり、約2倍の大きさに感じられます。つまり、80 dBは70 dBより少し大きいだけでなく、大幅に強い音です。
                     </p>
                     <div class="bg-amber-50 border-l-4 border-amber-500 p-3 my-3">
                         <p class="text-sm">
-                            <strong>🏥 WHO の推奨値:</strong> 
-                            <a href="https://www.who.int/news-room/questions-and-answers/item/deafness-and-hearing-loss-safe-listening" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">世界保健機関 (WHO)</a> は、長時間にわたる騒音暴露を避けるため、日常生活では <strong>70 dB 未満</strong> を目安とすることを推奨しています。85 dB を超える環境では、暴露時間が長くなるほど聴覚障害のリスクが高まります。
+                            <strong>🏥 WHOの推奨:</strong> <a href="https://www.who.int/news-room/questions-and-answers/item/deafness-and-hearing-loss-safe-listening" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">世界保健機関（WHO）</a>は、聴力低下を防ぐために騒音レベルを長期間<strong>70 dB</strong>以下に保つことを推奨しています。85 dBを超える音は、長時間の暴露で聴覚障害を引き起こす可能性があります。
                         </p>
                     </div>
                     <p>
-                        <strong>騒音が聴覚を傷つける仕組み:</strong> 
-                        <a href="https://gesund.bund.de/en/laermbelastung" target="_blank" rel="noopener" class="text-blue-600 hover:underline">各国の公的機関</a> によると、強い音に長時間さらされると、内耳にある繊細な有毛細胞が損傷します。これらの細胞は再生しないため、一度失われた聴力は元に戻りません。具体的には次のような影響が生じます。
+                        <strong>騒音が聴力を損なう仕組み:</strong> <a href="https://gesund.bund.de/en/laermbelastung" target="_blank" rel="noopener" class="text-blue-600 hover:underline">保健当局</a>によると、大きな音は内耳の繊細な有毛細胞を損傷します。これらの細胞は再生しないため、損傷は永久的です。高強度または長時間の騒音は以下を引き起こします：
                     </p>
                     <ul class="list-disc list-inside space-y-1 ml-3 text-sm">
-                        <li>内耳の有毛細胞の物理的な損傷</li>
-                        <li>聴神経の過剰な刺激</li>
-                        <li>騒音性難聴 (NIHL) の発症</li>
-                        <li>耳鳴りや音に対する過敏症状</li>
+                        <li>内耳有毛細胞への物理的損傷</li>
+                        <li>聴神経の過剰刺激</li>
+                        <li>騒音性難聴（NIHL）</li>
+                        <li>耳鳴りや過敏症</li>
                     </ul>
                     
                     <div class="mt-4 pt-4 border-t border-gray-100">
                         <h3 class="font-bold text-gray-900 mb-2 flex items-center">
                             <svg class="w-5 h-5 mr-2 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-                            プライバシーとデータ保護
+                            プライバシーとデータセキュリティ
                         </h3>
                         <p class="text-sm bg-green-50 text-green-800 p-3 rounded-lg border border-green-200">
-                            <strong>プライバシーは最優先です。</strong> 音声データの処理はすべてブラウザ内で完結し、録音・保存・サーバーへの送信は行われません。「レポートを保存」機能も、現在のセッションの統計値 (最小・最大・平均) を使って、デバイス上で直接 PDF を生成します。
+                            <strong>あなたのプライバシーは私たちの最優先事項です。</strong> すべての音声処理はブラウザ内でローカルに行われます。音声データが録音、保存、またはサーバーにアップロードされることはありません。「レポートを保存」機能は、現在のセッションの統計情報（最小、最大、平均）を使用して、お使いのデバイス上で直接PDFファイルを生成します。
                         </p>
                     </div>
                 </div>
             </section>
 
+            <!-- Health Impact -->
             <section class="bg-white rounded-xl shadow-lg p-6">
-                <h2 class="text-xl font-bold text-gray-900 mb-3">騒音が健康に与える影響</h2>
+                <h2 class="text-xl font-bold text-gray-900 mb-3">騒音公害の健康への影響</h2>
                 <p class="text-sm text-gray-600 mb-4">
-                    聴力低下だけでなく、慢性的な騒音暴露は全身の健康にも影響します。参考: 
-                    <a href="https://www.who.int/europe/news-room/fact-sheets/item/noise" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">WHO Europe</a>
+                    難聴だけでなく、慢性的な騒音暴露は全体的な健康に影響を与えます。出典: 
+                    <a href="https://www.who.int/europe/news-room/fact-sheets/item/noise" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">WHO ヨーロッパ</a>
                 </p>
                 <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition">
                         <div class="text-2xl mb-2">👂</div>
-                        <h3 class="font-semibold text-sm text-gray-900 mb-1">騒音性難聴 (NIHL)</h3>
-                        <p class="text-xs text-gray-600 mb-2">85 dB 以上の環境に 8 時間以上さらされると、永続的な聴力低下を引き起こす可能性があります。</p>
-                        <a href="https://www.cdc.gov/niosh/noise/about/noise.html" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline">CDC/NIOSH の指針 →</a>
+                        <h3 class="font-semibold text-sm text-gray-900 mb-1">難聴 (NIHL)</h3>
+                        <p class="text-xs text-gray-600 mb-2">85dB以上の音に8時間以上さらされると、永久的な聴覚障害を引き起こす可能性があります。</p>
+                        <a href="https://www.cdc.gov/niosh/noise/about/noise.html" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline">CDC/NIOSH ガイドライン →</a>
                     </div>
                     <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition">
                         <div class="text-2xl mb-2">😰</div>
-                        <h3 class="font-semibold text-sm text-gray-900 mb-1">ストレス・不安</h3>
-                        <p class="text-xs text-gray-600 mb-2">慢性的な騒音はストレスホルモンの分泌を高め、不安障害のリスクを増加させます。</p>
-                        <a href="https://www.who.int/europe/news-room/fact-sheets/item/noise" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline">WHO の研究 →</a>
+                        <h3 class="font-semibold text-sm text-gray-900 mb-1">ストレスと不安</h3>
+                        <p class="text-xs text-gray-600 mb-2">慢性的な騒音はストレスホルモンを増加させ、不安障害のリスクを高めます。</p>
+                        <a href="https://www.who.int/europe/news-room/fact-sheets/item/noise" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline">WHO 研究 →</a>
                     </div>
                     <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition">
                         <div class="text-2xl mb-2">😴</div>
-                        <h3 class="font-semibold text-sm text-gray-900 mb-1">睡眠の質の低下</h3>
-                        <p class="text-xs text-gray-600 mb-2">夜間に 40 dB を超える騒音が続くと、入眠障害や睡眠の浅さにつながることがあります。</p>
+                        <h3 class="font-semibold text-sm text-gray-900 mb-1">睡眠障害</h3>
+                        <p class="text-xs text-gray-600 mb-2">40dBを超える夜間の騒音は、睡眠の質と時間を著しく妨げる可能性があります。</p>
                         <a href="https://www.who.int/europe/news-room/fact-sheets/item/noise" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline">睡眠ガイドライン →</a>
                     </div>
                     <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition">
                         <div class="text-2xl mb-2">❤️</div>
                         <h3 class="font-semibold text-sm text-gray-900 mb-1">心血管リスク</h3>
-                        <p class="text-xs text-gray-600 mb-2">長期的な騒音暴露は、高血圧や心血管疾患のリスクを高めると報告されています。</p>
-                        <a href="https://www.who.int/europe/news-room/fact-sheets/item/noise" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline">WHO の報告 →</a>
+                        <p class="text-xs text-gray-600 mb-2">長期的な高騒音への暴露は、心臓病や高血圧のリスクを高める可能性があります。</p>
+                        <a href="https://www.who.int/europe/news-room/fact-sheets/item/noise" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline">WHO 研究 →</a>
                     </div>
                     <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition">
                         <div class="text-2xl mb-2">🧠</div>
-                        <h3 class="font-semibold text-sm text-gray-900 mb-1">認知機能への影響</h3>
-                        <p class="text-xs text-gray-600 mb-2">騒音は集中力や記憶力、学習能力を阻害する可能性があります。</p>
-                        <a href="https://hearinghealthfoundation.org/keeplistening/decibels" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline">Hearing Health Foundation →</a>
+                        <h3 class="font-semibold text-sm text-gray-900 mb-1">認知への影響</h3>
+                        <p class="text-xs text-gray-600 mb-2">騒音公害は、集中力、記憶力、学習能力を低下させる可能性があります。</p>
+                        <a href="https://hearinghealthfoundation.org/keeplistening/decibels" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline">HHF リソース →</a>
                     </div>
                     <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition">
                         <div class="text-2xl mb-2">👶</div>
-                        <h3 class="font-semibold text-sm text-gray-900 mb-1">子どもの発達</h3>
-                        <p class="text-xs text-gray-600 mb-2">子どもは騒音の影響を受けやすく、学習や行動面への影響が大人より大きいとされています。</p>
-                        <a href="https://www.who.int/europe/news-room/fact-sheets/item/noise" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline">WHO の結論 →</a>
+                        <h3 class="font-semibold text-sm text-gray-900 mb-1">子供の発達</h3>
+                        <p class="text-xs text-gray-600 mb-2">子供は騒音に関連する学習や行動の問題に対してより脆弱です。</p>
+                        <a href="https://www.who.int/europe/news-room/fact-sheets/item/noise" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline">WHO 調査結果 →</a>
                     </div>
                 </div>
                 
                 <div class="mt-4 p-4 bg-gradient-to-r from-red-50 to-orange-50 rounded-lg border border-red-200">
-                    <h4 class="font-semibold text-sm text-gray-900 mb-2">🛡️ 聴覚を守るためのポイント (NIOSH/CDC より)</h4>
+                    <h4 class="font-semibold text-sm text-gray-900 mb-2">🛡️ 保護のヒント (NIOSH/CDCより):</h4>
                     <ul class="text-xs text-gray-700 space-y-1 ml-4 list-disc">
-                        <li>可能であれば、日常生活での騒音レベルを <strong>70 dB 未満</strong> に保つ</li>
-                        <li>85 dB 以上の環境では、耳栓やイヤーマフなどの聴覚保護具を着用する</li>
-                        <li>非常に大きな音にさらされる時間をできるだけ短くする</li>
-                        <li>騒音測定ツールを使って、職場や生活環境の騒音レベルを定期的に確認する</li>
-                        <li>大きな音にさらされた後は、耳を休ませる時間を十分に取る</li>
+                        <li>可能な限り、毎日の騒音暴露を<strong>70dB</strong>以下に抑える</li>
+                        <li>85dB以上の環境では耳の保護具（耳栓/イヤーマフ）を着用する</li>
+                        <li>高強度の騒音暴露時間を制限する</li>
+                        <li>騒音監視ツールを使用して音量レベルを追跡および管理する</li>
+                        <li>大きな音にさらされた後は、耳に休息期間を与える</li>
                     </ul>
                 </div>
             </section>
 
+            <!-- Detailed Use Cases and Guide -->
             <section class="bg-white rounded-xl shadow-lg p-6">
-                <h2 class="text-xl font-bold text-gray-900 mb-4">オンライン騒音計の実用的な活用例</h2>
+                <h2 class="text-xl font-bold text-gray-900 mb-4">オンライン騒音計の実用的な使用例</h2>
                 <div class="prose max-w-none text-gray-600 space-y-4">
                     <p>
-                        この無料オンライン騒音計は、ブラウザを使って身近な環境の騒音レベルを簡単に把握できるツールです。校正されたクラス 1 の専門機器ほどの精度はありませんが、日常生活や仕事・学習環境で「どの程度うるさいか」を把握するには非常に有用です。
+                        この無料のオンライン騒音計は、ブラウザを機能的な騒音測定ツールに変えます。校正されたプロ仕様のクラス1デシベルメーターの代わりにはなりませんが、騒音レベルを理解することで健康と生産性を向上させることができる日常生活の状況において、優れた参考になります。
                     </p>
                     
                     <div class="grid md:grid-cols-2 gap-6 mt-6">
                         <div class="bg-gray-50 rounded-lg p-4">
                             <h3 class="font-semibold text-gray-900 mb-2 flex items-center">
-                                <span class="text-xl mr-2">🏠</span> 自宅・日常生活
+                                <span class="text-xl mr-2">🏠</span> 家庭と生活
                             </h3>
                             <ul class="list-disc list-inside text-sm space-y-2">
-                                <li><strong>家電の騒音チェック:</strong> 新しく購入した洗濯機や掃除機が、カタログどおりの静音性かどうかを確認。</li>
-                                <li><strong>近隣騒音の記録:</strong> 上下階や周囲の部屋からの生活音や工事音の大きさを客観的に測定。</li>
-                                <li><strong>睡眠環境の最適化:</strong> 寝室の騒音レベルが快適な睡眠に適した 30〜40 dB 程度かどうかをチェック。</li>
+                                <li><strong>家電テスト:</strong> 新しい食器洗い機や掃除機が宣伝通り静かかどうかを確認します。</li>
+                                <li><strong>近隣の騒音:</strong> 隣人の改装工事や音楽が、あなたのリビングルームから実際にどれくらいの音量なのかを客観的に測定します。</li>
+                                <li><strong>睡眠環境:</strong> 最適な睡眠の質のために、寝室が推奨される30〜40dB以下に保たれていることを確認します。</li>
                             </ul>
                         </div>
                         
                         <div class="bg-gray-50 rounded-lg p-4">
                             <h3 class="font-semibold text-gray-900 mb-2 flex items-center">
-                                <span class="text-xl mr-2">💼</span> 仕事・学習環境
+                                <span class="text-xl mr-2">💼</span> 仕事と勉強
                             </h3>
                             <ul class="list-disc list-inside text-sm space-y-2">
-                                <li><strong>オフィスの騒音管理:</strong> オープンスペースの騒音レベルを測定し、集中作業に適した時間帯を把握。</li>
-                                <li><strong>自習スペースの選定:</strong> カフェや図書館など、どの席が最も静かかを比較。</li>
-                                <li><strong>オンライン会議前のチェック:</strong> 会議前に背景騒音レベルを測定し、マイクテストとして活用。</li>
-                                <li><strong>記録用レポート:</strong> 「レポートを保存」機能を使って、職場の騒音状況を PDF として保存・共有。</li>
+                                <li><strong>オフィスの気晴らし:</strong> オープンプランのオフィスで騒音のピーク時間を特定し、集中して仕事をする時間をスケジュールします。</li>
+                                <li><strong>学習ゾーン:</strong> 図書館やカフェで最も静かな場所を見つけます。理想的な学習騒音は、多くの場合40〜50dB前後です。</li>
+                                <li><strong>リモートワーク:</strong> 重要なビデオ会議通話に参加する前に、背景の騒音レベルをテストします。</li>
+                                <li><strong>文書化:</strong> 「レポートを保存」機能を使用して、職場のコンプライアンスや紛争解決のために騒音レベルのPDF記録を作成します。</li>
                             </ul>
                         </div>
                         
                         <div class="bg-gray-50 rounded-lg p-4">
                             <h3 class="font-semibold text-gray-900 mb-2 flex items-center">
-                                <span class="text-xl mr-2">🎧</span> 音楽・エンタメ・機器設定
+                                <span class="text-xl mr-2">🎧</span> オーディオとエンターテイメント
                             </h3>
                             <ul class="list-disc list-inside text-sm space-y-2">
-                                <li><strong>安全な音量設定:</strong> スピーカーやヘッドホンの音量を調整し、映画鑑賞時に 70〜80 dB 程度に収まるようにする。</li>
-                                <li><strong>イベント会場の確認:</strong> ライブハウスやクラブの騒音レベルが危険域 (100 dB 超) に達していないかを確認。</li>
-                                <li><strong>PC・ゲーム環境:</strong> ゲーミング PC や空調機器のファンノイズを測定し、静音化の指標とする。</li>
+                                <li><strong>安全なリスニング:</strong> スピーカーシステムの音量を調整して、映画のために安全な70〜80dBの範囲内に収めます。</li>
+                                <li><strong>イベント監視:</strong> 参加しているコンサートやクラブが危険な100dBレベルを超えていないか確認します。</li>
+                                <li><strong>ゲーミングセットアップ:</strong> 静音PCビルドを最適化するために、負荷時のコンピュータファンのノイズを測定します。</li>
                             </ul>
                         </div>
                         
                         <div class="bg-gray-50 rounded-lg p-4">
                             <h3 class="font-semibold text-gray-900 mb-2 flex items-center">
-                                <span class="text-xl mr-2">🩺</span> 健康・ウェルビーイング
+                                <span class="text-xl mr-2">🩺</span> 健康とウェルネス
                             </h3>
                             <ul class="list-disc list-inside text-sm space-y-2">
-                                <li><strong>耳鳴り (耳鳴り) 管理:</strong> 耳鳴りが悪化しやすい環境の騒音レベルを把握し、回避の参考にする。</li>
-                                <li><strong>乳幼児の環境確認:</strong> 赤ちゃんのいる部屋の騒音が過度になっていないか、ホワイトノイズマシンの音量が大きすぎないかをチェック。</li>
-                                <li><strong>ストレス要因の可視化:</strong> ストレスを感じやすい時間帯・場所と騒音レベルを関連づけて把握し、生活改善に役立てる。</li>
+                                <li><strong>耳鳴り管理:</strong> 耳鳴りを引き起こす可能性のある環境を特定するのに役立ちます。</li>
+                                <li><strong>赤ちゃんの安全:</strong> 保育室の環境が落ち着いていて静かであり、ホワイトノイズマシンがうるさすぎないことを確認します。</li>
+                                <li><strong>ストレス軽減:</strong> 感覚入力をより適切に管理するために、ストレスレベルと環境騒音を関連付けます。</li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </section>
 
+            <!-- Technical Insight Section -->
             <section class="bg-white rounded-xl shadow-lg p-6">
-                <h2 class="text-xl font-bold text-gray-900 mb-4">ブラウザでの音声解析の仕組み</h2>
+                <h2 class="text-xl font-bold text-gray-900 mb-4">仕組み: ブラウザベースの音声分析</h2>
                 <div class="space-y-4 text-sm text-gray-600">
                     <p>
-                        一般的な専用騒音計は、専用センサーと校正済み回路を用いて音圧レベルを測定しますが、このツールはモダンブラウザに搭載されている <strong>Web Audio API</strong> を利用して同様の計測をソフトウェア的に実現しています。処理の流れは次のとおりです。
+                        専用のハードウェアセンサーを使用する従来の騒音計とは異なり、このツールは最新のWebブラウザ（Chrome、Edge、Safari、Firefox）に組み込まれている<strong>Web Audio API</strong>標準を活用しています。プロセスの簡略化された内訳は次のとおりです。
                     </p>
                     <ol class="list-decimal list-inside space-y-2 ml-2">
-                        <li><strong>信号の取得:</strong> ブラウザがマイクへのアクセス許可を要求し、音声入力ストリームを取得します。</li>
-                        <li><strong>デジタル変換:</strong> 連続的な音の波は、毎秒数千回という頻度でサンプリングされ、デジタルデータに変換されます。</li>
-                        <li><strong>周波数解析:</strong> FFT (高速フーリエ変換) と呼ばれるアルゴリズムで、周波数帯ごとのエネルギー分布を解析します。</li>
-                        <li><strong>RMS 計算:</strong> RMS (二乗平均平方根) を計算し、一定時間内の平均的な音の大きさを求めます。</li>
-                        <li><strong>dB スケールへの変換:</strong> 得られた数値を、一般的な室内環境を想定したキャリブレーションカーブに基づき、デシベル値として画面に表示します。</li>
+                        <li><strong>信号キャプチャ:</strong> ブラウザはデバイスのマイク（入力ストリーム）へのアクセスを要求します。</li>
+                        <li><strong>デジタルサンプリング:</strong> 生のアナログ音波は、毎秒数千回デジタルデータパケット（サンプル）に変換されます。</li>
+                        <li><strong>周波数分析:</strong> 高速フーリエ変換（FFT）と呼ばれるアルゴリズムを使用して、さまざまな音の周波数の強度を分析します。</li>
+                        <li><strong>RMS計算:</strong> 音声信号の平均電力を決定するために、二乗平均平方根（RMS）振幅が計算されます。</li>
+                        <li><strong>デシベルマッピング:</strong> この生のデジタル値は、標準的な部屋の音響を近似するように設計された校正アルゴリズムを使用して、デシベル（dB）スケールにマッピングされます。</li>
                     </ol>
                     <div class="bg-blue-50 border-l-4 border-blue-500 p-3 mt-4">
                         <p class="text-xs">
-                            <strong>キャリブレーションについて:</strong> スマートフォン・ノート PC・外付けマイクなど、デバイスによってマイクの感度は大きく異なります。そのため、外部校正のないウェブベースの騒音計が 100% の絶対精度を持つことはありません。本ツールでは、一般的なコンシューマーデバイスのマイクで使いやすいように調整された「おおよその目安」を提供しています。
+                            <strong>校正に関する注意:</strong> すべてのマイク（スマートフォン、ラップトップ、ウェブカメラ）は異なる感度ハードウェアを持っているため、Webベースのメーターは外部ハードウェア校正なしでは100％正確にはなりません。一般的な消費者向けデバイスのマイクに合わせた「最適」曲線を使用して、可能な限り最も有用な相対測定値を提供します。
                         </p>
                     </div>
                 </div>
             </section>
 
+            <!-- FAQ Section -->
             <section class="bg-white rounded-xl shadow-lg p-6">
                 <h2 class="text-xl font-bold text-gray-900 mb-4">よくある質問</h2>
                 <div class="space-y-4">
                     <div class="border-l-4 border-blue-500 pl-4">
-                        <h3 class="font-semibold text-sm text-gray-900 mb-1">この騒音計はどの程度正確ですか？</h3>
-                        <p class="text-xs text-gray-600 mb-1">オンライン騒音計は実用的な目安を提供しますが、専門の測定器と完全に一致するとは限りません。精度はマイクの品質や環境条件、デバイスごとの設定に左右されます。法的な証拠や厳密な測定が必要な場合は、校正済みの測定器を使用してください。</p>
-                        <a href="https://www.forbes.com/health/hearing-aids/decibel-levels/" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline">デシベルレベルの目安を見る →</a>
+                        <h3 class="font-semibold text-sm text-gray-900 mb-1">この騒音計は正確ですか？</h3>
+                        <p class="text-xs text-gray-600 mb-1">このオンライン騒音計は良好な推定値を提供しますが、プロ仕様のデバイスとは一致しない場合があります。精度はデバイスのマイクの品質と校正に依存します。正確な測定については、認定プロバイダーの専門機器を検討してください。</p>
+                        <a href="https://www.forbes.com/health/hearing-aids/decibel-levels/" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline">デシベルレベルを比較 →</a>
                     </div>
                     <div class="border-l-4 border-blue-500 pl-4">
-                        <h3 class="font-semibold text-sm text-gray-900 mb-1">なぜマイクへのアクセス許可が必要ですか？</h3>
-                        <p class="text-xs text-gray-600">騒音レベルを測るためには周囲の音をマイクから取得する必要があります。音声データはブラウザ内だけで処理され、録音・保存・送信は行われません。プライバシー保護のため、必要最小限のアクセスのみを使用しています。</p>
+                        <h3 class="font-semibold text-sm text-gray-900 mb-1">なぜマイクへのアクセスを許可する必要があるのですか？</h3>
+                        <p class="text-xs text-gray-600">騒音計は周囲の騒音レベルを測定するためにマイクへのアクセスを必要とします。音声はブラウザ内でローカルに処理され、サーバーに記録、保存、送信されることはありません。プライバシーは保護されています。</p>
                     </div>
                     <div class="border-l-4 border-blue-500 pl-4">
-                        <h3 class="font-semibold text-sm text-gray-900 mb-1">どのくらいの音量なら安全ですか？</h3>
-                        <p class="text-xs text-gray-600 mb-1"><strong>NIOSH/CDC</strong> によると、<strong>70 dB 未満</strong> の騒音は長時間の暴露でも一般的に安全とされています。職場における推奨限度は <strong>85 dB・8 時間</strong> で、それ以上のレベルに長期間さらされると聴覚障害のリスクが高まります。</p>
-                        <a href="https://www.cdc.gov/niosh/noise/about/noise.html" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline">NIOSH のガイドライン →</a>
+                        <h3 class="font-semibold text-sm text-gray-900 mb-1">安全な騒音レベルとは何ですか？</h3>
+                        <p class="text-xs text-gray-600 mb-1">NIOSH/CDCによると、<strong>70dB</strong>以下の騒音レベルは一般的に長時間の暴露でも安全です。職業上の暴露限度は<strong>8時間で85dB</strong>です。85dBを超えると長時間の暴露で聴覚障害を引き起こす可能性があり、120dBを超えると即座に害を及ぼす可能性があります。</p>
+                        <a href="https://www.cdc.gov/niosh/noise/about/noise.html" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline">NIOSH ガイドライン →</a>
                     </div>
                     <div class="border-l-4 border-blue-500 pl-4">
-                        <h3 class="font-semibold text-sm text-gray-900 mb-1">スマートフォンやタブレットでも使えますか？</h3>
-                        <p class="text-xs text-gray-600">はい。iOS Safari や Chrome など、最新のブラウザを備えたスマートフォンやタブレットで利用できます。ブラウザがマイクアクセスを求めたときに許可すると、測定が開始されます。端末によってマイク性能が異なる点にご注意ください。</p>
+                        <h3 class="font-semibold text-sm text-gray-900 mb-1">モバイルデバイスで使用できますか？</h3>
+                        <p class="text-xs text-gray-600">はい！この騒音計はデスクトップとモバイルデバイス（iOS Safari、Chrome Mobileなど）の両方で動作します。プロンプトが表示されたらマイクへのアクセスを許可するだけで測定を開始できます。マイクの品質はデバイスによって異なることに注意してください。</p>
                     </div>
                     <div class="border-l-4 border-blue-500 pl-4">
-                        <h3 class="font-semibold text-sm text-gray-900 mb-1">騒音はどのようにして耳にダメージを与えますか？</h3>
-                        <p class="text-xs text-gray-600 mb-1">強い音にさらされ続けると、内耳の有毛細胞が損傷します。これらの細胞は一度傷つくと再生しないため、聴力は元に戻りません。音が大きいほど、また暴露時間が長いほど、ダメージが蓄積しやすくなります。</p>
-                        <a href="https://www.nidcd.nih.gov/health/how-loud-too-loud" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline">NIDCD による詳細解説 →</a>
+                        <h3 class="font-semibold text-sm text-gray-900 mb-1">騒音はどのように聴覚を損なうのですか？</h3>
+                        <p class="text-xs text-gray-600 mb-1">大きな音は内耳の蝸牛にある小さな有毛細胞を損傷します。これらの細胞は音の振動を脳への電気信号に変換します。一度損傷すると再生せず、永久的な難聴につながります。高強度または長時間の暴露はこの損傷を加速させます。</p>
+                        <a href="https://www.nidcd.nih.gov/health/how-loud-too-loud" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline">NIDCDで詳細を見る →</a>
                     </div>
                     <div class="border-l-4 border-blue-500 pl-4">
-                        <h3 class="font-semibold text-sm text-gray-900 mb-1">「3 dB 交換率」とは何ですか？</h3>
-                        <p class="text-xs text-gray-600">NIOSH の 3 dB 交換率とは、騒音レベルが 3 dB 上がるごとに安全な暴露時間が半分になるという考え方です。たとえば、85 dB で 8 時間、88 dB で 4 時間、91 dB で 2 時間というように、わずかな数値の違いでも許容できる暴露時間が大きく変わります。</p>
+                        <h3 class="font-semibold text-sm text-gray-900 mb-1">「3dB交換率」とは何ですか？</h3>
+                        <p class="text-xs text-gray-600">NIOSHの3dB交換率は、騒音レベルが3dB増加するごとに、安全な暴露時間が半分になることを意味します。例えば：85dB = 8時間、88dB = 4時間、91dB = 2時間、などです。この指数関数的な関係は、わずかなdBの増加が重要であることを示しています。</p>
                     </div>
                 </div>
             </section>
 
+            <!-- Authoritative Sources -->
             <section class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl shadow-lg p-6 border border-blue-200">
-                <h2 class="text-xl font-bold text-gray-900 mb-3">📚 信頼できる情報源と参考資料</h2>
+                <h2 class="text-xl font-bold text-gray-900 mb-3">📚 信頼できる情報源と参考文献</h2>
                 <p class="text-sm text-gray-700 mb-4">
-                    このページの内容は、以下の国際的な保健・研究機関のガイドラインや資料をもとに作成されています。
+                    このページの情報はすべて、国際的に認められた保健安全機関のガイドラインと研究に基づいています。
                 </p>
                 <div class="grid md:grid-cols-2 gap-3">
                     <a href="https://www.cdc.gov/niosh/noise/about/noise.html" target="_blank" rel="noopener" class="block p-3 bg-white rounded-lg border border-gray-200 hover:shadow-md transition">
                         <h3 class="font-semibold text-sm text-gray-900 mb-1">🏛️ NIOSH/CDC</h3>
-                        <p class="text-xs text-gray-600">米国 国立労働安全衛生研究所による騒音と聴力保護のガイドライン</p>
+                        <p class="text-xs text-gray-600">国立労働安全衛生研究所 - 騒音と難聴の予防</p>
                     </a>
                     <a href="https://www.who.int/news-room/questions-and-answers/item/deafness-and-hearing-loss-safe-listening" target="_blank" rel="noopener" class="block p-3 bg-white rounded-lg border border-gray-200 hover:shadow-md transition">
                         <h3 class="font-semibold text-sm text-gray-900 mb-1">🌍 世界保健機関 (WHO)</h3>
-                        <p class="text-xs text-gray-600">安全なリスニングと騒音による難聴予防に関するガイドライン</p>
+                        <p class="text-xs text-gray-600">安全なリスニングガイドラインと難聴予防</p>
                     </a>
                     <a href="https://www.nidcd.nih.gov/health/how-loud-too-loud" target="_blank" rel="noopener" class="block p-3 bg-white rounded-lg border border-gray-200 hover:shadow-md transition">
                         <h3 class="font-semibold text-sm text-gray-900 mb-1">🔬 NIDCD (NIH)</h3>
-                        <p class="text-xs text-gray-600">米国 国立聴覚・コミュニケーション障害研究所による騒音と聴覚の解説</p>
+                        <p class="text-xs text-gray-600">国立聴覚・その他のコミュニケーション障害研究所</p>
                     </a>
                     <a href="https://hearinghealthfoundation.org/keeplistening/decibels" target="_blank" rel="noopener" class="block p-3 bg-white rounded-lg border border-gray-200 hover:shadow-md transition">
                         <h3 class="font-semibold text-sm text-gray-900 mb-1">👂 Hearing Health Foundation</h3>
-                        <p class="text-xs text-gray-600">デシベル別の暴露時間と聴覚保護に関する教育資料</p>
+                        <p class="text-xs text-gray-600">デシベル暴露チャートと安全なリスニング教育</p>
                     </a>
                     <a href="https://www.who.int/europe/news-room/fact-sheets/item/noise" target="_blank" rel="noopener" class="block p-3 bg-white rounded-lg border border-gray-200 hover:shadow-md transition">
-                        <h3 class="font-semibold text-sm text-gray-900 mb-1">🇪🇺 WHO Europe</h3>
-                        <p class="text-xs text-gray-600">環境騒音と健康への影響に関するファクトシート</p>
+                        <h3 class="font-semibold text-sm text-gray-900 mb-1">🇪🇺 WHO ヨーロッパ</h3>
+                        <p class="text-xs text-gray-600">環境騒音と健康への影響に関する研究</p>
                     </a>
                     <a href="https://www.forbes.com/health/hearing-aids/decibel-levels/" target="_blank" rel="noopener" class="block p-3 bg-white rounded-lg border border-gray-200 hover:shadow-md transition">
                         <h3 class="font-semibold text-sm text-gray-900 mb-1">📰 Forbes Health</h3>
-                        <p class="text-xs text-gray-600">身近な音のデシベルレベルと聴覚保護に関するガイド</p>
+                        <p class="text-xs text-gray-600">デシベルレベルと聴覚の健康ガイド</p>
                     </a>
                 </div>
                 <p class="text-xs text-gray-600 mt-4 italic">
-                    最終更新日: 2026 年 1 月。最新の科学的知見やガイドラインに基づき、内容の見直しを継続しています。
+                    最終更新: 2026年1月。私たちは正確性を確保するために、最新の科学的ガイドラインに照らしてコンテンツを継続的に見直しています。
                 </p>
             </section>
 
-        </div>
+        </div><!-- End of Additional Information -->
     </main>
 
+    <!-- Footer -->
     <footer class="bg-gray-900 text-white mt-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
             <div class="text-center">
-                <h3 class="text-base font-semibold mb-2">騒音計 - 周囲の騒音レベルの可視化</h3>
-                <p class="text-sm text-gray-400 mb-4">身の回りの騒音レベルを把握し、聴覚を守るための第一歩に役立ててください。</p>
+                <h3 class="text-base font-semibold mb-2">騒音計 - 環境騒音検出</h3>
+                <p class="text-sm text-gray-400 mb-4">環境の騒音レベルを監視して、聴力を守りましょう。</p>
                 <div class="flex justify-center gap-6 text-sm mb-4">
-                    <a href="../about.html" class="hover:text-blue-400 transition">サイトについて</a>
+                    <a href="../about.html" class="hover:text-blue-400 transition">概要</a>
                     <a href="../terms.html" class="hover:text-blue-400 transition">利用規約</a>
                     <a href="../privacy.html" class="hover:text-blue-400 transition">プライバシー</a>
                     <a href="../disclaimer.html" class="hover:text-blue-400 transition">免責事項</a>
@@ -867,25 +870,28 @@
                 
                 <div class="flex justify-center mb-6">
                     <a href="https://toolfame.com/item/realtime-sound-meter" target="_blank" rel="noopener noreferrer"> 
-                        <img src="https://toolfame.com/badge-light.svg" alt="Featured on toolfame.com" style="height: 30px; width: auto;" /> 
+                        <img src="https://toolfame.com/badge-light.svg" alt="toolfame.comで紹介されました" style="height: 30px; width: auto;" /> 
                     </a>
                 </div>
 
-                <p class="text-xs text-gray-500">© 2026 RealtimeSoundMeter.org. All rights reserved.</p>
+                <p class="text-xs text-gray-500">© 2026 RealtimeSoundMeter.org. 全著作権所有。</p>
             </div>
         </div>
     </footer>
 
+    <!-- Hidden Report Template -->
     <div id="reportTemplate" class="fixed -left-[9999px] top-0 bg-white p-8 w-[600px]" style="font-family: sans-serif;">
         <div class="border-4 border-gray-100 rounded-xl p-6 relative overflow-hidden">
+            <!-- Background Decoration -->
             <div class="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-bl-full -mr-8 -mt-8"></div>
             <div class="absolute bottom-0 left-0 w-24 h-24 bg-green-50 rounded-tr-full -ml-6 -mb-6"></div>
             
+            <!-- Header -->
             <div class="flex items-center justify-between mb-8 relative z-10">
                 <div class="flex items-center gap-3">
                     <img src="../logo.svg" alt="Logo" class="h-12 w-auto">
                     <div>
-                        <h1 class="text-2xl font-bold text-gray-800">騒音レポート</h1>
+                        <h1 class="text-2xl font-bold text-gray-800">騒音レベルレポート</h1>
                         <p class="text-sm text-gray-500">RealtimeSoundMeter.org</p>
                     </div>
                 </div>
@@ -895,81 +901,232 @@
                 </div>
             </div>
 
+            <!-- Main Value -->
             <div class="text-center py-8 mb-8 bg-gray-50 rounded-xl relative z-10">
                 <div class="text-sm text-gray-500 mb-2 uppercase tracking-wide">平均騒音レベル</div>
                 <div class="flex items-baseline justify-center gap-2">
                     <span id="reportAvg" class="text-7xl font-bold text-blue-600">--</span>
-                    <span class="text-3xl text-gray-400 font-medium">dB</span>
+                    <span class="text-2xl text-gray-400 font-medium">dB</span>
                 </div>
-                <div id="reportStatus" class="mt-3 inline-block px-4 py-1 rounded-full text-sm font-semibold bg-blue-100 text-blue-800">
+                <div id="reportStatus" class="inline-block mt-3 px-4 py-1 rounded-full text-sm font-semibold bg-gray-200 text-gray-700">
                     --
                 </div>
             </div>
 
+            <!-- Statistics Grid -->
             <div class="grid grid-cols-2 gap-4 mb-8 relative z-10">
-                <div class="bg-green-50 p-4 rounded-lg text-center">
-                    <div class="text-xs text-green-800 mb-1">最小レベル</div>
-                    <div class="text-2xl font-bold text-green-700"><span id="reportMin">--</span> <span class="text-sm">dB</span></div>
+                <div class="p-4 bg-green-50 rounded-lg border border-green-100 text-center">
+                    <div class="text-xs text-green-600 mb-1 uppercase">最小</div>
+                    <div id="reportMin" class="text-2xl font-bold text-green-700">--</div>
+                    <div class="text-xs text-green-500">dB</div>
                 </div>
-                <div class="bg-red-50 p-4 rounded-lg text-center">
-                    <div class="text-xs text-red-800 mb-1">最大レベル</div>
-                    <div class="text-2xl font-bold text-red-700"><span id="reportMax">--</span> <span class="text-sm">dB</span></div>
+                <div class="p-4 bg-red-50 rounded-lg border border-red-100 text-center">
+                    <div class="text-xs text-red-600 mb-1 uppercase">最大</div>
+                    <div id="reportMax" class="text-2xl font-bold text-red-700">--</div>
+                    <div class="text-xs text-red-500">dB</div>
                 </div>
             </div>
 
-            <div class="border-l-4 border-blue-500 bg-blue-50 p-4 rounded-r-lg mb-6 relative z-10">
-                <h3 class="text-sm font-bold text-blue-900 mb-1">安全性の評価</h3>
-                <p id="reportWarning" class="text-xs text-blue-800 leading-relaxed">
-                    --
-                </p>
-            </div>
-
-            <div class="text-center border-t border-gray-200 pt-4 relative z-10">
-                <p class="text-xs text-gray-400">
-                    RealtimeSoundMeter.org により生成されたレポート - 無料オンライン騒音計
-                </p>
+            <!-- Footer -->
+            <div class="border-t border-gray-100 pt-6 text-center">
+                <p class="text-xs text-gray-400 mb-2">このレポートはオンライン騒音計によって生成されました。</p>
+                <div class="text-xs text-gray-300 font-mono">realtimesoundmeter.org</div>
             </div>
         </div>
     </div>
 
+    <!-- Scripts -->
     <script src="../js/sound-meter.js"></script>
+    <script src="../js/visualizer.js"></script>
     <script>
+        // Initialize App
         document.addEventListener('DOMContentLoaded', () => {
-            const jaTranslations = {
-                startBtnStart: '測定を開始',
-                startBtnStop: '測定を停止',
-                statusStopped: '測定を停止しました',
-                statusQuiet: '静か - 安全な環境',
-                statusModerate: '適度 - 通常の騒音レベル',
-                statusElevated: 'やや高い - 暴露時間に注意',
-                statusLoud: '大きい - 聴覚へのリスク',
-                statusVeryLoud: '非常に大きい - 危険なレベル',
-                warningVeryQuiet: 'とても静かな環境です。暴露時間の制限はほとんど必要ありません。',
-                warningSafe: '安全な騒音レベルです。長時間の暴露でも大きな問題はありません。',
-                warningExtended: '長時間続くと疲労の原因になります。可能であれば一日の暴露時間を抑えてください。',
-                warning8h: '安全な最大暴露時間: <strong>8 時間</strong>。それ以上は聴覚保護具の使用を推奨します。',
-                warning4h: '安全な最大暴露時間: <strong>4 時間</strong>。耳栓やイヤーマフの使用がおすすめです。',
-                warning2h: '安全な最大暴露時間: <strong>2 時間</strong>。耳をしっかり保護してください。',
-                warning1h: '安全な最大暴露時間: <strong>1 時間</strong>。聴覚損傷のリスクが高いレベルです。',
-                warning30m: '安全な最大暴露時間: <strong>30 分</strong>。これ以上は耳の保護が必須です。',
-                warning15m: '安全な最大暴露時間: <strong>15 分</strong>。非常に危険なレベルです。',
-                warning7m: '安全な最大暴露時間: <strong>7〜8 分</strong>。極めて危険なレベルです。',
-                warning3m: '安全な最大暴露時間: <strong>3〜4 分</strong>。重大なリスクがあります。',
-                warning1m: '安全な最大暴露時間: <strong>1〜2 分</strong>。ただちにその場を離れてください。',
-                warningLess1m: '安全な最大暴露時間: <strong>1 分未満</strong>。直ちに危険なレベルです。',
-                warningImmediate: '<strong>聴覚損傷の危険が差し迫っています！</strong> すぐにその場を離れてください。',
-                labelStatus: '✅ 状態:',
-                labelCaution: '⚠️ 注意:',
-                labelWarning: '⚠️ 警告:',
-                labelDanger: '🚨 危険:',
-                reportSafe: '安全な環境',
-                reportCaution: '注意が必要',
-                reportHigh: '騒音レベルが高い',
-                errorMic: 'マイクにアクセスできません。マイクの使用許可が付与されているか確認してください。',
-                errorReport: 'レポートを生成できませんでした。しばらくしてから再度お試しください。'
-            };
+            const startBtn = document.getElementById('startBtn');
+            const downloadBtn = document.getElementById('downloadBtn');
+            const statusText = document.getElementById('statusText');
+            const statusIcon = document.getElementById('statusIcon');
+            const pulseRing = document.getElementById('pulseRing');
+            const exposureWarning = document.getElementById('exposureWarning');
+            const exposureTime = document.getElementById('exposureTime');
+            const statistics = document.getElementById('statistics');
             
-            SoundMeter.init(jaTranslations);
+            // Inline Translation Object for Dynamic Content
+            const jaTranslations = {
+                status: {
+                    ready: '「測定を開始」をクリック',
+                    monitoring: 'モニタリング中...',
+                    error: 'マイクエラー'
+                },
+                exposure: {
+                    ready: '測定準備完了',
+                    safe: '安全なレベル',
+                    moderate: '中程度 - 長時間は避ける',
+                    high: '高い - 注意が必要',
+                    harmful: '有害 - 暴露を制限',
+                    danger: '危険 - 直ちに離れる'
+                },
+                report: {
+                    safe: '安全',
+                    moderate: '中程度',
+                    harmful: '有害',
+                    dangerous: '危険'
+                }
+            };
+
+            // Update Level Bar Function
+            function updateLevelBar(db) {
+                const bar = document.getElementById('levelBar');
+                if (!bar) return;
+                
+                // Clamp dB between 0 and 120 for percentage
+                const percentage = Math.min(Math.max((db / 120) * 100, 0), 100);
+                bar.style.width = `${percentage}%`;
+                
+                // Color based on safety
+                bar.className = 'h-full transition-all duration-300 rounded-full ';
+                if (db < 70) bar.className += 'gradient-quiet';
+                else if (db < 85) bar.className += 'gradient-moderate';
+                else if (db < 100) bar.className += 'gradient-loud';
+                else if (db < 110) bar.className += 'gradient-harmful';
+                else bar.className += 'gradient-dangerous';
+            }
+
+            // Update UI with Decibel Data
+            window.addEventListener('sound-meter-update', (e) => {
+                const { db, min, max, avg, status } = e.detail;
+                
+                // Update Numeric Display
+                document.getElementById('decibelValue').textContent = db.toFixed(1);
+                
+                // Update Statistics
+                document.getElementById('minValue').textContent = min.toFixed(1);
+                document.getElementById('maxValue').textContent = max.toFixed(1);
+                document.getElementById('avgValue').textContent = avg.toFixed(1);
+                
+                // Update Level Bar
+                updateLevelBar(db);
+
+                // Update Status Text & Visuals
+                let statusMsg = '';
+                let exposureMsg = '';
+                let iconColorClass = '';
+                
+                if (db < 70) {
+                    statusMsg = '静か';
+                    exposureMsg = '✅ ' + jaTranslations.exposure.safe;
+                    iconColorClass = 'gradient-quiet';
+                } else if (db < 85) {
+                    statusMsg = '中程度';
+                    exposureMsg = '⚠️ ' + jaTranslations.exposure.moderate;
+                    iconColorClass = 'gradient-moderate';
+                } else if (db < 100) {
+                    statusMsg = 'うるさい';
+                    exposureMsg = '✋ ' + jaTranslations.exposure.high;
+                    iconColorClass = 'gradient-loud';
+                } else if (db < 110) {
+                    statusMsg = '非常にうるさい';
+                    exposureMsg = '🚫 ' + jaTranslations.exposure.harmful;
+                    iconColorClass = 'gradient-harmful';
+                } else {
+                    statusMsg = '危険';
+                    exposureMsg = '☠️ ' + jaTranslations.exposure.danger;
+                    iconColorClass = 'gradient-dangerous';
+                }
+                
+                statusText.textContent = statusMsg;
+                statusText.className = `text-2xl font-bold leading-tight ${
+                    db < 70 ? 'text-green-600' : 
+                    db < 85 ? 'text-blue-600' : 
+                    db < 100 ? 'text-yellow-600' : 
+                    db < 110 ? 'text-orange-600' : 'text-red-600'
+                }`;
+                
+                exposureTime.textContent = exposureMsg.replace(/^[✅⚠️✋🚫☠️]\s/, ''); // Remove icon for text part if needed, or keep it
+                
+                // Update Icon Color
+                const iconContainer = statusIcon.querySelector('div.absolute');
+                if (iconContainer) {
+                    iconContainer.className = `absolute inset-0 rounded-full flex items-center justify-center transition-colors duration-300 ${iconColorClass}`;
+                }
+                
+                // Pulse Effect for Loud Noise
+                if (db > 85) {
+                    pulseRing.style.display = 'block';
+                    pulseRing.className = `absolute inset-0 rounded-full pulse-ring ${iconColorClass}`;
+                } else {
+                    pulseRing.style.display = 'none';
+                }
+            });
+
+            // Start Button
+            startBtn.addEventListener('click', async () => {
+                try {
+                    await SoundMeter.start();
+                    startBtn.classList.add('hidden');
+                    
+                    // Show Stop Button (created dynamically or just toggle text)
+                    // For simplicity, let's change Start to Stop styling/text
+                    const stopBtn = document.createElement('button');
+                    stopBtn.id = 'stopBtn';
+                    stopBtn.className = 'flex-1 bg-red-500 hover:bg-red-600 text-white font-semibold py-4 px-6 rounded-xl shadow-md transform transition hover:scale-105 active:scale-95 text-base';
+                    stopBtn.textContent = '測定を停止';
+                    stopBtn.onclick = () => {
+                        SoundMeter.stop();
+                        stopBtn.remove();
+                        startBtn.classList.remove('hidden');
+                        startBtn.textContent = '測定を再開';
+                        downloadBtn.disabled = false;
+                        pulseRing.style.display = 'none';
+                        statusText.textContent = '測定完了';
+                        statusText.className = 'text-2xl font-bold text-gray-800 leading-tight';
+                    };
+                    
+                    startBtn.parentNode.insertBefore(stopBtn, downloadBtn);
+                    
+                    statusText.textContent = jaTranslations.status.monitoring;
+                    exposureTime.textContent = jaTranslations.exposure.safe; // Default start
+                    statistics.classList.remove('hidden');
+                    statistics.classList.add('flex');
+                    
+                    // Initialize Visualizer
+                    AudioVisualizer.init();
+                    
+                } catch (err) {
+                    console.error(err);
+                    alert('マイクへのアクセスが必要です。ブラウザの設定を確認してください。');
+                }
+            });
+
+            // Download Report
+            downloadBtn.addEventListener('click', () => {
+                const date = new Date();
+                document.getElementById('reportDate').textContent = date.toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' });
+                document.getElementById('reportTime').textContent = date.toLocaleTimeString('ja-JP');
+                
+                document.getElementById('reportAvg').textContent = document.getElementById('avgValue').textContent;
+                document.getElementById('reportMin').textContent = document.getElementById('minValue').textContent;
+                document.getElementById('reportMax').textContent = document.getElementById('maxValue').textContent;
+                
+                const avgDb = parseFloat(document.getElementById('avgValue').textContent) || 0;
+                let statusText = jaTranslations.report.safe;
+                if(avgDb >= 85) statusText = jaTranslations.report.harmful;
+                else if(avgDb >= 70) statusText = jaTranslations.report.moderate;
+                
+                document.getElementById('reportStatus').textContent = statusText;
+
+                const element = document.getElementById('reportTemplate');
+                
+                html2canvas(element, {
+                    scale: 2,
+                    logging: false,
+                    useCORS: true
+                }).then(canvas => {
+                    const link = document.createElement('a');
+                    link.download = `sound-meter-report-${date.toISOString().slice(0,10)}.png`;
+                    link.href = canvas.toDataURL();
+                    link.click();
+                });
+            });
         });
     </script>
 </body>
