@@ -31,12 +31,52 @@
 </head>
 <body class="bg-gray-50 min-h-screen">
     <!-- Header -->
-    <header class="bg-white shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
-            <div class="text-center">
-                <a href="index.html" class="inline-block">
-                    <img src="logo.svg" alt="Sound Meter - Online Decibel Meter" class="h-10 mx-auto">
-                </a>
+    <header class="bg-white shadow-md border-b border-gray-300 relative z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 relative">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <a href="/" class="flex items-center gap-2">
+                        <img src="logo.svg" alt="Sound Meter" class="h-10 w-auto sm:h-12">
+                    </a>
+                </div>
+
+                <!-- Navigation -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="/" class="text-gray-500 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors inline-flex items-center gap-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                        Home
+                    </a>
+                    <a href="/online-hearing-test/" class="text-gray-500 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors inline-flex items-center gap-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 002 2h2a2 2 0 002-2z"></path></svg>
+                        Hearing Test
+                    </a>
+                    <div class="relative inline-block text-left group invisible pointer-events-none">
+                        <button type="button" class="inline-flex items-center justify-center rounded-full border border-gray-200 shadow-sm px-3 py-1.5 sm:px-4 sm:py-2 bg-white text-xs sm:text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200">
+                            <svg class="mr-1.5 h-4 w-4 sm:h-5 sm:w-5 text-gray-500 group-hover:text-blue-600 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="hidden sm:inline">English</span>
+                            <span class="sm:hidden">EN</span>
+                            <svg class="ml-1.5 -mr-1 h-3 w-3 sm:h-4 sm:w-4 text-gray-400 group-hover:text-blue-500 transition-colors" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                    </div>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <div class="flex items-center gap-4 md:hidden">
+                    <a href="/" class="text-gray-500 hover:text-blue-600 text-sm font-medium inline-flex items-center gap-1">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                        Home
+                    </a>
+                    <a href="/online-hearing-test/" class="text-gray-500 hover:text-blue-600 text-sm font-medium inline-flex items-center gap-1">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 002 2h2a2 2 0 002-2z"></path></svg>
+                        Hearing Test
+                    </a>
+                </div>
+
             </div>
         </div>
     </header>
@@ -48,84 +88,54 @@
             
             <div class="prose max-w-none text-gray-700 space-y-6">
                 <section>
-                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Our Mission</h2>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Hello! 👋</h2>
                     <p>
-                        Sound Meter is a free online tool designed to help people understand and monitor environmental noise levels. Our mission is to promote hearing health awareness and provide accessible tools for measuring sound levels in everyday environments.
+                        Hi there! I'm an independent developer who built Sound Meter. Thank you for visiting and using this tool.
                     </p>
                     <p>
-                        We believe that everyone should have access to tools that help protect their hearing health. By providing real-time decibel measurements through your device's microphone, we make it easy for anyone to assess whether their environment poses a risk to their hearing.
+                        I created this project because I wanted a simple, privacy-focused way to check noise levels without downloading sketchy apps or dealing with aggressive ads. Like many of you, I've become increasingly aware of how environmental noise affects our health—from sleep quality to long-term hearing preservation.
                     </p>
                 </section>
 
                 <section>
-                    <h2 class="text-2xl font-bold text-gray-900 mb-4">What We Offer</h2>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Why I Built This</h2>
+                    <p>
+                        A while back, I found myself in a surprisingly loud coffee shop, trying to focus. I wanted to know just <em>how</em> loud it was, but every website I found was either cluttered, required a sign-up, or wanted to install something.
+                    </p>
+                    <p>
+                        I realized that with modern web technology, we don't need dedicated apps for this. Your browser is powerful enough to do the job. So, I built Sound Meter with a few core principles in mind:
+                    </p>
                     <ul class="list-disc list-inside space-y-2 ml-4">
-                        <li><strong>Real-Time Measurement:</strong> Instant decibel level readings using your device's microphone</li>
-                        <li><strong>Visual Feedback:</strong> Color-coded displays showing safe, caution, and dangerous noise levels</li>
-                        <li><strong>Educational Content:</strong> Information based on guidelines from WHO, NIOSH, and CDC</li>
-                        <li><strong>Safe Exposure Guidelines:</strong> Recommendations for maximum exposure times at different noise levels</li>
-                        <li><strong>Privacy-Focused:</strong> All processing happens locally in your browser - no audio is recorded or transmitted</li>
+                        <li><strong>Privacy First:</strong> What happens in your browser stays in your browser. No audio is ever recorded or sent to a server.</li>
+                        <li><strong>Simplicity:</strong> No logins, no complex setups. Just open the page and see the decibels.</li>
+                        <li><strong>Accessibility:</strong> It should work on your phone, tablet, or laptop—anywhere with a microphone and a browser.</li>
                     </ul>
                 </section>
 
                 <section>
-                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Why Sound Meter?</h2>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">A Note on Accuracy</h2>
                     <p>
-                        Noise-Induced Hearing Loss (NIHL) is one of the most common occupational and recreational health hazards, yet it is entirely preventable. According to the World Health Organization, over 1 billion young people worldwide are at risk of hearing loss due to unsafe listening practices.
+                        I want to be transparent with you: <strong>this is a reference tool, not a medical device.</strong>
                     </p>
                     <p>
-                        Our tool helps you:
-                    </p>
-                    <ul class="list-disc list-inside space-y-2 ml-4">
-                        <li>Monitor workplace noise levels</li>
-                        <li>Check if your home environment is conducive to sleep and concentration</li>
-                        <li>Assess whether hearing protection is needed in various situations</li>
-                        <li>Educate yourself and others about safe sound levels</li>
-                        <li>Make informed decisions about noise exposure</li>
-                    </ul>
-                </section>
-
-                <section>
-                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Evidence-Based Guidelines</h2>
-                    <p>
-                        All information and recommendations on Sound Meter are based on research and guidelines from internationally recognized health and safety organizations, including:
-                    </p>
-                    <ul class="list-disc list-inside space-y-2 ml-4">
-                        <li><strong>World Health Organization (WHO)</strong> - Safe listening guidelines</li>
-                        <li><strong>National Institute for Occupational Safety and Health (NIOSH/CDC)</strong> - Occupational noise exposure standards</li>
-                        <li><strong>National Institute on Deafness and Other Communication Disorders (NIDCD)</strong> - Hearing health research</li>
-                        <li><strong>Hearing Health Foundation</strong> - Decibel exposure guidelines</li>
-                    </ul>
-                </section>
-
-                <section>
-                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Technology</h2>
-                    <p>
-                        Sound Meter uses the Web Audio API to access your device's microphone and measure sound pressure levels. All audio processing happens locally in your browser using JavaScript - we never record, store, or transmit any audio data.
-                    </p>
-                    <p>
-                        The tool provides estimated readings that are suitable for general awareness and educational purposes. For professional-grade measurements, we recommend using certified sound level meters.
+                        I've done my best to calibrate the algorithms, but the accuracy ultimately depends on your device's hardware. A professional sound level meter costs hundreds of dollars for a reason. This tool is great for getting a general idea ("Is this rock concert too loud?" or "Is my workspace quiet enough?"), but please don't use it for safety compliance or medical diagnosis.
                     </p>
                 </section>
 
                 <section>
-                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Our Commitment</h2>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Tech Stack</h2>
                     <p>
-                        We are committed to:
+                        For the curious developers out there, this site runs entirely on the client side using the <strong>Web Audio API</strong>. It analyzes the raw audio stream from your microphone in real-time to calculate the Root Mean Square (RMS) amplitude, which is then converted to decibels. It's lightweight, fast, and secure.
                     </p>
-                    <ul class="list-disc list-inside space-y-2 ml-4">
-                        <li><strong>Privacy:</strong> Your data stays on your device. We never collect audio recordings.</li>
-                        <li><strong>Accuracy:</strong> Providing measurements based on scientific standards and best practices.</li>
-                        <li><strong>Accessibility:</strong> Keeping the tool free and available to everyone.</li>
-                        <li><strong>Education:</strong> Sharing evidence-based information about hearing health.</li>
-                        <li><strong>Transparency:</strong> Being clear about the capabilities and limitations of our tool.</li>
-                    </ul>
                 </section>
 
                 <section>
-                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Contact Us</h2>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Get in Touch</h2>
                     <p>
-                        Have questions or feedback? We'd love to hear from you. Visit our <a href="contact.html" class="text-blue-600 hover:underline">contact page</a> to get in touch.
+                        I'm always looking to improve this tool. If you spot a bug, have a feature request, or just want to say hi, feel free to reach out via the <a href="contact.html" class="text-blue-600 hover:underline">contact page</a>.
+                    </p>
+                    <p>
+                        Stay safe and protect your ears!
                     </p>
                 </section>
             </div>

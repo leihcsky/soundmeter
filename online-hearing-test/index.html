@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="https://schema.org/WebApplication">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VBFVZM0MP6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-VBFVZM0MP6');
+    </script>
+    
+    <!-- Primary Meta Tags -->
+    <title>Online Hearing Test - Free Audio Frequency Check | RealtimeSoundMeter.org</title>
+    <meta name="title" content="Online Hearing Test - Free Audio Frequency Check | RealtimeSoundMeter.org">
+    <meta name="description" content="Free online hearing test to check your hearing health. Test different frequencies (250Hz - 8kHz) and get an instant audiogram result. No download required.">
+    <meta name="keywords" content="online hearing test, hearing test frequency, hearing age test, audiogram, hearing check, sound test">
+    <meta name="author" content="RealtimeSoundMeter.org">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://realtimesoundmeter.org/online-hearing-test/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://realtimesoundmeter.org/online-hearing-test/">
+    <meta property="og:title" content="Online Hearing Test - Free Audio Frequency Check">
+    <meta property="og:description" content="Take a free online hearing test now. Check your hearing sensitivity across different frequencies and protect your ear health.">
+    <meta property="og:image" content="https://realtimesoundmeter.org/apple-touch-icon.svg">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://realtimesoundmeter.org/online-hearing-test/">
+    <meta name="twitter:title" content="Online Hearing Test - Free Audio Frequency Check">
+    <meta name="twitter:description" content="Take a free online hearing test now. Check your hearing sensitivity across different frequencies.">
+    <meta name="twitter:image" content="https://realtimesoundmeter.org/apple-touch-icon.svg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    
+    <!-- Structured Data - WebApplication -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Online Hearing Test",
+      "url": "https://realtimesoundmeter.org/online-hearing-test/",
+      "description": "Free medical-grade online hearing test. Check your hearing age and sensitivity across frequencies (250Hz - 8kHz).",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+
+    <!-- Structured Data - FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do I read the audiogram?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The audiogram shows the quietest sounds you could hear at each test frequency. The horizontal axis displays pitch (from low to high), and the vertical axis displays loudness in dB HL. Points near the top of the chart mean you can hear softer sounds; points lower down indicate that sounds must be louder before you notice them. Sounds plotted above your result line are typically too soft for you to hear, while sounds on or below the line are generally audible."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does the test start at 1000Hz?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We follow the ISO 8253-1 audiometric standard. The test begins at 1000Hz because this frequency is the most stable and easily recognizable for the human ear. We then test higher frequencies (2k, 4k, 8k Hz) where hearing loss typically occurs first, before returning to lower frequencies (500, 250 Hz)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why can't I go back to the previous step?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A valid hearing test relies on your immediate, unbiased reaction to sound. Allowing users to 'go back' or 'retry' a specific frequency introduces psychological bias—you might unconsciously 'try harder' to hear a sound you missed, leading to false positives. If you feel you made a mistake, it is scientifically better to restart the full test."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is Hearing Age?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hearing Age is a relative metric that compares your high-frequency hearing sensitivity to statistical population averages. As we age, we naturally lose the ability to hear high-pitched sounds (presbycusis). If your hearing age is higher than your biological age, it suggests you may have more high-frequency hearing loss than the average person your age."
+          }
+        }
+      ]
+    }
+    </script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js for Audiogram -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        .fade-in { animation: fadeIn 0.5s ease-in; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        
+        /* Print Styles */
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            #view-result, #view-result * {
+                visibility: visible;
+            }
+            #view-result {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                box-shadow: none !important;
+            }
+            #btn-restart, #btn-export, a[href="/"] {
+                display: none !important;
+            }
+            #result-print-area {
+                padding: 20px !important;
+            }
+        }
+
+        /* Custom range slider styling */
+        input[type=range] {
+            -webkit-appearance: none;
+            width: 100%;
+            background: transparent;
+        }
+        input[type=range]:focus {
+            outline: none;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 28px;
+            width: 28px;
+            border-radius: 50%;
+            background: #2563eb;
+            cursor: pointer;
+            margin-top: -12px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+            border: 2px solid #fff;
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 6px;
+            cursor: pointer;
+            background: #e5e7eb;
+            border-radius: 3px;
+        }
+        input[type=range]:active::-webkit-slider-thumb {
+            background: #1d4ed8;
+            transform: scale(1.1);
+        }
+        
+        .pulse-ring {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            border: 4px solid #3b82f6;
+            opacity: 0;
+            animation: pulse-animation 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        }
+        @keyframes pulse-animation {
+            0% { transform: scale(0.5); opacity: 0; }
+            50% { opacity: 0.5; }
+            100% { transform: scale(1.2); opacity: 0; }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen font-sans text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-white shadow-md border-b border-gray-300 relative z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 relative">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <a href="/" class="flex items-center gap-2">
+                        <img src="../logo.svg" alt="Sound Meter" class="h-10 w-auto sm:h-12">
+                    </a>
+                </div>
+
+                <!-- Navigation -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="/" class="text-gray-500 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors inline-flex items-center gap-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                        Home
+                    </a>
+                    <a href="/online-hearing-test/" class="text-blue-600 bg-blue-50 px-3 py-2 rounded-md text-sm font-medium inline-flex items-center gap-2" aria-current="page">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 002 2h2a2 2 0 002-2z"></path></svg>
+                        Hearing Test
+                    </a>
+                    <div class="relative inline-block text-left group invisible pointer-events-none">
+                        <button type="button" class="inline-flex items-center justify-center rounded-full border border-gray-200 shadow-sm px-3 py-1.5 sm:px-4 sm:py-2 bg-white text-xs sm:text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200">
+                            <svg class="mr-1.5 h-4 w-4 sm:h-5 sm:w-5 text-gray-500 group-hover:text-blue-600 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <span class="hidden sm:inline">English</span>
+                            <span class="sm:hidden">EN</span>
+                            <svg class="ml-1.5 -mr-1 h-3 w-3 sm:h-4 sm:w-4 text-gray-400 group-hover:text-blue-500 transition-colors" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                    </div>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <div class="flex items-center gap-4 md:hidden">
+                    <a href="/" class="text-gray-500 hover:text-blue-600 text-sm font-medium inline-flex items-center gap-1">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                        Home
+                    </a>
+                    <a href="/online-hearing-test/" class="text-blue-600 font-bold text-sm inline-flex items-center gap-1">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 002 2h2a2 2 0 002-2z"></path></svg>
+                        Hearing Test
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="max-w-5xl mx-auto px-4 py-8 sm:py-12">
+        
+        <!-- View 1: Landing (Enhanced Layout) -->
+        <div id="view-landing" class="bg-white rounded-2xl shadow-xl p-6 sm:p-10 text-center fade-in overflow-hidden">
+            <!-- 1. Text Hero Section -->
+            <div class="mb-10 max-w-4xl mx-auto">
+                <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-6 tracking-tight">Online Hearing Test</h1>
+                <div class="space-y-3 text-gray-600">
+                    <p class="text-xl font-medium leading-relaxed">Free medical-grade audio frequency check to assess your hearing health.</p>
+                    <p class="text-base text-gray-500">Test frequencies from 250Hz to 8kHz and discover your "Hearing Age" in minutes.</p>
+                </div>
+            </div>
+
+            <!-- 2. Hero Visual (Integrated) -->
+            <div class="relative mb-12 rounded-2xl overflow-hidden h-64 sm:h-80 shadow-inner max-w-4xl mx-auto">
+                <img src="../images/landing-hero.jpg" 
+                     alt="Person wearing headphones for hearing test" 
+                     class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
+                <div class="absolute bottom-4 left-4 right-4 text-white text-sm font-medium opacity-90 hidden sm:block">
+                    Professional audiometry standards • Calibrated for home use
+                </div>
+            </div>
+
+            <!-- 3. Content Grid: About & Trust -->
+            <div class="grid md:grid-cols-2 gap-6 mb-12 text-left max-w-4xl mx-auto">
+                <!-- About This Tool -->
+                <div class="bg-blue-50 rounded-xl p-6 border border-blue-100 h-full">
+                    <h3 class="font-bold text-blue-900 mb-4 flex items-center gap-2 text-lg">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        Scientific Methodology
+                    </h3>
+                    <ul class="space-y-3 text-sm text-blue-800">
+                        <li class="flex gap-3">
+                            <span class="text-blue-500 font-bold">•</span>
+                            <span>Based on <strong>Pure Tone Audiometry</strong> to determine your hearing threshold across the frequency spectrum.</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="text-blue-500 font-bold">•</span>
+                            <span>Calibrated to <a href="https://www.iso.org/standard/42916.html" target="_blank" class="underline hover:text-blue-600">ISO 8253-1</a> and <a href="https://www.iso.org/standard/77365.html" target="_blank" class="underline hover:text-blue-600">ISO 389-7:2019</a> standards.</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="text-blue-500 font-bold">•</span>
+                            <span>Detects high-frequency hearing loss often missed in normal conversation.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Why Trust & Context -->
+                <div class="bg-gray-50 rounded-xl p-6 border border-gray-100 h-full flex flex-col justify-center">
+                    <h3 class="font-bold text-gray-900 mb-4 flex items-center gap-2 text-lg">
+                        <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        Why Trust This Test?
+                    </h3>
+                    <p class="text-sm text-gray-600 leading-relaxed mb-4">
+                        We utilize reference data from the <strong>World Health Organization (WHO)</strong> to ensure your results are meaningful. 
+                    </p>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        While this online tool is an excellent first step for monitoring ear health, it does not replace a clinical diagnosis in a soundproof booth. For accurate results at home, ensure your background noise is low (check using our <a href="/" class="text-blue-600 hover:underline">Online Decibel Meter</a>).
+                    </p>
+                </div>
+            </div>
+
+            <!-- 4. CTA / Action Section -->
+            <div class="bg-gradient-to-br from-blue-50 to-white rounded-2xl p-8 sm:p-10 border border-blue-100 shadow-sm max-w-3xl mx-auto">
+                <h2 class="text-2xl font-bold text-gray-900 mb-6">Ready to Start?</h2>
+                
+                <!-- Highlights -->
+                <div class="flex flex-wrap justify-center gap-4 sm:gap-8 mb-8 text-sm font-medium text-gray-600">
+                    <div class="flex items-center gap-2 bg-white px-3 py-1.5 rounded-full shadow-sm border border-gray-100">
+                        <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        100% Free
+                    </div>
+                    <div class="flex items-center gap-2 bg-white px-3 py-1.5 rounded-full shadow-sm border border-gray-100">
+                        <svg class="w-4 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                        Instant Results
+                    </div>
+                    <div class="flex items-center gap-2 bg-white px-3 py-1.5 rounded-full shadow-sm border border-gray-100">
+                        <svg class="w-4 h-4 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+                        Headphones Required
+                    </div>
+                </div>
+
+                <button id="btn-start-intro" class="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-12 rounded-full text-lg shadow-lg transform transition hover:scale-105 active:scale-95 ring-4 ring-blue-50 flex items-center justify-center gap-3 mx-auto">
+                    <span>Start Hearing Test</span>
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                </button>
+                
+                <p class="mt-6 text-xs text-gray-400">
+                    By clicking Start, you agree to our terms of service. No personal data is stored.
+                </p>
+            </div>
+        </div>
+
+        <!-- View 2: Questionnaire (New) -->
+        <div id="view-questionnaire" class="hidden bg-white rounded-2xl shadow-xl p-6 sm:p-10 fade-in">
+            <h2 class="text-2xl font-bold text-gray-900 mb-6 text-center">Tell Us About Yourself</h2>
+            <p class="text-center text-gray-500 mb-8">This helps us calculate your relative hearing age.</p>
+            
+            <div class="space-y-6 max-w-md mx-auto">
+                <!-- Age -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Your Age Group</label>
+                    <div class="grid grid-cols-3 gap-3">
+                        <button class="q-btn-age bg-gray-50 border hover:border-blue-500 hover:bg-blue-50 py-3 rounded-lg text-sm transition" data-value="18-29">18-29</button>
+                        <button class="q-btn-age bg-gray-50 border hover:border-blue-500 hover:bg-blue-50 py-3 rounded-lg text-sm transition" data-value="30-39">30-39</button>
+                        <button class="q-btn-age bg-gray-50 border hover:border-blue-500 hover:bg-blue-50 py-3 rounded-lg text-sm transition" data-value="40-49">40-49</button>
+                        <button class="q-btn-age bg-gray-50 border hover:border-blue-500 hover:bg-blue-50 py-3 rounded-lg text-sm transition" data-value="50-59">50-59</button>
+                        <button class="q-btn-age bg-gray-50 border hover:border-blue-500 hover:bg-blue-50 py-3 rounded-lg text-sm transition" data-value="60-69">60-69</button>
+                        <button class="q-btn-age bg-gray-50 border hover:border-blue-500 hover:bg-blue-50 py-3 rounded-lg text-sm transition" data-value="70+">70+</button>
+                    </div>
+                    <input type="hidden" id="q-age">
+                </div>
+
+                <!-- Gender -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Gender</label>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button class="q-btn-gender bg-gray-50 border hover:border-blue-500 hover:bg-blue-50 py-3 rounded-lg text-sm transition" data-value="male">Male</button>
+                        <button class="q-btn-gender bg-gray-50 border hover:border-blue-500 hover:bg-blue-50 py-3 rounded-lg text-sm transition" data-value="female">Female</button>
+                    </div>
+                    <input type="hidden" id="q-gender">
+                </div>
+
+                <!-- Device -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Headphone Type</label>
+                    <select id="q-device" class="w-full border-gray-300 rounded-lg shadow-sm focus:border-blue-500 focus:ring-blue-500 p-3 bg-gray-50">
+                        <option value="in-ear">In-Ear (Earbuds)</option>
+                        <option value="over-ear">Over-Ear (Headphones)</option>
+                        <option value="speakers">Speakers (Not Recommended)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="mt-10 text-center">
+                <button id="btn-submit-questionnaire" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-12 rounded-xl shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition" disabled>
+                    Next Step
+                </button>
+            </div>
+        </div>
+
+        <!-- View 3: Calibration -->
+        <div id="view-calibration" class="hidden bg-white rounded-2xl shadow-xl p-6 sm:p-10 fade-in">
+            <h2 class="text-2xl font-bold text-gray-900 mb-2">Step 1: Volume Check</h2>
+            <p class="text-gray-600 mb-6">Let's set a comfortable volume level.</p>
+            
+            <!-- Safety Warning -->
+            <div class="bg-yellow-50 border border-yellow-200 rounded-xl p-4 mb-6 text-left">
+                <div class="flex gap-3">
+                    <div class="flex-shrink-0 text-yellow-600">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                    </div>
+                    <div>
+                         <h4 class="font-bold text-yellow-800 text-sm mb-1">Safety First</h4>
+                         <p class="text-sm text-yellow-700">Please <strong>lower your device volume</strong> (e.g., to 20-30%) before playing the sound to avoid sudden loud noise.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-blue-50 border border-blue-100 rounded-xl p-6 mb-8 text-center">
+                <button id="btn-play-calib" class="bg-white border-2 border-blue-500 text-blue-600 hover:bg-blue-50 font-semibold py-3 px-8 rounded-full transition mb-6 inline-flex items-center gap-2 shadow-sm">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Play Reference Sound
+                </button>
+                
+                <div class="text-gray-700 mb-2">
+                    <p class="mb-2 font-medium">After playing:</p>
+                    <p class="text-sm text-gray-600">Slowly increase volume until the rubbing sound is clearly audible but <strong>comfortable</strong> (like a normal conversation).</p>
+                </div>
+            </div>
+
+            <div class="flex justify-center">
+                <button id="btn-confirm-calib" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-12 rounded-xl shadow transition">
+                    I'm Ready, Start Test
+                </button>
+            </div>
+        </div>
+
+        <!-- View 4: Test Progress (New Slider UI) -->
+        <div id="view-test" class="hidden bg-white rounded-2xl shadow-xl p-6 sm:p-10 fade-in text-center relative overflow-hidden">
+            <!-- Progress Bar -->
+            <div class="absolute top-0 left-0 w-full h-2 bg-gray-100">
+                <div id="test-progress" class="h-full bg-blue-500 transition-all duration-500" style="width: 0%"></div>
+            </div>
+
+            <div class="mt-4 mb-8">
+                <span id="ear-indicator" class="inline-block px-4 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-semibold mb-4">
+                    Left Ear
+                </span>
+                <div class="text-4xl font-bold text-gray-900 mb-1" id="freq-display">1000 Hz</div>
+                <p class="text-sm text-gray-400">Tone Frequency</p>
+            </div>
+
+            <!-- Visual Indicator -->
+            <div class="relative h-32 w-32 mx-auto mb-8 flex items-center justify-center">
+                <div id="visual-pulse" class="pulse-ring hidden"></div>
+                <div class="relative z-10 bg-gray-50 rounded-full w-24 h-24 flex items-center justify-center border-2 border-gray-200 text-gray-400">
+                    <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+                </div>
+            </div>
+
+            <!-- Interaction Area (Wider) -->
+            <div class="max-w-2xl mx-auto">
+                <p class="text-gray-700 font-medium mb-6">
+                    Tap <span class="font-bold text-2xl text-blue-600 align-middle">+</span> to increase volume until you <br>
+                    <span class="text-blue-600 font-bold">JUST BARELY</span> hear the tone.
+                </p>
+                
+                <div class="flex items-center justify-center gap-4 mb-8 select-none">
+                    <button id="btn-vol-down" class="w-14 h-14 rounded-full bg-gray-100 border border-gray-300 hover:bg-gray-200 text-gray-600 font-bold flex items-center justify-center transition active:scale-95 touch-manipulation" aria-label="Decrease Volume">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M20 12H4"></path></svg>
+                    </button>
+                    
+                    <div class="flex-1 max-w-[280px] h-3 bg-gray-200 rounded-full overflow-hidden">
+                        <div id="volume-bar" class="h-full bg-blue-500 transition-all duration-200" style="width: 0%"></div>
+                    </div>
+
+                    <button id="btn-vol-up" class="w-16 h-16 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-bold flex items-center justify-center shadow-lg transition active:scale-95 touch-manipulation" aria-label="Increase Volume">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4"></path></svg>
+                    </button>
+                </div>
+
+                <button id="btn-confirm-threshold" class="w-full max-w-sm bg-green-500 hover:bg-green-600 text-white font-bold py-4 rounded-xl text-lg shadow-lg transform transition active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed">
+                    I Can Hear It
+                </button>
+            </div>
+        </div>
+
+        <!-- View: Intermission (New) -->
+        <div id="view-intermission" class="hidden bg-white rounded-2xl shadow-xl p-6 sm:p-10 fade-in text-center">
+            <div class="mb-6">
+                <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto text-green-500">
+                    <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+            </div>
+            <h2 class="text-2xl font-bold text-gray-900 mb-2">Left Ear Complete!</h2>
+            <p class="text-gray-600 mb-8">Take a short break if needed. We will now test your <strong>Right Ear</strong>.</p>
+            
+            <button id="btn-start-right" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-10 rounded-xl shadow-lg transition transform hover:scale-105">
+                Continue to Right Ear
+            </button>
+        </div>
+
+        <!-- View 5: Result (Enhanced) -->
+        <div id="view-result" class="hidden bg-white rounded-2xl shadow-xl p-6 sm:p-10 fade-in">
+            <!-- Printable Area Start -->
+            <div id="result-print-area" class="bg-white p-4">
+                <div class="text-center mb-8 flex flex-col items-center">
+                    <div class="flex items-center justify-center gap-2 mb-4 opacity-50">
+                        <img src="../logo.svg" alt="Sound Meter" class="h-6">
+                        <span class="text-gray-500 text-sm font-semibold">RealtimeSoundMeter.org</span>
+                    </div>
+                    <h2 class="text-3xl font-bold text-gray-900 mb-2">Hearing Test Report</h2>
+                    <p class="text-gray-400 text-sm mb-6" id="report-date">Date: --</p>
+
+                    <div id="hearing-age-display" class="hidden mb-6 p-6 bg-blue-50 rounded-2xl min-w-[300px]">
+                        <p class="text-gray-500 font-medium uppercase tracking-wide text-xs">Estimated Hearing Age</p>
+                        <div class="text-5xl font-extrabold text-blue-600 mt-4 mb-6" id="hearing-age-value">--</div>
+                        <p id="hearing-age-comment" class="text-sm font-medium text-green-600">Excellent for your age!</p>
+                    </div>
+                </div>
+                
+                <div class="grid lg:grid-cols-2 gap-8 mb-8">
+                    <!-- Chart -->
+                    <div class="bg-white p-2 rounded-xl border border-gray-200 shadow-sm h-64 lg:h-80">
+                        <canvas id="audiogramChart"></canvas>
+                    </div>
+                    
+                    <!-- Text Analysis -->
+                    <div class="flex flex-col justify-center space-y-4">
+                        <div class="bg-blue-50 p-4 rounded-xl border-l-4 border-blue-500">
+                            <h3 class="font-bold text-blue-900 mb-1 flex items-center gap-2">
+                                <span class="text-lg">👂</span> Left Ear
+                            </h3>
+                            <p id="result-left-text" class="text-blue-800 text-sm">--</p>
+                        </div>
+                        <div class="bg-orange-50 p-4 rounded-xl border-l-4 border-orange-500">
+                            <h3 class="font-bold text-orange-900 mb-1 flex items-center gap-2">
+                                <span class="text-lg">👂</span> Right Ear
+                            </h3>
+                            <p id="result-right-text" class="text-orange-800 text-sm">--</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 rounded-xl p-6 mb-8 text-sm text-gray-600 border border-gray-100">
+                    <h4 class="font-bold text-gray-900 mb-3 flex items-center gap-2">
+                        <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        Understanding Your Results
+                    </h4>
+                    
+                    <div class="mb-6 pb-6 border-b border-gray-200">
+                        <h5 class="text-base font-bold text-gray-800 mb-2">About the Audiogram Chart</h5>
+                        <p class="mb-3 leading-relaxed">
+                           The chart above is an <strong>audiogram</strong>, a visual representation of your hearing sensitivity. Each point shows the softest sound you could <em>just barely</em> hear at a given test frequency.
+                        </p>
+                        <p class="mb-3 leading-relaxed">
+                           The horizontal axis shows <strong>frequency</strong> (pitch), from low tones on the left (250Hz) to high tones on the right (8kHz). These are the frequencies that matter most for understanding speech.
+                        </p>
+                        <p class="mb-3 leading-relaxed">
+                           The vertical axis represents <strong>Hearing Level (dB HL)</strong>. Unlike regular decibels, 0 dB HL does not mean total silence but the average hearing threshold of a healthy young adult. Smaller numbers near the top of the chart mean better sensitivity; higher numbers lower down mean that sounds must be louder before you can hear them.
+                        </p>
+                        <p class="mb-3 leading-relaxed">
+                           When you read your audiogram, imagine drawing a line through the markers for each ear. Sounds that fall <strong>above</strong> this line on the chart are too soft for you to hear; sounds that fall <strong>on or below</strong> the line are generally audible.
+                        </p>
+                        <p class="text-xs text-gray-400">
+                           *This test uses the <a href="https://www.iso.org/standard/77365.html" target="_blank" rel="nofollow noopener" class="text-blue-500 hover:underline">ISO 389-7:2019</a> standard for reference zero calibration.
+                        </p>
+                   </div>
+
+                    <ul class="space-y-2 ml-1">
+                        <li class="flex gap-3">
+                            <span class="font-bold min-w-[80px] text-gray-800">0-25 dB:</span>
+                            <span><strong>Normal Hearing.</strong> You can hear faint sounds like leaves rustling.</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="font-bold min-w-[80px] text-gray-800">26-40 dB:</span>
+                            <span><strong>Mild Loss.</strong> You might miss soft speech in noisy rooms.</span>
+                        </li>
+                        <li class="flex gap-3">
+                            <span class="font-bold min-w-[80px] text-gray-800">41-55 dB:</span>
+                            <span><strong>Moderate Loss.</strong> You likely need higher TV volume and ask people to repeat.</span>
+                        </li>
+                    </ul>
+                    <div class="mt-4 pt-4 border-t border-gray-200 text-xs text-gray-400">
+                        Reference: <a href="https://www.who.int/news-room/fact-sheets/detail/deafness-and-hearing-loss" target="_blank" rel="nofollow noopener" class="text-blue-500 hover:underline">World Health Organization (WHO) Grades of Hearing Impairment</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Printable Area End -->
+
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <button id="btn-export" class="bg-gray-900 hover:bg-black text-white font-semibold py-3 px-6 rounded-xl shadow-lg transition flex items-center justify-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                    Save Report
+                </button>
+                <button id="btn-restart" class="bg-white border border-gray-300 hover:bg-gray-50 text-gray-700 font-semibold py-3 px-6 rounded-xl transition">
+                    Retest
+                </button>
+                <a href="/" class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-xl shadow transition text-center">
+                    Back to Home
+                </a>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- SEO Content Section -->
+    <section class="max-w-5xl mx-auto px-4 pb-16 space-y-16 mt-16 border-t border-gray-100 pt-16">
+        
+        <!-- How it Works -->
+        <div class="space-y-10">
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 text-center tracking-tight">How This Online Hearing Test Works</h2>
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <!-- Step 1 -->
+                <div class="p-6 bg-white rounded-2xl shadow-sm border border-gray-100 transition hover:shadow-md overflow-hidden">
+                    <div class="h-48 -mx-6 -mt-6 mb-6 relative group">
+                        <img src="../images/step-calibrate.jpg" 
+                             alt="Volume Calibration" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">1. Calibrate</h3>
+                    <p class="text-gray-600 leading-relaxed">Set your volume to a comfortable level using our reference sound to ensure consistent results across devices.</p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="p-6 bg-white rounded-2xl shadow-sm border border-gray-100 transition hover:shadow-md overflow-hidden">
+                    <div class="h-48 -mx-6 -mt-6 mb-6 relative group">
+                        <img src="../images/test-frequencies.jpg"
+                             alt="Hearing Test Frequencies" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">2. Test Frequencies</h3>
+                    <p class="text-gray-600 leading-relaxed">We test 6 key frequencies (250Hz - 8kHz) for each ear to accurately map your hearing threshold.</p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="p-6 bg-white rounded-2xl shadow-sm border border-gray-100 transition hover:shadow-md overflow-hidden">
+                    <div class="h-48 -mx-6 -mt-6 mb-6 relative group">
+                        <img src="../images/step-results.jpg" 
+                             alt="Results Analysis" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-gray-900">3. Get Insights</h3>
+                    <p class="text-gray-600 leading-relaxed">Receive an instant audiogram and "Hearing Age" estimate with actionable health insights.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- FAQ -->
+        <div class="bg-gray-50 rounded-3xl p-8 sm:p-12 border border-gray-200">
+            <h2 class="text-3xl font-bold text-gray-900 mb-10 text-center">Frequently Asked Questions</h2>
+            <div class="space-y-10 max-w-3xl mx-auto">
+                <article>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">How often should I take this test?</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Hearing health changes gradually. We recommend taking this online hearing test <strong>once a year</strong> to track changes over time. If you work in a noisy environment or listen to loud music frequently, consider testing every 6 months. Consistent monitoring helps detect early signs of hearing loss before they affect your daily life.
+                    </p>
+                </article>
+
+                <article>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Is this test as accurate as a doctor's visit?</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        This tool is a professional-grade <strong>screening test</strong>, but it cannot replace a clinical diagnosis. A doctor's audiogram is performed in a soundproof booth with calibrated equipment. Our test is excellent for identifying <em>potential</em> issues and tracking trends, but environmental noise and headphone quality can affect absolute precision. If your results show "Moderate Loss" or worse, please consult an audiologist.
+                    </p>
+                </article>
+
+                <article>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">How do I read the audiogram?</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        The audiogram plots the quietest sounds you could hear at each test frequency. The horizontal axis shows pitch (from low to high), and the vertical axis shows loudness in dB HL. Points near the top of the chart mean you can hear soft sounds easily; points lower down mean sounds must be louder before you notice them. As a rule of thumb, <strong>sounds that appear above your result line are usually too soft for you to hear</strong>, while sounds on or below the line are generally audible.
+                    </p>
+                </article>
+
+                <article>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Why does the test start at 1000Hz?</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        We follow the <a href="https://www.iso.org/standard/42916.html" target="_blank" rel="nofollow noopener" class="text-blue-600 hover:underline">ISO 8253-1</a> audiometric standard. The test begins at 1000Hz because this frequency is the most stable and easily recognizable for the human ear. We then test higher frequencies (2k, 4k, 8k Hz) where hearing loss typically occurs first, before returning to lower frequencies (500, 250 Hz). This "bracketing" method ensures the highest accuracy and prevents auditory fatigue.
+                    </p>
+                </article>
+                
+                <article>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Why can't I go back to the previous step?</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        A valid hearing test relies on your <strong>immediate, unbiased reaction</strong> to sound. Allowing users to "go back" or "retry" a specific frequency introduces psychological bias—you might unconsciously "try harder" to hear a sound you missed, leading to false positives. If you feel you made a mistake, it is scientifically better to restart the full test to ensure your audiogram is authentic.
+                    </p>
+                </article>
+
+                <article>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">What is "Hearing Age"?</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Hearing Age is a relative metric that compares your high-frequency hearing sensitivity to statistical population averages (Source: <a href="https://www.who.int/health-topics/hearing-loss" target="_blank" rel="nofollow noopener" class="text-blue-600 hover:underline">WHO</a> & <a href="https://www.asha.org/" target="_blank" rel="nofollow noopener" class="text-blue-600 hover:underline">ASHA</a>). As we age, we naturally lose the ability to hear high-pitched sounds (a condition called <em>presbycusis</em>). If your hearing age is higher than your biological age, it suggests you may have more high-frequency hearing loss than the average person your age.
+                    </p>
+                </article>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white mt-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="text-center">
+                <h3 class="text-base font-semibold mb-2">Sound Meter - Environmental Noise Detection</h3>
+                <p class="text-sm text-gray-400 mb-4">Protect your hearing by monitoring noise levels in your environment.</p>
+                <div class="flex justify-center gap-6 text-sm mb-4">
+                    <a href="../about.html" class="hover:text-blue-400 transition">About</a>
+                    <a href="../terms.html" class="hover:text-blue-400 transition">Terms</a>
+                    <a href="../privacy.html" class="hover:text-blue-400 transition">Privacy</a>
+                    <a href="../disclaimer.html" class="hover:text-blue-400 transition">Disclaimer</a>
+                    <a href="../contact.html" class="hover:text-blue-400 transition">Contact</a>
+                </div>
+                
+                <div class="flex justify-center mb-6">
+                    <a href="https://toolfame.com/item/realtime-sound-meter" target="_blank" rel="noopener noreferrer"> 
+                        <img src="https://toolfame.com/badge-light.svg" alt="Featured on toolfame.com" style="height: 30px; width: auto;" /> 
+                    </a>
+                </div>
+
+                <p class="text-xs text-gray-500">© 2026 RealtimeSoundMeter.org. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <script src="../js/hearing-test.js"></script>
+    <script src="../js/hearing-ui.js"></script>
+</body>
+</html>
