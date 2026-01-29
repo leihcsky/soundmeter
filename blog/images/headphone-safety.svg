@@ -1,0 +1,6 @@
+<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="400" fill="#f0f9ff"/>
+  <circle cx="400" cy="200" r="120" fill="#3b82f6" opacity="0.1"/>
+  <path d="M320 200a80 80 0 0 1 160 0v40h-160v-40zm-20 40h20v80h-20a20 20 0 0 1-20-20v-40a20 20 0 0 1 20-20zm180 0h20a20 20 0 0 1 20 20v40a20 20 0 0 1-20 20h-20v-80z" fill="#2563eb"/>
+  <text x="400" y="360" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" fill="#1e40af">Headphone Safety Guide</text>
+</svg>

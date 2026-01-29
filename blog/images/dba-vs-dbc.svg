@@ -1,0 +1,12 @@
+<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="400" fill="#f8fafc"/>
+  <circle cx="250" cy="200" r="100" fill="#3b82f6" opacity="0.2"/>
+  <text x="250" y="210" font-family="Arial, sans-serif" font-size="60" text-anchor="middle" fill="#1d4ed8" font-weight="bold">dBA</text>
+  <text x="250" y="240" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#64748b">Human Ear</text>
+  
+  <circle cx="550" cy="200" r="100" fill="#ef4444" opacity="0.2"/>
+  <text x="550" y="210" font-family="Arial, sans-serif" font-size="60" text-anchor="middle" fill="#b91c1c" font-weight="bold">dBC</text>
+  <text x="550" y="240" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#64748b">Low Frequencies</text>
+  
+  <text x="400" y="360" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" fill="#334155">Frequency Weighting Explained</text>
+</svg>
