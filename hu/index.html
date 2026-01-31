@@ -321,11 +321,7 @@
                     </div>
                 </div>
                 <!-- Mobile Menu Button -->
-                <div class="flex items-center gap-4 md:hidden">
-                    <a href="/hu/" class="text-blue-600 font-bold text-sm inline-flex items-center gap-1">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
-                        Kezdőlap
-                    </a>
+                <div class="flex items-center gap-1 md:hidden">
                     <a href="/online-hearing-test/" class="text-gray-500 hover:text-blue-600 text-sm font-medium inline-flex items-center gap-1">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 002 2h2a2 2 0 002-2z"></path></svg>
                         Hallásteszt
@@ -334,6 +330,30 @@
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path></svg>
                         Blog
                     </a>
+                    
+                    <!-- Mobile Language Switcher -->
+                    <div class="relative inline-block text-left group">
+                        <button type="button" class="inline-flex items-center justify-center rounded-full border border-gray-200 shadow-sm p-2 bg-white text-gray-700 hover:bg-gray-50 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200">
+                            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </button>
+                        <div class="origin-top-right absolute right-0 mt-2 w-40 rounded-xl shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform group-hover:translate-y-0 translate-y-2 z-50 overflow-hidden">
+                            <div class="py-1">
+                                <a href="/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"><span>English</span></a>
+                                <a href="/hu/" class="flex items-center px-4 py-3 text-sm text-blue-600 bg-blue-50 font-semibold transition-colors"><span>Magyar</span></a>
+                                <a href="/el/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"><span>Ελληνικά</span></a>
+                                <a href="/ru/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"><span>Русский</span></a>
+                                <a href="/sv/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"><span>Svenska</span></a>
+                                <a href="/fr/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"><span>Français</span></a>
+                                <a href="/de/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"><span>Deutsch</span></a>
+                                <a href="/es/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"><span>Español</span></a>
+                                <a href="/ja/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"><span>日本語</span></a>
+                                <a href="/cn/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"><span>简体中文</span></a>
+                                <a href="/ar/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"><span>العربية</span></a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -377,12 +397,12 @@
                             <div class="flex flex-col items-start text-left">
                                 <!-- Main Value Display -->
                                 <div class="flex items-baseline gap-2 mb-2">
-                                    <div id="decibelValue" class="text-8xl font-bold text-gray-400 leading-none tracking-tight">0.0</div>
-                                    <div class="text-3xl text-gray-400 font-medium">dB</div>
+                                    <div id="decibelValue" class="text-6xl sm:text-8xl font-bold text-gray-400 leading-none tracking-tight">0.0</div>
+                                    <div class="text-2xl sm:text-3xl text-gray-400 font-medium">dB</div>
                                 </div>
                                 
-                                <div id="statusText" class="text-2xl font-bold text-gray-800 leading-tight">Kattintson az Indításra a méréshez</div>
-                                <div id="statistics" class="hidden flex items-center gap-3 text-sm mt-2">
+                                <div id="statusText" class="text-xl sm:text-2xl font-bold text-gray-800 leading-tight">Kattintson a "Start" gombra</div>
+                                <div id="statistics" class="hidden flex flex-wrap items-center gap-x-4 gap-y-1 text-sm mt-2">
                                     <span class="text-gray-500">Min: <b id="minValue" class="text-green-600">--</b></span>
                                     <span class="text-gray-500">Átl: <b id="avgValue" class="text-blue-600">--</b></span>
                                     <span class="text-gray-500">Max: <b id="maxValue" class="text-red-600">--</b></span>
