@@ -67,8 +67,15 @@ class SpeakerTest {
         if (!this.els.visualizer) return;
         if (active) {
             this.els.visualizer.classList.remove('translate-y-full');
+            if (!this.animationId) {
+                this.drawVisualizer();
+            }
         } else {
             this.els.visualizer.classList.add('translate-y-full');
+            if (this.animationId) {
+                cancelAnimationFrame(this.animationId);
+                this.animationId = null;
+            }
         }
     }
 
@@ -94,9 +101,6 @@ class SpeakerTest {
             // Connect: Master -> Analyser -> Destination
             this.masterGain.connect(this.analyser);
             this.analyser.connect(this.audioCtx.destination);
-            
-            // Start Visualizer Loop
-            this.drawVisualizer();
             
             // Unlock audio on iOS
             if (this.audioCtx.state === 'suspended') {

@@ -562,6 +562,14 @@
                         </p>
                     </div>
 
+                    <!-- FAQ 2.5 -->
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Why does the wave disappear in "Out of Phase" mode?</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            This is normal! The visualizer shows the combined signal of left and right channels. In "Out of Phase" mode, the signals are mathematically opposite (+1 and -1) and cancel each other out to zero on the graph. However, since your speakers are physically separated, the sound waves don't fully cancel in the air, so you still hear the sound (though it may sound "thin").
+                        </p>
+                    </div>
+
                     <!-- FAQ 3 -->
                     <div>
                         <h3 class="text-xl font-bold text-gray-900 mb-2">Can I use this tool to test headphones?</h3>
@@ -616,7 +624,7 @@
     </footer>
 
     <!-- Fixed Bottom Visualizer Bar (Redesigned) -->
-    <div id="visualizer-container" class="fixed bottom-0 left-0 w-full z-50 bg-gray-800/95 backdrop-blur-md border-t border-gray-700 shadow-[0_-8px_16px_rgba(0,0,0,0.3)] transition-transform duration-300 translate-y-full">
+    <div id="visualizer-container" class="fixed bottom-0 left-0 right-0 z-[100] bg-gray-800/95 backdrop-blur-md border-t border-gray-700 shadow-[0_-8px_16px_rgba(0,0,0,0.3)] transition-transform duration-300 translate-y-full" style="padding-bottom: env(safe-area-inset-bottom);">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-24 sm:h-28 flex items-center gap-6">
             <!-- Icon/Label -->
             <div class="flex-shrink-0 flex flex-col gap-1 text-blue-400">
