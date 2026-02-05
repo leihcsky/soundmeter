@@ -73,6 +73,12 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://realtimesoundmeter.org/speaker-test-tones/</loc>
+    <lastmod>2026-02-05</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://realtimesoundmeter.org/blog/</loc>
     <lastmod>2026-01-29</lastmod>
     <changefreq>weekly</changefreq>
