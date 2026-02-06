@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>dBA vs dBC: Which One Should You Use?</title>
     <meta name="title" content="dBA vs dBC: Which One Should You Use?">
-    <meta name="description" content="A-weighting vs C-weighting explained. Learn when to use dBA or dBC with practical examples and simple visuals.">
+    <meta name="description" content="dBA vs dBC: The ultimate guide. Learn the critical differences, see a comparison table of common noise sources, and know exactly which setting to use for accurate sound measurement.">
     <meta name="author" content="RealtimeSoundMeter.org">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://realtimesoundmeter.org/blog/dba-vs-dbc">
@@ -189,6 +189,55 @@
                             <p class="text-sm text-gray-600">There is a significant low-frequency component. (e.g., diesel engine, bass music, wind turbulence)</p>
                         </div>
                     </div>
+                </div>
+
+                <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">Quick Reference: dBA vs dBC Levels</h2>
+                <p class="mb-6 leading-relaxed">
+                    Because dBC includes low frequencies that dBA ignores, dBC readings are almost always higher. The gap between them tells you how much "bass" is present.
+                </p>
+                <div class="overflow-x-auto mb-10">
+                    <table class="min-w-full bg-white border border-gray-200 rounded-lg shadow-sm">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="py-3 px-4 text-left text-xs font-bold text-gray-500 uppercase tracking-wider border-b">Sound Source</th>
+                                <th class="py-3 px-4 text-left text-xs font-bold text-gray-500 uppercase tracking-wider border-b">dBA (What you hear)</th>
+                                <th class="py-3 px-4 text-left text-xs font-bold text-gray-500 uppercase tracking-wider border-b">dBC (Actual Energy)</th>
+                                <th class="py-3 px-4 text-left text-xs font-bold text-gray-500 uppercase tracking-wider border-b">Difference</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200 text-sm text-gray-700">
+                            <tr>
+                                <td class="py-3 px-4 font-medium">Conversational Speech</td>
+                                <td class="py-3 px-4">60 dBA</td>
+                                <td class="py-3 px-4">62 dBC</td>
+                                <td class="py-3 px-4 text-green-600 font-bold">Small (~2 dB)</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-4 font-medium">Vacuum Cleaner</td>
+                                <td class="py-3 px-4">70 dBA</td>
+                                <td class="py-3 px-4">75 dBC</td>
+                                <td class="py-3 px-4 text-green-600 font-bold">Moderate (~5 dB)</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-4 font-medium">Diesel Truck Idling</td>
+                                <td class="py-3 px-4">85 dBA</td>
+                                <td class="py-3 px-4">100 dBC</td>
+                                <td class="py-3 px-4 text-red-600 font-bold">Large (~15 dB)</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-4 font-medium">Bass-Heavy Music</td>
+                                <td class="py-3 px-4">95 dBA</td>
+                                <td class="py-3 px-4">110 dBC</td>
+                                <td class="py-3 px-4 text-red-600 font-bold">Very Large (~15+ dB)</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-4 font-medium">Wind Turbine (Near)</td>
+                                <td class="py-3 px-4">50 dBA</td>
+                                <td class="py-3 px-4">70 dBC</td>
+                                <td class="py-3 px-4 text-red-600 font-bold">Large (~20 dB)</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
 
                 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">Which One Should YOU Use?</h2>

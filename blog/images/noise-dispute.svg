@@ -1,0 +1,23 @@
+<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f3f4f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e5e7eb;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bg)" />
+  <g transform="translate(400, 200)">
+    <!-- House/Building Icon -->
+    <path d="M-100,50 L-100,-50 L-150,0 L-100,50 Z M-100,-50 L0,-120 L100,-50 L100,50 L-100,50" fill="#3b82f6" stroke="#1d4ed8" stroke-width="4" fill-opacity="0.1"/>
+    <!-- Sound Waves -->
+    <path d="M120,-20 Q150,0 120,20 M140,-30 Q180,0 140,30 M160,-40 Q210,0 160,40" stroke="#ef4444" stroke-width="4" fill="none" />
+    <!-- Document/Clipboard -->
+    <rect x="-40" y="-30" width="80" height="100" rx="5" fill="white" stroke="#4b5563" stroke-width="3" />
+    <line x1="-20" y1="-10" x2="20" y2="-10" stroke="#9ca3af" stroke-width="3" />
+    <line x1="-20" y1="10" x2="20" y2="10" stroke="#9ca3af" stroke-width="3" />
+    <line x1="-20" y1="30" x2="10" y2="30" stroke="#9ca3af" stroke-width="3" />
+    <!-- Checkmark -->
+    <path d="M10,40 L25,55 L50,20" stroke="#10b981" stroke-width="5" fill="none" />
+  </g>
+  <text x="400" y="350" font-family="sans-serif" font-size="24" font-weight="bold" fill="#374151" text-anchor="middle">Noise Dispute Evidence</text>
+</svg>
