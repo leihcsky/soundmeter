@@ -1,0 +1,17 @@
+{
+  "name": "soundmeter",
+  "version": "1.0.0",
+  "description": "A professional online sound meter (decibel meter) for real-time environmental noise detection and measurement.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tailwindcss -i ./src/input.css -o ./css/style.css --watch",
+    "build": "tailwindcss -i ./src/input.css -o ./css/style.css --minify"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.18",
+    "tailwindcss": "^4.1.18"
+  }
+}
