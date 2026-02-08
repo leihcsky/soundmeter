@@ -986,12 +986,12 @@
 
             <!-- Main Value -->
             <div class="text-center py-8 mb-8 bg-gray-50 rounded-xl relative z-10">
-                <div class="text-sm text-gray-500 mb-2 uppercase tracking-wide">平均騒音レベル</div>
-                <div class="flex items-baseline justify-center gap-2">
-                    <span id="reportAvg" class="text-7xl font-bold text-blue-600">--</span>
+                <div class="text-sm text-gray-500 mb-4 uppercase tracking-wide">平均騒音レベル</div>
+                <div class="flex items-baseline justify-center gap-2 mb-6">
+                    <span id="reportAvg" class="text-7xl font-bold text-blue-600 leading-none">--</span>
                     <span class="text-2xl text-gray-400 font-medium">dB</span>
                 </div>
-                <div id="reportStatus" class="inline-block mt-3 px-4 py-1 rounded-full text-sm font-semibold bg-gray-200 text-gray-700">
+                <div id="reportStatus" class="inline-flex items-center justify-center px-4 py-1 rounded-full text-sm font-semibold bg-blue-100 text-blue-800">
                     --
                 </div>
             </div>
@@ -1010,6 +1010,14 @@
                 </div>
             </div>
 
+            <!-- Safety Note -->
+            <div class="border-l-4 border-blue-500 bg-blue-50 p-4 rounded-r-lg mb-6 relative z-10">
+                <h3 class="text-sm font-bold text-blue-900 mb-1">安全評価</h3>
+                <p id="reportWarning" class="text-xs text-blue-800 leading-relaxed">
+                    --
+                </p>
+            </div>
+
             <!-- Footer -->
             <div class="border-t border-gray-100 pt-6 text-center">
                 <p class="text-xs text-gray-400 mb-2">このレポートはオンライン騒音計によって生成されました。</p>
@@ -1019,197 +1027,51 @@
     </div>
 
     <!-- Scripts -->
-    <script src="../js/sound-meter.js"></script>
-    <script src="../js/visualizer.js"></script>
+    <script src="../js/sound-meter.js?v=20260208"></script>
+    <script src="../js/visualizer.js?v=20260208"></script>
     <script>
         // Initialize App
         document.addEventListener('DOMContentLoaded', () => {
-            const startBtn = document.getElementById('startBtn');
-            const downloadBtn = document.getElementById('downloadBtn');
-            const statusText = document.getElementById('statusText');
-            const statusIcon = document.getElementById('statusIcon');
-            const pulseRing = document.getElementById('pulseRing');
-            const exposureWarning = document.getElementById('exposureWarning');
-            const exposureTime = document.getElementById('exposureTime');
-            const statistics = document.getElementById('statistics');
-            
-            // Inline Translation Object for Dynamic Content
             const jaTranslations = {
-                status: {
-                    ready: '「測定を開始」をクリック',
-                    monitoring: 'モニタリング中...',
-                    error: 'マイクエラー'
-                },
-                exposure: {
-                    ready: '測定準備完了',
-                    safe: '安全なレベル',
-                    moderate: '中程度 - 長時間は避ける',
-                    high: '高い - 注意が必要',
-                    harmful: '有害 - 暴露を制限',
-                    danger: '危険 - 直ちに離れる'
-                },
-                report: {
-                    safe: '安全',
-                    moderate: '中程度',
-                    harmful: '有害',
-                    dangerous: '危険'
-                }
+                startBtnStart: '測定を開始',
+                startBtnStop: '測定を停止',
+                statusStopped: '測定停止中',
+                statusQuiet: '静か – 安全な環境',
+                statusModerate: '普通 – 正常な騒音',
+                statusElevated: '高め – 長時間は注意',
+                statusLoud: 'うるさい – 聴覚リスクあり',
+                statusVeryLoud: '非常にうるさい – 危険なレベル',
+                warningVeryQuiet: '非常に静かな環境です。長時間滞在しても安全です。',
+                warningSafe: '騒音レベルは安全です。長期的な暴露でも基本的にリスクはありません。',
+                warningExtended: '長時間の暴露は疲労の原因になる可能性があります。適度に耳を休めてください。',
+                warning8h: '最大推奨暴露時間：<strong>約8時間</strong>。これ以上は聴覚保護具の着用を検討してください。',
+                warning4h: '最大推奨暴露時間：<strong>約4時間</strong>。耳栓やイヤーマフの着用を推奨します。',
+                warning2h: '最大推奨暴露時間：<strong>約2時間</strong>。滞在時間を短くし、耳栓を着用してください。',
+                warning1h: '最大推奨暴露時間：<strong>約1時間</strong>。聴覚障害のリスクが高まっています！',
+                warning30m: '最大推奨暴露時間：<strong>約30分</strong>。積極的に聴覚保護対策を行ってください！',
+                warning15m: '最大推奨暴露時間：<strong>約15分</strong>。危険な騒音レベルです！',
+                warning7m: '最大推奨暴露時間：<strong>約7–8分</strong>。極めて危険です。暴露を減らしてください！',
+                warning3m: '最大推奨暴露時間：<strong>約3–4分</strong>。深刻なリスクがあります。直ちに離れてください！',
+                warning1m: '最大推奨暴露時間：<strong>約1–2分</strong>。すぐに騒音源から離れてください！',
+                warningLess1m: '最大推奨暴露時間：<strong>1分未満</strong>。急性の危険があります！',
+                warningImmediate: '<strong>即座に聴覚を損傷するリスクがあります！</strong> すぐにその場を離れてください！',
+                labelStatus: '✅ ステータス：',
+                labelCaution: '⚠️ 注意：',
+                labelWarning: '⚠️ 警告：',
+                labelDanger: '🚨 危険：',
+                reportSafe: '安全な環境',
+                reportCaution: '時間に注意が必要',
+                reportHigh: '騒音が大きく、リスクあり',
+                errorMic: 'マイクにアクセスできません。ブラウザの設定を確認し、マイクの使用を許可してください。',
+                errorReport: 'レポートの生成に失敗しました。後でもう一度お試しください。'
             };
-
-            // Update Level Bar Function
-            function updateLevelBar(db) {
-                const bar = document.getElementById('levelBar');
-                if (!bar) return;
-                
-                // Clamp dB between 0 and 120 for percentage
-                const percentage = Math.min(Math.max((db / 120) * 100, 0), 100);
-                bar.style.width = `${percentage}%`;
-                
-                // Color based on safety
-                bar.className = 'h-full transition-all duration-300 rounded-full ';
-                if (db < 70) bar.className += 'gradient-quiet';
-                else if (db < 85) bar.className += 'gradient-moderate';
-                else if (db < 100) bar.className += 'gradient-loud';
-                else if (db < 110) bar.className += 'gradient-harmful';
-                else bar.className += 'gradient-dangerous';
+            
+            if (typeof SoundMeter !== 'undefined') {
+                SoundMeter.init(jaTranslations);
+            } else {
+                console.error('SoundMeter library not loaded');
+                alert('エラー: SoundMeterライブラリを読み込めませんでした。ページを再読み込みしてください。');
             }
-
-            // Update UI with Decibel Data
-            window.addEventListener('sound-meter-update', (e) => {
-                const { db, min, max, avg, status } = e.detail;
-                
-                // Update Numeric Display
-                document.getElementById('decibelValue').textContent = db.toFixed(1);
-                
-                // Update Statistics
-                document.getElementById('minValue').textContent = min.toFixed(1);
-                document.getElementById('maxValue').textContent = max.toFixed(1);
-                document.getElementById('avgValue').textContent = avg.toFixed(1);
-                
-                // Update Level Bar
-                updateLevelBar(db);
-
-                // Update Status Text & Visuals
-                let statusMsg = '';
-                let exposureMsg = '';
-                let iconColorClass = '';
-                
-                if (db < 70) {
-                    statusMsg = '静か';
-                    exposureMsg = '✅ ' + jaTranslations.exposure.safe;
-                    iconColorClass = 'gradient-quiet';
-                } else if (db < 85) {
-                    statusMsg = '中程度';
-                    exposureMsg = '⚠️ ' + jaTranslations.exposure.moderate;
-                    iconColorClass = 'gradient-moderate';
-                } else if (db < 100) {
-                    statusMsg = 'うるさい';
-                    exposureMsg = '✋ ' + jaTranslations.exposure.high;
-                    iconColorClass = 'gradient-loud';
-                } else if (db < 110) {
-                    statusMsg = '非常にうるさい';
-                    exposureMsg = '🚫 ' + jaTranslations.exposure.harmful;
-                    iconColorClass = 'gradient-harmful';
-                } else {
-                    statusMsg = '危険';
-                    exposureMsg = '☠️ ' + jaTranslations.exposure.danger;
-                    iconColorClass = 'gradient-dangerous';
-                }
-                
-                statusText.textContent = statusMsg;
-                statusText.className = `text-2xl font-bold leading-tight ${
-                    db < 70 ? 'text-green-600' : 
-                    db < 85 ? 'text-blue-600' : 
-                    db < 100 ? 'text-yellow-600' : 
-                    db < 110 ? 'text-orange-600' : 'text-red-600'
-                }`;
-                
-                exposureTime.textContent = exposureMsg.replace(/^[✅⚠️✋🚫☠️]\s/, ''); // Remove icon for text part if needed, or keep it
-                
-                // Update Icon Color
-                const iconContainer = statusIcon.querySelector('div.absolute');
-                if (iconContainer) {
-                    iconContainer.className = `absolute inset-0 rounded-full flex items-center justify-center transition-colors duration-300 ${iconColorClass}`;
-                }
-                
-                // Pulse Effect for Loud Noise
-                if (db > 85) {
-                    pulseRing.style.display = 'block';
-                    pulseRing.className = `absolute inset-0 rounded-full pulse-ring ${iconColorClass}`;
-                } else {
-                    pulseRing.style.display = 'none';
-                }
-            });
-
-            // Start Button
-            startBtn.addEventListener('click', async () => {
-                try {
-                    await SoundMeter.start();
-                    startBtn.classList.add('hidden');
-                    
-                    // Show Stop Button (created dynamically or just toggle text)
-                    // For simplicity, let's change Start to Stop styling/text
-                    const stopBtn = document.createElement('button');
-                    stopBtn.id = 'stopBtn';
-                    stopBtn.className = 'flex-1 bg-red-500 hover:bg-red-600 text-white font-semibold py-4 px-6 rounded-xl shadow-md transform transition hover:scale-105 active:scale-95 text-base';
-                    stopBtn.textContent = '測定を停止';
-                    stopBtn.onclick = () => {
-                        SoundMeter.stop();
-                        stopBtn.remove();
-                        startBtn.classList.remove('hidden');
-                        startBtn.textContent = '測定を再開';
-                        downloadBtn.disabled = false;
-                        pulseRing.style.display = 'none';
-                        statusText.textContent = '測定完了';
-                        statusText.className = 'text-2xl font-bold text-gray-800 leading-tight';
-                    };
-                    
-                    startBtn.parentNode.insertBefore(stopBtn, downloadBtn);
-                    
-                    statusText.textContent = jaTranslations.status.monitoring;
-                    exposureTime.textContent = jaTranslations.exposure.safe; // Default start
-                    statistics.classList.remove('hidden');
-                    statistics.classList.add('flex');
-                    
-                    // Initialize Visualizer
-                    AudioVisualizer.init();
-                    
-                } catch (err) {
-                    console.error(err);
-                    alert('マイクへのアクセスが必要です。ブラウザの設定を確認してください。');
-                }
-            });
-
-            // Download Report
-            downloadBtn.addEventListener('click', () => {
-                const date = new Date();
-                document.getElementById('reportDate').textContent = date.toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' });
-                document.getElementById('reportTime').textContent = date.toLocaleTimeString('ja-JP');
-                
-                document.getElementById('reportAvg').textContent = document.getElementById('avgValue').textContent;
-                document.getElementById('reportMin').textContent = document.getElementById('minValue').textContent;
-                document.getElementById('reportMax').textContent = document.getElementById('maxValue').textContent;
-                
-                const avgDb = parseFloat(document.getElementById('avgValue').textContent) || 0;
-                let statusText = jaTranslations.report.safe;
-                if(avgDb >= 85) statusText = jaTranslations.report.harmful;
-                else if(avgDb >= 70) statusText = jaTranslations.report.moderate;
-                
-                document.getElementById('reportStatus').textContent = statusText;
-
-                const element = document.getElementById('reportTemplate');
-                
-                html2canvas(element, {
-                    scale: 2,
-                    logging: false,
-                    useCORS: true
-                }).then(canvas => {
-                    const link = document.createElement('a');
-                    link.download = `sound-meter-report-${date.toISOString().slice(0,10)}.png`;
-                    link.href = canvas.toDataURL();
-                    link.click();
-                });
-            });
         });
     </script>
 </body>

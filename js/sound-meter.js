@@ -363,13 +363,13 @@ const SoundMeter = {
 
         if (avgVal < 70) {
             statusEl.textContent = t.reportSafe;
-            statusEl.className = 'mt-3 inline-block px-4 py-1 rounded-full text-sm font-semibold bg-green-100 text-green-800';
+            statusEl.className = 'inline-flex items-center justify-center px-4 py-1 rounded-full text-sm font-semibold bg-green-100 text-green-800';
         } else if (avgVal < 85) {
             statusEl.textContent = t.reportCaution;
-            statusEl.className = 'mt-3 inline-block px-4 py-1 rounded-full text-sm font-semibold bg-yellow-100 text-yellow-800';
+            statusEl.className = 'inline-flex items-center justify-center px-4 py-1 rounded-full text-sm font-semibold bg-yellow-100 text-yellow-800';
         } else {
             statusEl.textContent = t.reportHigh;
-            statusEl.className = 'mt-3 inline-block px-4 py-1 rounded-full text-sm font-semibold bg-red-100 text-red-800';
+            statusEl.className = 'inline-flex items-center justify-center px-4 py-1 rounded-full text-sm font-semibold bg-red-100 text-red-800';
         }
 
         const reportElement = document.getElementById('reportTemplate');
