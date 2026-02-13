@@ -27,7 +27,7 @@
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     
     <!-- Tailwind CSS -->
-    <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/style.css?v=3" rel="stylesheet">
 </head>
 <body class="bg-gray-50 min-h-screen">
     <!-- Header -->
@@ -97,77 +97,135 @@
     </div>
 
     <!-- Main Content -->
-    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div class="bg-white rounded-xl shadow-lg p-8 md:p-12">
-            <h1 class="text-4xl font-bold text-gray-900 mb-6">About Sound Meter</h1>
-            
-            <div class="prose max-w-none text-gray-700 space-y-6">
-                <section>
-                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Hello! 👋</h2>
-                    <p>
-                        Hi there! I'm <strong>Max Ray</strong>, the independent developer behind Sound Meter. Thank you for visiting and using this tool.
-                    </p>
-                    <p>
-                        I created this project because I wanted a simple, privacy-focused way to check noise levels without downloading sketchy apps. Like many of you, I've become increasingly aware of how environmental noise affects our health—from sleep quality to long-term hearing preservation.
-                    </p>
-                </section>
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <!-- Hero Section -->
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <h1 class="text-4xl font-extrabold text-gray-900 mb-6 tracking-tight">Making Sound Measurement Accessible to Everyone</h1>
+            <p class="text-xl text-gray-600 leading-relaxed">
+                We believe that understanding your acoustic environment is the first step to protecting your hearing and improving your quality of life.
+            </p>
+        </div>
 
-                <section>
-                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Why I Built This</h2>
-                    <p>
-                        A while back, I found myself in a surprisingly loud coffee shop, trying to focus. I wanted to know just <em>how</em> loud it was, but every website I found was either cluttered, required a sign-up, or wanted to install something.
-                    </p>
-                    <p>
-                        I realized that with modern web technology, we don't need dedicated apps for this. Your browser is powerful enough to do the job. So, I built Sound Meter with a few core principles in mind:
-                    </p>
-                    <ul class="list-disc list-inside space-y-2 ml-4">
-                        <li><strong>Privacy First:</strong> What happens in your browser stays in your browser. No audio is ever recorded or sent to a server.</li>
-                        <li><strong>Simplicity:</strong> No logins, no complex setups. Just open the page and see the decibels.</li>
-                        <li><strong>Accessibility:</strong> It should work on your phone, tablet, or laptop—anywhere with a microphone and a browser.</li>
-                    </ul>
-                </section>
-
-                <section>
-                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Accuracy & Calibration</h2>
-                    <p>
-                        While Sound Meter runs in your browser, we take accuracy seriously. During development, I collaborated closely with a <strong>certified acoustic engineer</strong> (a former classmate of mine) to validate and fine-tune the audio processing algorithms.
-                    </p>
-                    <div class="bg-blue-50 border-l-4 border-blue-500 p-4 my-4">
-                        <p class="font-medium text-blue-900">Calibration Statement</p>
-                        <p class="text-sm text-blue-800 mt-1">
-                            Our algorithms are rigorously calibrated against <strong>industrial-standard sound level meters (Type 2)</strong> to ensure reference-grade accuracy. We continuously test across various devices to maintain scientific precision.
-                        </p>
-                    </div>
-                    <p>
-                        However, please note that the ultimate accuracy depends on your device's microphone quality. A professional sound level meter costs hundreds of dollars for a reason. This tool is excellent for getting a reliable general idea ("Is this rock concert too loud?" or "Is my workspace quiet enough?"), but please use certified hardware for legal safety compliance or medical diagnosis.
-                    </p>
-                </section>
-
-                <section>
-                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Tech Stack</h2>
-                    <p>
-                        For the curious developers out there, this site runs entirely on the client side using the <strong>Web Audio API</strong>. It analyzes the raw audio stream from your microphone in real-time to calculate the Root Mean Square (RMS) amplitude, which is then converted to decibels. It's lightweight, fast, and secure.
-                    </p>
-                </section>
-
-                <section>
-                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Get in Touch</h2>
-                    <p>
-                        I'm always looking to improve this tool. If you spot a bug, have a feature request, or just want to say hi, feel free to reach out via the <a href="contact.html" class="text-blue-600 hover:underline">contact page</a>.
-                    </p>
-                    <p>
-                        Stay safe and protect your ears!
-                    </p>
-                </section>
+        <!-- Core Values Grid -->
+        <div class="grid md:grid-cols-2 gap-6 md:gap-10 mb-20 md:mb-28">
+            <!-- Precision -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-8 hover:shadow-md transition-shadow h-full flex flex-col">
+                <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600 mb-6">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 002 2h2a2 2 0 002-2z"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-3">Precision Engineering</h3>
+                <p class="text-gray-600 flex-grow leading-relaxed">
+                    Powered by advanced Digital Signal Processing (DSP) algorithms. We calibrate our tools against industrial Type 2 sound level meters to ensure your browser delivers data you can trust for environmental monitoring.
+                </p>
             </div>
 
-            <!-- Back to Home -->
-            <div class="mt-8 pt-6 border-t border-gray-200">
-                <a href="index.html" class="inline-flex items-center text-blue-600 hover:text-blue-700 font-semibold">
-                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
-                    </svg>
-                    Back to Sound Meter
+            <!-- Privacy -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-8 hover:shadow-md transition-shadow h-full flex flex-col">
+                <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center text-green-600 mb-6">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-3">Privacy First</h3>
+                <p class="text-gray-600 flex-grow leading-relaxed">
+                    Your sound environment is personal. That's why we process audio streams strictly on your device using the Web Audio API. No voice data or recordings are ever stored, uploaded, or sent to the cloud.
+                </p>
+            </div>
+
+            <!-- Accessibility -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-8 hover:shadow-md transition-shadow h-full flex flex-col">
+                <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center text-purple-600 mb-6">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-3">Global Accessibility</h3>
+                <p class="text-gray-600 flex-grow leading-relaxed">
+                    Safety shouldn't have a price tag. We eliminate barriers—no expensive hardware, no app store downloads, and no paywalls. Our mission is to democratize acoustic measurement for everyone, everywhere.
+                </p>
+            </div>
+
+            <!-- Simplicity -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-8 hover:shadow-md transition-shadow h-full flex flex-col">
+                <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center text-orange-600 mb-6">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-3">Actionable Simplicity</h3>
+                <p class="text-gray-600 flex-grow leading-relaxed">
+                    Complex acoustics, simplified. We strip away the jargon to provide clear, actionable insights. Whether you're a parent, teacher, or engineer, you get the data you need to make immediate safety decisions.
+                </p>
+            </div>
+        </div>
+
+        <!-- Story Section (Max Ray) -->
+        <div class="bg-white rounded-2xl shadow-lg overflow-hidden mb-20 md:mb-28">
+            <div class="md:flex">
+                <div class="md:w-1/3 bg-gray-900 p-8 md:p-10 text-white flex flex-col justify-center">
+                    <h3 class="text-2xl font-bold mb-4">Our Origin Story</h3>
+                    <p class="text-gray-300 mb-6">
+                        From a noisy coffee shop to a global tool used by thousands.
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center font-bold text-xl flex-shrink-0">M</div>
+                        <div>
+                            <div class="font-bold">Max Ray</div>
+                            <div class="text-sm text-gray-400">Founder & Developer</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-2/3 p-6 md:p-10">
+                    <h4 class="text-xl font-bold text-gray-900 mb-4">Why I Built Sound Meter</h4>
+                    <div class="prose text-gray-600">
+                        <p class="mb-4">
+                            Hi, I'm Max. The idea for this project started in a crowded cafe where I couldn't hear myself think. I realized that <strong>professional sound level meters are prohibitively expensive for most people, yet the devices we carry every day have incredibly capable microphones</strong>.
+                        </p>
+                        <p class="mb-4">
+                            I wanted to bridge this gap. Why should accurate sound measurement be limited to expensive hardware? By leveraging modern <strong>Web Audio API</strong> technology, we could deliver a tool that democratizes acoustic awareness—making it free, instant, and accessible to everyone without app installs.
+                        </p>
+                        <p>
+                            So, I teamed up with a close friend—a <strong>certified acoustic engineer</strong>—to build a tool that is both accessible and scientifically valid. Today, Sound Meter helps students, homeowners, and health-conscious individuals worldwide monitor their acoustic environment.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Use Cases Section -->
+        <div class="mb-20 md:mb-28">
+            <h2 class="text-3xl font-bold text-gray-900 text-center mb-12">Who Uses Sound Meter?</h2>
+            <div class="max-w-5xl mx-auto grid sm:grid-cols-2 gap-6 md:gap-8">
+                <!-- Case 1 -->
+                <div class="bg-gray-50 rounded-xl p-8 border border-gray-100 h-full flex flex-col items-center text-center hover:bg-white hover:shadow-md transition-all">
+                    <div class="w-3 h-3 rounded-full bg-blue-500 mb-4"></div>
+                    <h4 class="text-lg font-bold text-gray-900 mb-3">Home & Living</h4>
+                    <p class="text-gray-600 leading-relaxed">Checking appliance noise, testing soundproofing, or monitoring neighborhood noise levels.</p>
+                </div>
+                <!-- Case 2 -->
+                <div class="bg-gray-50 rounded-xl p-8 border border-gray-100 h-full flex flex-col items-center text-center hover:bg-white hover:shadow-md transition-all">
+                    <div class="w-3 h-3 rounded-full bg-green-500 mb-4"></div>
+                    <h4 class="text-lg font-bold text-gray-900 mb-3">Health Safety</h4>
+                    <p class="text-gray-600 leading-relaxed">Protecting hearing by identifying dangerous volume levels in concerts, clubs, or workplaces.</p>
+                </div>
+                <!-- Case 3 -->
+                <div class="bg-gray-50 rounded-xl p-8 border border-gray-100 h-full flex flex-col items-center text-center hover:bg-white hover:shadow-md transition-all">
+                    <div class="w-3 h-3 rounded-full bg-purple-500 mb-4"></div>
+                    <h4 class="text-lg font-bold text-gray-900 mb-3">Education</h4>
+                    <p class="text-gray-600 leading-relaxed">Science teachers and students performing acoustics experiments and learning about decibels.</p>
+                </div>
+                <!-- Case 4 -->
+                <div class="bg-gray-50 rounded-xl p-8 border border-gray-100 h-full flex flex-col items-center text-center hover:bg-white hover:shadow-md transition-all">
+                    <div class="w-3 h-3 rounded-full bg-orange-500 mb-4"></div>
+                    <h4 class="text-lg font-bold text-gray-900 mb-3">Tech Enthusiasts</h4>
+                    <p class="text-gray-600 leading-relaxed">Developers and audio geeks interested in Web Audio API capabilities and real-time DSP.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Call to Action -->
+        <div class="text-center border-t border-gray-200 pt-12">
+            <h3 class="text-2xl font-bold text-gray-900 mb-6">Ready to measure?</h3>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="/" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition-transform hover:scale-105 w-full sm:w-auto">
+                    Start Measuring
+                </a>
+                <a href="contact.html" class="bg-white hover:bg-gray-50 text-gray-700 font-bold py-3 px-8 rounded-full border border-gray-300 shadow-sm transition-colors w-full sm:w-auto">
+                    Contact Us
                 </a>
             </div>
         </div>

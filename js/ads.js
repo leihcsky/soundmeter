@@ -3,7 +3,7 @@
 
 const AdConfig = {
     // Master switch to turn all ads on or off
-    enabled: true,
+    enabled: false,
 
     nativeBanner: {
         enabled: true,
