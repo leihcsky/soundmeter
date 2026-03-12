@@ -1,0 +1,21 @@
+<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="400" fill="#f8fafc"/>
+  <circle cx="210" cy="170" r="110" fill="#22c55e" opacity="0.18"/>
+  <circle cx="590" cy="170" r="110" fill="#3b82f6" opacity="0.18"/>
+
+  <text x="210" y="175" font-family="Arial, sans-serif" font-size="56" text-anchor="middle" fill="#15803d" font-weight="bold">+3 dB</text>
+  <text x="210" y="205" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#64748b">Energy ×2</text>
+
+  <text x="590" y="165" font-family="Arial, sans-serif" font-size="52" text-anchor="middle" fill="#1d4ed8" font-weight="bold">Time ÷2</text>
+  <text x="590" y="195" font-family="Arial, sans-serif" font-size="16" text-anchor="middle" fill="#64748b">Same daily dose</text>
+
+  <path d="M320 170 C360 140, 440 140, 480 170" fill="none" stroke="#334155" stroke-width="6" stroke-linecap="round"/>
+  <path d="M470 160 L492 170 L470 180" fill="none" stroke="#334155" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="160" y="255" width="480" height="24" rx="12" fill="#e2e8f0"/>
+  <rect x="160" y="255" width="320" height="24" rx="12" fill="#93c5fd"/>
+  <rect x="160" y="255" width="160" height="24" rx="12" fill="#22c55e"/>
+  <text x="400" y="305" font-family="Arial, sans-serif" font-size="14" text-anchor="middle" fill="#64748b">Higher dB → less safe exposure time</text>
+
+  <text x="400" y="360" font-family="Arial, sans-serif" font-size="24" text-anchor="middle" fill="#334155">The 3 dB Rule Explained</text>
+</svg>

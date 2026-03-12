@@ -3,38 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Are Smartphone Decibel Meters Accurate?</title>
-    <meta name="title" content="Are Smartphone Decibel Meters Accurate?">
-    <meta name="description" content="We explain what smartphones can measure, why hardware and calibration matter, and when readings are good enough for everyday use.">
+    <title>The 3 dB Rule Explained: Safe Exposure Time Made Simple</title>
+    <meta name="title" content="The 3 dB Rule Explained: Safe Exposure Time Made Simple">
+    <meta name="description" content="Understand the NIOSH 3 dB rule with simple examples and a practical exposure-time table. Learn how volume and time combine into daily noise dose and how to make safer decisions.">
     <meta name="author" content="RealtimeSoundMeter.org">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://realtimesoundmeter.org/blog/smartphone-decibel-accuracy">
+    <link rel="canonical" href="https://realtimesoundmeter.org/blog/three-db-rule-explained">
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
 
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://realtimesoundmeter.org/blog/smartphone-decibel-accuracy">
-    <meta property="og:title" content="Are Smartphone Decibel Meters Accurate?">
-    <meta property="og:description" content="What phones can measure, calibration basics, and common pitfalls.">
-    <meta property="og:image" content="https://realtimesoundmeter.org/blog/images/smartphone-accuracy.svg">
+    <meta property="og:url" content="https://realtimesoundmeter.org/blog/three-db-rule-explained">
+    <meta property="og:title" content="The 3 dB Rule Explained: Safe Exposure Time Made Simple">
+    <meta property="og:description" content="Noise dose in plain language: +3 dB doubles energy and halves safe time.">
+    <meta property="og:image" content="https://realtimesoundmeter.org/blog/images/three-db-rule.svg">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://realtimesoundmeter.org/blog/smartphone-decibel-accuracy">
-    <meta name="twitter:title" content="Are Smartphone Decibel Meters Accurate?">
-    <meta name="twitter:description" content="What phones can measure, calibration basics, and common pitfalls.">
-    <meta name="twitter:image" content="https://realtimesoundmeter.org/blog/images/smartphone-accuracy.svg">
+    <meta name="twitter:url" content="https://realtimesoundmeter.org/blog/three-db-rule-explained">
+    <meta name="twitter:title" content="The 3 dB Rule Explained: Safe Exposure Time Made Simple">
+    <meta name="twitter:description" content="A practical guide to safe exposure time using the NIOSH 3 dB rule.">
+    <meta name="twitter:image" content="https://realtimesoundmeter.org/blog/images/three-db-rule.svg">
 
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Article",
-      "headline": "Are Smartphone Decibel Meters Accurate?",
-      "datePublished": "2026-01-29",
-      "dateModified": "2026-03-09",
+      "headline": "The 3 dB Rule Explained: Safe Exposure Time Made Simple",
+      "datePublished": "2026-03-12",
+      "dateModified": "2026-03-12",
       "author": {
         "@type": "Organization",
         "name": "RealtimeSoundMeter.org"
       },
-      "image": "https://realtimesoundmeter.org/blog/images/smartphone-accuracy.svg",
+      "image": "https://realtimesoundmeter.org/blog/images/three-db-rule.svg",
       "publisher": {
         "@type": "Organization",
         "name": "RealtimeSoundMeter.org",
@@ -84,7 +84,6 @@
         </div>
     </header>
 
-    <!-- Mobile Menu (Hidden by default) -->
     <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg z-50">
         <div class="px-2 pt-2 pb-3 space-y-1">
             <a href="/online-hearing-test/" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Hearing Test</a>
@@ -104,7 +103,6 @@
     </script>
 
     <main class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <!-- Breadcrumb -->
         <nav class="flex text-sm text-gray-500 mb-6" aria-label="Breadcrumb">
             <ol class="inline-flex items-center space-x-1 md:space-x-3">
                 <li class="inline-flex items-center">
@@ -122,7 +120,7 @@
                 <li aria-current="page">
                     <div class="flex items-center">
                         <svg class="w-5 h-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
-                        <span class="ml-1 md:ml-2 text-gray-400 truncate max-w-[150px] sm:max-w-xs">Smartphone Accuracy</span>
+                        <span class="ml-1 md:ml-2 text-gray-400 truncate max-w-[150px] sm:max-w-xs">3 dB Rule</span>
                     </div>
                 </li>
             </ol>
@@ -130,125 +128,144 @@
 
         <article>
             <div class="mb-6">
-                <!-- Cover Image -->
-                <img src="images/smartphone-accuracy.svg" alt="Smartphone Sound Meter Accuracy" class="w-full h-64 md:h-96 object-cover">
-                
-                <!-- Title Overlay -->
+                <img src="images/three-db-rule.svg" alt="The 3 dB rule explained" class="w-full h-64 md:h-96 object-cover">
             </div>
-            <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4">Are Smartphone Decibel Meters Accurate?</h1>
-            <p class="text-sm text-gray-500 mb-6">Updated Jan 29, 2026 • 6 min read</p>
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4">The 3 dB Rule Explained: Safe Exposure Time Made Simple</h1>
+            <p class="text-sm text-gray-500 mb-6">Updated Mar 12, 2026 • 12 min read</p>
 
             <div class="prose prose-blue max-w-none text-gray-700">
                 <p class="mb-6 leading-relaxed">
-                    It's a scenario many of us have faced: You're in a noisy restaurant, a booming movie theater, or near a construction site, and you wonder, "Is this loud enough to damage my hearing?" You pull out your smartphone, open a sound meter app (or a website like ours), and get a number. Maybe it says 85 dB. Maybe 105 dB.
-                </p>
-                <p class="mb-6 leading-relaxed">
-                    But can you trust that number? Is your phone a precision scientific instrument, or just a rough guessing game?
-                </p>
-                <p class="mb-8 leading-relaxed">
-                    The short answer is: <strong>It depends.</strong> While smartphones have democratized access to noise measurement, they are not a replacement for professional Type 1 or Type 2 sound level meters. However, if you understand their limitations, they can still be a powerful tool for protecting your health.
+                    People often ask, “Is 85 dB safe?” The better question is: <strong>safe for how long</strong>? Noise risk is about daily dose. If you double how loud it is, you can’t keep the same exposure time. The 3 dB rule is the shortest, most useful mental model for that trade-off.
                 </p>
 
-                <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">The Hardware Reality: Built for Voice, Not Noise</h2>
+                <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">The 3 dB Rule in One Sentence</h2>
                 <p class="mb-6 leading-relaxed">
-                    To understand why smartphone accuracy varies, we have to look at the hardware. The microphone in your phone was engineered for one primary purpose: <strong>capturing human speech</strong>.
+                    <strong>Every +3 dB doubles sound energy, so safe exposure time is cut in half.</strong>
                 </p>
                 <p class="mb-6 leading-relaxed">
-                    Human speech falls within a specific frequency range (roughly 300 Hz to 3,400 Hz) and volume range (40 dB to 80 dB). Smartphone microphones (typically MEMS microphones) are optimized to be ultra-sensitive in this "voice band" and often roll off or distort frequencies outside of it.
-                </p>
-                <ul class="list-disc ml-6 mb-8 space-y-2">
-                    <li><strong>The "Ceiling" Effect:</strong> Most smartphone mics physically clip (distort) at sound pressure levels above 100-105 dB. If you are at a rock concert that is actually 120 dB, your phone might still only show 100 dB because the hardware simply cannot register anything louder.</li>
-                    <li><strong>The "Floor" Effect:</strong> Internal electronic noise means most phones cannot accurately measure very quiet rooms (below 30 dB).</li>
-                </ul>
-
-                <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">The Great Divide: iOS vs. Android</h2>
-                <p class="mb-6 leading-relaxed">
-                    Not all smartphones are created equal. A landmark study by NIOSH (National Institute for Occupational Safety and Health) revealed a significant disparity between operating systems.
-                </p>
-                
-                <h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">The iOS Advantage</h3>
-                <p class="mb-6 leading-relaxed">
-                    Apple uses a limited number of microphone suppliers and strictly controls the audio hardware chain. This allows developers to create "calibration profiles" that work reasonably well across most iPhone models. The NIOSH study found that certain iOS apps, when uncalibrated, were accurate within <strong>±2 dB</strong> of a professional reference meter.
+                    That’s it. Once you internalize this, you stop making “one-number” decisions and start making time-aware decisions: earplugs now, a break later, or step away from the speaker.
                 </p>
 
-                <h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">The Android Challenge</h3>
-                <p class="mb-6 leading-relaxed">
-                    The Android ecosystem is fragmented across thousands of devices from hundreds of manufacturers (Samsung, Pixel, Xiaomi, Motorola, etc.). Each device uses different microphones, different placement, and different audio processing chips.
-                </p>
-                <p class="mb-6 leading-relaxed">
-                    Because of this hardware variance, it is nearly impossible for a developer to create a universal calibration curve. Without manual calibration, Android apps can vary wildly—sometimes off by <strong>5-10 dB</strong> or more.
-                </p>
-
-                <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">The Enemy of Accuracy: AGC (Automatic Gain Control)</h2>
-                <p class="mb-6 leading-relaxed">
-                    Modern smartphones are smart. They use software algorithms called Automatic Gain Control (AGC) to optimize call quality.
-                </p>
-                <ul class="list-disc ml-6 mb-8 space-y-2">
-                    <li>If you whisper, AGC boosts the volume so the other person can hear you.</li>
-                    <li>If you shout, AGC cuts the volume to prevent distortion.</li>
-                </ul>
-                <p class="mb-8 leading-relaxed">
-                    For a phone call, this is a feature. For a sound meter, it's a bug. It messes up the "absolute" measurement of sound pressure. While browser-based tools like our <a href="/" class="text-blue-600 hover:text-blue-800 font-semibold underline decoration-blue-200 hover:decoration-blue-800 transition-all">Online Sound Meter</a> do their best to access the raw audio stream, the operating system often still applies some layer of processing that can skew results.
-                </p>
-
-                <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">When Should You Trust Your Phone?</h2>
-                <p class="mb-6 leading-relaxed">
-                    Does this mean smartphone meters are useless? Absolutely not. You just need to know <em>how</em> to use them.
-                </p>
-
-                <div class="grid md:grid-cols-2 gap-6 my-8">
-                    <div class="bg-green-50 border-l-4 border-green-500 p-5 rounded-r-lg">
-                        <h3 class="text-lg font-bold text-green-900 mb-2">Good For:</h3>
-                        <ul class="space-y-2 text-green-800 text-sm">
-                            <li class="flex items-start"><span class="mr-2">✅</span>Checking "Is this safe?" (General screening)</li>
-                            <li class="flex items-start"><span class="mr-2">✅</span>Comparing relative noise (Is the AC louder than the fan?)</li>
-                            <li class="flex items-start"><span class="mr-2">✅</span>Educational purposes and curiosity</li>
-                            <li class="flex items-start"><span class="mr-2">✅</span>Measuring consistent, steady noise (traffic, ventilation)</li>
-                        </ul>
-                    </div>
-                    <div class="bg-red-50 border-l-4 border-red-500 p-5 rounded-r-lg">
-                        <h3 class="text-lg font-bold text-red-900 mb-2">Bad For:</h3>
-                        <ul class="space-y-2 text-red-800 text-sm">
-                            <li class="flex items-start"><span class="mr-2">❌</span>OSHA/Legal compliance measurements</li>
-                            <li class="flex items-start"><span class="mr-2">❌</span>Impulse noises (gunshots, fireworks) - too fast for the sampling rate</li>
-                            <li class="flex items-start"><span class="mr-2">❌</span>Very quiet environments (<30 dB)</li>
-                            <li class="flex items-start"><span class="mr-2">❌</span>Very loud environments (>100 dB)</li>
-                        </ul>
-                    </div>
+                <div class="bg-blue-50 border-l-4 border-blue-500 p-4 mb-8">
+                    <p class="text-sm text-blue-800">
+                        If you want to measure your environment first, use the <a href="/" class="font-bold underline hover:text-blue-900">Online Sound Meter</a>. Focus on averages over 60 seconds, not a one-second snapshot.
+                    </p>
                 </div>
 
-                <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">How to Improve Your Accuracy</h2>
+                <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">Why 3 dB Matters (Even Though It Doesn’t Feel “Twice as Loud”)</h2>
                 <p class="mb-6 leading-relaxed">
-                    If you want to get the best possible reading from your phone, follow these tips:
+                    A common misunderstanding is thinking that “double the loudness” equals “double the risk.” Human perception and physical energy don’t scale the same way. Roughly speaking, +10 dB can feel like a doubling of loudness to many people. But physically, +3 dB is already <strong>double the acoustic energy</strong>. Hearing damage risk is tied more closely to energy dose over time than to your subjective feeling.
                 </p>
-                
-                <h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">1. Calibrate If Possible</h3>
                 <p class="mb-6 leading-relaxed">
-                    If you have access to a professional decibel meter (even a cheap dedicated one from a hardware store), use it to measure a steady noise source (like a fan). Then, adjust your app's calibration offset to match that reading.
+                    This explains why “only a little louder” can be a big deal. A shop that creeps from 85 dB to 88 dB might not feel dramatically louder, but your safe time drops by half under the 3 dB model.
                 </p>
 
-                <h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">2. Remove the Case</h3>
+                <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">NIOSH vs OSHA: Two Common Standards You’ll See</h2>
                 <p class="mb-6 leading-relaxed">
-                    Bulky protective cases can cover microphone ports or create resonance chambers that distort sound. For critical measurements, take the phone out of its case.
+                    In noise safety conversations, you’ll often see both NIOSH and OSHA mentioned. Without turning this into a compliance debate, here’s the practical takeaway:
+                </p>
+                <ul class="list-disc ml-6 mb-8 space-y-2">
+                    <li><strong>NIOSH uses a 3 dB exchange rate</strong> (more conservative, energy-based).</li>
+                    <li><strong>OSHA uses a 5 dB exchange rate</strong> in many contexts (less conservative).</li>
+                </ul>
+                <p class="mb-6 leading-relaxed">
+                    This article focuses on the 3 dB approach because it’s easier to reason about and encourages safer decisions. For workplace compliance requirements, always follow the rules that apply to your situation and use certified instruments for official measurements.
                 </p>
 
-                <h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">3. Watch Your Grip</h3>
+                <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">A Practical Exposure Time Table (3 dB Rule)</h2>
                 <p class="mb-6 leading-relaxed">
-                    Make sure your hand isn't covering the bottom microphone (primary) or the top/rear microphone (noise cancellation). Hold the phone at arm's length to avoid sound reflecting off your body.
+                    The starting point you’ll see widely is 85 dBA for 8 hours (as a reference). Then every +3 dB halves the time.
                 </p>
 
-                <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">Conclusion</h2>
+                <div class="overflow-x-auto mb-8">
+                    <table class="min-w-full border border-gray-200 text-sm">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="text-left py-3 px-4 font-semibold text-gray-900 border-b">Average Level (dBA)</th>
+                                <th class="text-left py-3 px-4 font-semibold text-gray-900 border-b">Approx. “Safe” Time (3 dB rule)</th>
+                                <th class="text-left py-3 px-4 font-semibold text-gray-900 border-b">Real-world example</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white">
+                            <tr class="border-b">
+                                <td class="py-3 px-4">85</td>
+                                <td class="py-3 px-4">8 hours</td>
+                                <td class="py-3 px-4">Busy office / light workshop</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="py-3 px-4">88</td>
+                                <td class="py-3 px-4">4 hours</td>
+                                <td class="py-3 px-4">Loud traffic near curb</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="py-3 px-4">91</td>
+                                <td class="py-3 px-4">2 hours</td>
+                                <td class="py-3 px-4">Power tools in a garage</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="py-3 px-4">94</td>
+                                <td class="py-3 px-4">1 hour</td>
+                                <td class="py-3 px-4">Loud restaurant / bar</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="py-3 px-4">97</td>
+                                <td class="py-3 px-4">30 minutes</td>
+                                <td class="py-3 px-4">Gym class / loud subway</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="py-3 px-4">100</td>
+                                <td class="py-3 px-4">15 minutes</td>
+                                <td class="py-3 px-4">Loud concert area</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-4">103</td>
+                                <td class="py-3 px-4">7.5 minutes</td>
+                                <td class="py-3 px-4">Very close to speakers</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">How to Use the 3 dB Rule in Real Life</h2>
+                <h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">1) Think in “daily dose buckets”</h3>
                 <p class="mb-6 leading-relaxed">
-                    Think of your smartphone decibel meter as a <strong>"Check Engine Light"</strong> rather than a precision diagnostic tool. It's fantastic for raising awareness. If your phone says the environment is 95 dB, it might actually be 92 dB or 98 dB—but either way, <strong>it is too loud</strong>.
+                    Your day is a mix of quiet and loud. The 3 dB rule is powerful because it lets you combine exposures mentally. For example, if you spend 1 hour at 94 dBA (about a full dose at that level), you shouldn’t add several more hours at similar levels without protection.
+                </p>
+
+                <h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">2) Use distance as your first “volume knob”</h3>
+                <p class="mb-6 leading-relaxed">
+                    In many environments (concerts, gyms, noisy streets), the easiest way to reduce dose is not to “tough it out,” but to change distance and orientation. A small move away from a speaker cluster can shift you from “minutes matter” back into “hours are possible.”
+                </p>
+
+                <h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">3) Use breaks strategically</h3>
+                <p class="mb-6 leading-relaxed">
+                    A useful pattern is <strong>loud task → quiet break</strong>. If your workplace or hobby involves intermittent noise, place quiet periods right after the loudest sections. This doesn’t erase exposure, but it prevents a continuous high-dose block and reduces fatigue.
+                </p>
+
+                <h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">4) Protect the “high-risk minutes”</h3>
+                <p class="mb-6 leading-relaxed">
+                    Many people skip earplugs because they plan to be somewhere loud for “only a bit.” That’s exactly when protection matters. At 100 dBA, your safe time is around 15 minutes under the 3 dB model. If you’re not sure, treat it as high-risk and use protection.
+                </p>
+
+                <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">Common Mistakes (and Better Alternatives)</h2>
+                <ul class="list-disc ml-6 mb-8 space-y-2">
+                    <li><strong>Mistake:</strong> using max dB for decisions. <strong>Better:</strong> use 60-second averages and context notes.</li>
+                    <li><strong>Mistake:</strong> trusting one device reading as exact. <strong>Better:</strong> treat it as reference-only and measure consistently.</li>
+                    <li><strong>Mistake:</strong> assuming “it doesn’t hurt” means it’s safe. <strong>Better:</strong> rely on exposure time logic, not discomfort.</li>
+                </ul>
+
+                <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">Practical Next Steps</h2>
+                <p class="mb-6 leading-relaxed">
+                    If you’re doing headphone listening, start with our safety guide and apply the 3 dB logic to long sessions: <a href="headphone-safety.html" class="text-blue-600 hover:text-blue-800 font-semibold underline">How Loud Is Too Loud?</a>.
                 </p>
                 <p class="mb-6 leading-relaxed">
-                    The exact number matters less than the action you take. If your app consistently shows levels in the red zone, don't split hairs about accuracy—put in your earplugs or leave the area. And if you suspect you've been exposing yourself to high noise levels for a long time, don't rely on an app to tell you if you're okay. Take a proper assessment with our <a href="/online-hearing-test/" class="text-blue-600 hover:text-blue-800 font-semibold underline decoration-blue-200 hover:decoration-blue-800 transition-all">Free Online Hearing Test</a> to track your hearing health over time.
+                    If you want a structured approach for work, including documentation and controls, see: <a href="workplace-noise-checklist.html" class="text-blue-600 hover:text-blue-800 font-semibold underline">Is My Workplace Too Loud?</a>.
                 </p>
             </div>
 
             <div class="my-8 text-center border-t border-gray-200 pt-8">
-                <a href="/" class="inline-block px-6 py-3 rounded-lg bg-blue-600 text-white text-sm font-semibold hover:bg-blue-700 transition shadow-sm mb-6">Use the Online Sound Meter</a>
-                
+                <a href="/" class="inline-block px-6 py-3 rounded-lg bg-blue-600 text-white text-sm font-semibold hover:bg-blue-700 transition shadow-sm mb-6">Measure Noise Levels Now</a>
+
                 <div class="flex justify-center">
                     <a href="/blog/" class="inline-flex items-center text-gray-600 hover:text-blue-600 font-medium transition-colors">
                         <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
@@ -258,7 +275,6 @@
             </div>
         </article>
 
-        <!-- Related Articles -->
         <section class="mt-12 pt-12 border-t border-gray-200">
             <h3 class="text-2xl font-bold text-gray-900 mb-6">Related Articles</h3>
             <div class="grid md:grid-cols-3 gap-6">
@@ -271,7 +287,15 @@
                         <p class="text-sm text-gray-500 mt-auto">5 min read</p>
                     </div>
                 </a>
-
+                <a href="workplace-noise-checklist.html" class="group bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden border border-gray-100 flex flex-col">
+                    <div class="h-48 overflow-hidden">
+                        <img src="images/dba-vs-dbc.svg" alt="Workplace Noise Checklist" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col">
+                        <h4 class="font-bold text-gray-900 group-hover:text-blue-600 transition-colors mb-2">Is My Workplace Too Loud? A Practical Checklist</h4>
+                        <p class="text-sm text-gray-500 mt-auto">9 min read</p>
+                    </div>
+                </a>
                 <a href="how-to-measure-decibels-accurately.html" class="group bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden border border-gray-100 flex flex-col">
                     <div class="h-48 overflow-hidden">
                         <img src="images/smartphone-accuracy.svg" alt="How to Measure Decibels Accurately" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
@@ -281,16 +305,6 @@
                         <p class="text-sm text-gray-500 mt-auto">9 min read</p>
                     </div>
                 </a>
-
-                <a href="phone-decibel-meter-calibration.html" class="group bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden border border-gray-100 flex flex-col">
-                    <div class="h-48 overflow-hidden">
-                        <img src="images/phone-calibration.svg" alt="Phone Decibel Meter Calibration Guide" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                    </div>
-                    <div class="p-5 flex-1 flex flex-col">
-                        <h4 class="font-bold text-gray-900 group-hover:text-blue-600 transition-colors mb-2">How to Calibrate a Phone Decibel Meter</h4>
-                        <p class="text-sm text-gray-500 mt-auto">12 min read</p>
-                    </div>
-                </a>
             </div>
         </section>
 
@@ -298,7 +312,7 @@
             <h3 class="text-2xl font-bold text-gray-900 mb-4">About This Guide</h3>
             <div class="text-sm text-gray-600 space-y-1">
                 <p><strong class="text-gray-900">Author:</strong> Max Ray (RealtimeSoundMeter.org)</p>
-                <p><strong class="text-gray-900">Last updated:</strong> March 9, 2026</p>
+                <p><strong class="text-gray-900">Last updated:</strong> March 12, 2026</p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-4 mt-6">
@@ -314,7 +328,7 @@
                 <div class="bg-gray-50 rounded-xl border border-gray-200 p-4">
                     <h4 class="font-semibold text-gray-900 mb-2">Key Takeaway</h4>
                     <p class="text-sm text-gray-700">
-                        Phone readings are best for awareness and relative comparisons. For critical decisions, use calibrated equipment and follow established hearing safety guidelines.
+                        Stop asking “is this dB safe?” and start asking “safe for how long?” +3 dB means half the time.
                     </p>
                 </div>
 
@@ -322,8 +336,8 @@
                     <h4 class="font-semibold text-gray-900 mb-2">References</h4>
                     <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
                         <li><a href="https://www.cdc.gov/niosh/noise/about/noise.html" target="_blank" rel="noopener" class="text-blue-600 hover:underline">NIOSH/CDC: Noise and Hearing Loss Prevention</a></li>
+                        <li><a href="https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.95" target="_blank" rel="noopener" class="text-blue-600 hover:underline">OSHA: Occupational Noise Exposure (1910.95)</a></li>
                         <li><a href="https://www.nidcd.nih.gov/health/how-loud-too-loud" target="_blank" rel="noopener" class="text-blue-600 hover:underline">NIDCD: How Loud Is Too Loud?</a></li>
-                        <li><a href="https://www.who.int/news-room/questions-and-answers/item/deafness-and-hearing-loss-safe-listening" target="_blank" rel="noopener" class="text-blue-600 hover:underline">WHO: Safe Listening Guidance</a></li>
                     </ul>
                 </div>
             </div>
