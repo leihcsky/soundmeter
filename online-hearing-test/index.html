@@ -123,6 +123,9 @@
     </style>
 </head>
 <body class="bg-gray-50 min-h-screen font-sans text-gray-800">
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 bg-white text-blue-700 px-4 py-2 rounded-lg shadow-lg ring-2 ring-blue-500">
+        Skip to content
+    </a>
 
     <!-- Header -->
     <header class="bg-white shadow-md border-b border-gray-300 relative z-40">
@@ -136,7 +139,7 @@
                 </div>
 
                 <!-- Navigation -->
-                <nav class="hidden md:flex items-center space-x-8">
+                <nav aria-label="Primary" class="hidden md:flex items-center space-x-8">
                     <a href="/" class="text-gray-500 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors inline-flex items-center gap-2">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
                         Home
@@ -157,7 +160,7 @@
 
                 <!-- Mobile menu button -->
                 <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="text-gray-500 hover:text-gray-900 focus:outline-none p-2">
+                    <button id="mobile-menu-btn" type="button" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false" class="text-gray-700 hover:text-gray-900 rounded-full p-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                     </button>
                 </div>
@@ -165,7 +168,7 @@
         </div>
         
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg z-50">
+        <div id="mobile-menu" role="navigation" aria-label="Mobile" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg z-50">
             <div class="px-2 pt-2 pb-3 space-y-1">
                  <a href="./" class="block px-3 py-2 rounded-md text-base font-medium text-blue-600 bg-blue-50">Hearing Test</a>
                  <a href="../speaker-test-tones/" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Speaker Test</a>
@@ -175,7 +178,7 @@
     </header>
 
     <!-- Main Content Area -->
-    <main class="max-w-5xl mx-auto px-4 py-8 sm:py-12">
+    <main id="main-content" class="max-w-5xl mx-auto px-4 py-8 sm:py-12">
         
         <!-- View 1: Landing (Enhanced Layout) -->
         <div id="view-landing" class="bg-white rounded-2xl shadow-xl p-6 sm:p-10 text-center fade-in overflow-hidden">
@@ -709,12 +712,41 @@
     <script src="../js/hearing-test.js"></script>
     <script src="../js/hearing-ui.js"></script>
     <script>
-        // Mobile menu toggle
         const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
-        if(btn && menu) {
-            btn.addEventListener('click', () => {
-                menu.classList.toggle('hidden');
+
+        const setExpanded = (buttonEl, expanded) => {
+            if (!buttonEl) return;
+            buttonEl.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        };
+
+        const closeMenu = () => {
+            if (!btn || !menu) return;
+            menu.classList.add('hidden');
+            setExpanded(btn, false);
+            btn.setAttribute('aria-label', 'Open menu');
+        };
+
+        if (btn && menu) {
+            setExpanded(btn, !menu.classList.contains('hidden'));
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const willBeHidden = menu.classList.toggle('hidden');
+                const isExpanded = !willBeHidden;
+                setExpanded(btn, isExpanded);
+                btn.setAttribute('aria-label', isExpanded ? 'Close menu' : 'Open menu');
+            });
+
+            document.addEventListener('click', (e) => {
+                if (!btn.contains(e.target) && !menu.contains(e.target)) {
+                    closeMenu();
+                }
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    closeMenu();
+                }
             });
         }
     </script>

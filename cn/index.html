@@ -127,6 +127,9 @@
     </style>
 </head>
 <body class="bg-gray-50 min-h-screen">
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 bg-white text-blue-700 px-4 py-2 rounded-lg shadow-lg ring-2 ring-blue-500">
+        跳到主要内容
+    </a>
     <!-- Header -->
     <header class="bg-white shadow-md border-b border-gray-300 relative z-40">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -139,7 +142,7 @@
                 </div>
 
                 <!-- Navigation -->
-                <nav class="hidden md:flex items-center space-x-8">
+                <nav aria-label="Primary" class="hidden md:flex items-center space-x-8">
                     <a href="/cn/" class="text-blue-600 bg-blue-50 px-3 py-2 rounded-md text-sm font-medium inline-flex items-center gap-2" aria-current="page">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
                         首页
@@ -157,7 +160,7 @@
                         博客
                     </a>
                     <div class="relative inline-block text-left group">
-                        <button type="button" class="inline-flex items-center justify-center rounded-full border border-gray-200 shadow-sm px-3 py-1.5 sm:px-4 sm:py-2 bg-white text-xs sm:text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200">
+                        <button type="button" aria-haspopup="menu" aria-expanded="false" class="inline-flex items-center justify-center rounded-full border border-gray-200 shadow-sm px-3 py-1.5 sm:px-4 sm:py-2 bg-white text-xs sm:text-sm font-medium text-gray-700 hover:bg-gray-50 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200">
                             <svg class="mr-1.5 h-4 w-4 sm:h-5 sm:w-5 text-gray-500 group-hover:text-blue-600 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
@@ -167,42 +170,42 @@
                                 <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                             </svg>
                         </button>
-                        <div class="origin-top-right absolute right-0 mt-2 w-40 rounded-xl shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform group-hover:translate-y-0 translate-y-2 z-50 overflow-hidden">
+                        <div role="menu" class="origin-top-right absolute right-0 mt-2 w-40 rounded-xl shadow-lg bg-white ring-1 ring-black ring-opacity-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-all duration-200 transform group-hover:translate-y-0 group-focus-within:translate-y-0 translate-y-2 z-50 overflow-hidden">
                             <div class="py-1">
-                                <a href="/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors">
+                                <a role="menuitem" href="/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors">
                                     <span>English</span>
                                 </a>
-                                <a href="/hu/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors">
+                                <a role="menuitem" href="/hu/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors">
                                     <span>Magyar</span>
                                 </a>
-                                <a href="/el/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors">
+                                <a role="menuitem" href="/el/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors">
                                     <span>Ελληνικά</span>
                                 </a>
-                                <a href="/ru/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors">
+                                <a role="menuitem" href="/ru/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors">
                                     <span>Русский</span>
                                 </a>
-                                <a href="/sv/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors">
+                                <a role="menuitem" href="/sv/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors">
                                     <span>Svenska</span>
                                 </a>
-                                <a href="/fr/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors">
+                                <a role="menuitem" href="/fr/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors">
                                     <span>Français</span>
                                 </a>
-                                <a href="/de/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors">
+                                <a role="menuitem" href="/de/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors">
                                     <span>Deutsch</span>
                                 </a>
-                                <a href="/es/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors">
+                                <a role="menuitem" href="/es/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors">
                                     <span>Español</span>
                                 </a>
-                                <a href="/ja/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors">
+                                <a role="menuitem" href="/ja/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors">
                                     <span>日本語</span>
                                 </a>
-                                <a href="/cn/" class="flex items-center px-4 py-3 text-sm text-blue-600 bg-blue-50 font-semibold transition-colors">
+                                <a role="menuitem" href="/cn/" class="flex items-center px-4 py-3 text-sm text-blue-600 bg-blue-50 font-semibold transition-colors">
                                     <span>简体中文</span>
                                 </a>
-                                <a href="/ko/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors">
+                                <a role="menuitem" href="/ko/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors">
                                     <span>한국어</span>
                                 </a>
-                                <a href="/ar/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors">
+                                <a role="menuitem" href="/ar/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors">
                                     <span>العربية</span>
                                 </a>
                             </div>
@@ -213,40 +216,40 @@
                 <div class="flex items-center gap-2 md:hidden">
                     <!-- Mobile Language Switcher -->
                     <div class="relative inline-block text-left">
-                        <button id="mobileLangBtn" type="button" class="inline-flex items-center justify-center rounded-full border border-gray-200 shadow-sm p-2 bg-white text-gray-700 hover:bg-gray-50 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200">
+                        <button id="mobileLangBtn" type="button" aria-label="选择语言" aria-haspopup="menu" aria-controls="mobileLangDropdown" aria-expanded="false" class="inline-flex items-center justify-center rounded-full border border-gray-200 shadow-sm p-3 bg-white text-gray-700 hover:bg-gray-50 hover:text-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200">
                             <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
                         </button>
-                        <div id="mobileLangDropdown" class="origin-top-right absolute right-0 mt-2 w-40 rounded-xl shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden z-50 overflow-hidden">
+                        <div id="mobileLangDropdown" role="menu" class="origin-top-right absolute right-0 mt-2 w-40 rounded-xl shadow-lg bg-white ring-1 ring-black ring-opacity-5 hidden z-50 overflow-hidden">
                             <div class="py-1">
-                                <a href="/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"><span>English</span></a>
-                                <a href="/hu/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"><span>Magyar</span></a>
-                                <a href="/el/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"><span>Ελληνικά</span></a>
-                                <a href="/ru/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"><span>Русский</span></a>
-                                <a href="/sv/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"><span>Svenska</span></a>
-                                <a href="/fr/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"><span>Français</span></a>
-                                <a href="/de/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"><span>Deutsch</span></a>
-                                <a href="/es/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"><span>Español</span></a>
-                                <a href="/ja/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"><span>日本語</span></a>
-                                <a href="/cn/" class="flex items-center px-4 py-3 text-sm text-blue-600 bg-blue-50 font-semibold transition-colors"><span>简体中文</span></a>
-                                <a href="/ko/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"><span>한국어</span></a>
-                                <a href="/ar/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"><span>العربية</span></a>
+                                <a role="menuitem" href="/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"><span>English</span></a>
+                                <a role="menuitem" href="/hu/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"><span>Magyar</span></a>
+                                <a role="menuitem" href="/el/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"><span>Ελληνικά</span></a>
+                                <a role="menuitem" href="/ru/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"><span>Русский</span></a>
+                                <a role="menuitem" href="/sv/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"><span>Svenska</span></a>
+                                <a role="menuitem" href="/fr/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"><span>Français</span></a>
+                                <a role="menuitem" href="/de/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"><span>Deutsch</span></a>
+                                <a role="menuitem" href="/es/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"><span>Español</span></a>
+                                <a role="menuitem" href="/ja/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"><span>日本語</span></a>
+                                <a role="menuitem" href="/cn/" class="flex items-center px-4 py-3 text-sm text-blue-600 bg-blue-50 font-semibold transition-colors"><span>简体中文</span></a>
+                                <a role="menuitem" href="/ko/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"><span>한국어</span></a>
+                                <a role="menuitem" href="/ar/" class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600 transition-colors"><span>العربية</span></a>
                             </div>
                         </div>
+                    </div>
 
                     <!-- Hamburger Menu Button -->
-                    <button id="mobile-menu-btn" class="text-gray-500 hover:text-gray-900 focus:outline-none p-2">
+                    <button id="mobile-menu-btn" type="button" aria-label="打开菜单" aria-controls="mobile-menu" aria-expanded="false" class="text-gray-700 hover:text-gray-900 rounded-full p-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                     </button>
-                </div>
                 </div>
             </div>
         </div>
     </header>
 
     <!-- Mobile Menu (Hidden by default) -->
-    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg z-50">
+    <div id="mobile-menu" role="navigation" aria-label="Mobile" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg z-50">
         <div class="px-2 pt-2 pb-3 space-y-1">
             <a href="/cn/" class="block px-3 py-2 rounded-md text-base font-medium text-blue-600 bg-blue-50">首页</a>
             <a href="/online-hearing-test/" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">听力测试</a>
@@ -270,7 +273,7 @@
     </div>
 
     <!-- Main Content -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <main id="main-content" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <!-- Unified Dashboard -->
         <section class="mb-6 bg-white rounded-2xl shadow-xl p-4 sm:p-6">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-start">
@@ -317,7 +320,7 @@
                                 <span class="text-base">💡</span>
                                 <p class="leading-relaxed"><strong class="text-blue-700">使用技巧：</strong> 为了获得准确的环境分析结果，建议持续测量至少 30-60 秒，以平滑突发噪音的影响。</p>
                             </div>
-                            <p class="text-xs text-gray-400 italic">
+                            <p class="text-xs text-gray-600 italic">
                                 <strong>注：</strong> 读数仅供参考。安静房间 ≈ 30-40 dB，正常交谈 ≈ 60 dB，繁忙交通 ≈ 80 dB。
                             </p>
                         </div>
@@ -344,7 +347,7 @@
                             频谱分析
                         </h3>
                         <div class="flex-1 relative overflow-hidden rounded">
-                            <canvas id="spectrumCanvas" class="absolute inset-0 w-full h-full"></canvas>
+                            <canvas id="spectrumCanvas" role="img" aria-label="实时频谱图" class="absolute inset-0 w-full h-full"></canvas>
                         </div>
                     </div>
 
@@ -355,7 +358,7 @@
                             历史记录 (30秒)
                         </h3>
                         <div class="flex-1 relative overflow-hidden rounded">
-                            <canvas id="historyCanvas" class="absolute inset-0 w-full h-full"></canvas>
+                            <canvas id="historyCanvas" role="img" aria-label="噪音历史曲线图" class="absolute inset-0 w-full h-full"></canvas>
                         </div>
                     </div>
                     
@@ -363,7 +366,7 @@
                     <div class="mt-2 pt-2 border-t border-gray-300">
                         <div class="relative h-6">
                             <!-- Labels -->
-                            <div class="absolute inset-0 flex pointer-events-none text-[10px] text-gray-400 font-medium">
+                            <div class="absolute inset-0 flex pointer-events-none text-[10px] text-gray-600 font-medium">
                                 <span class="absolute left-[0%] -translate-x-1/2">0</span>
                                 <span class="absolute left-[30.7%] -translate-x-1/2">40</span>
                                 <span class="absolute left-[53.8%] -translate-x-1/2">70</span>
@@ -376,7 +379,7 @@
                                 <div id="levelBar" class="h-full gradient-moderate transition-all duration-300 rounded-full" style="width: 0%"></div>
                             </div>
                         </div>
-                        <div class="relative h-4 text-[10px] text-gray-400 mt-1 font-medium">
+                        <div class="relative h-4 text-[10px] text-gray-600 mt-1 font-medium">
                             <span class="absolute left-0">静音</span>
                             <span class="absolute left-[30.7%] -translate-x-1/2 text-green-600">安静</span>
                             <span class="absolute left-[53.8%] -translate-x-1/2 text-blue-600">安全</span>
@@ -1078,36 +1081,69 @@
             
             SoundMeter.init(cnTranslations);
 
-            // Mobile Language Switcher Toggle
-            const mobileBtn = document.getElementById('mobileLangBtn');
-            const mobileMenu = document.getElementById('mobileLangDropdown');
-            if (mobileBtn && mobileMenu) {
-                mobileBtn.addEventListener('click', (e) => {
+            const mobileLangBtn = document.getElementById('mobileLangBtn');
+            const mobileLangDropdown = document.getElementById('mobileLangDropdown');
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            const setExpanded = (buttonEl, expanded) => {
+                if (!buttonEl) return;
+                buttonEl.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+            };
+
+            const closeMobileLangDropdown = () => {
+                if (!mobileLangBtn || !mobileLangDropdown) return;
+                mobileLangDropdown.classList.add('hidden');
+                setExpanded(mobileLangBtn, false);
+            };
+
+            const closeMobileMenu = () => {
+                if (!mobileMenuBtn || !mobileMenu) return;
+                mobileMenu.classList.add('hidden');
+                setExpanded(mobileMenuBtn, false);
+                mobileMenuBtn.setAttribute('aria-label', '打开菜单');
+            };
+
+            if (mobileLangBtn && mobileLangDropdown) {
+                setExpanded(mobileLangBtn, !mobileLangDropdown.classList.contains('hidden'));
+                mobileLangBtn.addEventListener('click', (e) => {
                     e.stopPropagation();
-                    mobileMenu.classList.toggle('hidden');
-                });
-                document.addEventListener('click', (e) => {
-                    if (!mobileBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
-                        mobileMenu.classList.add('hidden');
-                    }
+                    const willBeHidden = mobileLangDropdown.classList.toggle('hidden');
+                    setExpanded(mobileLangBtn, !willBeHidden);
                 });
             }
-        
-            // Mobile Main Menu Toggle
-            const menuBtn = document.getElementById('mobile-menu-btn');
-            const menu = document.getElementById('mobile-menu');
-            if (menuBtn && menu) {
-                menuBtn.addEventListener('click', (e) => {
+
+            if (mobileMenuBtn && mobileMenu) {
+                setExpanded(mobileMenuBtn, !mobileMenu.classList.contains('hidden'));
+                mobileMenuBtn.addEventListener('click', (e) => {
                     e.stopPropagation();
-                    menu.classList.toggle('hidden');
-                });
-                document.addEventListener('click', (e) => {
-                    if (!menuBtn.contains(e.target) && !menu.contains(e.target)) {
-                        menu.classList.add('hidden');
-                    }
+                    const willBeHidden = mobileMenu.classList.toggle('hidden');
+                    const isExpanded = !willBeHidden;
+                    setExpanded(mobileMenuBtn, isExpanded);
+                    mobileMenuBtn.setAttribute('aria-label', isExpanded ? '关闭菜单' : '打开菜单');
                 });
             }
-                });
+
+            document.addEventListener('click', (e) => {
+                if (mobileLangBtn && mobileLangDropdown) {
+                    if (!mobileLangBtn.contains(e.target) && !mobileLangDropdown.contains(e.target)) {
+                        closeMobileLangDropdown();
+                    }
+                }
+                if (mobileMenuBtn && mobileMenu) {
+                    if (!mobileMenuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
+                        closeMobileMenu();
+                    }
+                }
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    closeMobileLangDropdown();
+                    closeMobileMenu();
+                }
+            });
+        });
     </script>
 </body>
 </html>
