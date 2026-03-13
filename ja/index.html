@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VBFVZM0MP6"></script>
+    <script defer src="https://www.googletagmanager.com/gtag/js?id=G-VBFVZM0MP6"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -15,7 +15,7 @@
     </script>
     
     <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3293976111230987"
+    <script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3293976111230987"
      crossorigin="anonymous"></script>
     
     <!-- Primary Meta Tags -->
@@ -64,118 +64,6 @@
     <link rel="alternate" hreflang="zh-CN" href="https://realtimesoundmeter.org/cn/" />
     <link rel="alternate" hreflang="ar" href="https://realtimesoundmeter.org/ar/" />
     <link rel="alternate" hreflang="x-default" href="https://realtimesoundmeter.org/" />
-    
-    <!-- Structured Data - WebApplication -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "騒音計",
-      "alternateName": "オンラインデシベルメーター",
-      "url": "https://realtimesoundmeter.org/ja/",
-      "logo": "https://realtimesoundmeter.org/logo.svg",
-      "description": "周囲の環境騒音をデシベル (dB) で測定できる無料オンライン騒音計。WHO と NIOSH の指針に基づく安全な暴露時間の目安も表示します。",
-      "applicationCategory": "UtilityApplication",
-      "operatingSystem": "Web Browser",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      },
-      "featureList": [
-        "リアルタイムのデシベル測定",
-        "視覚的な騒音レベル表示",
-        "安全な暴露時間の計算",
-        "最小・最大・平均値の統計表示",
-        "色分けされた安全レベルの表示",
-        "音声データの記録・保存なし"
-      ],
-      "browserRequirements": "JavaScript が必要です。Web Audio API をサポートする最新ブラウザが必要です。",
-      "permissions": "騒音測定のためにマイクへのアクセスが必要です",
-      "author": {
-        "@type": "Organization",
-        "name": "RealtimeSoundMeter.org",
-        "url": "https://realtimesoundmeter.org/ja/"
-      }
-    }
-    </script>
-    
-    <!-- Structured Data - Organization -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "RealtimeSoundMeter.org",
-      "url": "https://realtimesoundmeter.org/ja/",
-      "logo": "https://realtimesoundmeter.org/logo.svg",
-      "description": "聴覚の健康への意識向上を目的とした、無料オンライン騒音測定ツールを提供しています。",
-      "sameAs": [],
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "contactType": "Customer Support",
-        "email": "support@realtimesoundmeter.org",
-        "url": "https://realtimesoundmeter.org/contact.html"
-      }
-    }
-    </script>
-    
-    <!-- Structured Data - FAQPage -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "この騒音計はどの程度正確ですか？",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "このオンライン騒音計は実用上十分な目安となる測定値を提供しますが、必ずしも業務用の校正された測定器と同じ精度ではありません。精度は、お使いのデバイスのマイク品質やキャリブレーションに依存します。正確な測定が必要な場合は、認定された専門機器の利用を検討してください。"
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "なぜマイクへのアクセス許可が必要ですか？",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "騒音レベルを測定するためには、デバイスのマイクから周囲の音を取得する必要があります。音声データはブラウザ内でのみ処理され、録音・保存・サーバーへの送信はいっさい行われません。プライバシーは保護されています。"
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "安全とされる騒音レベルはどのくらいですか？",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "NIOSH/CDC によると、70 dB 未満の騒音レベルは長時間の暴露でも一般的に安全とされています。職業上の暴露限度は 85 dB・8 時間です。85 dB を超えるレベルに長時間さらされると聴覚障害の原因となり、120 dB を超えるレベルでは短時間でも即座にダメージを与える可能性があります。"
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "スマートフォンなどのモバイル端末でも利用できますか？",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "はい。iOS Safari や Chrome モバイルなど、最新のブラウザを搭載したスマートフォンやタブレットでも利用できます。表示されるダイアログでマイクアクセスを許可すると測定が開始されます。"
-          }
-        }
-      ]
-    }
-    </script>
-    
-    <!-- Structured Data - BreadcrumbList -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "ホーム",
-          "item": "https://realtimesoundmeter.org/ja/"
-        }
-      ]
-    }
-    </script>
     
     <!-- Tailwind CSS -->
     <link href="/css/style.css" rel="stylesheet">
@@ -1020,6 +908,118 @@
             </div>
         </div>
     </div>
+
+    <!-- Structured Data - WebApplication -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "騒音計",
+      "alternateName": "オンラインデシベルメーター",
+      "url": "https://realtimesoundmeter.org/ja/",
+      "logo": "https://realtimesoundmeter.org/logo.svg",
+      "description": "周囲の環境騒音をデシベル (dB) で測定できる無料オンライン騒音計。WHO と NIOSH の指針に基づく安全な暴露時間の目安も表示します。",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "featureList": [
+        "リアルタイムのデシベル測定",
+        "視覚的な騒音レベル表示",
+        "安全な暴露時間の計算",
+        "最小・最大・平均値の統計表示",
+        "色分けされた安全レベルの表示",
+        "音声データの記録・保存なし"
+      ],
+      "browserRequirements": "JavaScript が必要です。Web Audio API をサポートする最新ブラウザが必要です。",
+      "permissions": "騒音測定のためにマイクへのアクセスが必要です",
+      "author": {
+        "@type": "Organization",
+        "name": "RealtimeSoundMeter.org",
+        "url": "https://realtimesoundmeter.org/ja/"
+      }
+    }
+    </script>
+    
+    <!-- Structured Data - Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "RealtimeSoundMeter.org",
+      "url": "https://realtimesoundmeter.org/ja/",
+      "logo": "https://realtimesoundmeter.org/logo.svg",
+      "description": "聴覚の健康への意識向上を目的とした、無料オンライン騒音測定ツールを提供しています。",
+      "sameAs": [],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Customer Support",
+        "email": "support@realtimesoundmeter.org",
+        "url": "https://realtimesoundmeter.org/contact.html"
+      }
+    }
+    </script>
+    
+    <!-- Structured Data - FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "この騒音計はどの程度正確ですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "このオンライン騒音計は実用上十分な目安となる測定値を提供しますが、必ずしも業務用の校正された測定器と同じ精度ではありません。精度は、お使いのデバイスのマイク品質やキャリブレーションに依存します。正確な測定が必要な場合は、認定された専門機器の利用を検討してください。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "なぜマイクへのアクセス許可が必要ですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "騒音レベルを測定するためには、デバイスのマイクから周囲の音を取得する必要があります。音声データはブラウザ内でのみ処理され、録音・保存・サーバーへの送信はいっさい行われません。プライバシーは保護されています。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "安全とされる騒音レベルはどのくらいですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "NIOSH/CDC によると、70 dB 未満の騒音レベルは長時間の暴露でも一般的に安全とされています。職業上の暴露限度は 85 dB・8 時間です。85 dB を超えるレベルに長時間さらされると聴覚障害の原因となり、120 dB を超えるレベルでは短時間でも即座にダメージを与える可能性があります。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "スマートフォンなどのモバイル端末でも利用できますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "はい。iOS Safari や Chrome モバイルなど、最新のブラウザを搭載したスマートフォンやタブレットでも利用できます。表示されるダイアログでマイクアクセスを許可すると測定が開始されます。"
+          }
+        }
+      ]
+    }
+    </script>
+    
+    <!-- Structured Data - BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "ホーム",
+          "item": "https://realtimesoundmeter.org/ja/"
+        }
+      ]
+    }
+    </script>
 
     <!-- Scripts -->
     <script src="../js/sound-meter.js?v=20260208"></script>

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VBFVZM0MP6"></script>
+    <script defer src="https://www.googletagmanager.com/gtag/js?id=G-VBFVZM0MP6"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -15,7 +15,7 @@
     </script>
     
     <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3293976111230987"
+    <script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3293976111230987"
      crossorigin="anonymous"></script>
     
     <!-- Primary Meta Tags -->
@@ -63,118 +63,6 @@
     <link rel="alternate" hreflang="es" href="https://realtimesoundmeter.org/es/" />
     <link rel="alternate" hreflang="ar" href="https://realtimesoundmeter.org/ar/" />
     <link rel="alternate" hreflang="x-default" href="https://realtimesoundmeter.org/" />
-    
-    <!-- Structured Data - WebApplication -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Sound Meter",
-      "alternateName": "Online Decibel Meter",
-      "url": "https://realtimesoundmeter.org/es/",
-      "logo": "https://realtimesoundmeter.org/logo.svg",
-      "description": "Sonómetro online gratuito para medir niveles de ruido ambiental en decibelios (dB). Detección de nivel de sonido en tiempo real con pautas de seguridad basadas en estándares de la OMS y NIOSH.",
-      "applicationCategory": "UtilityApplication",
-      "operatingSystem": "Web Browser",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      },
-      "featureList": [
-        "Medición de decibelios en tiempo real",
-        "Indicadores visuales de nivel de ruido",
-        "Cálculos de tiempo de exposición segura",
-        "Estadísticas Mín/Máx/Promedio",
-        "Niveles de seguridad codificados por colores",
-        "Sin grabación ni almacenamiento de audio"
-      ],
-      "browserRequirements": "Requiere JavaScript. Navegador moderno con soporte para Web Audio API.",
-      "permissions": "Se requiere acceso al micrófono para la medición del sonido",
-      "author": {
-        "@type": "Organization",
-        "name": "RealtimeSoundMeter.org",
-        "url": "https://realtimesoundmeter.org"
-      }
-    }
-    </script>
-    
-    <!-- Structured Data - Organization -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "RealtimeSoundMeter.org",
-      "url": "https://realtimesoundmeter.org/es/",
-      "logo": "https://realtimesoundmeter.org/logo.svg",
-      "description": "Proveedor de herramientas gratuitas de medición de sonido online para la concienciación sobre la salud auditiva.",
-      "sameAs": [],
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "contactType": "Customer Support",
-        "email": "support@realtimesoundmeter.org",
-        "url": "https://realtimesoundmeter.org/contact.html"
-      }
-    }
-    </script>
-    
-    <!-- Structured Data - FAQPage -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "¿Es preciso este sonómetro?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Aunque este sonómetro online proporciona buenas estimaciones, puede no igualar a dispositivos de grado profesional. La precisión depende de la calidad del micrófono de su dispositivo y su calibración. Para mediciones precisas, considere equipos profesionales de proveedores certificados."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "¿Por qué necesito permitir el acceso al micrófono?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "El sonómetro requiere acceso al micrófono para medir los niveles de ruido ambiental. Su audio se procesa localmente en su navegador y nunca se graba, almacena ni transmite a ningún servidor. Su privacidad está protegida."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "¿Cuál es un nivel de ruido seguro?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Según NIOSH/CDC, los niveles de ruido por debajo de 70 dB son generalmente seguros para una exposición prolongada. El límite de exposición ocupacional es de 85 dB durante 8 horas. Los niveles superiores a 85 dB pueden causar daño auditivo con una exposición prolongada, y cualquier nivel superior a 120 dB puede causar daño inmediato."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "¿Puedo usar esto en dispositivos móviles?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "¡Sí! Este sonómetro funciona tanto en dispositivos de escritorio como móviles (iOS Safari, Chrome Mobile, etc.). Simplemente permita el acceso al micrófono cuando se le solicite para comenzar a medir."
-          }
-        }
-      ]
-    }
-    </script>
-    
-    <!-- Structured Data - BreadcrumbList -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Inicio",
-          "item": "https://realtimesoundmeter.org/es/"
-        }
-      ]
-    }
-    </script>
     
     <!-- Tailwind CSS -->
     <link href="/css/style.css" rel="stylesheet">
@@ -1058,6 +946,118 @@
             </div>
         </div>
     </div>
+
+    <!-- Structured Data - WebApplication -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Sound Meter",
+      "alternateName": "Online Decibel Meter",
+      "url": "https://realtimesoundmeter.org/es/",
+      "logo": "https://realtimesoundmeter.org/logo.svg",
+      "description": "Sonómetro online gratuito para medir niveles de ruido ambiental en decibelios (dB). Detección de nivel de sonido en tiempo real con pautas de seguridad basadas en estándares de la OMS y NIOSH.",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "featureList": [
+        "Medición de decibelios en tiempo real",
+        "Indicadores visuales de nivel de ruido",
+        "Cálculos de tiempo de exposición segura",
+        "Estadísticas Mín/Máx/Promedio",
+        "Niveles de seguridad codificados por colores",
+        "Sin grabación ni almacenamiento de audio"
+      ],
+      "browserRequirements": "Requiere JavaScript. Navegador moderno con soporte para Web Audio API.",
+      "permissions": "Se requiere acceso al micrófono para la medición del sonido",
+      "author": {
+        "@type": "Organization",
+        "name": "RealtimeSoundMeter.org",
+        "url": "https://realtimesoundmeter.org"
+      }
+    }
+    </script>
+    
+    <!-- Structured Data - Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "RealtimeSoundMeter.org",
+      "url": "https://realtimesoundmeter.org/es/",
+      "logo": "https://realtimesoundmeter.org/logo.svg",
+      "description": "Proveedor de herramientas gratuitas de medición de sonido online para la concienciación sobre la salud auditiva.",
+      "sameAs": [],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Customer Support",
+        "email": "support@realtimesoundmeter.org",
+        "url": "https://realtimesoundmeter.org/contact.html"
+      }
+    }
+    </script>
+    
+    <!-- Structured Data - FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Es preciso este sonómetro?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Aunque este sonómetro online proporciona buenas estimaciones, puede no igualar a dispositivos de grado profesional. La precisión depende de la calidad del micrófono de su dispositivo y su calibración. Para mediciones precisas, considere equipos profesionales de proveedores certificados."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Por qué necesito permitir el acceso al micrófono?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El sonómetro requiere acceso al micrófono para medir los niveles de ruido ambiental. Su audio se procesa localmente en su navegador y nunca se graba, almacena ni transmite a ningún servidor. Su privacidad está protegida."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuál es un nivel de ruido seguro?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Según NIOSH/CDC, los niveles de ruido por debajo de 70 dB son generalmente seguros para una exposición prolongada. El límite de exposición ocupacional es de 85 dB durante 8 horas. Los niveles superiores a 85 dB pueden causar daño auditivo con una exposición prolongada, y cualquier nivel superior a 120 dB puede causar daño inmediato."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Puedo usar esto en dispositivos móviles?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "¡Sí! Este sonómetro funciona tanto en dispositivos de escritorio como móviles (iOS Safari, Chrome Mobile, etc.). Simplemente permita el acceso al micrófono cuando se le solicite para comenzar a medir."
+          }
+        }
+      ]
+    }
+    </script>
+    
+    <!-- Structured Data - BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://realtimesoundmeter.org/es/"
+        }
+      ]
+    }
+    </script>
 
     <!-- JavaScript -->
     <script src="../js/sound-meter.js"></script>

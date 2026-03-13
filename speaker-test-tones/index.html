@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VBFVZM0MP6"></script>
+    <script defer src="https://www.googletagmanager.com/gtag/js?id=G-VBFVZM0MP6"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -14,50 +14,6 @@
       gtag('config', 'G-VBFVZM0MP6');
     </script>
 
-    <!-- Structured Data - FAQPage -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [{
-        "@type": "Question",
-        "name": "How do I test if my speakers are working properly?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Use our free online speaker test tool above. Start with the Left / Right Stereo Test to verify that sound is coming from the correct speaker. Then, run the Frequency Sweep Test to ensure your speakers can reproduce both deep bass and high treble without distortion or rattling."
-        }
-      }, {
-        "@type": "Question",
-        "name": "How do I know if my speakers are out of phase?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Use the Speaker Polarity Test section. Play the \"In Phase\" signal—it should sound focused in the center with strong bass. Then play \"Out of Phase\"—it should sound wide, hollow, and lack bass. If \"In Phase\" sounds hollow instead, your speaker wires might be reversed (positive connected to negative) on one side."
-        }
-      }, {
-        "@type": "Question",
-        "name": "Can I use this tool to test headphones?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes! This tool is optimized for both speakers and headphones. The Left/Right stereo check is particularly useful for verifying you are wearing your headphones correctly (L is on the left ear, R is on the right)."
-        }
-      }, {
-        "@type": "Question",
-        "name": "What should I hear during the frequency sweep?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "You should hear a continuous tone smoothly rising in pitch from low (bass) to high (treble). If the sound suddenly disappears or gets much quieter at certain frequencies, your equipment may have a frequency response \"dip.\" If you hear buzzing or rattling, it indicates a resonance issue in your speakers or the room."
-        }
-      }, {
-        "@type": "Question",
-        "name": "What is the difference between White Noise and Pink Noise?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "White Noise sounds like harsh radio static because it has equal energy at every frequency. Pink Noise sounds deeper and softer (like heavy rain) because it has equal energy per octave. Audio engineers often use Pink Noise to tune sound systems because it closely matches how the human ear perceives loudness across the frequency spectrum."
-        }
-      }]
-    }
-    </script>
-    
     <!-- Primary Meta Tags -->
     <title>Speaker Test Tones: Left/Right Stereo & Polarity Check (Free)</title>
     <meta name="title" content="Speaker Test Tones: Left/Right Stereo & Polarity Check (Free)">
@@ -86,24 +42,6 @@
     <link rel="icon" type="image/svg+xml" sizes="32x32" href="../favicon-32x32.svg">
     <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.svg">
     
-    <!-- Structured Data - WebApplication -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Speaker Test Tones",
-      "url": "https://realtimesoundmeter.org/speaker-test-tones/",
-      "description": "Free online tool to test speakers and headphones. Includes stereo check, polarity test, frequency sweep, and noise generators.",
-      "applicationCategory": "UtilityApplication",
-      "operatingSystem": "Web Browser",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      }
-    }
-    </script>
-
     <!-- Tailwind CSS -->
     <link href="/css/style.css" rel="stylesheet">
     
@@ -665,6 +603,68 @@
             </div>
         </div>
     </div>
+
+    <!-- Structured Data - FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "How do I test if my speakers are working properly?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Use our free online speaker test tool above. Start with the Left / Right Stereo Test to verify that sound is coming from the correct speaker. Then, run the Frequency Sweep Test to ensure your speakers can reproduce both deep bass and high treble without distortion or rattling."
+        }
+      }, {
+        "@type": "Question",
+        "name": "How do I know if my speakers are out of phase?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Use the Speaker Polarity Test section. Play the \"In Phase\" signal—it should sound focused in the center with strong bass. Then play \"Out of Phase\"—it should sound wide, hollow, and lack bass. If \"In Phase\" sounds hollow instead, your speaker wires might be reversed (positive connected to negative) on one side."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Can I use this tool to test headphones?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! This tool is optimized for both speakers and headphones. The Left/Right stereo check is particularly useful for verifying you are wearing your headphones correctly (L is on the left ear, R is on the right)."
+        }
+      }, {
+        "@type": "Question",
+        "name": "What should I hear during the frequency sweep?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You should hear a continuous tone smoothly rising in pitch from low (bass) to high (treble). If the sound suddenly disappears or gets much quieter at certain frequencies, your equipment may have a frequency response \"dip.\" If you hear buzzing or rattling, it indicates a resonance issue in your speakers or the room."
+        }
+      }, {
+        "@type": "Question",
+        "name": "What is the difference between White Noise and Pink Noise?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "White Noise sounds like harsh radio static because it has equal energy at every frequency. Pink Noise sounds deeper and softer (like heavy rain) because it has equal energy per octave. Audio engineers often use Pink Noise to tune sound systems because it closely matches how the human ear perceives loudness across the frequency spectrum."
+        }
+      }]
+    }
+    </script>
+
+    <!-- Structured Data - WebApplication -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Speaker Test Tones",
+      "url": "https://realtimesoundmeter.org/speaker-test-tones/",
+      "description": "Free online tool to test speakers and headphones. Includes stereo check, polarity test, frequency sweep, and noise generators.",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
 
     <!-- Scripts -->
     <script src="../js/speaker-test.js"></script>

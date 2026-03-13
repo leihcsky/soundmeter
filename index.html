@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VBFVZM0MP6"></script>
+    <script defer src="https://www.googletagmanager.com/gtag/js?id=G-VBFVZM0MP6"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -15,7 +15,7 @@
     </script>
     
     <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3293976111230987"
+    <script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3293976111230987"
      crossorigin="anonymous"></script>
     
     <!-- Primary Meta Tags -->
@@ -64,118 +64,6 @@
     <link rel="alternate" hreflang="zh-CN" href="https://realtimesoundmeter.org/cn/" />
     <link rel="alternate" hreflang="ar" href="https://realtimesoundmeter.org/ar/" />
     <link rel="alternate" hreflang="x-default" href="https://realtimesoundmeter.org/" />
-    
-    <!-- Structured Data - WebApplication -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Sound Meter",
-      "alternateName": "Online Decibel Meter",
-      "url": "https://realtimesoundmeter.org",
-      "logo": "https://realtimesoundmeter.org/logo.svg",
-      "description": "Free online sound meter for measuring environmental noise levels in decibels (dB). Real-time sound level detection with safety guidelines based on WHO and NIOSH standards.",
-      "applicationCategory": "UtilityApplication",
-      "operatingSystem": "Web Browser",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      },
-      "featureList": [
-        "Real-time decibel measurement",
-        "Visual noise level indicators",
-        "Safe exposure time calculations",
-        "Min/Max/Average statistics",
-        "Color-coded safety levels",
-        "No audio recording or storage"
-      ],
-      "browserRequirements": "Requires JavaScript. Modern browser with Web Audio API support.",
-      "permissions": "Microphone access required for sound measurement",
-      "author": {
-        "@type": "Organization",
-        "name": "RealtimeSoundMeter.org",
-        "url": "https://realtimesoundmeter.org"
-      }
-    }
-    </script>
-    
-    <!-- Structured Data - Organization -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Sound Meter",
-      "url": "https://realtimesoundmeter.org",
-      "logo": "https://realtimesoundmeter.org/logo.svg",
-      "description": "Provider of free online sound measurement tools for hearing health awareness.",
-      "sameAs": [],
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "contactType": "Customer Support",
-        "email": "support@realtimesoundmeter.org",
-        "url": "https://realtimesoundmeter.org/contact.html"
-      }
-    }
-    </script>
-    
-    <!-- Structured Data - FAQPage -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Is this sound meter accurate?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "While this online sound meter provides good estimations, it may not match professional-grade devices. Accuracy depends on your device's microphone quality and calibration. For precise measurements, consider professional equipment from certified providers."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Why do I need to allow microphone access?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "The sound meter requires microphone access to measure ambient noise levels. Your audio is processed locally in your browser and never recorded, stored, or transmitted to any server. Your privacy is protected."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What is a safe noise level?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "According to NIOSH/CDC, noise levels below 70 dB are generally safe for prolonged exposure. The occupational exposure limit is 85 dB for 8 hours. Levels above 85 dB can cause hearing damage with extended exposure, and anything above 120 dB can cause immediate harm."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can I use this on mobile devices?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes! This sound meter works on both desktop and mobile devices (iOS Safari, Chrome Mobile, etc.). Simply allow microphone access when prompted to start measuring."
-          }
-        }
-      ]
-    }
-    </script>
-    
-    <!-- Structured Data - BreadcrumbList -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://realtimesoundmeter.org"
-        }
-      ]
-    }
-    </script>
     
     <!-- Tailwind CSS (Optimized) -->
     <link href="/css/style.css" rel="stylesheet">
@@ -1063,6 +951,118 @@
             </div>
         </div>
     </div>
+
+    <!-- Structured Data - WebApplication -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Sound Meter",
+      "alternateName": "Online Decibel Meter",
+      "url": "https://realtimesoundmeter.org",
+      "logo": "https://realtimesoundmeter.org/logo.svg",
+      "description": "Free online sound meter for measuring environmental noise levels in decibels (dB). Real-time sound level detection with safety guidelines based on WHO and NIOSH standards.",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "featureList": [
+        "Real-time decibel measurement",
+        "Visual noise level indicators",
+        "Safe exposure time calculations",
+        "Min/Max/Average statistics",
+        "Color-coded safety levels",
+        "No audio recording or storage"
+      ],
+      "browserRequirements": "Requires JavaScript. Modern browser with Web Audio API support.",
+      "permissions": "Microphone access required for sound measurement",
+      "author": {
+        "@type": "Organization",
+        "name": "RealtimeSoundMeter.org",
+        "url": "https://realtimesoundmeter.org"
+      }
+    }
+    </script>
+    
+    <!-- Structured Data - Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Sound Meter",
+      "url": "https://realtimesoundmeter.org",
+      "logo": "https://realtimesoundmeter.org/logo.svg",
+      "description": "Provider of free online sound measurement tools for hearing health awareness.",
+      "sameAs": [],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Customer Support",
+        "email": "support@realtimesoundmeter.org",
+        "url": "https://realtimesoundmeter.org/contact.html"
+      }
+    }
+    </script>
+    
+    <!-- Structured Data - FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is this sound meter accurate?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "While this online sound meter provides good estimations, it may not match professional-grade devices. Accuracy depends on your device's microphone quality and calibration. For precise measurements, consider professional equipment from certified providers."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why do I need to allow microphone access?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The sound meter requires microphone access to measure ambient noise levels. Your audio is processed locally in your browser and never recorded, stored, or transmitted to any server. Your privacy is protected."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is a safe noise level?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "According to NIOSH/CDC, noise levels below 70 dB are generally safe for prolonged exposure. The occupational exposure limit is 85 dB for 8 hours. Levels above 85 dB can cause hearing damage with extended exposure, and anything above 120 dB can cause immediate harm."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use this on mobile devices?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! This sound meter works on both desktop and mobile devices (iOS Safari, Chrome Mobile, etc.). Simply allow microphone access when prompted to start measuring."
+          }
+        }
+      ]
+    }
+    </script>
+    
+    <!-- Structured Data - BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://realtimesoundmeter.org"
+        }
+      ]
+    }
+    </script>
 
     <!-- JavaScript -->
     <!-- html2canvas for Screenshot Generation -->

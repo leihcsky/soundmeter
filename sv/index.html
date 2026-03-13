@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VBFVZM0MP6"></script>
+    <script defer src="https://www.googletagmanager.com/gtag/js?id=G-VBFVZM0MP6"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -15,7 +15,7 @@
     </script>
     
     <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3293976111230987"
+    <script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3293976111230987"
      crossorigin="anonymous"></script>
     
     <!-- Primary Meta Tags -->
@@ -64,118 +64,6 @@
     <link rel="alternate" hreflang="zh-CN" href="https://realtimesoundmeter.org/cn/" />
     <link rel="alternate" hreflang="ar" href="https://realtimesoundmeter.org/ar/" />
     <link rel="alternate" hreflang="x-default" href="https://realtimesoundmeter.org/" />
-    
-    <!-- Structured Data - WebApplication -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Sound Meter",
-      "alternateName": "Online Decibel Meter",
-      "url": "https://realtimesoundmeter.org/sv/",
-      "logo": "https://realtimesoundmeter.org/logo.svg",
-      "description": "Gratis ljudmätare online för att mäta omgivande buller i decibel (dB). Ljudnivådetektering i realtid med säkerhetsriktlinjer baserade på WHO- och NIOSH-standarder.",
-      "applicationCategory": "UtilityApplication",
-      "operatingSystem": "Web Browser",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      },
-      "featureList": [
-        "Decibelmätning i realtid",
-        "Visuella ljudnivåindikatorer",
-        "Beräkning av säker exponeringstid",
-        "Min/Max/Genomsnittlig statistik",
-        "Färgkodade säkerhetsnivåer",
-        "Ingen ljudinspelning eller lagring"
-      ],
-      "browserRequirements": "Kräver JavaScript. Modern webbläsare med stöd för Web Audio API.",
-      "permissions": "Kräver mikrofonåtkomst för ljudmätning",
-      "author": {
-        "@type": "Organization",
-        "name": "RealtimeSoundMeter.org",
-        "url": "https://realtimesoundmeter.org"
-      }
-    }
-    </script>
-    
-    <!-- Structured Data - Organization -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "RealtimeSoundMeter.org",
-      "url": "https://realtimesoundmeter.org",
-      "logo": "https://realtimesoundmeter.org/logo.svg",
-      "description": "Leverantör av gratis ljudmätningsverktyg online för att öka medvetenheten om hörselhälsa.",
-      "sameAs": [],
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "contactType": "Customer Support",
-        "email": "support@realtimesoundmeter.org",
-        "url": "https://realtimesoundmeter.org/contact.html"
-      }
-    }
-    </script>
-    
-    <!-- Structured Data - FAQPage -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Är denna ljudmätare exakt?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Även om denna online-ljudmätare ger bra uppskattningar, kanske den inte matchar professionella enheter. Noggrannheten beror på kvaliteten och kalibreringen av din enhets mikrofon. För exakta mätningar, överväg professionell utrustning."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Varför måste jag tillåta mikrofonåtkomst?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Ljudmätaren kräver mikrofonåtkomst för att mäta omgivande ljudnivåer. Ditt ljud bearbetas lokalt i din webbläsare och spelas aldrig in, lagras eller överförs till någon server. Din integritet är skyddad."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Vad är en säker ljudnivå?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Enligt NIOSH/CDC är ljudnivåer under 70 dB i allmänhet säkra vid långvarig exponering. Gränsen för yrkesmässig exponering är 85 dB under 8 timmar. Nivåer över 85 dB kan orsaka hörselskador vid långvarig exponering."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Kan jag använda detta på mobila enheter?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Ja! Denna ljudmätare fungerar på både stationära och mobila enheter (iOS Safari, Chrome Mobile, etc.). Tillåt bara mikrofonåtkomst när du uppmanas att börja mäta."
-          }
-        }
-      ]
-    }
-    </script>
-    
-    <!-- Structured Data - BreadcrumbList -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Hem",
-          "item": "https://realtimesoundmeter.org/sv/"
-        }
-      ]
-    }
-    </script>
     
     <!-- Tailwind CSS -->
     <link href="/css/style.css" rel="stylesheet">
@@ -1030,8 +918,121 @@
     </div>
 
     <!-- JavaScript -->
+    <!-- Structured Data - WebApplication -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Sound Meter",
+      "alternateName": "Online Decibel Meter",
+      "url": "https://realtimesoundmeter.org/sv/",
+      "logo": "https://realtimesoundmeter.org/logo.svg",
+      "description": "Gratis ljudmätare online för att mäta omgivande buller i decibel (dB). Ljudnivådetektering i realtid med säkerhetsriktlinjer baserade på WHO- och NIOSH-standarder.",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "featureList": [
+        "Decibelmätning i realtid",
+        "Visuella ljudnivåindikatorer",
+        "Beräkning av säker exponeringstid",
+        "Min/Max/Genomsnittlig statistik",
+        "Färgkodade säkerhetsnivåer",
+        "Ingen ljudinspelning eller lagring"
+      ],
+      "browserRequirements": "Kräver JavaScript. Modern webbläsare med stöd för Web Audio API.",
+      "permissions": "Kräver mikrofonåtkomst för ljudmätning",
+      "author": {
+        "@type": "Organization",
+        "name": "RealtimeSoundMeter.org",
+        "url": "https://realtimesoundmeter.org"
+      }
+    }
+    </script>
+    
+    <!-- Structured Data - Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "RealtimeSoundMeter.org",
+      "url": "https://realtimesoundmeter.org",
+      "logo": "https://realtimesoundmeter.org/logo.svg",
+      "description": "Leverantör av gratis ljudmätningsverktyg online för att öka medvetenheten om hörselhälsa.",
+      "sameAs": [],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Customer Support",
+        "email": "support@realtimesoundmeter.org",
+        "url": "https://realtimesoundmeter.org/contact.html"
+      }
+    }
+    </script>
+    
+    <!-- Structured Data - FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Är denna ljudmätare exakt?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Även om denna online-ljudmätare ger bra uppskattningar, kanske den inte matchar professionella enheter. Noggrannheten beror på kvaliteten och kalibreringen av din enhets mikrofon. För exakta mätningar, överväg professionell utrustning."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Varför måste jag tillåta mikrofonåtkomst?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ljudmätaren kräver mikrofonåtkomst för att mäta omgivande ljudnivåer. Ditt ljud bearbetas lokalt i din webbläsare och spelas aldrig in, lagras eller överförs till någon server. Din integritet är skyddad."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Vad är en säker ljudnivå?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Enligt NIOSH/CDC är ljudnivåer under 70 dB i allmänhet säkra vid långvarig exponering. Gränsen för yrkesmässig exponering är 85 dB under 8 timmar. Nivåer över 85 dB kan orsaka hörselskador vid långvarig exponering."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kan jag använda detta på mobila enheter?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja! Denna ljudmätare fungerar på både stationära och mobila enheter (iOS Safari, Chrome Mobile, etc.). Tillåt bara mikrofonåtkomst när du uppmanas att börja mäta."
+          }
+        }
+      ]
+    }
+    </script>
+    
+    <!-- Structured Data - BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Hem",
+          "item": "https://realtimesoundmeter.org/sv/"
+        }
+      ]
+    }
+    </script>
+
     <script src="../js/visualizer.js"></script>
     <script src="../js/sound-meter.js"></script>
+    <script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // Mobile Language Switcher Toggle

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VBFVZM0MP6"></script>
+    <script defer src="https://www.googletagmanager.com/gtag/js?id=G-VBFVZM0MP6"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -39,66 +39,6 @@
     
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
-    
-    <!-- Structured Data - WebApplication -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "Online Hearing Test",
-      "url": "https://realtimesoundmeter.org/online-hearing-test/",
-      "description": "Free online hearing screening test. Check your hearing sensitivity across frequencies (250Hz - 8kHz) and get an audiogram-style report.",
-      "applicationCategory": "HealthApplication",
-      "operatingSystem": "Web Browser",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      }
-    }
-    </script>
-
-    <!-- Structured Data - FAQPage -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "How do I read the audiogram?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "The audiogram shows the quietest sounds you could hear at each test frequency. The horizontal axis displays pitch (from low to high), and the vertical axis displays loudness in dB HL. Points near the top of the chart mean you can hear softer sounds; points lower down indicate that sounds must be louder before you notice them. Sounds plotted above your result line are typically too soft for you to hear, while sounds on or below the line are generally audible."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Why does the test start at 1000Hz?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "We follow the ISO 8253-1 audiometric standard. The test begins at 1000Hz because this frequency is the most stable and easily recognizable for the human ear. We then test higher frequencies (2k, 4k, 8k Hz) where hearing loss typically occurs first, before returning to lower frequencies (500, 250 Hz)."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Why can't I go back to the previous step?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "A valid hearing test relies on your immediate, unbiased reaction to sound. Allowing users to 'go back' or 'retry' a specific frequency introduces psychological bias—you might unconsciously 'try harder' to hear a sound you missed, leading to false positives. If you feel you made a mistake, it is scientifically better to restart the full test."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What is Hearing Age?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Hearing Age is a relative metric that compares your high-frequency hearing sensitivity to statistical population averages. As we age, we naturally lose the ability to hear high-pitched sounds (presbycusis). If your hearing age is higher than your biological age, it suggests you may have more high-frequency hearing loss than the average person your age."
-          }
-        }
-      ]
-    }
-    </script>
     
     <!-- Tailwind CSS -->
     <link href="/css/style.css" rel="stylesheet">
@@ -703,6 +643,66 @@
             </div>
         </div>
     </footer>
+
+    <!-- Structured Data - WebApplication -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Online Hearing Test",
+      "url": "https://realtimesoundmeter.org/online-hearing-test/",
+      "description": "Free online hearing screening test. Check your hearing sensitivity across frequencies (250Hz - 8kHz) and get an audiogram-style report.",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+
+    <!-- Structured Data - FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do I read the audiogram?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The audiogram shows the quietest sounds you could hear at each test frequency. The horizontal axis displays pitch (from low to high), and the vertical axis displays loudness in dB HL. Points near the top of the chart mean you can hear softer sounds; points lower down indicate that sounds must be louder before you notice them. Sounds plotted above your result line are typically too soft for you to hear, while sounds on or below the line are generally audible."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does the test start at 1000Hz?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We follow the ISO 8253-1 audiometric standard. The test begins at 1000Hz because this frequency is the most stable and easily recognizable for the human ear. We then test higher frequencies (2k, 4k, 8k Hz) where hearing loss typically occurs first, before returning to lower frequencies (500, 250 Hz)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why can't I go back to the previous step?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A valid hearing test relies on your immediate, unbiased reaction to sound. Allowing users to 'go back' or 'retry' a specific frequency introduces psychological bias—you might unconsciously 'try harder' to hear a sound you missed, leading to false positives. If you feel you made a mistake, it is scientifically better to restart the full test."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is Hearing Age?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hearing Age is a relative metric that compares your high-frequency hearing sensitivity to statistical population averages. As we age, we naturally lose the ability to hear high-pitched sounds (presbycusis). If your hearing age is higher than your biological age, it suggests you may have more high-frequency hearing loss than the average person your age."
+          }
+        }
+      ]
+    }
+    </script>
 
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>

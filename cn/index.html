@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VBFVZM0MP6"></script>
+    <script defer src="https://www.googletagmanager.com/gtag/js?id=G-VBFVZM0MP6"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
@@ -15,7 +15,7 @@
     </script>
     
     <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3293976111230987"
+    <script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3293976111230987"
      crossorigin="anonymous"></script>
     
     <!-- Primary Meta Tags -->
@@ -64,126 +64,6 @@
     <link rel="alternate" hreflang="zh-CN" href="https://realtimesoundmeter.org/cn/" />
     <link rel="alternate" hreflang="ar" href="https://realtimesoundmeter.org/ar/" />
     <link rel="alternate" hreflang="x-default" href="https://realtimesoundmeter.org/" />
-    
-    <!-- Structured Data - WebApplication -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "在线分贝计",
-      "alternateName": "Online Decibel Meter",
-      "url": "https://realtimesoundmeter.org/cn/",
-      "logo": "https://realtimesoundmeter.org/logo.svg",
-      "description": "免费在线分贝计，用于测量环境噪音水平（dB）。基于 WHO 和 NIOSH 标准提供实时声音检测和安全建议。",
-      "applicationCategory": "UtilityApplication",
-      "operatingSystem": "Web Browser",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      },
-      "featureList": [
-        "实时分贝测量",
-        "可视化噪音水平指示",
-        "安全暴露时间计算",
-        "最小/最大/平均值统计",
-        "颜色编码安全等级",
-        "无音频录制或存储"
-      ],
-      "browserRequirements": "需要 JavaScript。支持 Web Audio API 的现代浏览器。",
-      "permissions": "需要麦克风权限进行声音测量",
-      "author": {
-        "@type": "Organization",
-        "name": "RealtimeSoundMeter.org",
-        "url": "https://realtimesoundmeter.org/cn/"
-      }
-    }
-    </script>
-    
-    <!-- Structured Data - Organization -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "RealtimeSoundMeter.org",
-      "url": "https://realtimesoundmeter.org/cn/",
-      "logo": "https://realtimesoundmeter.org/logo.svg",
-      "description": "提供免费的在线声音测量工具，致力于听力健康意识普及。",
-      "sameAs": [],
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "contactType": "Customer Support",
-        "email": "support@realtimesoundmeter.org",
-        "url": "https://realtimesoundmeter.org/contact.html"
-      }
-    }
-    </script>
-    
-    <!-- Structured Data - FAQPage -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "这个分贝计准确吗？",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "虽然这个在线分贝计提供了较为可靠的估算值，但可能无法与经过专业校准的仪器完全一致。准确性取决于您设备麦克风的质量和校准情况。如需专业用途或法律用途，请使用经过认证的专业声级计。"
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "噪音是如何损伤听力的？",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "强噪音会损伤内耳耳蜗中微小的毛细胞。这些细胞负责将声波振动转化为大脑能接收的电信号。这些细胞一旦受损便无法再生，从而导致永久性听力损失。高强度或长时间的噪音暴露会加速这种损伤。"
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "为什么需要允许麦克风访问？",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "分贝计需要访问麦克风来测量环境噪音水平。所有音频数据仅在浏览器本地处理，不会被录制、存储或上传至任何服务器。我们不会收集您的原始声音数据。"
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "什么是安全的噪音水平？",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "根据 NIOSH/CDC 标准，低于 70 dB 的噪音水平通常对长时间暴露是安全的。职业暴露限值为 85 dB（8 小时）。长时间暴露在超过 85 dB 的环境中可能导致听力损伤，超过 120 dB 的极高噪音甚至可能造成立即伤害。"
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "手机上也能使用吗？",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "可以。本工具支持桌面浏览器和移动浏览器（如 iOS Safari、Chrome 等）。在提示时允许浏览器访问麦克风即可开始测量。不同设备的麦克风灵敏度可能略有差异。"
-          }
-        }
-      ]
-    }
-    </script>
-    
-    <!-- Structured Data - BreadcrumbList -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "首页",
-          "item": "https://realtimesoundmeter.org/cn/"
-        }
-      ]
-    }
-    </script>
     
     <!-- Tailwind CSS -->
     <link href="/css/style.css" rel="stylesheet">
@@ -1036,6 +916,126 @@
             </div>
         </div>
     </div>
+
+    <!-- Structured Data - WebApplication -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "在线分贝计",
+      "alternateName": "Online Decibel Meter",
+      "url": "https://realtimesoundmeter.org/cn/",
+      "logo": "https://realtimesoundmeter.org/logo.svg",
+      "description": "免费在线分贝计，用于测量环境噪音水平（dB）。基于 WHO 和 NIOSH 标准提供实时声音检测和安全建议。",
+      "applicationCategory": "UtilityApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "featureList": [
+        "实时分贝测量",
+        "可视化噪音水平指示",
+        "安全暴露时间计算",
+        "最小/最大/平均值统计",
+        "颜色编码安全等级",
+        "无音频录制或存储"
+      ],
+      "browserRequirements": "需要 JavaScript。支持 Web Audio API 的现代浏览器。",
+      "permissions": "需要麦克风权限进行声音测量",
+      "author": {
+        "@type": "Organization",
+        "name": "RealtimeSoundMeter.org",
+        "url": "https://realtimesoundmeter.org/cn/"
+      }
+    }
+    </script>
+    
+    <!-- Structured Data - Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "RealtimeSoundMeter.org",
+      "url": "https://realtimesoundmeter.org/cn/",
+      "logo": "https://realtimesoundmeter.org/logo.svg",
+      "description": "提供免费的在线声音测量工具，致力于听力健康意识普及。",
+      "sameAs": [],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Customer Support",
+        "email": "support@realtimesoundmeter.org",
+        "url": "https://realtimesoundmeter.org/contact.html"
+      }
+    }
+    </script>
+    
+    <!-- Structured Data - FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "这个分贝计准确吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "虽然这个在线分贝计提供了较为可靠的估算值，但可能无法与经过专业校准的仪器完全一致。准确性取决于您设备麦克风的质量和校准情况。如需专业用途或法律用途，请使用经过认证的专业声级计。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "噪音是如何损伤听力的？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "强噪音会损伤内耳耳蜗中微小的毛细胞。这些细胞负责将声波振动转化为大脑能接收的电信号。这些细胞一旦受损便无法再生，从而导致永久性听力损失。高强度或长时间的噪音暴露会加速这种损伤。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "为什么需要允许麦克风访问？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "分贝计需要访问麦克风来测量环境噪音水平。所有音频数据仅在浏览器本地处理，不会被录制、存储或上传至任何服务器。我们不会收集您的原始声音数据。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "什么是安全的噪音水平？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "根据 NIOSH/CDC 标准，低于 70 dB 的噪音水平通常对长时间暴露是安全的。职业暴露限值为 85 dB（8 小时）。长时间暴露在超过 85 dB 的环境中可能导致听力损伤，超过 120 dB 的极高噪音甚至可能造成立即伤害。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "手机上也能使用吗？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "可以。本工具支持桌面浏览器和移动浏览器（如 iOS Safari、Chrome 等）。在提示时允许浏览器访问麦克风即可开始测量。不同设备的麦克风灵敏度可能略有差异。"
+          }
+        }
+      ]
+    }
+    </script>
+    
+    <!-- Structured Data - BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://realtimesoundmeter.org/cn/"
+        }
+      ]
+    }
+    </script>
 
     <!-- JavaScript -->
     <script src="../js/sound-meter.js"></script>
