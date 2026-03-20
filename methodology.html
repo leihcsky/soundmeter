@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="https://www.googletagmanager.com/gtag/js?id=G-VBFVZM0MP6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-VBFVZM0MP6');
+    </script>
+    <script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3293976111230987" crossorigin="anonymous"></script>
+    <meta name="description" content="Methodology for our online tools: how the sound meter, hearing test, and speaker test work, plus accuracy limits and privacy approach.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://realtimesoundmeter.org/methodology.html">
+    <title>Methodology - RealtimeSoundMeter.org</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link href="/css/style.css?v=3" rel="stylesheet">
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <header class="bg-white shadow-md border-b border-gray-300 relative z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 relative">
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <a href="/" class="flex items-center gap-2">
+                        <img src="logo.svg" alt="Sound Meter" class="h-10 w-auto sm:h-12">
+                    </a>
+                </div>
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="/" class="text-gray-500 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors inline-flex items-center gap-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                        Home
+                    </a>
+                    <a href="/online-hearing-test/" class="text-gray-500 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors inline-flex items-center gap-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 002 2h2a2 2 0 002-2z"></path></svg>
+                        Hearing Test
+                    </a>
+                    <a href="/speaker-test-tones/" class="text-gray-500 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors inline-flex items-center gap-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+                        Speaker Test
+                    </a>
+                    <a href="/blog/" class="text-gray-500 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors inline-flex items-center gap-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path></svg>
+                        Blog
+                    </a>
+                </nav>
+                <div class="flex items-center gap-2 md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-500 hover:text-gray-900 focus:outline-none p-2" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg z-50">
+        <div class="px-2 pt-2 pb-3 space-y-1">
+            <a href="/" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Home</a>
+            <a href="/online-hearing-test/" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Hearing Test</a>
+            <a href="/speaker-test-tones/" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Speaker Test</a>
+            <a href="/blog/" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Blog</a>
+        </div>
+    </div>
+
+    <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
+        <div class="bg-white rounded-2xl shadow-xl border border-gray-100 p-6 sm:p-10">
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight mb-4">Methodology</h1>
+            <p class="text-gray-600 text-base leading-relaxed mb-8">
+                This page documents how our tools work at a high level, what they can and can’t do, and how to use them responsibly. These tools are designed for awareness, education, and screening—not for regulatory compliance.
+            </p>
+
+            <div class="space-y-10 text-gray-700">
+                <section>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Online Sound Meter (Decibel Meter)</h2>
+                    <div class="space-y-3 text-sm">
+                        <p>
+                            Our sound meter uses your device microphone through the Web Audio API to estimate sound level changes over time. The reading is best interpreted as a relative indicator and trend (quiet vs. loud, changing over time), especially across different devices.
+                        </p>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="bg-gray-50 rounded-xl border border-gray-200 p-4">
+                                <h3 class="font-semibold text-gray-900 mb-2">What It Measures</h3>
+                                <ul class="list-disc list-inside space-y-2">
+                                    <li>Real-time level estimates derived from microphone input.</li>
+                                    <li>Session statistics (min, average, max) for the current run.</li>
+                                    <li>Frequency visualization (for education and pattern spotting).</li>
+                                </ul>
+                            </div>
+                            <div class="bg-amber-50 rounded-xl border border-amber-200 p-4">
+                                <h3 class="font-semibold text-gray-900 mb-2">Known Limitations</h3>
+                                <ul class="list-disc list-inside space-y-2">
+                                    <li>Device microphones have different sensitivity and processing.</li>
+                                    <li>Automatic gain control may affect stability.</li>
+                                    <li>Room acoustics and distance can change readings significantly.</li>
+                                    <li>Not a calibrated Class 1/2 sound level meter.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p>
+                            For a practical measurement workflow, see <a href="blog/how-to-measure-decibels-accurately.html" class="text-blue-600 hover:underline font-semibold">How to Measure Decibels Accurately</a>. For reference-only calibration, see <a href="blog/phone-decibel-meter-calibration.html" class="text-blue-600 hover:underline font-semibold">Phone Decibel Meter Calibration</a>.
+                        </p>
+                    </div>
+                </section>
+
+                <section>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Online Hearing Test</h2>
+                    <div class="space-y-3 text-sm">
+                        <p>
+                            Our hearing test is an at-home screening tool inspired by pure tone audiometry. It estimates the softest level where you can “just barely” hear tones across multiple frequencies, separately for each ear.
+                        </p>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="bg-gray-50 rounded-xl border border-gray-200 p-4">
+                                <h3 class="font-semibold text-gray-900 mb-2">How It Works</h3>
+                                <ul class="list-disc list-inside space-y-2">
+                                    <li>Uses a volume check step to avoid sudden loud playback.</li>
+                                    <li>Guides you through frequency steps to estimate thresholds.</li>
+                                    <li>Displays a report-style summary for self-screening.</li>
+                                </ul>
+                            </div>
+                            <div class="bg-amber-50 rounded-xl border border-amber-200 p-4">
+                                <h3 class="font-semibold text-gray-900 mb-2">Limits and Interpretation</h3>
+                                <ul class="list-disc list-inside space-y-2">
+                                    <li>Headphone model and fit can affect results.</li>
+                                    <li>Background noise can mask low-level tones.</li>
+                                    <li>Not a medical diagnosis; clinical audiometry remains the standard.</li>
+                                    <li>Use results to decide whether to seek professional testing.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p>
+                            For guidance, see <a href="blog/hearing-test-guide.html" class="text-blue-600 hover:underline font-semibold">Hearing Test Guide</a> and <a href="blog/headphone-safety.html" class="text-blue-600 hover:underline font-semibold">Headphone Safety</a>.
+                        </p>
+                    </div>
+                </section>
+
+                <section>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Speaker Test Tones</h2>
+                    <div class="space-y-3 text-sm">
+                        <p>
+                            Speaker test tones help verify stereo channel wiring, polarity (phase), and identify issues such as rattling or uneven frequency response. Our tools generate tones and noise in the browser and provide step-by-step guidance for common checks.
+                        </p>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="bg-gray-50 rounded-xl border border-gray-200 p-4">
+                                <h3 class="font-semibold text-gray-900 mb-2">Typical Checks</h3>
+                                <ul class="list-disc list-inside space-y-2">
+                                    <li>Left/right channel identification</li>
+                                    <li>In-phase vs. out-of-phase polarity perception</li>
+                                    <li>Frequency sweeps for buzzing, dropouts, or resonances</li>
+                                </ul>
+                            </div>
+                            <div class="bg-amber-50 rounded-xl border border-amber-200 p-4">
+                                <h3 class="font-semibold text-gray-900 mb-2">Safe Use</h3>
+                                <ul class="list-disc list-inside space-y-2">
+                                    <li>Start low volume and increase gradually.</li>
+                                    <li>Use short bursts for high frequencies.</li>
+                                    <li>Stop if playback becomes uncomfortable.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p>
+                            For a comprehensive workflow, see <a href="blog/how-to-test-speakers-headphones.html" class="text-blue-600 hover:underline font-semibold">How to Test Speakers and Headphones</a>.
+                        </p>
+                    </div>
+                </section>
+
+                <section class="bg-green-50 rounded-2xl border border-green-200 p-6">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-3">Privacy and Data Processing</h2>
+                    <div class="space-y-3 text-sm text-gray-800">
+                        <p>
+                            Audio processing runs locally in your browser. We do not record or upload raw microphone audio. “Save Report” generates a file on your device using summary statistics from your current session.
+                        </p>
+                        <p>
+                            Read more in our <a href="privacy.html" class="text-blue-700 hover:underline font-semibold">Privacy Policy</a>.
+                        </p>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-900 text-white mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="text-center space-y-2">
+                <div class="flex justify-center gap-6 text-sm">
+                    <a href="about.html" class="hover:text-blue-400">About</a>
+                    <a href="editorial-policy.html" class="hover:text-blue-400">Editorial Policy</a>
+                    <a href="methodology.html" class="hover:text-blue-400">Methodology</a>
+                    <a href="changelog.html" class="hover:text-blue-400">Changelog</a>
+                    <a href="terms.html" class="hover:text-blue-400">Terms of Use</a>
+                    <a href="privacy.html" class="hover:text-blue-400">Privacy Policy</a>
+                    <a href="disclaimer.html" class="hover:text-blue-400">Disclaimer</a>
+                    <a href="contact.html" class="hover:text-blue-400">Contact</a>
+                </div>
+                <p class="text-xs text-gray-500">© 2026 RealtimeSoundMeter.org. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        if (menuBtn && menu) {
+            menuBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                menu.classList.toggle('hidden');
+            });
+            document.addEventListener('click', (e) => {
+                if (!menuBtn.contains(e.target) && !menu.contains(e.target)) {
+                    menu.classList.add('hidden');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
