@@ -957,6 +957,12 @@
         </div>
     </footer>
 
+    <div id="floatingStartContainer" class="fixed bottom-4 left-0 right-0 z-50 hidden flex justify-center px-4">
+        <button id="floatingStartBtn" type="button" class="w-full max-w-xs bg-blue-500 hover:bg-blue-600 text-white font-semibold py-4 px-6 rounded-xl shadow-lg transform transition active:scale-95 text-base disabled:opacity-60 disabled:cursor-not-allowed">
+            Start Measuring
+        </button>
+    </div>
+
     <!-- Hidden Report Template -->
     <div id="reportTemplate" class="fixed -left-[9999px] top-0 bg-white p-8 w-[600px]" style="font-family: sans-serif;">
         <div class="border-4 border-gray-100 rounded-xl p-6 relative overflow-hidden">
@@ -1143,6 +1149,9 @@
             const mobileLangDropdown = document.getElementById('mobileLangDropdown');
             const mobileMenuBtn = document.getElementById('mobile-menu-btn');
             const mobileMenu = document.getElementById('mobile-menu');
+            const startBtn = document.getElementById('startBtn');
+            const floatingStartContainer = document.getElementById('floatingStartContainer');
+            const floatingStartBtn = document.getElementById('floatingStartBtn');
 
             const setExpanded = (buttonEl, expanded) => {
                 if (!buttonEl) return;
@@ -1201,6 +1210,38 @@
                     closeMobileMenu();
                 }
             });
+
+            if (startBtn && floatingStartContainer && floatingStartBtn && typeof IntersectionObserver !== 'undefined') {
+                const syncFloatingButton = () => {
+                    floatingStartBtn.textContent = (startBtn.textContent || '').trim();
+                    floatingStartBtn.disabled = !!startBtn.disabled;
+
+                    floatingStartBtn.classList.remove('bg-blue-500', 'hover:bg-blue-600', 'bg-red-500', 'hover:bg-red-600');
+                    if (startBtn.classList.contains('bg-red-500')) {
+                        floatingStartBtn.classList.add('bg-red-500', 'hover:bg-red-600');
+                    } else {
+                        floatingStartBtn.classList.add('bg-blue-500', 'hover:bg-blue-600');
+                    }
+                };
+
+                const io = new IntersectionObserver(
+                    ([entry]) => {
+                        floatingStartContainer.classList.toggle('hidden', entry.isIntersecting);
+                    },
+                    { threshold: 0.15 }
+                );
+                io.observe(startBtn);
+
+                const mo = new MutationObserver(syncFloatingButton);
+                mo.observe(startBtn, { attributes: true, childList: true, characterData: true, subtree: true });
+
+                floatingStartBtn.addEventListener('click', () => {
+                    startBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    startBtn.click();
+                });
+
+                syncFloatingButton();
+            }
 
             const enTranslations = {
                 startBtnStart: 'Start Measuring',
