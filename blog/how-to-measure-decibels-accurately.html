@@ -32,7 +32,7 @@
       "@type": "Article",
       "headline": "How to Measure Decibels Accurately (Without a Pro Meter)",
       "datePublished": "2026-03-10",
-      "dateModified": "2026-03-10",
+      "dateModified": "2026-03-30",
       "author": {
         "@type": "Organization",
         "name": "RealtimeSoundMeter.org"
@@ -134,7 +134,7 @@
                 <img src="images/smartphone-accuracy.svg" alt="Measuring decibels with a phone" class="w-full h-64 md:h-96 object-cover">
             </div>
             <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4">How to Measure Decibels Accurately (Without a Pro Meter)</h1>
-            <p class="text-sm text-gray-500 mb-6">Updated Mar 10, 2026 • 9 min read</p>
+            <p class="text-sm text-gray-500 mb-6">Updated Mar 30, 2026 • 9 min read</p>
 
             <div class="prose prose-blue max-w-none text-gray-700">
                 <p class="mb-6 leading-relaxed">
@@ -193,6 +193,74 @@
                 <p class="mb-6 leading-relaxed">
                     If you’re documenting a persistent noise issue, this guide shows how to collect more convincing evidence: <a href="noise-dispute-evidence-guide.html" class="text-blue-600 hover:text-blue-800 font-semibold underline">How to Collect Valid Evidence with a Sound Meter</a>.
                 </p>
+
+                <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">Reproduce This Method with RealtimeSoundMeter</h2>
+                <p class="mb-6 leading-relaxed">
+                    Here’s a simple way to replicate the 3-pass protocol and produce a reusable record. Use the <a href="/" class="text-blue-600 hover:text-blue-800 font-semibold underline">Online Sound Meter</a>, measure fixed 60-second windows, then save a report for each run.
+                </p>
+                <ol class="list-decimal ml-6 mb-8 space-y-2">
+                    <li><strong>Pick one spot:</strong> mark location, height (ear level), and device orientation.</li>
+                    <li><strong>Baseline ×3:</strong> record three 60-second runs with the source off.</li>
+                    <li><strong>Source on ×3:</strong> record three 60-second runs with the source on, same placement.</li>
+                    <li><strong>Optional close-range check:</strong> 15 seconds at a closer distance to identify what causes spikes.</li>
+                    <li><strong>Save reports:</strong> click “Save Report” after each run so you have a timestamped artifact.</li>
+                </ol>
+
+                <div class="not-prose grid md:grid-cols-2 gap-4 my-8">
+                    <figure class="bg-white rounded-xl border border-gray-200 overflow-hidden">
+                        <img src="images/measurement-3pass-chart.svg" alt="3-pass protocol example chart" class="w-full h-auto">
+                        <figcaption class="p-4 text-xs text-gray-600">Example chart built from a reference-only dataset (baseline vs source-on averages).</figcaption>
+                    </figure>
+                    <figure class="bg-white rounded-xl border border-gray-200 overflow-hidden">
+                        <img src="images/report-summary-example.svg" alt="Example report summary preview" class="w-full h-auto">
+                        <figcaption class="p-4 text-xs text-gray-600">Report-style summary: min/avg/max plus notes that make the measurement reproducible.</figcaption>
+                    </figure>
+                </div>
+
+                <h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">Example dataset (download + copy/paste)</h3>
+                <p class="mb-4 leading-relaxed">
+                    Download the CSV and replace the values with your own: <a href="data/measurement-3pass-example.csv" class="text-blue-600 hover:text-blue-800 font-semibold underline">measurement-3pass-example.csv</a>.
+                </p>
+                <div class="not-prose overflow-x-auto mb-8">
+                    <table class="min-w-full bg-white border border-gray-300 rounded-lg">
+                        <thead class="bg-gray-100">
+                            <tr>
+                                <th class="py-3 px-4 text-left text-sm font-semibold text-gray-700 border-b">Pass</th>
+                                <th class="py-3 px-4 text-left text-sm font-semibold text-gray-700 border-b">Run</th>
+                                <th class="py-3 px-4 text-left text-sm font-semibold text-gray-700 border-b">Window</th>
+                                <th class="py-3 px-4 text-left text-sm font-semibold text-gray-700 border-b">avg dB</th>
+                                <th class="py-3 px-4 text-left text-sm font-semibold text-gray-700 border-b">max dB</th>
+                                <th class="py-3 px-4 text-left text-sm font-semibold text-gray-700 border-b">Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-sm text-gray-600">
+                            <tr class="border-b">
+                                <td class="py-3 px-4">Baseline</td>
+                                <td class="py-3 px-4">1</td>
+                                <td class="py-3 px-4">60 s</td>
+                                <td class="py-3 px-4">34.8</td>
+                                <td class="py-3 px-4">41.2</td>
+                                <td class="py-3 px-4">Bedroom door closed, HVAC off</td>
+                            </tr>
+                            <tr class="border-b bg-gray-50">
+                                <td class="py-3 px-4">Baseline</td>
+                                <td class="py-3 px-4">2</td>
+                                <td class="py-3 px-4">60 s</td>
+                                <td class="py-3 px-4">35.4</td>
+                                <td class="py-3 px-4">42.8</td>
+                                <td class="py-3 px-4">Same placement, same orientation</td>
+                            </tr>
+                            <tr class="border-b">
+                                <td class="py-3 px-4">Source On (fan)</td>
+                                <td class="py-3 px-4">1</td>
+                                <td class="py-3 px-4">60 s</td>
+                                <td class="py-3 px-4">44.6</td>
+                                <td class="py-3 px-4">50.7</td>
+                                <td class="py-3 px-4">Fixed distance marker on floor</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
 
                 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">Quick Checklist (Copy/Paste)</h2>
                 <ul class="list-disc ml-6 mb-8 space-y-2">

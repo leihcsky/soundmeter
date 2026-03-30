@@ -32,7 +32,7 @@
       "@type": "Article",
       "headline": "How to Calibrate a Phone Decibel Meter (Reference-Only)",
       "datePublished": "2026-03-12",
-      "dateModified": "2026-03-12",
+      "dateModified": "2026-03-30",
       "author": {
         "@type": "Organization",
         "name": "RealtimeSoundMeter.org"
@@ -134,7 +134,7 @@
                 <img src="images/phone-calibration.svg" alt="Phone decibel meter calibration guide" class="w-full h-64 md:h-96 object-cover">
             </div>
             <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4">How to Calibrate a Phone Decibel Meter (Reference-Only)</h1>
-            <p class="text-sm text-gray-500 mb-6">Updated Mar 12, 2026 • 12 min read</p>
+            <p class="text-sm text-gray-500 mb-6">Updated Mar 30, 2026 • 12 min read</p>
 
             <div class="prose prose-blue max-w-none text-gray-700">
                 <p class="mb-6 leading-relaxed">
@@ -203,6 +203,44 @@
                     <li>If your phone tracks changes reasonably well, calibration was useful.</li>
                     <li>If your phone diverges wildly, the limitation is likely the microphone behavior, not the offset.</li>
                 </ul>
+
+                <h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">Verification worksheet (download + example)</h3>
+                <p class="mb-4 leading-relaxed">
+                    Use this CSV template to record your “anchor + verify” runs: <a href="data/calibration-offset-verification.csv" class="text-blue-600 hover:text-blue-800 font-semibold underline">calibration-offset-verification.csv</a>.
+                </p>
+                <div class="not-prose bg-white rounded-xl border border-gray-200 overflow-hidden my-8">
+                    <img src="images/calibration-before-after.svg" alt="Calibration before and after chart" class="w-full h-auto">
+                    <div class="p-4 text-xs text-gray-600">Example: apply one offset at the anchor point, then check tracking across distance/context changes.</div>
+                </div>
+                <div class="not-prose overflow-x-auto mb-8">
+                    <table class="min-w-full bg-white border border-gray-300 rounded-lg">
+                        <thead class="bg-gray-100">
+                            <tr>
+                                <th class="py-3 px-4 text-left text-sm font-semibold text-gray-700 border-b">Position</th>
+                                <th class="py-3 px-4 text-left text-sm font-semibold text-gray-700 border-b">Reference</th>
+                                <th class="py-3 px-4 text-left text-sm font-semibold text-gray-700 border-b">Phone (before)</th>
+                                <th class="py-3 px-4 text-left text-sm font-semibold text-gray-700 border-b">Offset</th>
+                                <th class="py-3 px-4 text-left text-sm font-semibold text-gray-700 border-b">Phone (after)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-sm text-gray-600">
+                            <tr class="border-b">
+                                <td class="py-3 px-4">Anchor (1 m)</td>
+                                <td class="py-3 px-4">74.0</td>
+                                <td class="py-3 px-4">69.5</td>
+                                <td class="py-3 px-4">+4.5</td>
+                                <td class="py-3 px-4">74.0</td>
+                            </tr>
+                            <tr class="border-b bg-gray-50">
+                                <td class="py-3 px-4">Verify (2 m)</td>
+                                <td class="py-3 px-4">67.1</td>
+                                <td class="py-3 px-4">62.0</td>
+                                <td class="py-3 px-4">+4.5</td>
+                                <td class="py-3 px-4">66.5</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
 
                 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">Weighting: Use dBA for Most Hearing-Safety Decisions</h2>
                 <p class="mb-6 leading-relaxed">

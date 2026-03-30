@@ -1,0 +1,8 @@
+session_id,pass,run,start_time_local,window_seconds,avg_db,max_db,min_db,device_height_m,distance_to_source_m,notes
+EX-3PASS-001,Baseline,1,2026-03-30 21:10,60,34.8,41.2,31.1,1.20,,Bedroom door closed, HVAC off
+EX-3PASS-001,Baseline,2,2026-03-30 21:12,60,35.4,42.8,31.6,1.20,,Same placement, same orientation
+EX-3PASS-001,Baseline,3,2026-03-30 21:14,60,35.0,41.9,31.3,1.20,,Repeatability check
+EX-3PASS-001,SourceOn (fan),1,2026-03-30 21:18,60,44.6,50.7,40.2,1.20,1.0,Fan on, fixed distance marker on floor
+EX-3PASS-001,SourceOn (fan),2,2026-03-30 21:20,60,44.2,49.9,39.8,1.20,1.0,Same speed setting, same location
+EX-3PASS-001,SourceOn (fan),3,2026-03-30 21:22,60,44.4,50.1,40.0,1.20,1.0,Compare avg against baseline
+EX-3PASS-001,CloseRange (fan),1,2026-03-30 21:25,15,55.8,61.5,52.3,1.20,0.3,Short diagnostic check for spikes

@@ -1,0 +1,5 @@
+demo_id,position,window_seconds,reference_db,phone_before_db,offset_applied_db,phone_after_db,notes
+EX-CAL-001,Anchor (1 m),60,74.0,69.5,+4.5,74.0,Set offset so avg matches reference at the chosen level
+EX-CAL-001,Verify (0.5 m),60,79.2,74.1,+4.5,78.6,Check tracking: after-cal should move close to reference
+EX-CAL-001,Verify (2 m),60,67.1,62.0,+4.5,66.5,Verify across distance changes
+EX-CAL-001,Verify (door open),60,70.4,65.6,+4.5,70.1,Verify a context change with similar delta

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-label="Example 3-pass measurement averages across baseline and source-on runs">
+  <rect width="1200" height="675" fill="#ffffff"/>
+  <text x="70" y="96" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial" font-size="32" font-weight="800" fill="#111827">3‑Pass Protocol Example (avg dB)</text>
+  <text x="70" y="132" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial" font-size="16" font-weight="600" fill="#6b7280">Baseline ×3, Source On ×3, Close‑range check (reference-only demo dataset)</text>
+
+  <rect x="70" y="170" width="1060" height="440" rx="18" fill="#f8fafc" stroke="#e5e7eb" stroke-width="2"/>
+  <line x1="140" y1="560" x2="1080" y2="560" stroke="#cbd5e1" stroke-width="2"/>
+  <line x1="140" y1="220" x2="140" y2="560" stroke="#cbd5e1" stroke-width="2"/>
+
+  <text x="130" y="565" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial" font-size="12" font-weight="700" fill="#6b7280" text-anchor="end">30</text>
+  <text x="130" y="480" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial" font-size="12" font-weight="700" fill="#6b7280" text-anchor="end">40</text>
+  <text x="130" y="395" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial" font-size="12" font-weight="700" fill="#6b7280" text-anchor="end">50</text>
+  <text x="130" y="310" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial" font-size="12" font-weight="700" fill="#6b7280" text-anchor="end">60</text>
+
+  <line x1="140" y1="475" x2="1080" y2="475" stroke="#e5e7eb" stroke-width="2"/>
+  <line x1="140" y1="390" x2="1080" y2="390" stroke="#e5e7eb" stroke-width="2"/>
+  <line x1="140" y1="305" x2="1080" y2="305" stroke="#e5e7eb" stroke-width="2"/>
+
+  <text x="220" y="590" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial" font-size="12" font-weight="700" fill="#6b7280" text-anchor="middle">B1</text>
+  <text x="340" y="590" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial" font-size="12" font-weight="700" fill="#6b7280" text-anchor="middle">B2</text>
+  <text x="460" y="590" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial" font-size="12" font-weight="700" fill="#6b7280" text-anchor="middle">B3</text>
+  <text x="640" y="590" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial" font-size="12" font-weight="700" fill="#6b7280" text-anchor="middle">S1</text>
+  <text x="760" y="590" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial" font-size="12" font-weight="700" fill="#6b7280" text-anchor="middle">S2</text>
+  <text x="880" y="590" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial" font-size="12" font-weight="700" fill="#6b7280" text-anchor="middle">S3</text>
+  <text x="1020" y="590" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial" font-size="12" font-weight="700" fill="#6b7280" text-anchor="middle">C</text>
+
+  <polyline fill="none" stroke="#60a5fa" stroke-width="4" points="220,518 340,512 460,515"/>
+  <circle cx="220" cy="518" r="7" fill="#60a5fa"/>
+  <circle cx="340" cy="512" r="7" fill="#60a5fa"/>
+  <circle cx="460" cy="515" r="7" fill="#60a5fa"/>
+
+  <polyline fill="none" stroke="#34d399" stroke-width="4" points="640,434 760,438 880,436"/>
+  <circle cx="640" cy="434" r="7" fill="#34d399"/>
+  <circle cx="760" cy="438" r="7" fill="#34d399"/>
+  <circle cx="880" cy="436" r="7" fill="#34d399"/>
+
+  <circle cx="1020" cy="320" r="8" fill="#f87171"/>
+  <text x="1020" y="304" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial" font-size="12" font-weight="800" fill="#ef4444" text-anchor="middle">Close</text>
+
+  <rect x="160" y="235" width="360" height="78" rx="14" fill="#ffffff" stroke="#e5e7eb" stroke-width="2"/>
+  <circle cx="190" cy="274" r="6" fill="#60a5fa"/>
+  <text x="206" y="279" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial" font-size="14" font-weight="700" fill="#111827">Baseline avg ~35 dB</text>
+  <circle cx="360" cy="274" r="6" fill="#34d399"/>
+  <text x="376" y="279" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial" font-size="14" font-weight="700" fill="#111827">Source On avg ~44 dB</text>
+</svg>

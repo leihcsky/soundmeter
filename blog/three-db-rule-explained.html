@@ -32,7 +32,7 @@
       "@type": "Article",
       "headline": "The 3 dB Rule Explained: Safe Exposure Time Made Simple",
       "datePublished": "2026-03-12",
-      "dateModified": "2026-03-12",
+      "dateModified": "2026-03-30",
       "author": {
         "@type": "Organization",
         "name": "RealtimeSoundMeter.org"
@@ -134,7 +134,7 @@
                 <img src="images/three-db-rule.svg" alt="The 3 dB rule explained" class="w-full h-64 md:h-96 object-cover">
             </div>
             <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4">The 3 dB Rule Explained: Safe Exposure Time Made Simple</h1>
-            <p class="text-sm text-gray-500 mb-6">Updated Mar 12, 2026 • 12 min read</p>
+            <p class="text-sm text-gray-500 mb-6">Updated Mar 30, 2026 • 12 min read</p>
 
             <div class="prose prose-blue max-w-none text-gray-700">
                 <p class="mb-6 leading-relaxed">
@@ -228,6 +228,26 @@
                         </tbody>
                     </table>
                 </div>
+
+                <h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">Downloadable table + visual</h3>
+                <p class="mb-4 leading-relaxed">
+                    If you want a copy you can reuse, download the CSV: <a href="data/three-db-dose-demo.csv" class="text-blue-600 hover:text-blue-800 font-semibold underline">three-db-dose-demo.csv</a>.
+                </p>
+                <div class="not-prose bg-white rounded-xl border border-gray-200 overflow-hidden my-8">
+                    <img src="images/three-db-halving-chart.svg" alt="Safe time halves every 3 dB chart" class="w-full h-auto">
+                    <div class="p-4 text-xs text-gray-600">Simple visualization of the 3 dB exchange rate using the same reference table.</div>
+                </div>
+
+                <h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">How to reproduce with our tool</h3>
+                <p class="mb-6 leading-relaxed">
+                    Use the <a href="/" class="text-blue-600 hover:text-blue-800 font-semibold underline">Online Sound Meter</a> to get a 60-second average at the position you care about (where your head is). Then use the table above to estimate how long that average can be tolerated before dose becomes a concern.
+                </p>
+                <ol class="list-decimal ml-6 mb-8 space-y-2">
+                    <li><strong>Measure avg for 60 seconds</strong> at your listening position.</li>
+                    <li><strong>Round to the nearest 1–2 dB</strong> and find the closest row in the table.</li>
+                    <li><strong>Apply the mental rule:</strong> if your level is +3 dB higher, halve your time; if it’s -3 dB lower, double your time.</li>
+                    <li><strong>Document it:</strong> save a report or keep a log entry with time and context.</li>
+                </ol>
 
                 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">How to Use the 3 dB Rule in Real Life</h2>
                 <h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">1) Think in “daily dose buckets”</h3>

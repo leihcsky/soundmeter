@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-label="Bar chart showing safe exposure minutes halving every 3 dB starting from 85 dB at 8 hours">
+  <rect width="1200" height="675" fill="#ffffff"/>
+  <text x="70" y="96" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial" font-size="32" font-weight="800" fill="#111827">3 dB Exchange Rate: Safe Time Halves</text>
+  <text x="70" y="132" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial" font-size="16" font-weight="600" fill="#6b7280">Reference: 85 dB = 8 hours (480 min). Each +3 dB halves the time.</text>
+
+  <rect x="70" y="170" width="1060" height="440" rx="18" fill="#f8fafc" stroke="#e5e7eb" stroke-width="2"/>
+  <line x1="140" y1="560" x2="1080" y2="560" stroke="#cbd5e1" stroke-width="2"/>
+  <line x1="140" y1="220" x2="140" y2="560" stroke="#cbd5e1" stroke-width="2"/>
+
+  <text x="130" y="565" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial" font-size="12" font-weight="700" fill="#6b7280" text-anchor="end">0</text>
+  <text x="130" y="474" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial" font-size="12" font-weight="700" fill="#6b7280" text-anchor="end">120</text>
+  <text x="130" y="388" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial" font-size="12" font-weight="700" fill="#6b7280" text-anchor="end">240</text>
+  <text x="130" y="302" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial" font-size="12" font-weight="700" fill="#6b7280" text-anchor="end">360</text>
+  <text x="130" y="216" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial" font-size="12" font-weight="700" fill="#6b7280" text-anchor="end">480</text>
+
+  <line x1="140" y1="470" x2="1080" y2="470" stroke="#e5e7eb" stroke-width="2"/>
+  <line x1="140" y1="384" x2="1080" y2="384" stroke="#e5e7eb" stroke-width="2"/>
+  <line x1="140" y1="298" x2="1080" y2="298" stroke="#e5e7eb" stroke-width="2"/>
+  <line x1="140" y1="212" x2="1080" y2="212" stroke="#e5e7eb" stroke-width="2"/>
+
+  <rect x="185" y="212" width="90" height="348" rx="10" fill="#60a5fa"/>
+  <rect x="315" y="386" width="90" height="174" rx="10" fill="#93c5fd"/>
+  <rect x="445" y="473" width="90" height="87" rx="10" fill="#bfdbfe"/>
+  <rect x="575" y="516.5" width="90" height="43.5" rx="10" fill="#dbeafe"/>
+  <rect x="705" y="538.25" width="90" height="21.75" rx="10" fill="#e0f2fe"/>
+  <rect x="835" y="549.125" width="90" height="10.875" rx="10" fill="#ecfeff"/>
+
+  <text x="230" y="590" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial" font-size="12" font-weight="800" fill="#111827" text-anchor="middle">85 dB</text>
+  <text x="360" y="590" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial" font-size="12" font-weight="800" fill="#111827" text-anchor="middle">88 dB</text>
+  <text x="490" y="590" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial" font-size="12" font-weight="800" fill="#111827" text-anchor="middle">91 dB</text>
+  <text x="620" y="590" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial" font-size="12" font-weight="800" fill="#111827" text-anchor="middle">94 dB</text>
+  <text x="750" y="590" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial" font-size="12" font-weight="800" fill="#111827" text-anchor="middle">97 dB</text>
+  <text x="880" y="590" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial" font-size="12" font-weight="800" fill="#111827" text-anchor="middle">100 dB</text>
+
+  <text x="230" y="206" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial" font-size="12" font-weight="800" fill="#1f2937" text-anchor="middle">480m</text>
+  <text x="360" y="380" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial" font-size="12" font-weight="800" fill="#1f2937" text-anchor="middle">240m</text>
+  <text x="490" y="467" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial" font-size="12" font-weight="800" fill="#1f2937" text-anchor="middle">120m</text>
+  <text x="620" y="510" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial" font-size="12" font-weight="800" fill="#1f2937" text-anchor="middle">60m</text>
+  <text x="750" y="532" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial" font-size="12" font-weight="800" fill="#1f2937" text-anchor="middle">30m</text>
+  <text x="880" y="544" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial" font-size="12" font-weight="800" fill="#1f2937" text-anchor="middle">15m</text>
+</svg>

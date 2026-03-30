@@ -32,7 +32,7 @@
       "@type": "Article",
       "headline": "dBA vs dBC: Which One Should You Use?",
       "datePublished": "2026-01-29",
-      "dateModified": "2026-03-09",
+      "dateModified": "2026-03-30",
       "author": {
         "@type": "Organization",
         "name": "RealtimeSoundMeter.org"
@@ -127,7 +127,7 @@
                 <img src="images/dba-vs-dbc.svg" alt="dBA vs dBC Explanation" class="w-full h-56 sm:h-72 object-cover rounded-xl border border-gray-200">
             </div>
             <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4">dBA vs dBC: Which One Should You Use?</h1>
-            <p class="text-sm text-gray-500 mb-6">Updated Jan 29, 2026 • 7 min read</p>
+            <p class="text-sm text-gray-500 mb-6">Updated Mar 30, 2026 • 7 min read</p>
 
             <div class="prose prose-blue max-w-none text-gray-700">
                 <p class="mb-6 leading-relaxed">
@@ -192,6 +192,22 @@
                             <p class="text-sm text-gray-600">There is a significant low-frequency component. (e.g., diesel engine, bass music, wind turbulence)</p>
                         </div>
                     </div>
+                </div>
+
+                <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">Try a Simple Demo (Using Spectrum as a Proxy)</h2>
+                <p class="mb-6 leading-relaxed">
+                    Our browser meter is designed for practical comparisons and includes a frequency spectrum. It does not switch between dBA and dBC modes, but you can still learn what “low-frequency heavy” means by watching where the energy sits.
+                </p>
+                <ol class="list-decimal ml-6 mb-8 space-y-2">
+                    <li>Open the <a href="/speaker-test-tones/" class="text-blue-600 hover:text-blue-800 font-semibold underline">Speaker Test (tones)</a> and pick <strong>100 Hz</strong>.</li>
+                    <li>In another tab, open the <a href="/" class="text-blue-600 hover:text-blue-800 font-semibold underline">Online Sound Meter</a>.</li>
+                    <li>Measure <strong>30 seconds</strong> at a fixed position and note the average.</li>
+                    <li>Repeat with <strong>1,000 Hz</strong> at the same device volume setting and compare the spectrum peak location.</li>
+                    <li>Log your results using this CSV template: <a href="data/weighting-demo-tones.csv" class="text-blue-600 hover:text-blue-800 font-semibold underline">weighting-demo-tones.csv</a>.</li>
+                </ol>
+                <div class="not-prose bg-white rounded-xl border border-gray-200 overflow-hidden my-8">
+                    <img src="images/tones-spectrum-demo.svg" alt="Spectrum demo for 100 Hz versus 1 kHz" class="w-full h-auto">
+                    <div class="p-4 text-xs text-gray-600">A simple visualization of where the energy concentrates for a low vs mid tone.</div>
                 </div>
 
                 <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">Quick Reference: dBA vs dBC Levels</h2>

@@ -1,0 +1,36 @@
+<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Workplace noise checklist cover">
+  <rect width="800" height="400" fill="#fff7ed"/>
+
+  <rect x="70" y="70" width="260" height="280" rx="18" fill="#ffffff" stroke="#e5e7eb" stroke-width="2"/>
+  <rect x="100" y="98" width="200" height="32" rx="10" fill="#0f172a"/>
+  <text x="200" y="120" font-family="Arial, sans-serif" font-size="14" fill="#ffffff" font-weight="bold" text-anchor="middle">CHECKLIST</text>
+
+  <rect x="100" y="152" width="20" height="20" rx="4" fill="#22c55e"/>
+  <path d="M104 162l5 6 11-14" stroke="#ffffff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M132 162h170" stroke="#94a3b8" stroke-width="6" stroke-linecap="round"/>
+
+  <rect x="100" y="198" width="20" height="20" rx="4" fill="#22c55e"/>
+  <path d="M104 208l5 6 11-14" stroke="#ffffff" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M132 208h150" stroke="#94a3b8" stroke-width="6" stroke-linecap="round"/>
+
+  <rect x="100" y="244" width="20" height="20" rx="4" fill="#e2e8f0"/>
+  <path d="M132 254h160" stroke="#cbd5e1" stroke-width="6" stroke-linecap="round"/>
+
+  <rect x="100" y="290" width="20" height="20" rx="4" fill="#e2e8f0"/>
+  <path d="M132 300h120" stroke="#cbd5e1" stroke-width="6" stroke-linecap="round"/>
+
+  <rect x="380" y="110" width="350" height="210" rx="18" fill="#0f172a"/>
+  <rect x="404" y="132" width="302" height="84" rx="14" fill="#111827"/>
+  <path d="M424 198h262" stroke="#f59e0b" stroke-width="10" stroke-linecap="round"/>
+  <path d="M424 168h180" stroke="#22c55e" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="604" cy="168" r="10" fill="#22c55e"/>
+  <circle cx="686" cy="198" r="10" fill="#f59e0b"/>
+
+  <path d="M450 252c30-26 72-42 118-42s88 16 118 42" fill="none" stroke="#94a3b8" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="509" cy="258" r="18" fill="#334155"/>
+  <circle cx="621" cy="258" r="18" fill="#334155"/>
+  <rect x="530" y="246" width="70" height="26" rx="13" fill="#f97316"/>
+  <text x="565" y="264" font-family="Arial, sans-serif" font-size="12" fill="#0f172a" font-weight="bold" text-anchor="middle">dB</text>
+
+  <text x="400" y="370" font-family="Arial, sans-serif" font-size="22" text-anchor="middle" fill="#ea580c" font-weight="bold">Workplace Noise Checklist</text>
+</svg>

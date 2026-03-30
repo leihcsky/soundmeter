@@ -1,0 +1,5 @@
+demo_id,tone_hz,device_volume_percent,window_seconds,measured_avg_db,measured_max_db,notes
+EX-WEIGHT-001,100,40,30,61.8,66.2,Low tone usually feels quieter than it measures; watch spectrum peak at ~100 Hz
+EX-WEIGHT-001,1000,40,30,60.9,64.8,Mid tone often feels louder; spectrum peak at ~1 kHz
+EX-WEIGHT-001,100,55,30,68.7,72.5,Increase volume and repeat to compare how perception changes
+EX-WEIGHT-001,1000,55,30,67.9,71.1,Same volume setting, same placement, compare perceived loudness

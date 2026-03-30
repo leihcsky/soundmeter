@@ -1,0 +1,8 @@
+demo_id,level_db,reference_level_db,reference_hours,exchange_rate_db,safe_minutes
+EX-3DB-001,85,85,8,3,480
+EX-3DB-001,88,85,8,3,240
+EX-3DB-001,91,85,8,3,120
+EX-3DB-001,94,85,8,3,60
+EX-3DB-001,97,85,8,3,30
+EX-3DB-001,100,85,8,3,15
+EX-3DB-001,103,85,8,3,7.5

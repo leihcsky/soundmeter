@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-label="Simplified spectrum demo showing a low tone at 100 Hz and a mid tone at 1 kHz">
+  <rect width="1200" height="675" fill="#ffffff"/>
+  <text x="70" y="96" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial" font-size="32" font-weight="800" fill="#111827">Spectrum Demo: 100 Hz vs 1 kHz</text>
+  <text x="70" y="132" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial" font-size="16" font-weight="600" fill="#6b7280">Use a tone generator to see where energy sits. Bass-heavy sources show stronger low-frequency peaks.</text>
+
+  <rect x="70" y="170" width="1060" height="440" rx="18" fill="#f8fafc" stroke="#e5e7eb" stroke-width="2"/>
+  <line x1="140" y1="560" x2="1080" y2="560" stroke="#cbd5e1" stroke-width="2"/>
+  <line x1="140" y1="220" x2="140" y2="560" stroke="#cbd5e1" stroke-width="2"/>
+  <line x1="140" y1="440" x2="1080" y2="440" stroke="#e5e7eb" stroke-width="2"/>
+  <line x1="140" y1="320" x2="1080" y2="320" stroke="#e5e7eb" stroke-width="2"/>
+
+  <text x="140" y="592" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial" font-size="12" font-weight="700" fill="#6b7280">20</text>
+  <text x="320" y="592" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial" font-size="12" font-weight="700" fill="#6b7280">100</text>
+  <text x="560" y="592" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial" font-size="12" font-weight="700" fill="#6b7280">1k</text>
+  <text x="820" y="592" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial" font-size="12" font-weight="700" fill="#6b7280">5k</text>
+  <text x="1050" y="592" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial" font-size="12" font-weight="700" fill="#6b7280">10k</text>
+
+  <path d="M140 540 C220 520, 280 520, 320 520 C340 520, 350 260, 360 240 C370 220, 390 520, 420 520 C520 520, 620 520, 720 520 C840 520, 940 520, 1080 520" fill="none" stroke="#60a5fa" stroke-width="4"/>
+  <circle cx="360" cy="240" r="7" fill="#60a5fa"/>
+  <text x="360" y="220" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial" font-size="12" font-weight="800" fill="#2563eb" text-anchor="middle">100 Hz peak</text>
+
+  <path d="M140 540 C240 540, 340 540, 460 540 C520 540, 540 310, 560 280 C580 250, 600 540, 640 540 C760 540, 900 540, 1080 540" fill="none" stroke="#34d399" stroke-width="4"/>
+  <circle cx="560" cy="280" r="7" fill="#34d399"/>
+  <text x="560" y="260" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial" font-size="12" font-weight="800" fill="#059669" text-anchor="middle">1 kHz peak</text>
+
+  <rect x="170" y="230" width="380" height="86" rx="14" fill="#ffffff" stroke="#e5e7eb" stroke-width="2"/>
+  <circle cx="200" cy="262" r="6" fill="#60a5fa"/>
+  <text x="218" y="267" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial" font-size="14" font-weight="700" fill="#111827">Low tone emphasis (bass)</text>
+  <circle cx="200" cy="292" r="6" fill="#34d399"/>
+  <text x="218" y="297" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial" font-size="14" font-weight="700" fill="#111827">Mid tone emphasis (speech band)</text>
+</svg>
