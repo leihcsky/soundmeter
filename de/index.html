@@ -532,8 +532,39 @@
             <section class="bg-white rounded-xl shadow-lg p-6">
                 <h2 class="text-xl font-bold text-gray-900 mb-3">Sichere Expositionszeit nach Dezibelpegel</h2>
                 <p class="text-sm text-gray-600 mb-4">
-                    Laut <a href="https://www.cdc.gov/niosh/noise/about/noise.html" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">NIOSH/CDC</a> sinkt die sichere Expositionszeit, je höher der Lärmpegel ist.
+                    Tabelle und Rechner sind eine schnelle Orientierung, um Pegel und Zeit zusammen zu betrachten und Messungen reproduzierbar zu vergleichen. Sie sind als Richtwert gedacht, nicht als Compliance-Messung. Referenz: <a href="https://www.cdc.gov/niosh/noise/about/noise.html" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">NIOSH/CDC</a>.
                 </p>
+
+                <div class="mb-5 rounded-xl border border-gray-200 bg-gray-50 p-4">
+                    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+                        <div class="min-w-[220px]">
+                            <h3 class="font-semibold text-gray-900">Schneller Expositionsrechner</h3>
+                            <p class="text-xs text-gray-600 mt-1">Schätzt eine maximale tägliche Expositionszeit mit 85 dB = 8 Stunden und der 3-dB-Regel (Orientierung, keine Compliance-Messung).</p>
+                        </div>
+                        <div class="w-full md:w-[420px]">
+                            <label for="exposureDbInput" class="block text-xs font-semibold text-gray-700">Lärmpegel (dB)</label>
+                            <div class="mt-1 flex items-center gap-3">
+                                <input id="exposureDbInput" type="number" inputmode="decimal" min="40" max="130" step="0.5" value="85" class="w-24 rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-blue-300">
+                                <input id="exposureDbRange" type="range" min="40" max="130" step="0.5" value="85" class="flex-1">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 grid md:grid-cols-2 gap-4">
+                        <div class="rounded-lg bg-white border border-gray-200 p-4">
+                            <div class="text-xs text-gray-500">Geschätzte maximale tägliche Exposition</div>
+                            <div id="exposureCalcResult" class="mt-1 text-2xl font-extrabold text-gray-900">8 Stunden</div>
+                            <div id="exposureCalcNote" class="mt-2 text-xs text-gray-600">Bei 85 dB gilt 8 Stunden als gängiger Richtwert. Jede +3 dB halbiert die Zeit.</div>
+                        </div>
+                        <div class="rounded-lg bg-white border border-gray-200 p-4">
+                            <div class="text-xs text-gray-500">So verwenden</div>
+                            <ul class="mt-2 text-xs text-gray-700 space-y-1 list-disc list-inside">
+                                <li>Nutzen Sie den Mittelwert (nicht kurze Spitzen) für Entscheidungen.</li>
+                                <li>Halten Sie Abstand und Aufbau konstant, um Vergleiche zu ermöglichen.</li>
+                                <li>Für behördliche/gesetzliche Messungen: zertifizierte Geräte und dokumentierte Verfahren.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
                 
                 <div class="space-y-3">
                     <!-- 70 dB -->
@@ -633,7 +664,7 @@
                         </p>
                     </div>
                     <p>
-                        <strong>Wie Lärm das Gehör schädigt:</strong> Laut <a href="https://gesund.bund.de/laermbelastung" target="_blank" rel="noopener" class="text-blue-600 hover:underline">Gesundheitsbehörden</a> schädigen laute Geräusche die feinen Haarzellen im Innenohr. Diese Zellen regenerieren sich nicht, sodass Schäden dauerhaft sind. Hohe Intensität oder lange Dauer führen zu:
+                        <strong>Wie Lärm das Gehör schädigt:</strong> Laute Geräusche können die feinen Haarzellen im Innenohr schädigen. Diese Zellen regenerieren sich nicht, sodass Schäden dauerhaft sind. Hohe Intensität oder lange Dauer führen zu:
                     </p>
                     <ul class="list-disc list-inside space-y-1 ml-3 text-sm">
                         <li>Mechanischer Schädigung der Haarzellen im Innenohr</li>
@@ -641,6 +672,7 @@
                         <li>Lärmschwerhörigkeit (NIHL)</li>
                         <li>Tinnitus (Ohrgeräusche) und Überempfindlichkeit</li>
                     </ul>
+                    <p class="text-xs text-gray-600 mt-2">Referenz: <a href="https://gesund.bund.de/laermbelastung" target="_blank" rel="noopener" class="text-blue-600 hover:underline">Gesundheitsbehörden</a>.</p>
                     
                     <div class="mt-4 pt-4 border-t border-gray-100">
                         <h3 class="font-bold text-gray-900 mb-2 flex items-center">
@@ -654,12 +686,113 @@
                 </div>
             </section>
 
+            <section class="bg-white rounded-xl shadow-lg p-6">
+                <h2 class="text-xl font-bold text-gray-900 mb-3">Was uns von anderen Online-Schallpegelmessern unterscheidet</h2>
+                <p class="text-sm text-gray-600 mb-4">Fokus auf nachvollziehbare Vergleiche und saubere Dokumentation – nicht nur ein Live-Wert.</p>
+                <ul class="text-sm text-gray-700 space-y-2 list-disc list-inside">
+                    <li><strong>Bericht lokal erzeugen:</strong> „Bericht speichern“ erstellt die Datei auf Ihrem Gerät; Roh-Audio wird nicht hochgeladen.</li>
+                    <li><strong>Mehr Kontext:</strong> Frequenzspektrum + Verlauf, um Trends und Peaks zu verstehen.</li>
+                    <li><strong>Messungen wiederholbar machen:</strong> SOP-Tipps, Beispielberichte und ein Log-Template für konsistente Setups.</li>
+                    <li><strong>Transparenz:</strong> <a href="../methodology.html" class="text-blue-600 hover:underline font-semibold">Methodology</a> und <a href="../changelog.html" class="text-blue-600 hover:underline font-semibold">Changelog</a> zeigen Vorgehen und Änderungen.</li>
+                    <li><strong>Privatsphäre:</strong> siehe <a href="../privacy.html" class="text-blue-600 hover:underline font-semibold">Privacy</a> (Datenfluss und Dienste).</li>
+                </ul>
+                <div class="mt-4 grid sm:grid-cols-3 gap-3">
+                    <div class="rounded-xl border border-gray-200 bg-gray-50 p-4">
+                        <div class="text-xs font-semibold text-gray-900">1) Mikrofon</div>
+                        <div class="mt-1 text-xs text-gray-600">Zugriff nur mit Browser-Berechtigung.</div>
+                    </div>
+                    <div class="rounded-xl border border-gray-200 bg-gray-50 p-4">
+                        <div class="text-xs font-semibold text-gray-900">2) Lokal im Browser</div>
+                        <div class="mt-1 text-xs text-gray-600">RMS, Spektrum und Verlauf werden lokal berechnet.</div>
+                    </div>
+                    <div class="rounded-xl border border-gray-200 bg-gray-50 p-4">
+                        <div class="text-xs font-semibold text-gray-900">3) Datei speichern</div>
+                        <div class="mt-1 text-xs text-gray-600">Bericht wird aus Sitzungsstatistiken erzeugt.</div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="example-reports" class="bg-white rounded-xl shadow-lg p-6">
+                <div class="flex items-start justify-between gap-4 flex-wrap">
+                    <div class="min-w-[220px]">
+                        <h2 class="text-xl font-bold text-gray-900">Beispielberichte (Ergebnisse interpretieren)</h2>
+                        <p class="text-sm text-gray-600 mt-1">Statische Vorschauen aus derselben „Bericht speichern“-Vorlage, um Min/Ø/Max und eine saubere Dokumentationsroutine zu zeigen.</p>
+                    </div>
+                </div>
+
+                <div class="mt-4 grid lg:grid-cols-3 gap-4">
+                    <div class="rounded-xl border border-gray-200 bg-gray-50 p-4">
+                        <div class="flex items-center justify-between gap-3">
+                            <h3 class="font-semibold text-gray-900">Altbau-Schlafzimmer (nachts) – Nachtruhe-Fokus</h3>
+                            <span class="text-xs font-semibold text-green-700 bg-green-100 px-2 py-0.5 rounded-full">Niedrig</span>
+                        </div>
+                        <div class="mt-3 rounded-lg overflow-hidden border border-gray-200 bg-white">
+                            <div class="aspect-[4/3] bg-gray-100">
+                                <img src="../images/de/report-example-bedroom.png" alt="Beispielbericht Vorschau - Altbau-Schlafzimmer" class="w-full h-full object-cover" loading="lazy">
+                            </div>
+                        </div>
+                        <p class="mt-3 text-xs text-gray-700">Interpretation: In Mehrfamilienhäusern sind Max-Werte oft kurze Ereignisse (Trittschall, Tür im Treppenhaus). Für den Schlaf ist der Ø-Wert über vergleichbare Messfenster meist aussagekräftiger.</p>
+                        <ul class="mt-3 text-xs text-gray-700 space-y-1 list-disc list-inside">
+                            <li>Zur gleichen Uhrzeit messen (z. B. 22–23 Uhr).</li>
+                            <li>Fenster/Rollläden und Lüftung/Heizung notieren.</li>
+                            <li>3× wiederholen und Ø vergleichen (nicht nur Max).</li>
+                        </ul>
+                    </div>
+
+                    <div class="rounded-xl border border-gray-200 bg-gray-50 p-4">
+                        <div class="flex items-center justify-between gap-3">
+                            <h3 class="font-semibold text-gray-900">Staubsauger (Stufe 1 vs. Turbo) – 1 m</h3>
+                            <span class="text-xs font-semibold text-amber-800 bg-amber-100 px-2 py-0.5 rounded-full">Erhöht</span>
+                        </div>
+                        <div class="mt-3 rounded-lg overflow-hidden border border-gray-200 bg-white">
+                            <div class="aspect-[4/3] bg-gray-100">
+                                <img src="../images/de/report-example-vacuum.png" alt="Beispielbericht Vorschau - Staubsauger-Test" class="w-full h-full object-cover" loading="lazy">
+                            </div>
+                        </div>
+                        <p class="mt-3 text-xs text-gray-700">Interpretation: Ideal für Vergleichstests (neues Gerät, neue Bodendüse, anderer Leistungsmodus). Das Setup zählt mehr als der „absolute“ dB-Wert.</p>
+                        <ul class="mt-3 text-xs text-gray-700 space-y-1 list-disc list-inside">
+                            <li>Bodenart notieren (Teppich vs. Hartboden).</li>
+                            <li>Leistungsstufe dokumentieren (z. B. Eco/Turbo).</li>
+                            <li>Abstand/Position markieren und Ø vergleichen.</li>
+                        </ul>
+                    </div>
+
+                    <div class="rounded-xl border border-gray-200 bg-gray-50 p-4">
+                        <div class="flex items-center justify-between gap-3">
+                            <h3 class="font-semibold text-gray-900">Straßenbahn & Verkehr (Fenster gekippt)</h3>
+                            <span class="text-xs font-semibold text-red-700 bg-red-100 px-2 py-0.5 rounded-full">Laut</span>
+                        </div>
+                        <div class="mt-3 rounded-lg overflow-hidden border border-gray-200 bg-white">
+                            <div class="aspect-[4/3] bg-gray-100">
+                                <img src="../images/de/report-example-traffic.png" alt="Beispielbericht Vorschau - Straßenbahn & Verkehr" class="w-full h-full object-cover" loading="lazy">
+                            </div>
+                        </div>
+                        <p class="mt-3 text-xs text-gray-700">Interpretation: Besonders in Städten schwanken Werte stark (Bus, Tram, Motorrad). Für einen fairen Vergleich: gleiche Uhrzeit, gleiche Position, gleiches Messfenster.</p>
+                        <ul class="mt-3 text-xs text-gray-700 space-y-1 list-disc list-inside">
+                            <li>Rushhour vs. Abend getrennt messen.</li>
+                            <li>Fensterstellung dokumentieren (zu/gekipp/t offen).</li>
+                            <li>Ø für Dauerbelastung, Max für einzelne Ereignisse.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mt-5 rounded-xl border border-gray-200 bg-gray-50 p-4">
+                    <div>
+                        <h3 class="font-semibold text-gray-900">Messprotokoll (Copy/Paste)</h3>
+                        <p class="text-xs text-gray-600 mt-1">Hilft, Messungen über Tage und Geräte hinweg reproduzierbar zu vergleichen.</p>
+                    </div>
+                    <pre class="mt-3 text-xs bg-white border border-gray-200 rounded-lg p-3 overflow-x-auto text-gray-800">date,time,location,distance,device,avg_db,max_db,notes
+2026-03-23,21:30,bedroom,1m,phone,34,48,window closed; HVAC off
+2026-03-24,21:30,bedroom,1m,phone,36,52,window closed; light rain
+2026-03-25,21:30,bedroom,1m,phone,33,46,window closed; quiet night</pre>
+                </div>
+            </section>
+
             <!-- Health Impact -->
             <section class="bg-white rounded-xl shadow-lg p-6">
                 <h2 class="text-xl font-bold text-gray-900 mb-3">Gesundheitliche Auswirkungen von Lärmbelastung</h2>
                 <p class="text-sm text-gray-600 mb-4">
-                    Neben Hörverlust beeinträchtigt chronische Lärmbelastung die allgemeine Gesundheit. Quelle: 
-                    <a href="https://www.who.int/europe/news-room/fact-sheets/item/noise" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">WHO Europa</a>
+                    Lärm betrifft nicht nur das Gehör – langfristige Exposition kann Schlaf, Stress und die allgemeine Gesundheit beeinflussen. Referenz: <a href="https://www.who.int/europe/news-room/fact-sheets/item/noise" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">WHO Europa</a>.
                 </p>
                 <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition">
@@ -701,7 +834,7 @@
                 </div>
                 
                 <div class="mt-4 p-4 bg-gradient-to-r from-red-50 to-orange-50 rounded-lg border border-red-200">
-                    <h4 class="font-semibold text-sm text-gray-900 mb-2">🛡️ Schutz-Tipps (von NIOSH/CDC):</h4>
+                    <h4 class="font-semibold text-sm text-gray-900 mb-2">🛡️ Praktische Schutz-Tipps</h4>
                     <ul class="text-xs text-gray-700 space-y-1 ml-4 list-disc">
                         <li>Halten Sie die tägliche Lärmbelastung wenn möglich unter <strong>70 dB</strong></li>
                         <li>Tragen Sie Gehörschutz (Ohrstöpsel/Kapselgehörschutz) in Umgebungen ≥85 dB</li>
@@ -709,6 +842,7 @@
                         <li>Nutzen Sie Lärmüberwachungstools, um Schallpegel zu verfolgen</li>
                         <li>Gönnen Sie Ihren Ohren Ruhepausen nach lauter Exposition</li>
                     </ul>
+                    <p class="text-xs text-gray-600 mt-3">Referenz: <a href="https://www.cdc.gov/niosh/noise/about/noise.html" target="_blank" rel="noopener" class="text-blue-700 hover:underline font-semibold">NIOSH/CDC</a>.</p>
                 </div>
             </section>
 
@@ -792,6 +926,14 @@
                         </ul>
                     </div>
                 </div>
+                <div class="mt-4 rounded-xl border border-gray-200 bg-gray-50 p-4">
+                    <h3 class="font-semibold text-gray-900 mb-2">Lokale Hinweise & weiterführende Quellen</h3>
+                    <ul class="text-sm text-gray-700 space-y-2 list-disc list-inside">
+                        <li>Rechtslage ist oft kommunal geregelt (z. B. Hausordnung, Gemeinde-/Stadtordnung). Für wiederkehrende Störungen hilft ein Messprotokoll über mehrere Tage.</li>
+                        <li>Grundlagen & Einordnung: <a href="https://www.umweltbundesamt.de/themen/laerm" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">Umweltbundesamt (Lärm)</a></li>
+                        <li>Gesetzestexte (DE): <a href="https://www.gesetze-im-internet.de/bimschg/" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">BImSchG</a> (Bundes-Immissionsschutzgesetz)</li>
+                    </ul>
+                </div>
             </section>
 
             <!-- Technical Insight Section -->
@@ -831,7 +973,7 @@
                     </div>
                     <div class="border-l-4 border-blue-500 pl-4">
                         <h3 class="font-semibold text-sm text-gray-900 mb-1">Welcher Geräuschpegel ist sicher?</h3>
-                        <p class="text-xs text-gray-600 mb-1">Laut <strong>NIOSH/CDC</strong> sind Pegel unter <strong>70 dB</strong> generell sicher. Die Grenze für berufliche Exposition liegt bei <strong>85 dB für 8 Stunden</strong>. Werte über 85 dB können schaden, alles über 120 dB kann sofortige Schäden verursachen.</p>
+                        <p class="text-xs text-gray-600 mb-1">Praktischer Richtwert: Versuchen Sie, länger anhaltende Pegel unter <strong>70 dB</strong> zu halten. Wenn Sie sich <strong>85 dB</strong> nähern, wird die Expositionsdauer entscheidend – mit steigenden Pegeln sinkt die sichere Zeit schnell.</p>
                         <a href="https://www.cdc.gov/niosh/noise/about/noise.html" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline">NIOSH Richtlinien →</a>
                     </div>
                     <div class="border-l-4 border-blue-500 pl-4">
@@ -1062,7 +1204,7 @@
           "name": "Welcher Geräuschpegel ist sicher?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Laut NIOSH/CDC gelten Lärmpegel unter 70 dB im Allgemeinen als sicher für längere Exposition. Die Grenze für berufliche Exposition liegt bei 85 dB für 8 Stunden. Werte über 85 dB können bei längerer Einwirkung das Gehör schädigen, und alles über 120 dB kann sofortige Schäden verursachen."
+            "text": "Praktischer Richtwert: Versuchen Sie, länger anhaltende Pegel unter 70 dB zu halten. Wenn Sie sich 85 dB nähern, wird die Expositionsdauer entscheidend – mit steigenden Pegeln sinkt die sichere Zeit schnell."
           }
         },
         {
@@ -1164,6 +1306,71 @@
             };
             
             SoundMeter.init(deTranslations);
+
+            const initExposureCalculator = () => {
+                const inputEl = document.getElementById('exposureDbInput');
+                const rangeEl = document.getElementById('exposureDbRange');
+                const resultEl = document.getElementById('exposureCalcResult');
+                const noteEl = document.getElementById('exposureCalcNote');
+                if (!inputEl || !rangeEl || !resultEl || !noteEl) return;
+
+                const clamp = (n, min, max) => Math.min(max, Math.max(min, n));
+
+                const formatDuration = (minutes) => {
+                    if (!Number.isFinite(minutes) || minutes <= 0) return '< 1 Minute';
+                    if (minutes < 1) return '< 1 Minute';
+                    if (minutes < 60) return `${Math.round(minutes)} Minuten`;
+                    const hours = minutes / 60;
+                    if (hours < 24) {
+                        const rounded = Math.round(hours * 10) / 10;
+                        return `${rounded} Stunden`;
+                    }
+                    return '24+ Stunden';
+                };
+
+                const computeMinutes = (db) => {
+                    const baseDb = 85;
+                    const baseMinutes = 8 * 60;
+                    const exchangeRate = 3;
+                    const factor = Math.pow(2, (baseDb - db) / exchangeRate);
+                    return baseMinutes * factor;
+                };
+
+                const render = (db) => {
+                    const value = clamp(db, 40, 130);
+                    inputEl.value = String(value);
+                    rangeEl.value = String(value);
+
+                    const minutes = computeMinutes(value);
+                    resultEl.textContent = formatDuration(minutes);
+
+                    if (value >= 120) {
+                        noteEl.textContent = 'Bei sehr hohen Pegeln kann das Risiko sofortig sein. Abstand vergrößern, Exposition begrenzen und passenden Gehörschutz verwenden.';
+                        return;
+                    }
+                    if (value >= 85) {
+                        noteEl.textContent = 'Über 85 dB fällt die sichere Zeit schnell. Nutzen Sie den Mittelwert und achten Sie auf Expositionsdauer statt kurze Spitzen.';
+                        return;
+                    }
+                    if (value >= 70) {
+                        noteEl.textContent = 'Dieser Bereich ist in vielen Alltagsumgebungen üblich, kann aber bei langer Dauer ermüden. Verwenden Sie eine reproduzierbare Messroutine.';
+                        return;
+                    }
+                    noteEl.textContent = 'Niedrigere Pegel sind meist risikoarm, aber Komfort und Schlafqualität zählen. Messen Sie möglichst vergleichbar.';
+                };
+
+                const parseDb = (raw) => {
+                    const n = Number.parseFloat(String(raw));
+                    return Number.isFinite(n) ? n : 85;
+                };
+
+                inputEl.addEventListener('input', () => render(parseDb(inputEl.value)));
+                rangeEl.addEventListener('input', () => render(parseDb(rangeEl.value)));
+
+                render(parseDb(inputEl.value));
+            };
+
+            initExposureCalculator();
         
             // Mobile Main Menu Toggle
             const menuBtn = document.getElementById('mobile-menu-btn');

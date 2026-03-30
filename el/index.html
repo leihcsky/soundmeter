@@ -491,8 +491,39 @@
             <section class="bg-white rounded-xl shadow-lg p-6">
                 <h2 class="text-xl font-bold text-gray-900 mb-3">Ασφαλής Χρόνος Έκθεσης ανά Επίπεδο dB</h2>
                 <p class="text-sm text-gray-600 mb-4">
-                    Σύμφωνα με το <a href="https://www.cdc.gov/niosh/noise/about/noise.html" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">NIOSH/CDC</a>, όσο υψηλότερο είναι το επίπεδο θορύβου, τόσο μικρότερος είναι ο ασφαλής χρόνος έκθεσης.
+                    Ο πίνακας και ο υπολογιστής παρακάτω είναι ένας γρήγορος οδηγός για τη σχέση “dB × χρόνος”, ώστε να κάνετε συγκρίσεις με συνέπεια (όχι για κανονιστική συμμόρφωση). Αναφορά: <a href="https://www.cdc.gov/niosh/noise/about/noise.html" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">NIOSH/CDC</a>.
                 </p>
+
+                <div class="mb-5 rounded-xl border border-gray-200 bg-gray-50 p-4">
+                    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+                        <div class="min-w-[220px]">
+                            <h3 class="font-semibold text-gray-900">Γρήγορος υπολογιστής έκθεσης</h3>
+                            <p class="text-xs text-gray-600 mt-1">Εκτιμά τον μέγιστο ημερήσιο χρόνο έκθεσης με 85 dB = 8 ώρες και τον κανόνα 3 dB (ενδεικτικό, όχι για συμμόρφωση).</p>
+                        </div>
+                        <div class="w-full md:w-[420px]">
+                            <label for="exposureDbInput" class="block text-xs font-semibold text-gray-700">Επίπεδο θορύβου (dB)</label>
+                            <div class="mt-1 flex items-center gap-3">
+                                <input id="exposureDbInput" type="number" inputmode="decimal" min="40" max="130" step="0.5" value="85" class="w-24 rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-blue-300">
+                                <input id="exposureDbRange" type="range" min="40" max="130" step="0.5" value="85" class="flex-1">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 grid md:grid-cols-2 gap-4">
+                        <div class="rounded-lg bg-white border border-gray-200 p-4">
+                            <div class="text-xs text-gray-500">Εκτιμώμενη μέγιστη ημερήσια έκθεση</div>
+                            <div id="exposureCalcResult" class="mt-1 text-2xl font-extrabold text-gray-900">8 ώρες</div>
+                            <div id="exposureCalcNote" class="mt-2 text-xs text-gray-600">Στα 85 dB, ένα συνηθισμένο όριο αναφοράς είναι 8 ώρες. Κάθε +3 dB μειώνει τον χρόνο στο μισό.</div>
+                        </div>
+                        <div class="rounded-lg bg-white border border-gray-200 p-4">
+                            <div class="text-xs text-gray-500">Πώς να το χρησιμοποιήσετε</div>
+                            <ul class="mt-2 text-xs text-gray-700 space-y-1 list-disc list-inside">
+                                <li>Χρησιμοποιήστε τον μέσο όρο (όχι στιγμιαίες κορυφές) για αποφάσεις.</li>
+                                <li>Κρατήστε σταθερή απόσταση/θέση για συγκρίσεις.</li>
+                                <li>Για κανονιστική συμμόρφωση απαιτούνται πιστοποιημένα όργανα και διαδικασία.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
                 
                 <div class="space-y-3">
                     <!-- 70 dB -->
@@ -588,11 +619,11 @@
                     </p>
                     <div class="bg-amber-50 border-l-4 border-amber-500 p-3 my-3">
                         <p class="text-sm">
-                            <strong>🏥 Σύσταση ΠΟΥ:</strong> Ο <a href="https://www.who.int/news-room/questions-and-answers/item/deafness-and-hearing-loss-safe-listening" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">Παγκόσμιος Οργανισμός Υγείας</a> συνιστά τη διατήρηση των επιπέδων θορύβου κάτω από 70 dB για παρατεταμένες περιόδους για την πρόληψη της απώλειας ακοής. Ήχοι άνω των 85 dB μπορούν να προκαλέσουν βλάβη στην ακοή με παρατεταμένη έκθεση.
+                            <strong>🏥 Πλαίσιο ΠΟΥ:</strong> Η παρατεταμένη έκθεση σε υψηλό θόρυβο σχετίζεται με κίνδυνο για την ακοή. Ένας πρακτικός στόχος είναι να κρατάτε τα σταθερά επίπεδα χαμηλά και να ελέγχετε τη διάρκεια έκθεσης όταν ο θόρυβος ανεβαίνει. Αναφορά: <a href="https://www.who.int/news-room/questions-and-answers/item/deafness-and-hearing-loss-safe-listening" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">Παγκόσμιος Οργανισμός Υγείας</a>.
                         </p>
                     </div>
                     <p>
-                        <strong>Πώς ο θόρυβος βλάπτει την ακοή:</strong> Σύμφωνα με τις <a href="https://gesund.bund.de/en/laermbelastung" target="_blank" rel="noopener" class="text-blue-600 hover:underline">υγειονομικές αρχές</a>, οι δυνατοί ήχοι καταστρέφουν τα ευαίσθητα τριχίδια στο εσωτερικό αυτί σας. Αυτά τα κύτταρα δεν αναγεννώνται, επομένως η βλάβη είναι μόνιμη. Ο θόρυβος υψηλής έντασης ή μεγάλης διάρκειας προκαλεί:
+                        <strong>Πώς ο θόρυβος βλάπτει την ακοή:</strong> Οι δυνατοί ήχοι μπορούν να καταστρέψουν τα ευαίσθητα τριχίδια στο εσωτερικό αυτί. Αυτά τα κύτταρα δεν αναγεννώνται, επομένως η βλάβη είναι μόνιμη. Ο θόρυβος υψηλής έντασης ή μεγάλης διάρκειας προκαλεί:
                     </p>
                     <ul class="list-disc list-inside space-y-1 ml-3 text-sm">
                         <li>Μηχανική βλάβη στα τριχίδια του εσωτερικού αυτιού</li>
@@ -600,6 +631,109 @@
                         <li>Εμβοές (κουδούνισμα στα αυτιά)</li>
                         <li>Μόνιμη απώλεια ακοής που προκαλείται από θόρυβο (NIHL)</li>
                     </ul>
+                    <p class="text-xs text-gray-600 mt-2">Αναφορά: <a href="https://gesund.bund.de/en/laermbelastung" target="_blank" rel="noopener" class="text-blue-600 hover:underline">υγειονομικές αρχές</a>.</p>
+                </div>
+            </section>
+
+            <section class="bg-white rounded-xl shadow-lg p-6">
+                <h2 class="text-xl font-bold text-gray-900 mb-3">Τι μας διαφοροποιεί από άλλα online ηχόμετρα</h2>
+                <p class="text-sm text-gray-600 mb-4">Σχεδιασμένο για συγκρίσιμες, επαναλήψιμες μετρήσεις και καθαρή τεκμηρίωση — όχι μόνο έναν αριθμό σε πραγματικό χρόνο.</p>
+                <ul class="text-sm text-gray-700 space-y-2 list-disc list-inside">
+                    <li><strong>Αναφορά τοπικά στη συσκευή:</strong> Το «Αποθήκευση αναφοράς» δημιουργεί αρχείο στη συσκευή και δεν ανεβάζει raw audio.</li>
+                    <li><strong>Περισσότερο πλαίσιο:</strong> φάσμα συχνοτήτων + ιστορικό για τάσεις και κορυφές.</li>
+                    <li><strong>Οδηγίες για επαναληψιμότητα:</strong> SOP συμβουλές, παραδείγματα αναφορών και template καταγραφής.</li>
+                    <li><strong>Διαφάνεια:</strong> <a href="../methodology.html" class="text-blue-600 hover:underline font-semibold">Methodology</a> και <a href="../changelog.html" class="text-blue-600 hover:underline font-semibold">Changelog</a> για μεθοδολογία και αλλαγές.</li>
+                    <li><strong>Ιδιωτικότητα:</strong> <a href="../privacy.html" class="text-blue-600 hover:underline font-semibold">Privacy</a> για ροή δεδομένων και υπηρεσίες τρίτων.</li>
+                </ul>
+                <div class="mt-4 grid sm:grid-cols-3 gap-3">
+                    <div class="rounded-xl border border-gray-200 bg-gray-50 p-4">
+                        <div class="text-xs font-semibold text-gray-900">1) Μικρόφωνο</div>
+                        <div class="mt-1 text-xs text-gray-600">Η άδεια ελέγχεται από τον browser.</div>
+                    </div>
+                    <div class="rounded-xl border border-gray-200 bg-gray-50 p-4">
+                        <div class="text-xs font-semibold text-gray-900">2) Τοπική επεξεργασία</div>
+                        <div class="mt-1 text-xs text-gray-600">RMS, φάσμα και ιστορικό υπολογίζονται στον browser.</div>
+                    </div>
+                    <div class="rounded-xl border border-gray-200 bg-gray-50 p-4">
+                        <div class="text-xs font-semibold text-gray-900">3) Αποθήκευση αναφοράς</div>
+                        <div class="mt-1 text-xs text-gray-600">Αρχείο από στατιστικά της τρέχουσας συνεδρίας.</div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="example-reports" class="bg-white rounded-xl shadow-lg p-6">
+                <div class="flex items-start justify-between gap-4 flex-wrap">
+                    <div class="min-w-[220px]">
+                        <h2 class="text-xl font-bold text-gray-900">Παραδείγματα αναφορών (ερμηνεία αποτελεσμάτων)</h2>
+                        <p class="text-sm text-gray-600 mt-1">Στατικές προεπισκοπήσεις από το ίδιο πρότυπο “Αποθήκευση αναφοράς” για να δείτε πώς διαβάζονται min/avg/max και πώς να καταγράφετε συνεπή δεδομένα.</p>
+                    </div>
+                </div>
+
+                <div class="mt-4 grid lg:grid-cols-3 gap-4">
+                    <div class="rounded-xl border border-gray-200 bg-gray-50 p-4">
+                        <div class="flex items-center justify-between gap-3">
+                            <h3 class="font-semibold text-gray-900">Υπνοδωμάτιο (βράδυ) – πολυκατοικία & βάση</h3>
+                            <span class="text-xs font-semibold text-green-700 bg-green-100 px-2 py-0.5 rounded-full">Χαμηλό</span>
+                        </div>
+                        <div class="mt-3 rounded-lg overflow-hidden border border-gray-200 bg-white">
+                            <div class="aspect-[4/3] bg-gray-100">
+                                <img src="../images/el/report-example-bedroom.png" alt="Προεπισκόπηση αναφοράς - υπνοδωμάτιο το βράδυ" class="w-full h-full object-cover" loading="lazy">
+                            </div>
+                        </div>
+                        <p class="mt-3 text-xs text-gray-700">Ερμηνεία: το max συχνά είναι ένα σύντομο γεγονός (πόρτα, βήματα στο κλιμακοστάσιο). Για τον ύπνο μετρά περισσότερο ο μέσος όρος σε συγκρίσιμο χρονικό παράθυρο.</p>
+                        <ul class="mt-3 text-xs text-gray-700 space-y-1 list-disc list-inside">
+                            <li>Μετρήστε ίδια ώρα κάθε βράδυ (π.χ. 23:30).</li>
+                            <li>Σημειώστε κουφώματα και A/C ή ανεμιστήρα.</li>
+                            <li>Επαναλάβετε 3× και συγκρίνετε avg.</li>
+                        </ul>
+                    </div>
+
+                    <div class="rounded-xl border border-gray-200 bg-gray-50 p-4">
+                        <div class="flex items-center justify-between gap-3">
+                            <h3 class="font-semibold text-gray-900">Ηλεκτρική σκούπα (πλακάκι vs χαλί) – 1 m</h3>
+                            <span class="text-xs font-semibold text-amber-800 bg-amber-100 px-2 py-0.5 rounded-full">Αυξημένο</span>
+                        </div>
+                        <div class="mt-3 rounded-lg overflow-hidden border border-gray-200 bg-white">
+                            <div class="aspect-[4/3] bg-gray-100">
+                                <img src="../images/el/report-example-vacuum.png" alt="Προεπισκόπηση αναφοράς - τεστ σκούπας" class="w-full h-full object-cover" loading="lazy">
+                            </div>
+                        </div>
+                        <p class="mt-3 text-xs text-gray-700">Ερμηνεία: χρήσιμο για σύγκριση λειτουργιών και επιφανειών. Η συνέπεια (απόσταση/θέση) είναι πιο σημαντική από την “απόλυτη” τιμή.</p>
+                        <ul class="mt-3 text-xs text-gray-700 space-y-1 list-disc list-inside">
+                            <li>Σημειώστε επιφάνεια (πλακάκι/χαλί) και λειτουργία.</li>
+                            <li>Κρατήστε 1 m και ίδια θέση.</li>
+                            <li>Συγκρίνετε avg από πολλαπλές μετρήσεις.</li>
+                        </ul>
+                    </div>
+
+                    <div class="rounded-xl border border-gray-200 bg-gray-50 p-4">
+                        <div class="flex items-center justify-between gap-3">
+                            <h3 class="font-semibold text-gray-900">Μοτοσικλέτες & λεωφορείο (μπαλκόνι ανοικτό)</h3>
+                            <span class="text-xs font-semibold text-red-700 bg-red-100 px-2 py-0.5 rounded-full">Δυνατό</span>
+                        </div>
+                        <div class="mt-3 rounded-lg overflow-hidden border border-gray-200 bg-white">
+                            <div class="aspect-[4/3] bg-gray-100">
+                                <img src="../images/el/report-example-traffic.png" alt="Προεπισκόπηση αναφοράς - θόρυβος δρόμου" class="w-full h-full object-cover" loading="lazy">
+                            </div>
+                        </div>
+                        <p class="mt-3 text-xs text-gray-700">Ερμηνεία: ο θόρυβος δρόμου αλλάζει (μηχανάκια, λεωφορεία, κόρνες). Για σύγκριση κρατήστε ίδια θέση και ίδια μέτρηση 60″.</p>
+                        <ul class="mt-3 text-xs text-gray-700 space-y-1 list-disc list-inside">
+                            <li>Διαχωρίστε εργάσιμες/ΣΚ και ώρες αιχμής.</li>
+                            <li>Σημειώστε κουφώματα/μπαλκόνι (ανοικτό/κλειστό).</li>
+                            <li>avg για έκθεση, max για γεγονότα.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mt-5 rounded-xl border border-gray-200 bg-gray-50 p-4">
+                    <div>
+                        <h3 class="font-semibold text-gray-900">Πρότυπο καταγραφής (copy/paste)</h3>
+                        <p class="text-xs text-gray-600 mt-1">Για πιο αναπαραγώγιμες συγκρίσεις μεταξύ ημερών και συσκευών.</p>
+                    </div>
+                    <pre class="mt-3 text-xs bg-white border border-gray-200 rounded-lg p-3 overflow-x-auto text-gray-800">date,time,location,distance,device,avg_db,max_db,notes
+2026-03-23,21:30,bedroom,1m,phone,34,48,window closed; HVAC off
+2026-03-24,21:30,bedroom,1m,phone,36,52,window closed; light rain
+2026-03-25,21:30,bedroom,1m,phone,33,46,window closed; quiet night</pre>
                 </div>
             </section>
 
@@ -607,8 +741,7 @@
             <section class="bg-white rounded-xl shadow-lg p-6">
                 <h2 class="text-xl font-bold text-gray-900 mb-3">Επιπτώσεις της Ηχορύπανσης στην Υγεία</h2>
                 <p class="text-sm text-gray-600 mb-4">
-                    Πέρα από την απώλεια ακοής, η χρόνια έκθεση στο θόρυβο επηρεάζει τη συνολική υγεία. Πηγή: 
-                    <a href="https://www.who.int/europe/news-room/fact-sheets/item/noise" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">WHO Europe</a>
+                    Ο θόρυβος δεν αφορά μόνο την ακοή — η χρόνια έκθεση μπορεί να επηρεάσει τον ύπνο, το στρες και τη συνολική υγεία. Αναφορά: <a href="https://www.who.int/europe/news-room/fact-sheets/item/noise" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">WHO Europe</a>.
                 </p>
                 <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition">
@@ -650,7 +783,7 @@
                 </div>
                 
                 <div class="mt-4 p-4 bg-gradient-to-r from-red-50 to-orange-50 rounded-lg border border-red-200">
-                    <h4 class="font-semibold text-sm text-gray-900 mb-2">🛡️ Συμβουλές Προστασίας (από NIOSH/CDC):</h4>
+                    <h4 class="font-semibold text-sm text-gray-900 mb-2">🛡️ Πρακτικές συμβουλές προστασίας</h4>
                     <ul class="text-xs text-gray-700 space-y-1 ml-4 list-disc">
                         <li>Διατηρήστε την ημερήσια έκθεση στο θόρυβο κάτω από <strong>70 dB</strong> όταν είναι δυνατόν</li>
                         <li>Φοράτε προστασία ακοής (ωτοασπίδες) σε περιβάλλοντα ≥85 dB</li>
@@ -658,6 +791,7 @@
                         <li>Χρησιμοποιήστε εργαλεία παρακολούθησης για να ελέγχετε τα επίπεδα ήχου</li>
                         <li>Δώστε στα αυτιά σας περιόδους ξεκούρασης μετά από έκθεση σε δυνατό θόρυβο</li>
                     </ul>
+                    <p class="text-xs text-gray-600 mt-3">Αναφορά: <a href="https://www.cdc.gov/niosh/noise/about/noise.html" target="_blank" rel="noopener" class="text-blue-700 hover:underline font-semibold">NIOSH/CDC</a>.</p>
                 </div>
             </section>
 
@@ -741,6 +875,14 @@
                         </ul>
                     </div>
                 </div>
+                <div class="mt-4 rounded-xl border border-gray-200 bg-gray-50 p-4">
+                    <h3 class="font-semibold text-gray-900 mb-2">Τοπικές αναφορές (Ελλάδα)</h3>
+                    <ul class="text-sm text-gray-700 space-y-2 list-disc list-inside">
+                        <li>Οι διαδικασίες/κανόνες μπορεί να διαφέρουν ανά δήμο και τύπο πηγής (γειτονιά, έργα, καταστήματα). Μια σειρά καταγραφών με ίδιες συνθήκες βοηθά περισσότερο από μία μεμονωμένη μέτρηση.</li>
+                        <li>Περιβαλλοντική πληροφόρηση: <a href="https://ypen.gov.gr/" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">Υπουργείο Περιβάλλοντος & Ενέργειας (ΥΠΕΝ)</a></li>
+                        <li>Για θέματα όχλησης/τάξης, σημείο επαφής είναι συχνά ο δήμος ή οι αρμόδιες αρχές: <a href="https://www.astynomia.gr/" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">Ελληνική Αστυνομία</a></li>
+                    </ul>
+                </div>
             </section>
 
             <!-- Technical Insight Section -->
@@ -780,7 +922,7 @@
                     </div>
                     <div class="border-l-4 border-blue-500 pl-4">
                         <h3 class="font-semibold text-sm text-gray-900 mb-1">Ποιο είναι το ασφαλές επίπεδο θορύβου;</h3>
-                        <p class="text-xs text-gray-600 mb-1">Σύμφωνα με το <strong>NIOSH/CDC</strong>, τα επίπεδα θορύβου κάτω των <strong>70 dB</strong> είναι γενικά ασφαλή για παρατεταμένη έκθεση. Το όριο επαγγελματικής έκθεσης είναι <strong>85 dB για 8 ώρες</strong>. Επίπεδα άνω των 85 dB μπορεί να προκαλέσουν βλάβη στην ακοή με παρατεταμένη έκθεση, και οτιδήποτε πάνω από 120 dB μπορεί να προκαλέσει άμεση βλάβη.</p>
+                        <p class="text-xs text-gray-600 mb-1">Πρακτικός κανόνας: κρατήστε τα παρατεταμένα επίπεδα κάτω από <strong>70 dB</strong> όπου γίνεται. Όταν πλησιάζετε τα <strong>85 dB</strong>, η διάρκεια έκθεσης γίνεται καθοριστική (ο “ασφαλής” χρόνος μειώνεται γρήγορα καθώς αυξάνει το επίπεδο).</p>
                         <a href="https://www.cdc.gov/niosh/noise/about/noise.html" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline">Οδηγίες NIOSH →</a>
                     </div>
                     <div class="border-l-4 border-blue-500 pl-4">
@@ -1015,7 +1157,7 @@
           "name": "Ποιο είναι το ασφαλές επίπεδο θορύβου;",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Σύμφωνα με το NIOSH/CDC, τα επίπεδα θορύβου κάτω των 70 dB είναι γενικά ασφαλή για παρατεταμένη έκθεση. Το όριο επαγγελματικής έκθεσης είναι 85 dB για 8 ώρες. Επίπεδα άνω των 85 dB μπορεί να προκαλέσουν βλάβη στην ακοή με παρατεταμένη έκθεση, και οτιδήποτε άνω των 120 dB μπορεί να προκαλέσει άμεση βλάβη."
+            "text": "Πρακτικός κανόνας: κρατήστε τα παρατεταμένα επίπεδα κάτω από 70 dB όπου γίνεται. Όταν πλησιάζετε τα 85 dB, η διάρκεια έκθεσης γίνεται καθοριστική (ο “ασφαλής” χρόνος μειώνεται γρήγορα καθώς αυξάνει το επίπεδο)."
           }
         },
         {
@@ -1101,6 +1243,71 @@
             };
             
             SoundMeter.init(elTranslations);
+
+            const initExposureCalculator = () => {
+                const inputEl = document.getElementById('exposureDbInput');
+                const rangeEl = document.getElementById('exposureDbRange');
+                const resultEl = document.getElementById('exposureCalcResult');
+                const noteEl = document.getElementById('exposureCalcNote');
+                if (!inputEl || !rangeEl || !resultEl || !noteEl) return;
+
+                const clamp = (n, min, max) => Math.min(max, Math.max(min, n));
+
+                const formatDuration = (minutes) => {
+                    if (!Number.isFinite(minutes) || minutes <= 0) return '< 1 λεπτό';
+                    if (minutes < 1) return '< 1 λεπτό';
+                    if (minutes < 60) return `${Math.round(minutes)} λεπτά`;
+                    const hours = minutes / 60;
+                    if (hours < 24) {
+                        const rounded = Math.round(hours * 10) / 10;
+                        return `${rounded} ώρες`;
+                    }
+                    return '24+ ώρες';
+                };
+
+                const computeMinutes = (db) => {
+                    const baseDb = 85;
+                    const baseMinutes = 8 * 60;
+                    const exchangeRate = 3;
+                    const factor = Math.pow(2, (baseDb - db) / exchangeRate);
+                    return baseMinutes * factor;
+                };
+
+                const render = (db) => {
+                    const value = clamp(db, 40, 130);
+                    inputEl.value = String(value);
+                    rangeEl.value = String(value);
+
+                    const minutes = computeMinutes(value);
+                    resultEl.textContent = formatDuration(minutes);
+
+                    if (value >= 120) {
+                        noteEl.textContent = 'Σε πολύ υψηλά επίπεδα ο κίνδυνος μπορεί να είναι άμεσος. Αυξήστε απόσταση, περιορίστε την έκθεση και χρησιμοποιήστε σωστή προστασία ακοής.';
+                        return;
+                    }
+                    if (value >= 85) {
+                        noteEl.textContent = 'Πάνω από 85 dB ο ασφαλής χρόνος μειώνεται γρήγορα. Χρησιμοποιήστε τον μέσο όρο και εστιάστε στη διάρκεια, όχι σε στιγμιαίες κορυφές.';
+                        return;
+                    }
+                    if (value >= 70) {
+                        noteEl.textContent = 'Αυτό το εύρος είναι συχνό στην καθημερινότητα, αλλά η παρατεταμένη έκθεση μπορεί να κουράσει. Χρησιμοποιήστε σταθερή ρουτίνα μέτρησης.';
+                        return;
+                    }
+                    noteEl.textContent = 'Τα χαμηλότερα επίπεδα είναι συνήθως χαμηλού κινδύνου, αλλά η άνεση και ο ύπνος μετράνε. Μετρήστε με συνέπεια για συγκρίσεις.';
+                };
+
+                const parseDb = (raw) => {
+                    const n = Number.parseFloat(String(raw));
+                    return Number.isFinite(n) ? n : 85;
+                };
+
+                inputEl.addEventListener('input', () => render(parseDb(inputEl.value)));
+                rangeEl.addEventListener('input', () => render(parseDb(rangeEl.value)));
+
+                render(parseDb(inputEl.value));
+            };
+
+            initExposureCalculator();
         
             // Mobile Main Menu Toggle
             const menuBtn = document.getElementById('mobile-menu-btn');

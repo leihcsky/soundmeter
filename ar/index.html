@@ -491,8 +491,39 @@
             <section class="bg-white rounded-xl shadow-lg p-6">
                 <h2 class="text-xl font-bold text-gray-900 mb-3">وقت التعرض الآمن حسب مستوى الديسيبل</h2>
                 <p class="text-sm text-gray-600 mb-4">
-                    وفقاً لـ <a href="https://www.cdc.gov/niosh/noise/about/noise.html" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">NIOSH/CDC</a>، كلما ارتفع مستوى الضوضاء، قصر وقت التعرض الآمن.
+                    هذا الجدول والحاسبة أدناه يساعدانك على فهم علاقة “الديسيبل × الوقت” بسرعة وإجراء مقارنات قابلة للتكرار. هو للاسترشاد وليس لقياسات الامتثال الرسمية. مرجع: <a href="https://www.cdc.gov/niosh/noise/about/noise.html" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">NIOSH/CDC</a>.
                 </p>
+
+                <div class="mb-5 rounded-xl border border-gray-200 bg-gray-50 p-4">
+                    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+                        <div class="min-w-[220px]">
+                            <h3 class="font-semibold text-gray-900">حاسبة التعرض السريع</h3>
+                            <p class="text-xs text-gray-600 mt-1">تقدير مدة التعرض اليومية القصوى باستخدام 85 ديسيبل = 8 ساعات ومعدل تبادل 3 ديسيبل.</p>
+                        </div>
+                        <div class="w-full md:w-[420px]">
+                            <label for="exposureDbInput" class="block text-xs font-semibold text-gray-700">مستوى الضوضاء (dB)</label>
+                            <div class="mt-1 flex items-center gap-3">
+                                <input id="exposureDbInput" type="number" inputmode="decimal" min="40" max="130" step="0.5" value="85" class="w-24 rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-blue-300">
+                                <input id="exposureDbRange" type="range" min="40" max="130" step="0.5" value="85" class="flex-1">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 grid md:grid-cols-2 gap-4">
+                        <div class="rounded-lg bg-white border border-gray-200 p-4">
+                            <div class="text-xs text-gray-500">أقصى تعرض يومي مُقدّر</div>
+                            <div id="exposureCalcResult" class="mt-1 text-2xl font-extrabold text-gray-900">8 ساعات</div>
+                            <div id="exposureCalcNote" class="mt-2 text-xs text-gray-600">عند 85 ديسيبل، حد شائع للفحص هو 8 ساعات. كل +3 ديسيبل يُنصّف الوقت.</div>
+                        </div>
+                        <div class="rounded-lg bg-white border border-gray-200 p-4">
+                            <div class="text-xs text-gray-500">كيفية الاستخدام</div>
+                            <ul class="mt-2 text-xs text-gray-700 space-y-1 list-disc list-inside">
+                                <li>استخدم المستوى المتوسط (وليس قمة قصيرة) لاتخاذ قرار أفضل.</li>
+                                <li>حافظ على نفس المسافة والإعداد عند المقارنة عبر الأيام.</li>
+                                <li>للقياسات التنظيمية، استخدم معدات معتمدة وإجراءات موثقة.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
                 
                 <div class="space-y-3">
                     <!-- 70 dB -->
@@ -588,11 +619,11 @@
                     </p>
                     <div class="bg-amber-50 border-r-4 border-amber-500 p-3 my-3">
                         <p class="text-sm">
-                            <strong>🏥 توصية منظمة الصحة العالمية:</strong> توصي <a href="https://www.who.int/news-room/questions-and-answers/item/deafness-and-hearing-loss-safe-listening" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">منظمة الصحة العالمية</a> بالحفاظ على مستويات الضوضاء أقل من <strong>70 ديسيبل</strong> لفترات طويلة لمنع فقدان السمع. الأصوات فوق 85 ديسيبل يمكن أن تسبب تلفاً للسمع مع التعرض المطول.
+                            <strong>🏥 سياق منظمة الصحة العالمية:</strong> يرتبط التعرض الطويل للضوضاء العالية بمخاطر على السمع. عملياً، حافظ على المستويات المستمرة منخفضة قدر الإمكان وركّز على مدة التعرض عندما يرتفع المستوى. مرجع: <a href="https://www.who.int/news-room/questions-and-answers/item/deafness-and-hearing-loss-safe-listening" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">منظمة الصحة العالمية</a>.
                         </p>
                     </div>
                     <p>
-                        <strong>كيف تضر الضوضاء بالسمع:</strong> وفقاً لـ <a href="https://gesund.bund.de/en/laermbelastung" target="_blank" rel="noopener" class="text-blue-600 hover:underline">السلطات الصحية</a>، تدمر الأصوات العالية الخلايا الشعرية الدقيقة في أذنك الداخلية. هذه الخلايا لا تتجدد، لذا الضرر دائم. تسبب الضوضاء عالية الكثافة أو طويلة الأمد:
+                        <strong>كيف تضر الضوضاء بالسمع:</strong> يمكن للأصوات العالية أن تضر الخلايا الشعرية الدقيقة في الأذن الداخلية. هذه الخلايا لا تتجدد، لذا الضرر دائم. تسبب الضوضاء عالية الكثافة أو طويلة الأمد:
                     </p>
                     <ul class="list-disc list-inside space-y-1 mr-3 text-sm">
                         <li>ضرر ميكانيكي لخلايا الشعر في الأذن الداخلية</li>
@@ -600,6 +631,7 @@
                         <li>فقدان السمع الناجم عن الضوضاء (NIHL)</li>
                         <li>طنين (رنين في الأذنين) ومشاكل حساسية</li>
                     </ul>
+                    <p class="text-xs text-gray-600 mt-2">مرجع: <a href="https://gesund.bund.de/en/laermbelastung" target="_blank" rel="noopener" class="text-blue-600 hover:underline">السلطات الصحية</a>.</p>
                     
                     <div class="mt-4 pt-4 border-t border-gray-100">
                         <h3 class="font-bold text-gray-900 mb-2 flex items-center">
@@ -613,12 +645,113 @@
                 </div>
             </section>
 
+            <section class="bg-white rounded-xl shadow-lg p-6">
+                <h2 class="text-xl font-bold text-gray-900 mb-3">ما الذي يميزنا عن أدوات قياس الضوضاء عبر الإنترنت؟</h2>
+                <p class="text-sm text-gray-600 mb-4">مُصمم للمقارنات القابلة للتكرار وتوثيق القياسات، وليس فقط رقماً لحظياً.</p>
+                <ul class="text-sm text-gray-700 space-y-2 mr-3 list-disc list-inside">
+                    <li><strong>إنشاء التقرير محلياً:</strong> “حفظ التقرير” يُنشئ الملف على جهازك ولا يرفع الصوت الخام.</li>
+                    <li><strong>أكثر من رقم:</strong> طيف ترددي + سجل تاريخي لفهم الاتجاهات والقمم.</li>
+                    <li><strong>إرشادات للقياس القابل للتكرار:</strong> خطوات SOP، تقارير مثال، وقالب سجل لتوحيد ظروف القياس.</li>
+                    <li><strong>شفافية التحديث والمنهجية:</strong> راجع <a href="../methodology.html" class="text-blue-600 hover:underline font-semibold">Methodology</a> و <a href="../changelog.html" class="text-blue-600 hover:underline font-semibold">Changelog</a>.</li>
+                    <li><strong>الخصوصية:</strong> راجع <a href="../privacy.html" class="text-blue-600 hover:underline font-semibold">Privacy</a> لشرح تدفق البيانات والخدمات الخارجية.</li>
+                </ul>
+                <div class="mt-4 grid sm:grid-cols-3 gap-3">
+                    <div class="rounded-xl border border-gray-200 bg-gray-50 p-4">
+                        <div class="text-xs font-semibold text-gray-900">1) الميكروفون</div>
+                        <div class="mt-1 text-xs text-gray-600">الأذونات يتحكم بها المتصفح.</div>
+                    </div>
+                    <div class="rounded-xl border border-gray-200 bg-gray-50 p-4">
+                        <div class="text-xs font-semibold text-gray-900">2) معالجة محلية</div>
+                        <div class="mt-1 text-xs text-gray-600">حساب RMS والطيف والسجل داخل المتصفح.</div>
+                    </div>
+                    <div class="rounded-xl border border-gray-200 bg-gray-50 p-4">
+                        <div class="text-xs font-semibold text-gray-900">3) حفظ التقرير</div>
+                        <div class="mt-1 text-xs text-gray-600">إنشاء ملف من إحصاءات الجلسة على جهازك.</div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="example-reports" class="bg-white rounded-xl shadow-lg p-6">
+                <div class="flex items-start justify-between gap-4 flex-wrap">
+                    <div class="min-w-[220px]">
+                        <h2 class="text-xl font-bold text-gray-900">أمثلة تقارير (كيفية تفسير النتائج)</h2>
+                        <p class="text-sm text-gray-600 mt-1">معاينات ثابتة لتقارير مثال من نفس قالب "حفظ التقرير" لشرح كيفية قراءة النتائج.</p>
+                    </div>
+                </div>
+
+                <div class="mt-4 grid lg:grid-cols-3 gap-4">
+                    <div class="rounded-xl border border-gray-200 bg-gray-50 p-4">
+                        <div class="flex items-center justify-between gap-3">
+                            <h3 class="font-semibold text-gray-900">غرفة النوم (ليلاً) - خط الأساس في شقة</h3>
+                            <span class="text-xs font-semibold text-green-700 bg-green-100 px-2 py-0.5 rounded-full">منخفض</span>
+                        </div>
+                        <div class="mt-3 rounded-lg overflow-hidden border border-gray-200 bg-white">
+                            <div class="aspect-[4/3] bg-gray-100">
+                                <img src="../images/ar/report-example-bedroom.png" alt="معاينة تقرير مثال - غرفة النوم ليلاً" class="w-full h-full object-cover" loading="lazy">
+                            </div>
+                        </div>
+                        <p class="mt-3 text-xs text-gray-700">التفسير: غالباً ما يمثل max حدثاً قصيراً (باب في الممر، خطوات). لراحة النوم، متوسط القياس في نفس الظروف يكون أكثر فائدة من قمة واحدة.</p>
+                        <ul class="mt-3 text-xs text-gray-700 space-y-1 list-disc list-inside">
+                            <li>قِس في نفس الوقت يومياً (مثلاً بعد 11 مساءً).</li>
+                            <li>سجل حالة النوافذ والمكيف/المروحة.</li>
+                            <li>كرّر 3 مرات وقارن المتوسط.</li>
+                        </ul>
+                    </div>
+
+                    <div class="rounded-xl border border-gray-200 bg-gray-50 p-4">
+                        <div class="flex items-center justify-between gap-3">
+                            <h3 class="font-semibold text-gray-900">المكنسة (سرعات التشغيل) - 1 م</h3>
+                            <span class="text-xs font-semibold text-amber-800 bg-amber-100 px-2 py-0.5 rounded-full">مرتفع</span>
+                        </div>
+                        <div class="mt-3 rounded-lg overflow-hidden border border-gray-200 bg-white">
+                            <div class="aspect-[4/3] bg-gray-100">
+                                <img src="../images/ar/report-example-vacuum.png" alt="معاينة تقرير مثال - اختبار المكنسة" class="w-full h-full object-cover" loading="lazy">
+                            </div>
+                        </div>
+                        <p class="mt-3 text-xs text-gray-700">التفسير: مفيد لمقارنة وضعية/سرعة الجهاز أو نوع الأرضية. ثبّت المسافة والاتجاه ثم قارن المتوسط.</p>
+                        <ul class="mt-3 text-xs text-gray-700 space-y-1 list-disc list-inside">
+                            <li>اذكر نوع الأرضية (سيراميك/سجاد) ووضع التشغيل.</li>
+                            <li>ثبت 1 م وارتفاع الهاتف واتجاهه.</li>
+                            <li>قارن المتوسط عبر عدة محاولات.</li>
+                        </ul>
+                    </div>
+
+                    <div class="rounded-xl border border-gray-200 bg-gray-50 p-4">
+                        <div class="flex items-center justify-between gap-3">
+                            <h3 class="font-semibold text-gray-900">دراجات نارية وحركة مرور (نافذة مفتوحة)</h3>
+                            <span class="text-xs font-semibold text-red-700 bg-red-100 px-2 py-0.5 rounded-full">صاخب</span>
+                        </div>
+                        <div class="mt-3 rounded-lg overflow-hidden border border-gray-200 bg-white">
+                            <div class="aspect-[4/3] bg-gray-100">
+                                <img src="../images/ar/report-example-traffic.png" alt="معاينة تقرير مثال - ضوضاء الشارع" class="w-full h-full object-cover" loading="lazy">
+                            </div>
+                        </div>
+                        <p class="mt-3 text-xs text-gray-700">التفسير: ضوضاء الشارع متغيرة (دراجات، أبواق، شاحنات). للمقارنة: نفس المكان، نفس الوقت، ونفس نافذة 60 ثانية.</p>
+                        <ul class="mt-3 text-xs text-gray-700 space-y-1 list-disc list-inside">
+                            <li>افصل بين وقت الذروة والليل.</li>
+                            <li>سجل حالة النافذة (مفتوحة/مغلقة).</li>
+                            <li>المتوسط للتعرض و max للأحداث.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mt-5 rounded-xl border border-gray-200 bg-gray-50 p-4">
+                    <div>
+                        <h3 class="font-semibold text-gray-900">قالب سجل القياس (نسخ/لصق)</h3>
+                        <p class="text-xs text-gray-600 mt-1">يساعدك هذا في جعل القياسات قابلة للمقارنة عبر الأيام والأجهزة.</p>
+                    </div>
+                    <pre class="mt-3 text-xs bg-white border border-gray-200 rounded-lg p-3 overflow-x-auto text-gray-800">date,time,location,distance,device,avg_db,max_db,notes
+2026-03-23,21:30,bedroom,1m,phone,34,48,window closed; HVAC off
+2026-03-24,21:30,bedroom,1m,phone,36,52,window closed; light rain
+2026-03-25,21:30,bedroom,1m,phone,33,46,window closed; quiet night</pre>
+                </div>
+            </section>
+
             <!-- Health Impact -->
             <section class="bg-white rounded-xl shadow-lg p-6">
                 <h2 class="text-xl font-bold text-gray-900 mb-3">التأثير الصحي للتلوث الضوضائي</h2>
                 <p class="text-sm text-gray-600 mb-4">
-                    إلى جانب فقدان السمع، يؤثر التعرض المزمن للضوضاء على الصحة العامة. المصدر: 
-                    <a href="https://www.who.int/europe/news-room/fact-sheets/item/noise" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">WHO Europe</a>
+                    الضوضاء ليست مجرد فقدان السمع — فالتعرض المزمن قد يؤثر على النوم والضغط النفسي والصحة العامة. مرجع: <a href="https://www.who.int/europe/news-room/fact-sheets/item/noise" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">WHO Europe</a>.
                 </p>
                 <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition">
@@ -660,7 +793,7 @@
                 </div>
                 
                 <div class="mt-4 p-4 bg-gradient-to-l from-red-50 to-orange-50 rounded-lg border border-red-200">
-                    <h4 class="font-semibold text-sm text-gray-900 mb-2">🛡️ نصائح للحماية (من NIOSH/CDC):</h4>
+                    <h4 class="font-semibold text-sm text-gray-900 mb-2">🛡️ نصائح عملية للحماية</h4>
                     <ul class="text-xs text-gray-700 space-y-1 mr-4 list-disc">
                         <li>حافظ على التعرض اليومي للضوضاء أقل من <strong>70 ديسيبل</strong> كلما أمكن</li>
                         <li>ارتدِ حماية الأذن (سدادات الأذن/واقيات الأذن) في بيئات ≥85 ديسيبل</li>
@@ -668,6 +801,7 @@
                         <li>استخدم أدوات مراقبة الضوضاء لتتبع وإدارة مستويات الصوت</li>
                         <li>امنح أذنيك فترات راحة بعد التعرض لضوضاء عالية</li>
                     </ul>
+                    <p class="text-xs text-gray-600 mt-3">مرجع: <a href="https://www.cdc.gov/niosh/noise/about/noise.html" target="_blank" rel="noopener" class="text-blue-700 hover:underline font-semibold">NIOSH/CDC</a>.</p>
                 </div>
             </section>
 
@@ -751,6 +885,14 @@
                         </ul>
                     </div>
                 </div>
+                <div class="mt-4 rounded-xl border border-gray-200 bg-gray-50 p-4">
+                    <h3 class="font-semibold text-gray-900 mb-2">ملاحظات محلية للمنطقة العربية</h3>
+                    <ul class="text-sm text-gray-700 space-y-2 list-disc list-inside">
+                        <li>تختلف اللوائح وأوقات الهدوء بين المدن والبلدان. عادةً ما تكون سلسلة قياسات متسقة (عدة أيام، نفس الظروف) أكثر فائدة من قراءة واحدة.</li>
+                        <li>في مباني الشقق، البدء يكون غالباً عبر إدارة المبنى/اتحاد الملاك مع سجل قياسات وسياق واضح.</li>
+                        <li>للإرشادات العامة حول الصحة والبيئة في الإقليم: <a href="https://www.emro.who.int/" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">WHO EMRO</a></li>
+                    </ul>
+                </div>
             </section>
 
             <!-- Technical Insight Section -->
@@ -790,7 +932,7 @@
                     </div>
                     <div class="border-r-4 border-blue-500 pr-4">
                         <h3 class="font-semibold text-sm text-gray-900 mb-1">ما هو مستوى الضوضاء الآمن؟</h3>
-                        <p class="text-xs text-gray-600 mb-1">وفقاً لـ <strong>NIOSH/CDC</strong>، تعتبر مستويات الضوضاء الأقل من <strong>70 ديسيبل</strong> آمنة بشكل عام للتعرض المطول. حد التعرض المهني هو <strong>85 ديسيبل لمدة 8 ساعات</strong>. المستويات الأعلى من 85 ديسيبل يمكن أن تسبب تلفاً للسمع مع التعرض الممتد، وأي شيء فوق 120 ديسيبل يمكن أن يسبب ضرراً فورياً.</p>
+                        <p class="text-xs text-gray-600 mb-1">كقاعدة عملية، حاول إبقاء المستويات المستمرة أقل من <strong>70 ديسيبل</strong> قدر الإمكان. وعند الاقتراب من <strong>85 ديسيبل</strong> تصبح مدة التعرض العامل الأهم (فالوقت الآمن ينخفض بسرعة مع ارتفاع المستوى).</p>
                         <a href="https://www.cdc.gov/niosh/noise/about/noise.html" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline">إرشادات NIOSH ←</a>
                     </div>
                     <div class="border-r-4 border-blue-500 pr-4">
@@ -1054,7 +1196,7 @@
           "name": "ما هو مستوى الضوضاء الآمن؟",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "وفقاً لـ NIOSH/CDC، تعتبر مستويات الضوضاء الأقل من 70 ديسيبل آمنة بشكل عام للتعرض المطول. حد التعرض المهني هو 85 ديسيبل لمدة 8 ساعات. المستويات الأعلى من 85 ديسيبل يمكن أن تسبب تلفاً للسمع مع التعرض الممتد."
+            "text": "كقاعدة عملية، حاول إبقاء المستويات المستمرة أقل من 70 ديسيبل قدر الإمكان. وعند الاقتراب من 85 ديسيبل تصبح مدة التعرض العامل الأهم (فالوقت الآمن ينخفض بسرعة مع ارتفاع المستوى)."
           }
         },
         {
@@ -1141,6 +1283,71 @@
             };
             
             SoundMeter.init(arTranslations);
+
+            const initExposureCalculator = () => {
+                const inputEl = document.getElementById('exposureDbInput');
+                const rangeEl = document.getElementById('exposureDbRange');
+                const resultEl = document.getElementById('exposureCalcResult');
+                const noteEl = document.getElementById('exposureCalcNote');
+                if (!inputEl || !rangeEl || !resultEl || !noteEl) return;
+
+                const clamp = (n, min, max) => Math.min(max, Math.max(min, n));
+
+                const formatDuration = (minutes) => {
+                    if (!Number.isFinite(minutes) || minutes <= 0) return 'أقل من دقيقة';
+                    if (minutes < 1) return 'أقل من دقيقة';
+                    if (minutes < 60) return `${Math.round(minutes)} دقيقة`;
+                    const hours = minutes / 60;
+                    if (hours < 24) {
+                        const rounded = Math.round(hours * 10) / 10;
+                        return `${rounded} ساعة`;
+                    }
+                    return '24+ ساعة';
+                };
+
+                const computeMinutes = (db) => {
+                    const baseDb = 85;
+                    const baseMinutes = 8 * 60;
+                    const exchangeRate = 3;
+                    const factor = Math.pow(2, (baseDb - db) / exchangeRate);
+                    return baseMinutes * factor;
+                };
+
+                const render = (db) => {
+                    const value = clamp(db, 40, 130);
+                    inputEl.value = String(value);
+                    rangeEl.value = String(value);
+
+                    const minutes = computeMinutes(value);
+                    resultEl.textContent = formatDuration(minutes);
+
+                    if (value >= 120) {
+                        noteEl.textContent = 'عند مستويات مرتفعة جداً، قد يكون الخطر فورياً. زد المسافة، قلل التعرض، واستخدم حماية سمع مناسبة.';
+                        return;
+                    }
+                    if (value >= 85) {
+                        noteEl.textContent = 'فوق 85 ديسيبل ينخفض الوقت الآمن بسرعة. استخدم المستوى المتوسط وركّز على مدة التعرض، لا على القمم القصيرة.';
+                        return;
+                    }
+                    if (value >= 70) {
+                        noteEl.textContent = 'هذا النطاق قد يكون مقبولاً في العديد من البيئات اليومية، لكن التعرض الطويل قد يسبب إجهاداً. استخدم طريقة قياس قابلة للتكرار.';
+                        return;
+                    }
+                    noteEl.textContent = 'المستويات الأقل عادة منخفضة المخاطر للتعرض اليومي، لكن ركّز على الراحة وجودة النوم وإمكانية المقارنة.';
+                };
+
+                const parseDb = (raw) => {
+                    const n = Number.parseFloat(String(raw));
+                    return Number.isFinite(n) ? n : 85;
+                };
+
+                inputEl.addEventListener('input', () => render(parseDb(inputEl.value)));
+                rangeEl.addEventListener('input', () => render(parseDb(rangeEl.value)));
+
+                render(parseDb(inputEl.value));
+            };
+
+            initExposureCalculator();
         
             // Mobile Main Menu Toggle
             const menuBtn = document.getElementById('mobile-menu-btn');

@@ -493,8 +493,39 @@
             <section class="bg-white rounded-xl shadow-lg p-6">
                 <h2 class="text-xl font-bold text-gray-900 mb-3">Temps d'Exposition Sûr par Niveau de Décibels</h2>
                 <p class="text-sm text-gray-600 mb-4">
-                    Selon le <a href="https://www.cdc.gov/niosh/noise/about/noise.html" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">NIOSH/CDC</a>, plus le niveau sonore est élevé, plus le temps d'exposition sûr est court.
+                    Le tableau et le calculateur ci-dessous donnent un repère rapide pour relier niveau (dB) et durée, et comparer des mesures de façon reproductible. C’est une aide à la décision, pas une mesure de conformité. Référence : <a href="https://www.cdc.gov/niosh/noise/about/noise.html" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">NIOSH/CDC</a>.
                 </p>
+
+                <div class="mb-5 rounded-xl border border-gray-200 bg-gray-50 p-4">
+                    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+                        <div class="min-w-[220px]">
+                            <h3 class="font-semibold text-gray-900">Calculateur d’exposition rapide</h3>
+                            <p class="text-xs text-gray-600 mt-1">Estime une durée maximale d’exposition quotidienne avec 85 dB = 8 h et le taux d’échange de 3 dB (repère, pas une mesure de conformité).</p>
+                        </div>
+                        <div class="w-full md:w-[420px]">
+                            <label for="exposureDbInput" class="block text-xs font-semibold text-gray-700">Niveau sonore (dB)</label>
+                            <div class="mt-1 flex items-center gap-3">
+                                <input id="exposureDbInput" type="number" inputmode="decimal" min="40" max="130" step="0.5" value="85" class="w-24 rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-blue-300">
+                                <input id="exposureDbRange" type="range" min="40" max="130" step="0.5" value="85" class="flex-1">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 grid md:grid-cols-2 gap-4">
+                        <div class="rounded-lg bg-white border border-gray-200 p-4">
+                            <div class="text-xs text-gray-500">Exposition quotidienne maximale estimée</div>
+                            <div id="exposureCalcResult" class="mt-1 text-2xl font-extrabold text-gray-900">8 h</div>
+                            <div id="exposureCalcNote" class="mt-2 text-xs text-gray-600">À 85 dB, un repère courant est 8 heures. Chaque +3 dB divise le temps par deux.</div>
+                        </div>
+                        <div class="rounded-lg bg-white border border-gray-200 p-4">
+                            <div class="text-xs text-gray-500">Conseils d’utilisation</div>
+                            <ul class="mt-2 text-xs text-gray-700 space-y-1 list-disc list-inside">
+                                <li>Utilisez la moyenne (pas un pic bref) pour décider.</li>
+                                <li>Gardez distance et configuration constantes pour comparer.</li>
+                                <li>Pour la conformité, utilisez un équipement certifié et une procédure documentée.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
                 
                 <div class="space-y-3">
                     <!-- 70 dB -->
@@ -630,7 +661,7 @@
                         </p>
                     </div>
                     <p>
-                        <strong>Comment le bruit endommage l'audition :</strong> Selon les <a href="https://gesund.bund.de/en/laermbelastung" target="_blank" rel="noopener" class="text-blue-600 hover:underline">autorités sanitaires</a>, les sons forts endommagent les cellules ciliées délicates de votre oreille interne. Ces cellules ne se régénèrent pas, donc les dommages sont permanents. Le bruit de haute intensité ou de longue durée provoque :
+                        <strong>Comment le bruit endommage l'audition :</strong> Les sons forts peuvent endommager les cellules ciliées délicates de votre oreille interne. Ces cellules ne se régénèrent pas, donc les dommages sont permanents. Le bruit de haute intensité ou de longue durée provoque :
                     </p>
                     <ul class="list-disc list-inside space-y-1 ml-3 text-sm">
                         <li>Dommages mécaniques aux cellules ciliées de l'oreille interne</li>
@@ -638,6 +669,7 @@
                         <li>Perte Auditive Induite par le Bruit (PAIB)</li>
                         <li>Acouphènes (bourdonnements dans les oreilles) et problèmes de sensibilité</li>
                     </ul>
+                    <p class="text-xs text-gray-600 mt-2">Référence : <a href="https://gesund.bund.de/en/laermbelastung" target="_blank" rel="noopener" class="text-blue-600 hover:underline">autorités sanitaires</a>.</p>
                     
                     <div class="mt-4 pt-4 border-t border-gray-100">
                         <h3 class="font-bold text-gray-900 mb-2 flex items-center">
@@ -651,12 +683,113 @@
                 </div>
             </section>
 
+            <section class="bg-white rounded-xl shadow-lg p-6">
+                <h2 class="text-xl font-bold text-gray-900 mb-3">Ce qui nous différencie des autres sonomètres en ligne</h2>
+                <p class="text-sm text-gray-600 mb-4">Pensé pour des comparaisons reproductibles et une documentation claire, pas seulement un chiffre en direct.</p>
+                <ul class="text-sm text-gray-700 space-y-2 list-disc list-inside">
+                    <li><strong>Rapport généré en local :</strong> « Enregistrer le rapport » crée le fichier sur votre appareil, sans téléverser l’audio brut.</li>
+                    <li><strong>Plus de contexte :</strong> spectre de fréquences + historique pour comprendre tendances et pics.</li>
+                    <li><strong>Mesures reproductibles :</strong> conseils type SOP, exemples de rapports et modèle de journal pour des comparaisons cohérentes.</li>
+                    <li><strong>Transparence :</strong> <a href="../methodology.html" class="text-blue-600 hover:underline font-semibold">Methodology</a> et <a href="../changelog.html" class="text-blue-600 hover:underline font-semibold">Changelog</a> expliquent le fonctionnement et les changements.</li>
+                    <li><strong>Vie privée :</strong> voir <a href="../privacy.html" class="text-blue-600 hover:underline font-semibold">Privacy</a> (flux de données et services tiers).</li>
+                </ul>
+                <div class="mt-4 grid sm:grid-cols-3 gap-3">
+                    <div class="rounded-xl border border-gray-200 bg-gray-50 p-4">
+                        <div class="text-xs font-semibold text-gray-900">1) Microphone</div>
+                        <div class="mt-1 text-xs text-gray-600">Accès contrôlé par votre navigateur.</div>
+                    </div>
+                    <div class="rounded-xl border border-gray-200 bg-gray-50 p-4">
+                        <div class="text-xs font-semibold text-gray-900">2) Traitement local</div>
+                        <div class="mt-1 text-xs text-gray-600">RMS, spectre et historique calculés dans le navigateur.</div>
+                    </div>
+                    <div class="rounded-xl border border-gray-200 bg-gray-50 p-4">
+                        <div class="text-xs font-semibold text-gray-900">3) Enregistrer</div>
+                        <div class="mt-1 text-xs text-gray-600">Fichier généré à partir des statistiques de session.</div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="example-reports" class="bg-white rounded-xl shadow-lg p-6">
+                <div class="flex items-start justify-between gap-4 flex-wrap">
+                    <div class="min-w-[220px]">
+                        <h2 class="text-xl font-bold text-gray-900">Exemples de rapports (interpréter les résultats)</h2>
+                        <p class="text-sm text-gray-600 mt-1">Aperçus statiques issus du même modèle «&nbsp;Enregistrer le rapport&nbsp;» pour illustrer min/moy/max et une routine de mesure reproductible.</p>
+                    </div>
+                </div>
+
+                <div class="mt-4 grid lg:grid-cols-3 gap-4">
+                    <div class="rounded-xl border border-gray-200 bg-gray-50 p-4">
+                        <div class="flex items-center justify-between gap-3">
+                            <h3 class="font-semibold text-gray-900">Chambre (nuit) – immeuble en ville</h3>
+                            <span class="text-xs font-semibold text-green-700 bg-green-100 px-2 py-0.5 rounded-full">Faible</span>
+                        </div>
+                        <div class="mt-3 rounded-lg overflow-hidden border border-gray-200 bg-white">
+                            <div class="aspect-[4/3] bg-gray-100">
+                                <img src="../images/fr/report-example-bedroom.png" alt="Aperçu de rapport exemple - chambre en ville" class="w-full h-full object-cover" loading="lazy">
+                            </div>
+                        </div>
+                        <p class="mt-3 text-xs text-gray-700">Interprétation&nbsp;: en immeuble, le max reflète souvent un événement court (porte, pas dans le couloir). Pour le sommeil, la moyenne sur un créneau comparable est généralement plus utile.</p>
+                        <ul class="mt-3 text-xs text-gray-700 space-y-1 list-disc list-inside">
+                            <li>Gardez la même heure (ex. 23h–0h).</li>
+                            <li>Notez volets/fenêtres et VMC/ventilation.</li>
+                            <li>Répétez 3× et comparez surtout les moyennes.</li>
+                        </ul>
+                    </div>
+
+                    <div class="rounded-xl border border-gray-200 bg-gray-50 p-4">
+                        <div class="flex items-center justify-between gap-3">
+                            <h3 class="font-semibold text-gray-900">Aspirateur (mode éco vs turbo) – 1 m</h3>
+                            <span class="text-xs font-semibold text-amber-800 bg-amber-100 px-2 py-0.5 rounded-full">Élevé</span>
+                        </div>
+                        <div class="mt-3 rounded-lg overflow-hidden border border-gray-200 bg-white">
+                            <div class="aspect-[4/3] bg-gray-100">
+                                <img src="../images/fr/report-example-vacuum.png" alt="Aperçu de rapport exemple - test aspirateur" class="w-full h-full object-cover" loading="lazy">
+                            </div>
+                        </div>
+                        <p class="mt-3 text-xs text-gray-700">Interprétation&nbsp;: utile pour comparer un nouvel appareil, une brosse, ou un mode (éco/turbo). Le protocole de mesure compte plus que la valeur absolue.</p>
+                        <ul class="mt-3 text-xs text-gray-700 space-y-1 list-disc list-inside">
+                            <li>Notez le sol (carrelage vs tapis).</li>
+                            <li>Indiquez le mode/puissance.</li>
+                            <li>Marquez la position et comparez la moyenne.</li>
+                        </ul>
+                    </div>
+
+                    <div class="rounded-xl border border-gray-200 bg-gray-50 p-4">
+                        <div class="flex items-center justify-between gap-3">
+                            <h3 class="font-semibold text-gray-900">Boulevard / périphérique (fenêtre entrouverte)</h3>
+                            <span class="text-xs font-semibold text-red-700 bg-red-100 px-2 py-0.5 rounded-full">Bruyant</span>
+                        </div>
+                        <div class="mt-3 rounded-lg overflow-hidden border border-gray-200 bg-white">
+                            <div class="aspect-[4/3] bg-gray-100">
+                                <img src="../images/fr/report-example-traffic.png" alt="Aperçu de rapport exemple - trafic urbain" class="w-full h-full object-cover" loading="lazy">
+                            </div>
+                        </div>
+                        <p class="mt-3 text-xs text-gray-700">Interprétation&nbsp;: le bruit de rue varie (bus, scooters, livraisons). Pour comparer, mesurez au même endroit et à la même heure (créneau de 60 s).</p>
+                        <ul class="mt-3 text-xs text-gray-700 space-y-1 list-disc list-inside">
+                            <li>Heures de pointe vs nuit, séparément.</li>
+                            <li>Notez la position des fenêtres (fermée/entrebâillée).</li>
+                            <li>Moyenne pour l’exposition, max pour les événements.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mt-5 rounded-xl border border-gray-200 bg-gray-50 p-4">
+                    <div>
+                        <h3 class="font-semibold text-gray-900">Modèle de journal de mesure (copier/coller)</h3>
+                        <p class="text-xs text-gray-600 mt-1">Pour rendre vos comparaisons plus reproductibles entre jours et appareils.</p>
+                    </div>
+                    <pre class="mt-3 text-xs bg-white border border-gray-200 rounded-lg p-3 overflow-x-auto text-gray-800">date,time,location,distance,device,avg_db,max_db,notes
+2026-03-23,21:30,bedroom,1m,phone,34,48,window closed; HVAC off
+2026-03-24,21:30,bedroom,1m,phone,36,52,window closed; light rain
+2026-03-25,21:30,bedroom,1m,phone,33,46,window closed; quiet night</pre>
+                </div>
+            </section>
+
             <!-- Health Impact -->
             <section class="bg-white rounded-xl shadow-lg p-6">
                 <h2 class="text-xl font-bold text-gray-900 mb-3">Impact Sanitaire de la Pollution Sonore</h2>
                 <p class="text-sm text-gray-600 mb-4">
-                    Au-delà de la perte auditive, l'exposition chronique au bruit affecte la santé globale. Source : 
-                    <a href="https://www.who.int/europe/news-room/fact-sheets/item/noise" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">OMS Europe</a>
+                    Le bruit ne concerne pas seulement l’audition : une exposition chronique peut influencer le sommeil, le stress et la santé globale. Référence : <a href="https://www.who.int/europe/news-room/fact-sheets/item/noise" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">OMS Europe</a>.
                 </p>
                 <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition">
@@ -698,7 +831,7 @@
                 </div>
                 
                 <div class="mt-4 p-4 bg-gradient-to-r from-red-50 to-orange-50 rounded-lg border border-red-200">
-                    <h4 class="font-semibold text-sm text-gray-900 mb-2">🛡️ Conseils de Protection (du NIOSH/CDC) :</h4>
+                    <h4 class="font-semibold text-sm text-gray-900 mb-2">🛡️ Conseils pratiques de protection</h4>
                     <ul class="text-xs text-gray-700 space-y-1 ml-4 list-disc">
                         <li>Maintenez l'exposition quotidienne au bruit en dessous de <strong>70 dB</strong> si possible</li>
                         <li>Portez une protection auditive (bouchons/casque) dans les environnements ≥85 dB</li>
@@ -706,6 +839,7 @@
                         <li>Utilisez des outils de surveillance du bruit pour suivre et gérer les niveaux sonores</li>
                         <li>Accordez des périodes de repos à vos oreilles après une exposition à un bruit fort</li>
                     </ul>
+                    <p class="text-xs text-gray-600 mt-3">Référence : <a href="https://www.cdc.gov/niosh/noise/about/noise.html" target="_blank" rel="noopener" class="text-blue-700 hover:underline font-semibold">NIOSH/CDC</a>.</p>
                 </div>
             </section>
 
@@ -789,6 +923,14 @@
                         </ul>
                     </div>
                 </div>
+                <div class="mt-4 rounded-xl border border-gray-200 bg-gray-50 p-4">
+                    <h3 class="font-semibold text-gray-900 mb-2">Repères locaux & ressources (France)</h3>
+                    <ul class="text-sm text-gray-700 space-y-2 list-disc list-inside">
+                        <li>Les règles varient selon les communes et les situations (copropriété, voisinage, travaux). Un historique de mesures (dates/heures) aide davantage qu’une mesure isolée.</li>
+                        <li>Démarches et informations pratiques : <a href="https://www.service-public.fr/particuliers/vosdroits/N357" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">Service-Public.fr (nuisances sonores)</a></li>
+                        <li>Cartes et données (Île-de-France) : <a href="https://www.bruitparif.fr/" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">Bruitparif</a></li>
+                    </ul>
+                </div>
             </section>
 
             <!-- Technical Insight Section -->
@@ -828,7 +970,7 @@
                     </div>
                     <div class="border-l-4 border-blue-500 pl-4">
                         <h3 class="font-semibold text-sm text-gray-900 mb-1">Quel est un niveau de bruit sûr ?</h3>
-                        <p class="text-xs text-gray-600 mb-1">Selon le <strong>NIOSH/CDC</strong>, les niveaux de bruit inférieurs à <strong>70 dB</strong> sont généralement sûrs pour une exposition prolongée. La limite d'exposition professionnelle est de <strong>85 dB pour 8 heures</strong>. Les niveaux supérieurs à 85 dB peuvent causer des dommages auditifs avec une exposition prolongée, et tout ce qui dépasse 120 dB peut causer des dommages immédiats.</p>
+                        <p class="text-xs text-gray-600 mb-1">Repère pratique : visez des niveaux durables sous <strong>70 dB</strong> quand c’est possible. À l’approche de <strong>85 dB</strong>, la durée d’exposition devient déterminante (le temps “sûr” chute rapidement quand le niveau augmente).</p>
                         <a href="https://www.cdc.gov/niosh/noise/about/noise.html" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline">Directives NIOSH →</a>
                     </div>
                     <div class="border-l-4 border-blue-500 pl-4">
@@ -1092,7 +1234,7 @@
           "name": "Quel est un niveau de bruit sûr ?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Selon le NIOSH/CDC, les niveaux de bruit inférieurs à 70 dB sont généralement sûrs pour une exposition prolongée. La limite d'exposition professionnelle est de 85 dB pour 8 heures. Les niveaux supérieurs à 85 dB peuvent causer des dommages auditifs avec une exposition prolongée, et tout ce qui dépasse 120 dB peut causer des dommages immédiats."
+            "text": "Repère pratique : visez des niveaux durables sous 70 dB quand c’est possible. À l’approche de 85 dB, la durée d’exposition devient déterminante (le temps “sûr” chute rapidement quand le niveau augmente)."
           }
         },
         {
@@ -1178,6 +1320,71 @@
             };
             
             SoundMeter.init(frTranslations);
+
+            const initExposureCalculator = () => {
+                const inputEl = document.getElementById('exposureDbInput');
+                const rangeEl = document.getElementById('exposureDbRange');
+                const resultEl = document.getElementById('exposureCalcResult');
+                const noteEl = document.getElementById('exposureCalcNote');
+                if (!inputEl || !rangeEl || !resultEl || !noteEl) return;
+
+                const clamp = (n, min, max) => Math.min(max, Math.max(min, n));
+
+                const formatDuration = (minutes) => {
+                    if (!Number.isFinite(minutes) || minutes <= 0) return '< 1 minute';
+                    if (minutes < 1) return '< 1 minute';
+                    if (minutes < 60) return `${Math.round(minutes)} minutes`;
+                    const hours = minutes / 60;
+                    if (hours < 24) {
+                        const rounded = Math.round(hours * 10) / 10;
+                        return `${rounded} h`;
+                    }
+                    return '24+ h';
+                };
+
+                const computeMinutes = (db) => {
+                    const baseDb = 85;
+                    const baseMinutes = 8 * 60;
+                    const exchangeRate = 3;
+                    const factor = Math.pow(2, (baseDb - db) / exchangeRate);
+                    return baseMinutes * factor;
+                };
+
+                const render = (db) => {
+                    const value = clamp(db, 40, 130);
+                    inputEl.value = String(value);
+                    rangeEl.value = String(value);
+
+                    const minutes = computeMinutes(value);
+                    resultEl.textContent = formatDuration(minutes);
+
+                    if (value >= 120) {
+                        noteEl.textContent = 'À des niveaux très élevés, le risque peut être immédiat. Augmentez la distance, limitez l’exposition et utilisez une protection auditive.';
+                        return;
+                    }
+                    if (value >= 85) {
+                        noteEl.textContent = 'Au-dessus de 85 dB, le temps sûr diminue rapidement. Utilisez la moyenne et concentrez-vous sur la durée, pas sur des pics brefs.';
+                        return;
+                    }
+                    if (value >= 70) {
+                        noteEl.textContent = 'Cette plage est courante au quotidien, mais une longue exposition peut fatiguer. Utilisez une routine de mesure reproductible.';
+                        return;
+                    }
+                    noteEl.textContent = 'Les niveaux plus faibles sont généralement peu risqués, mais la qualité de sommeil et le confort comptent. Mesurez de façon comparable.';
+                };
+
+                const parseDb = (raw) => {
+                    const n = Number.parseFloat(String(raw));
+                    return Number.isFinite(n) ? n : 85;
+                };
+
+                inputEl.addEventListener('input', () => render(parseDb(inputEl.value)));
+                rangeEl.addEventListener('input', () => render(parseDb(rangeEl.value)));
+
+                render(parseDb(inputEl.value));
+            };
+
+            initExposureCalculator();
         
             // Mobile Main Menu Toggle
             const menuBtn = document.getElementById('mobile-menu-btn');

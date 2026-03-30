@@ -492,10 +492,40 @@
             <section class="bg-white rounded-xl shadow-lg p-6">
                 <h2 class="text-xl font-bold text-gray-900 mb-3">不同分贝对应的安全暴露时间</h2>
                 <p class="text-sm text-gray-600 mb-4">
-                    根据
-                    <a href="https://www.cdc.gov/niosh/noise/about/noise.html" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">NIOSH/CDC</a>
-                    的建议，噪音越大，可接受的安全暴露时间就越短。
+                    这张图表与下方计算器用于快速参考“分贝 × 时间”的关系，方便做趋势判断与前后对比，而非用于合规测量。参考来源：
+                    <a href="https://www.cdc.gov/niosh/noise/about/noise.html" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">NIOSH/CDC</a>。
                 </p>
+
+                <div class="mb-5 rounded-xl border border-gray-200 bg-gray-50 p-4">
+                    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+                        <div class="min-w-[220px]">
+                            <h3 class="font-semibold text-gray-900">快速暴露时间计算器</h3>
+                            <p class="text-xs text-gray-600 mt-1">基于 85 dB = 8 小时、3 dB 交换率估算每日最大安全暴露时长（用于参考与对比，非合规测量）。</p>
+                        </div>
+                        <div class="w-full md:w-[420px]">
+                            <label for="exposureDbInput" class="block text-xs font-semibold text-gray-700">噪音水平（dB）</label>
+                            <div class="mt-1 flex items-center gap-3">
+                                <input id="exposureDbInput" type="number" inputmode="decimal" min="40" max="130" step="0.5" value="85" class="w-24 rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-blue-300">
+                                <input id="exposureDbRange" type="range" min="40" max="130" step="0.5" value="85" class="flex-1">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 grid md:grid-cols-2 gap-4">
+                        <div class="rounded-lg bg-white border border-gray-200 p-4">
+                            <div class="text-xs text-gray-500">估算的每日最大安全暴露</div>
+                            <div id="exposureCalcResult" class="mt-1 text-2xl font-extrabold text-gray-900">8 小时</div>
+                            <div id="exposureCalcNote" class="mt-2 text-xs text-gray-600">在 85 dB 下，常见参考上限为 8 小时；每增加 +3 dB，安全时间约减半。</div>
+                        </div>
+                        <div class="rounded-lg bg-white border border-gray-200 p-4">
+                            <div class="text-xs text-gray-500">使用建议</div>
+                            <ul class="mt-2 text-xs text-gray-700 space-y-1 list-disc list-inside">
+                                <li>更建议用“平均值”作判断（而不是短暂峰值）。</li>
+                                <li>对比前后效果时，尽量固定距离、位置和摆放方式。</li>
+                                <li>如用于执法/合规，请使用认证设备与规范流程。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
                 
                 <div class="space-y-3">
                     <!-- 70 dB -->
@@ -598,7 +628,7 @@
                         </p>
                     </div>
                     <p>
-                        <strong>噪音如何损伤听力？</strong> 根据多方健康机构的说明，强噪音会损伤内耳中细小而脆弱的毛细胞，这些细胞一旦受损无法再生，属于永久性损伤。高强度或长时间噪音可能导致：
+                        <strong>噪音如何损伤听力？</strong> 强噪音会损伤内耳中细小而脆弱的毛细胞，这些细胞一旦受损无法再生，属于永久性损伤。高强度或长时间噪音可能导致：
                     </p>
                     <ul class="list-disc list-inside space-y-1 ml-3 text-sm">
                         <li>内耳毛细胞的机械性损伤</li>
@@ -616,6 +646,108 @@
                             “保存测量报告”功能仅基于当前会话的统计值（最小值、最大值、平均值）在本地生成图片文件。
                         </p>
                     </div>
+                </div>
+            </section>
+
+            <section class="bg-white rounded-xl shadow-lg p-6">
+                <h2 class="text-xl font-bold text-gray-900 mb-3">我们与其他在线声级计的区别</h2>
+                <p class="text-sm text-gray-600 mb-4">这不是“只给一个实时数字”的工具，而是面向可重复测量与可复用记录的工作流。</p>
+                <ul class="text-sm text-gray-700 space-y-2 list-disc list-inside">
+                    <li><strong>本地生成报告：</strong>“保存测量报告”在设备本地生成文件，不上传原始音频。</li>
+                    <li><strong>可视化维度：</strong>提供频谱与历史曲线，帮助理解趋势与突发峰值。</li>
+                    <li><strong>以可重复测量为目标：</strong>SOP 提示 + 示例报告 + 记录模板，便于对比与复测。</li>
+                    <li><strong>透明的更新与方法论：</strong>查看 <a href="../methodology.html" class="text-blue-600 hover:underline font-semibold">Methodology</a> 与 <a href="../changelog.html" class="text-blue-600 hover:underline font-semibold">Changelog</a>，了解我们如何工作、做了哪些改变。</li>
+                    <li><strong>隐私承诺与数据流说明：</strong>详见 <a href="../privacy.html" class="text-blue-600 hover:underline font-semibold">隐私政策</a>。</li>
+                </ul>
+                <div class="mt-4 grid sm:grid-cols-3 gap-3">
+                    <div class="rounded-xl border border-gray-200 bg-gray-50 p-4">
+                        <div class="text-xs font-semibold text-gray-900">1）麦克风输入</div>
+                        <div class="mt-1 text-xs text-gray-600">权限由浏览器管理，可随时撤销。</div>
+                    </div>
+                    <div class="rounded-xl border border-gray-200 bg-gray-50 p-4">
+                        <div class="text-xs font-semibold text-gray-900">2）浏览器本地处理</div>
+                        <div class="mt-1 text-xs text-gray-600">计算 RMS、频谱与历史曲线。</div>
+                    </div>
+                    <div class="rounded-xl border border-gray-200 bg-gray-50 p-4">
+                        <div class="text-xs font-semibold text-gray-900">3）本地生成报告</div>
+                        <div class="mt-1 text-xs text-gray-600">基于会话统计值在设备上生成文件。</div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="example-reports" class="bg-white rounded-xl shadow-lg p-6">
+                <div class="flex items-start justify-between gap-4 flex-wrap">
+                    <div class="min-w-[220px]">
+                        <h2 class="text-xl font-bold text-gray-900">示例报告（如何解读结果）</h2>
+                        <p class="text-sm text-gray-600 mt-1">以下为“保存测量报告”同款模板生成的静态预览，用于演示 min/avg/max 的阅读方式与记录要点。</p>
+                    </div>
+                </div>
+
+                <div class="mt-4 grid lg:grid-cols-3 gap-4">
+                    <div class="rounded-xl border border-gray-200 bg-gray-50 p-4">
+                        <div class="flex items-center justify-between gap-3">
+                            <h3 class="font-semibold text-gray-900">卧室（夜间）— 小区底噪基线</h3>
+                            <span class="text-xs font-semibold text-green-700 bg-green-100 px-2 py-0.5 rounded-full">低</span>
+                        </div>
+                        <div class="mt-3 rounded-lg overflow-hidden border border-gray-200 bg-white">
+                            <div class="aspect-[4/3] bg-gray-100">
+                                <img src="../images/cn/report-example-bedroom.png" alt="示例报告预览 - 卧室夜间底噪" class="w-full h-full object-cover" loading="lazy">
+                            </div>
+                        </div>
+                        <p class="mt-3 text-xs text-gray-700">解读：max 往往来自短暂事件（楼道关门、楼上脚步、空调外机启动）。做“是否吵”的对比时，同一时段的平均值更接近体感。</p>
+                        <ul class="mt-3 text-xs text-gray-700 space-y-1 list-disc list-inside">
+                            <li>固定同一时段（例如 23:00 后）测量。</li>
+                            <li>记录窗户/门、空调/风扇/新风状态。</li>
+                            <li>重复 3 次，用 avg 做对比。</li>
+                        </ul>
+                    </div>
+
+                    <div class="rounded-xl border border-gray-200 bg-gray-50 p-4">
+                        <div class="flex items-center justify-between gap-3">
+                            <h3 class="font-semibold text-gray-900">吸尘器/扫地机（1 m）— 档位对比</h3>
+                            <span class="text-xs font-semibold text-amber-800 bg-amber-100 px-2 py-0.5 rounded-full">偏高</span>
+                        </div>
+                        <div class="mt-3 rounded-lg overflow-hidden border border-gray-200 bg-white">
+                            <div class="aspect-[4/3] bg-gray-100">
+                                <img src="../images/cn/report-example-vacuum.png" alt="示例报告预览 - 吸尘器测试" class="w-full h-full object-cover" loading="lazy">
+                            </div>
+                        </div>
+                        <p class="mt-3 text-xs text-gray-700">解读：更适合比较“强/弱档”“不同地面”“换吸头/换设备”的差异。关键是把距离和姿势固定，做相对对比。</p>
+                        <ul class="mt-3 text-xs text-gray-700 space-y-1 list-disc list-inside">
+                            <li>记录档位与地面（瓷砖/木地板/地毯）。</li>
+                            <li>固定 1 m 与手机高度/朝向。</li>
+                            <li>用 avg 对比多次测量结果。</li>
+                        </ul>
+                    </div>
+
+                    <div class="rounded-xl border border-gray-200 bg-gray-50 p-4">
+                        <div class="flex items-center justify-between gap-3">
+                            <h3 class="font-semibold text-gray-900">高架/主干道（开窗）— 早晚高峰</h3>
+                            <span class="text-xs font-semibold text-red-700 bg-red-100 px-2 py-0.5 rounded-full">嘈杂</span>
+                        </div>
+                        <div class="mt-3 rounded-lg overflow-hidden border border-gray-200 bg-white">
+                            <div class="aspect-[4/3] bg-gray-100">
+                                <img src="../images/cn/report-example-traffic.png" alt="示例报告预览 - 主干道车流噪音" class="w-full h-full object-cover" loading="lazy">
+                            </div>
+                        </div>
+                        <p class="mt-3 text-xs text-gray-700">解读：车流噪音波动很大（加速、喇叭、货车）。对比建议按“早高峰/晚高峰/夜间”分开，并固定同样的 60 秒窗口。</p>
+                        <ul class="mt-3 text-xs text-gray-700 space-y-1 list-disc list-inside">
+                            <li>分开记录工作日与周末。</li>
+                            <li>记录窗户状态（开/关）与测量位置。</li>
+                            <li>avg 看持续暴露，max 记瞬时事件。</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mt-5 rounded-xl border border-gray-200 bg-gray-50 p-4">
+                    <div>
+                        <h3 class="font-semibold text-gray-900">测量记录模板（可复制粘贴）</h3>
+                        <p class="text-xs text-gray-600 mt-1">用于提高记录的可复现性，便于按天/按设备对比。</p>
+                    </div>
+                    <pre class="mt-3 text-xs bg-white border border-gray-200 rounded-lg p-3 overflow-x-auto text-gray-800">date,time,location,distance,device,avg_db,max_db,notes
+2026-03-23,21:30,bedroom,1m,phone,34,48,window closed; HVAC off
+2026-03-24,21:30,bedroom,1m,phone,36,52,window closed; light rain
+2026-03-25,21:30,bedroom,1m,phone,33,46,window closed; quiet night</pre>
                 </div>
             </section>
 
@@ -758,6 +890,15 @@
                         </ul>
                     </div>
                 </div>
+                <div class="mt-4 rounded-xl border border-gray-200 bg-gray-50 p-4">
+                    <h3 class="font-semibold text-gray-900 mb-2">中国用户常用的参考与处理路径</h3>
+                    <ul class="text-sm text-gray-700 space-y-2 list-disc list-inside">
+                        <li>如果是“取证/沟通”目的，建议连续多天、同一时段重复测量并保存报告，比单次瞬时数值更有说服力。</li>
+                        <li>国家法规检索：可在 <a href="https://flk.npc.gov.cn/" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">国家法律法规数据库</a> 搜索“噪声污染防治法”等关键词。</li>
+                        <li>国家标准查询：可在 <a href="https://openstd.samr.gov.cn/" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">国家标准全文公开系统</a> 站内搜索“GB 3096”“声环境质量标准”等。</li>
+                        <li>生活噪声诉求渠道通常以属地为主，可优先使用 12345 说明时间、地点、频率，并附上多次测量记录。</li>
+                    </ul>
+                </div>
             </section>
 
             <!-- Technical Insight Section -->
@@ -804,7 +945,7 @@
                     </div>
                     <div class="border-l-4 border-blue-500 pl-4">
                         <h3 class="font-semibold text-sm text-gray-900 mb-1">什么样的噪音水平算“安全”？</h3>
-                        <p class="text-xs text-gray-600 mb-1">综合 NIOSH/CDC 等机构的建议：长期噪音尽量低于 <strong>70 dB</strong> 为宜；职业环境下 85 dB（8 小时）被视为上限。超过 85 dB 的环境，应缩短暴露时间并佩戴听力防护。</p>
+                        <p class="text-xs text-gray-600 mb-1">更实用的判断方式是：尽量让长期平均水平保持在 <strong>70 dB</strong> 以下；当接近 <strong>85 dB</strong> 这一职业暴露参考点时，更应该关注“暴露时长”并采取听力防护。</p>
                         <a href="https://www.cdc.gov/niosh/noise/about/noise.html" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline">查看 NIOSH 指南 →</a>
                     </div>
                     <div class="border-l-4 border-blue-500 pl-4">
@@ -1038,7 +1179,7 @@
           "name": "什么是安全的噪音水平？",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "根据 NIOSH/CDC 标准，低于 70 dB 的噪音水平通常对长时间暴露是安全的。职业暴露限值为 85 dB（8 小时）。长时间暴露在超过 85 dB 的环境中可能导致听力损伤，超过 120 dB 的极高噪音甚至可能造成立即伤害。"
+            "text": "更实用的判断方式是：尽量让长期平均水平保持在 70 dB 以下；当接近 85 dB 这一职业暴露参考点时，更应该关注暴露时长并采取听力防护。"
           }
         },
         {
@@ -1110,6 +1251,71 @@
             };
             
             SoundMeter.init(cnTranslations);
+
+            const initExposureCalculator = () => {
+                const inputEl = document.getElementById('exposureDbInput');
+                const rangeEl = document.getElementById('exposureDbRange');
+                const resultEl = document.getElementById('exposureCalcResult');
+                const noteEl = document.getElementById('exposureCalcNote');
+                if (!inputEl || !rangeEl || !resultEl || !noteEl) return;
+
+                const clamp = (n, min, max) => Math.min(max, Math.max(min, n));
+
+                const formatDuration = (minutes) => {
+                    if (!Number.isFinite(minutes) || minutes <= 0) return '不到 1 分钟';
+                    if (minutes < 1) return '不到 1 分钟';
+                    if (minutes < 60) return `${Math.round(minutes)} 分钟`;
+                    const hours = minutes / 60;
+                    if (hours < 24) {
+                        const rounded = Math.round(hours * 10) / 10;
+                        return `${rounded} 小时`;
+                    }
+                    return '24+ 小时';
+                };
+
+                const computeMinutes = (db) => {
+                    const baseDb = 85;
+                    const baseMinutes = 8 * 60;
+                    const exchangeRate = 3;
+                    const factor = Math.pow(2, (baseDb - db) / exchangeRate);
+                    return baseMinutes * factor;
+                };
+
+                const render = (db) => {
+                    const value = clamp(db, 40, 130);
+                    inputEl.value = String(value);
+                    rangeEl.value = String(value);
+
+                    const minutes = computeMinutes(value);
+                    resultEl.textContent = formatDuration(minutes);
+
+                    if (value >= 120) {
+                        noteEl.textContent = '在极高噪音下，风险可能是即时的。请拉开距离、缩短暴露，并佩戴专业听力防护。';
+                        return;
+                    }
+                    if (value >= 85) {
+                        noteEl.textContent = '超过 85 dB 后，安全时间会快速下降。更建议使用平均值，并关注暴露时长而非短暂峰值。';
+                        return;
+                    }
+                    if (value >= 70) {
+                        noteEl.textContent = '该范围在不少日常环境中较常见，但长时间暴露仍可能导致疲劳。建议采用可复现的测量方法。';
+                        return;
+                    }
+                    noteEl.textContent = '较低分贝通常风险较小，但仍建议关注舒适度与睡眠质量，并保持可复现对比。';
+                };
+
+                const parseDb = (raw) => {
+                    const n = Number.parseFloat(String(raw));
+                    return Number.isFinite(n) ? n : 85;
+                };
+
+                inputEl.addEventListener('input', () => render(parseDb(inputEl.value)));
+                rangeEl.addEventListener('input', () => render(parseDb(rangeEl.value)));
+
+                render(parseDb(inputEl.value));
+            };
+
+            initExposureCalculator();
 
             const mobileLangBtn = document.getElementById('mobileLangBtn');
             const mobileLangDropdown = document.getElementById('mobileLangDropdown');

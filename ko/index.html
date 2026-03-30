@@ -491,8 +491,39 @@
             <section class="bg-white rounded-xl shadow-lg p-6">
                 <h2 class="text-xl font-bold text-gray-900 mb-3">데시벨 수준별 안전 노출 시간</h2>
                 <p class="text-sm text-gray-600 mb-4">
-                    <a href="https://www.cdc.gov/niosh/noise/about/noise.html" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">NIOSH/CDC</a>에 따르면, 소음 수준이 높을수록 안전 노출 시간이 짧아집니다.
+                    이 표와 아래 계산기는 “dB × 시간” 관계를 빠르게 이해하고, 조건을 맞춘 비교 측정에 활용하기 위한 참고 자료입니다(규정 준수/법적 측정용이 아님). 참고: <a href="https://www.cdc.gov/niosh/noise/about/noise.html" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">NIOSH/CDC</a>.
                 </p>
+
+                <div class="mb-5 rounded-xl border border-gray-200 bg-gray-50 p-4">
+                    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+                        <div class="min-w-[220px]">
+                            <h3 class="font-semibold text-gray-900">빠른 노출 시간 계산기</h3>
+                            <p class="text-xs text-gray-600 mt-1">85 dB = 8시간, 3 dB 교환율로 하루 최대 노출 시간을 추정합니다(참고용, 규정 준수 측정 아님).</p>
+                        </div>
+                        <div class="w-full md:w-[420px]">
+                            <label for="exposureDbInput" class="block text-xs font-semibold text-gray-700">소음 수준(dB)</label>
+                            <div class="mt-1 flex items-center gap-3">
+                                <input id="exposureDbInput" type="number" inputmode="decimal" min="40" max="130" step="0.5" value="85" class="w-24 rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-blue-300">
+                                <input id="exposureDbRange" type="range" min="40" max="130" step="0.5" value="85" class="flex-1">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 grid md:grid-cols-2 gap-4">
+                        <div class="rounded-lg bg-white border border-gray-200 p-4">
+                            <div class="text-xs text-gray-500">추정된 하루 최대 노출</div>
+                            <div id="exposureCalcResult" class="mt-1 text-2xl font-extrabold text-gray-900">8시간</div>
+                            <div id="exposureCalcNote" class="mt-2 text-xs text-gray-600">85 dB의 흔한 기준은 8시간입니다. +3 dB마다 안전 시간은 약 절반으로 줄어듭니다.</div>
+                        </div>
+                        <div class="rounded-lg bg-white border border-gray-200 p-4">
+                            <div class="text-xs text-gray-500">사용 팁</div>
+                            <ul class="mt-2 text-xs text-gray-700 space-y-1 list-disc list-inside">
+                                <li>판단에는 짧은 피크보다 평균값이 더 유용합니다.</li>
+                                <li>비교 시 거리·위치·조건을 일정하게 유지하세요.</li>
+                                <li>규정/법적 측정은 인증 장비와 절차가 필요합니다.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
                 
                 <div class="space-y-3">
                     <!-- 70 dB -->
@@ -588,11 +619,11 @@
                     </p>
                     <div class="bg-amber-50 border-l-4 border-amber-500 p-3 my-3">
                         <p class="text-sm">
-                            <strong>🏥 WHO 권장사항:</strong> <a href="https://www.who.int/news-room/questions-and-answers/item/deafness-and-hearing-loss-safe-listening" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">세계보건기구(WHO)</a>는 청력 손실을 예방하기 위해 소음 수준을 <strong>70 dB</strong> 이하로 유지할 것을 권장합니다. 85 dB 이상의 소음에 장기간 노출되면 청력이 손상될 수 있습니다.
+                            <strong>🏥 WHO 맥락:</strong> 높은 소음에 장기간 노출되는 것은 청력 위험과 관련이 있습니다. 실용적으로는 지속 소음 수준을 낮게 유지하고, 소음이 올라가는 구간에서는 “노출 시간”을 관리하는 것이 중요합니다. 참고: <a href="https://www.who.int/news-room/questions-and-answers/item/deafness-and-hearing-loss-safe-listening" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">세계보건기구(WHO)</a>.
                         </p>
                     </div>
                     <p>
-                        <strong>소음이 청력을 손상시키는 방법:</strong> <a href="https://gesund.bund.de/en/laermbelastung" target="_blank" rel="noopener" class="text-blue-600 hover:underline">보건 당국</a>에 따르면, 큰 소리는 내이의 섬세한 유모 세포를 손상시킵니다. 이 세포들은 재생되지 않으므로 손상은 영구적입니다. 고강도 또는 장시간 소음은 다음을 유발합니다:
+                        <strong>소음이 청력을 손상시키는 방법:</strong> 큰 소리는 내이의 섬세한 유모 세포를 손상시킬 수 있습니다. 이 세포들은 재생되지 않으므로 손상은 영구적입니다. 고강도 또는 장시간 소음은 다음을 유발합니다:
                     </p>
                     <ul class="list-disc list-inside space-y-1 ml-3 text-sm">
                         <li>내이 유모 세포의 기계적 손상</li>
@@ -600,6 +631,7 @@
                         <li>소음성 난청 (NIHL)</li>
                         <li>이명 및 과민증</li>
                     </ul>
+                    <p class="text-xs text-gray-600 mt-2">참고: <a href="https://gesund.bund.de/en/laermbelastung" target="_blank" rel="noopener" class="text-blue-600 hover:underline">보건 당국</a>.</p>
                     
                     <div class="mt-4 pt-4 border-t border-gray-100">
                         <h3 class="font-bold text-gray-900 mb-2 flex items-center">
@@ -613,12 +645,113 @@
                 </div>
             </section>
 
+            <section class="bg-white rounded-xl shadow-lg p-6">
+                <h2 class="text-xl font-bold text-gray-900 mb-3">다른 온라인 소음 측정기와의 차별점</h2>
+                <p class="text-sm text-gray-600 mb-4">단순 실시간 수치가 아니라, 재현 가능한 비교와 기록을 목표로 설계했습니다.</p>
+                <ul class="text-sm text-gray-700 space-y-2 list-disc list-inside">
+                    <li><strong>로컬 보고서 생성:</strong> “보고서 저장”은 기기에서 파일을 생성하며, 원본 오디오는 업로드하지 않습니다.</li>
+                    <li><strong>시각화:</strong> 주파수 스펙트럼 + 히스토리로 추세와 피크를 함께 확인합니다.</li>
+                    <li><strong>반복 측정 가이드:</strong> SOP 팁, 예시 보고서, 로그 템플릿으로 조건을 맞춘 비교를 돕습니다.</li>
+                    <li><strong>변경 이력과 방법 공개:</strong> <a href="../methodology.html" class="text-blue-600 hover:underline font-semibold">Methodology</a> 및 <a href="../changelog.html" class="text-blue-600 hover:underline font-semibold">Changelog</a>에서 방법과 업데이트를 확인하세요.</li>
+                    <li><strong>프라이버시:</strong> <a href="../privacy.html" class="text-blue-600 hover:underline font-semibold">Privacy</a>에 데이터 흐름과 외부 서비스 사용을 정리했습니다.</li>
+                </ul>
+                <div class="mt-4 grid sm:grid-cols-3 gap-3">
+                    <div class="rounded-xl border border-gray-200 bg-gray-50 p-4">
+                        <div class="text-xs font-semibold text-gray-900">1) 마이크 입력</div>
+                        <div class="mt-1 text-xs text-gray-600">권한은 브라우저에서 관리됩니다.</div>
+                    </div>
+                    <div class="rounded-xl border border-gray-200 bg-gray-50 p-4">
+                        <div class="text-xs font-semibold text-gray-900">2) 브라우저 로컬 처리</div>
+                        <div class="mt-1 text-xs text-gray-600">RMS, 스펙트럼, 히스토리를 로컬 계산합니다.</div>
+                    </div>
+                    <div class="rounded-xl border border-gray-200 bg-gray-50 p-4">
+                        <div class="text-xs font-semibold text-gray-900">3) 보고서 저장</div>
+                        <div class="mt-1 text-xs text-gray-600">세션 통계로 기기에 파일을 생성합니다.</div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="example-reports" class="bg-white rounded-xl shadow-lg p-6">
+                <div class="flex items-start justify-between gap-4 flex-wrap">
+                    <div class="min-w-[220px]">
+                        <h2 class="text-xl font-bold text-gray-900">예시 보고서(결과 해석)</h2>
+                        <p class="text-sm text-gray-600 mt-1">“보고서 저장”과 같은 템플릿의 정적 미리보기입니다. min/avg/max 해석과 재현 가능한 기록 루틴을 보여줍니다.</p>
+                    </div>
+                </div>
+
+                <div class="mt-4 grid lg:grid-cols-3 gap-4">
+                    <div class="rounded-xl border border-gray-200 bg-gray-50 p-4">
+                        <div class="flex items-center justify-between gap-3">
+                            <h3 class="font-semibold text-gray-900">침실(야간) – 층간소음/생활소음 기준선</h3>
+                            <span class="text-xs font-semibold text-green-700 bg-green-100 px-2 py-0.5 rounded-full">낮음</span>
+                        </div>
+                        <div class="mt-3 rounded-lg overflow-hidden border border-gray-200 bg-white">
+                            <div class="aspect-[4/3] bg-gray-100">
+                                <img src="../images/ko/report-example-bedroom.png" alt="예시 보고서 미리보기 - 침실(야간)" class="w-full h-full object-cover" loading="lazy">
+                            </div>
+                        </div>
+                        <p class="mt-3 text-xs text-gray-700">해석: max는 짧은 이벤트(위층 발걸음, 문 닫힘)로 튀는 경우가 많습니다. 체감에 가까운 비교는 같은 시간대·같은 조건에서의 avg입니다.</p>
+                        <ul class="mt-3 text-xs text-gray-700 space-y-1 list-disc list-inside">
+                            <li>같은 시간대(예: 23시 이후)로 고정.</li>
+                            <li>창문/문, 에어컨·환기 상태를 기록.</li>
+                            <li>3회 반복하고 avg 중심으로 비교.</li>
+                        </ul>
+                    </div>
+
+                    <div class="rounded-xl border border-gray-200 bg-gray-50 p-4">
+                        <div class="flex items-center justify-between gap-3">
+                            <h3 class="font-semibold text-gray-900">청소기(강/약, 로봇) – 1 m</h3>
+                            <span class="text-xs font-semibold text-amber-800 bg-amber-100 px-2 py-0.5 rounded-full">높음</span>
+                        </div>
+                        <div class="mt-3 rounded-lg overflow-hidden border border-gray-200 bg-white">
+                            <div class="aspect-[4/3] bg-gray-100">
+                                <img src="../images/ko/report-example-vacuum.png" alt="예시 보고서 미리보기 - 청소기 비교" class="w-full h-full object-cover" loading="lazy">
+                            </div>
+                        </div>
+                        <p class="mt-3 text-xs text-gray-700">해석: 모드(강/약), 바닥(마루/카펫), 헤드에 따라 달라집니다. 같은 조건에서 비교하면 체감 차이를 정리하기 좋습니다.</p>
+                        <ul class="mt-3 text-xs text-gray-700 space-y-1 list-disc list-inside">
+                            <li>바닥 종류와 모드(강/약)를 기록.</li>
+                            <li>거리(1 m)와 위치를 표시해 고정.</li>
+                            <li>avg로 비교(피크는 참고).</li>
+                        </ul>
+                    </div>
+
+                    <div class="rounded-xl border border-gray-200 bg-gray-50 p-4">
+                        <div class="flex items-center justify-between gap-3">
+                            <h3 class="font-semibold text-gray-900">배달 오토바이/대로변 (창문 열림)</h3>
+                            <span class="text-xs font-semibold text-red-700 bg-red-100 px-2 py-0.5 rounded-full">시끄러움</span>
+                        </div>
+                        <div class="mt-3 rounded-lg overflow-hidden border border-gray-200 bg-white">
+                            <div class="aspect-[4/3] bg-gray-100">
+                                <img src="../images/ko/report-example-traffic.png" alt="예시 보고서 미리보기 - 대로변 소음" class="w-full h-full object-cover" loading="lazy">
+                            </div>
+                        </div>
+                        <p class="mt-3 text-xs text-gray-700">해석: 도로 소음은 이벤트성(오토바이, 경적) 변동이 큽니다. 같은 위치·같은 시간·같은 60초로 비교하면 차이가 보입니다.</p>
+                        <ul class="mt-3 text-xs text-gray-700 space-y-1 list-disc list-inside">
+                            <li>평일/주말, 낮/밤을 분리.</li>
+                            <li>창문 상태(열림/닫힘)를 기록.</li>
+                            <li>avg는 노출, max는 사건.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mt-5 rounded-xl border border-gray-200 bg-gray-50 p-4">
+                    <div>
+                        <h3 class="font-semibold text-gray-900">측정 로그 템플릿(copy/paste)</h3>
+                        <p class="text-xs text-gray-600 mt-1">일자·기기 간 비교를 더 재현 가능하게 만들기 위한 기록 형식입니다.</p>
+                    </div>
+                    <pre class="mt-3 text-xs bg-white border border-gray-200 rounded-lg p-3 overflow-x-auto text-gray-800">date,time,location,distance,device,avg_db,max_db,notes
+2026-03-23,21:30,bedroom,1m,phone,34,48,window closed; HVAC off
+2026-03-24,21:30,bedroom,1m,phone,36,52,window closed; light rain
+2026-03-25,21:30,bedroom,1m,phone,33,46,window closed; quiet night</pre>
+                </div>
+            </section>
+
             <!-- Health Impact -->
             <section class="bg-white rounded-xl shadow-lg p-6">
                 <h2 class="text-xl font-bold text-gray-900 mb-3">소음 공해가 건강에 미치는 영향</h2>
                 <p class="text-sm text-gray-600 mb-4">
-                    청력 손실 외에도 만성 소음 노출은 전반적인 건강에 영향을 미칩니다. 출처: 
-                    <a href="https://www.who.int/europe/news-room/fact-sheets/item/noise" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">WHO 유럽</a>
+                    소음은 청력만의 문제가 아닙니다. 만성 노출은 수면, 스트레스, 전반적인 건강에도 영향을 줄 수 있습니다. 참고: <a href="https://www.who.int/europe/news-room/fact-sheets/item/noise" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">WHO 유럽</a>.
                 </p>
                 <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition">
@@ -660,7 +793,7 @@
                 </div>
                 
                 <div class="mt-4 p-4 bg-gradient-to-r from-red-50 to-orange-50 rounded-lg border border-red-200">
-                    <h4 class="font-semibold text-sm text-gray-900 mb-2">🛡️ 보호 팁 (NIOSH/CDC 제공):</h4>
+                    <h4 class="font-semibold text-sm text-gray-900 mb-2">🛡️ 실용적인 보호 팁</h4>
                     <ul class="text-xs text-gray-700 space-y-1 ml-4 list-disc">
                         <li>가능한 경우 일일 소음 노출을 <strong>70 dB</strong> 미만으로 유지하세요</li>
                         <li>85 dB 이상의 환경에서는 청력 보호구(귀마개/이어머프)를 착용하세요</li>
@@ -668,6 +801,7 @@
                         <li>소음 모니터링 도구를 사용하여 소리 수준을 추적하고 관리하세요</li>
                         <li>큰 소음에 노출된 후에는 귀에 휴식 시간을 주세요</li>
                     </ul>
+                    <p class="text-xs text-gray-600 mt-3">참고: <a href="https://www.cdc.gov/niosh/noise/about/noise.html" target="_blank" rel="noopener" class="text-blue-700 hover:underline font-semibold">NIOSH/CDC</a>.</p>
                 </div>
             </section>
 
@@ -751,6 +885,14 @@
                         </ul>
                     </div>
                 </div>
+                <div class="mt-4 rounded-xl border border-gray-200 bg-gray-50 p-4">
+                    <h3 class="font-semibold text-gray-900 mb-2">한국용 참고 링크</h3>
+                    <ul class="text-sm text-gray-700 space-y-2 list-disc list-inside">
+                        <li>생활 소음은 상황(층간소음/공사/사업장 등)과 지자체 기준에 따라 처리 방식이 달라질 수 있습니다. 동일 조건으로 여러 번 기록을 남기면 비교·설명에 도움이 됩니다.</li>
+                        <li>층간소음 상담: <a href="https://www.noiseinfo.or.kr/" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">층간소음 이웃사이센터</a></li>
+                        <li>환경 정보(소음/진동 등): <a href="https://www.me.go.kr/" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">환경부</a></li>
+                    </ul>
+                </div>
             </section>
 
             <!-- Technical Insight Section -->
@@ -790,7 +932,7 @@
                     </div>
                     <div class="border-l-4 border-blue-500 pl-4">
                         <h3 class="font-semibold text-sm text-gray-900 mb-1">안전한 소음 수준은 얼마인가요?</h3>
-                        <p class="text-xs text-gray-600 mb-1"><strong>NIOSH/CDC</strong>에 따르면, <strong>70 dB</strong> 미만의 소음 수준은 일반적으로 장시간 노출되어도 안전합니다. 직업적 노출 한계는 <strong>8시간 기준 85 dB</strong>입니다. 85 dB를 초과하는 수준은 장시간 노출 시 청력 손상을 일으킬 수 있으며, 120 dB 이상은 즉각적인 손상을 줄 수 있습니다.</p>
+                        <p class="text-xs text-gray-600 mb-1">실용적 기준으로는, 지속 소음은 가능한 한 <strong>70 dB</strong> 미만으로 유지하고 <strong>85 dB</strong> 근처에서는 “노출 시간”을 특히 중시하세요(수치가 오를수록 안전 시간은 빠르게 줄어듭니다).</p>
                         <a href="https://www.cdc.gov/niosh/noise/about/noise.html" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline">NIOSH 가이드라인 →</a>
                     </div>
                     <div class="border-l-4 border-blue-500 pl-4">
@@ -1054,7 +1196,7 @@
           "name": "안전한 소음 수준은 얼마인가요?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "NIOSH/CDC에 따르면 70dB 미만의 소음 수준은 장시간 노출되어도 일반적으로 안전합니다. 직업적 노출 한계는 8시간 동안 85dB입니다. 85dB 이상의 수준에 장기간 노출되면 청력 손상을 일으킬 수 있으며, 120dB 이상은 즉각적인 손상을 일으킬 수 있습니다."
+            "text": "실용적 기준으로는, 지속 소음은 가능한 한 70 dB 미만으로 유지하고 85 dB 근처에서는 노출 시간을 특히 중시하세요(수치가 오를수록 안전 시간은 빠르게 줄어듭니다)."
           }
         },
         {
@@ -1140,6 +1282,71 @@
             };
             
             SoundMeter.init(koTranslations);
+
+            const initExposureCalculator = () => {
+                const inputEl = document.getElementById('exposureDbInput');
+                const rangeEl = document.getElementById('exposureDbRange');
+                const resultEl = document.getElementById('exposureCalcResult');
+                const noteEl = document.getElementById('exposureCalcNote');
+                if (!inputEl || !rangeEl || !resultEl || !noteEl) return;
+
+                const clamp = (n, min, max) => Math.min(max, Math.max(min, n));
+
+                const formatDuration = (minutes) => {
+                    if (!Number.isFinite(minutes) || minutes <= 0) return '1분 미만';
+                    if (minutes < 1) return '1분 미만';
+                    if (minutes < 60) return `${Math.round(minutes)}분`;
+                    const hours = minutes / 60;
+                    if (hours < 24) {
+                        const rounded = Math.round(hours * 10) / 10;
+                        return `${rounded}시간`;
+                    }
+                    return '24시간 이상';
+                };
+
+                const computeMinutes = (db) => {
+                    const baseDb = 85;
+                    const baseMinutes = 8 * 60;
+                    const exchangeRate = 3;
+                    const factor = Math.pow(2, (baseDb - db) / exchangeRate);
+                    return baseMinutes * factor;
+                };
+
+                const render = (db) => {
+                    const value = clamp(db, 40, 130);
+                    inputEl.value = String(value);
+                    rangeEl.value = String(value);
+
+                    const minutes = computeMinutes(value);
+                    resultEl.textContent = formatDuration(minutes);
+
+                    if (value >= 120) {
+                        noteEl.textContent = '매우 높은 수준에서는 위험이 즉각적일 수 있습니다. 거리를 늘리고 노출 시간을 줄이며 청력 보호구를 사용하세요.';
+                        return;
+                    }
+                    if (value >= 85) {
+                        noteEl.textContent = '85 dB를 넘으면 안전 시간이 빠르게 감소합니다. 짧은 피크보다 평균과 노출 시간을 기준으로 판단하세요.';
+                        return;
+                    }
+                    if (value >= 70) {
+                        noteEl.textContent = '일상에서 흔한 범위지만, 장시간 노출은 피로를 유발할 수 있습니다. 재현 가능한 측정 루틴을 사용하세요.';
+                        return;
+                    }
+                    noteEl.textContent = '낮은 수준은 대체로 위험이 적지만, 편안함과 수면의 질도 중요합니다. 동일 조건으로 비교하세요.';
+                };
+
+                const parseDb = (raw) => {
+                    const n = Number.parseFloat(String(raw));
+                    return Number.isFinite(n) ? n : 85;
+                };
+
+                inputEl.addEventListener('input', () => render(parseDb(inputEl.value)));
+                rangeEl.addEventListener('input', () => render(parseDb(rangeEl.value)));
+
+                render(parseDb(inputEl.value));
+            };
+
+            initExposureCalculator();
         
             // Mobile Main Menu Toggle
             const menuBtn = document.getElementById('mobile-menu-btn');

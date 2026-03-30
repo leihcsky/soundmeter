@@ -490,8 +490,39 @@
             <section class="bg-white rounded-xl shadow-lg p-6">
                 <h2 class="text-xl font-bold text-gray-900 mb-3">Безопасное время воздействия</h2>
                 <p class="text-sm text-gray-600 mb-4">
-                    Согласно <a href="https://www.cdc.gov/niosh/noise/about/noise.html" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">NIOSH/CDC</a>, чем выше уровень шума, тем короче безопасное время воздействия.
+                    Таблица и калькулятор ниже — быстрый ориентир по связи «дБ × время» для сравнимых измерений и принятия решений. Это справочная информация, не нормативная измерительная процедура. Справка: <a href="https://www.cdc.gov/niosh/noise/about/noise.html" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">NIOSH/CDC</a>.
                 </p>
+
+                <div class="mb-5 rounded-xl border border-gray-200 bg-gray-50 p-4">
+                    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+                        <div class="min-w-[220px]">
+                            <h3 class="font-semibold text-gray-900">Быстрый калькулятор экспозиции</h3>
+                            <p class="text-xs text-gray-600 mt-1">Оценивает максимальное время ежедневного воздействия по правилу 85 дБ = 8 часов и «обмену» 3 дБ (ориентир, не для нормативных измерений).</p>
+                        </div>
+                        <div class="w-full md:w-[420px]">
+                            <label for="exposureDbInput" class="block text-xs font-semibold text-gray-700">Уровень шума (дБ)</label>
+                            <div class="mt-1 flex items-center gap-3">
+                                <input id="exposureDbInput" type="number" inputmode="decimal" min="40" max="130" step="0.5" value="85" class="w-24 rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-blue-300">
+                                <input id="exposureDbRange" type="range" min="40" max="130" step="0.5" value="85" class="flex-1">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 grid md:grid-cols-2 gap-4">
+                        <div class="rounded-lg bg-white border border-gray-200 p-4">
+                            <div class="text-xs text-gray-500">Оценка максимальной дневной экспозиции</div>
+                            <div id="exposureCalcResult" class="mt-1 text-2xl font-extrabold text-gray-900">8 часов</div>
+                            <div id="exposureCalcNote" class="mt-2 text-xs text-gray-600">При 85 дБ типичный ориентир — 8 часов. Каждые +3 дБ сокращают время вдвое.</div>
+                        </div>
+                        <div class="rounded-lg bg-white border border-gray-200 p-4">
+                            <div class="text-xs text-gray-500">Как использовать</div>
+                            <ul class="mt-2 text-xs text-gray-700 space-y-1 list-disc list-inside">
+                                <li>Для решений используйте средний уровень (не краткий пик).</li>
+                                <li>Для сравнения фиксируйте расстояние и условия.</li>
+                                <li>Для нормативов нужны сертифицированные приборы и документированные методики.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
                 
                 <div class="space-y-3">
                     <!-- 70 dB -->
@@ -586,11 +617,11 @@
                     </p>
                     <div class="bg-amber-50 border-l-4 border-amber-500 p-3 my-3">
                         <p class="text-sm">
-                            <strong>🏥 Рекомендация ВОЗ:</strong> <a href="https://www.who.int/news-room/questions-and-answers/item/deafness-and-hearing-loss-safe-listening" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">Всемирная организация здравоохранения</a> рекомендует поддерживать уровень шума ниже <strong>70 дБ</strong> в течение длительного времени для предотвращения потери слуха. Звуки выше 85 дБ могут вызвать повреждение слуха при длительном воздействии.
+                            <strong>🏥 Контекст ВОЗ:</strong> Длительное воздействие громкого шума связано с риском для слуха. Практичный подход — держать устойчивые уровни ниже «зоны риска» и контролировать время воздействия, когда уровень повышается. Справка: <a href="https://www.who.int/news-room/questions-and-answers/item/deafness-and-hearing-loss-safe-listening" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">Всемирная организация здравоохранения</a>.
                         </p>
                     </div>
                     <p>
-                        <strong>Как шум вредит слуху:</strong> По данным <a href="https://gesund.bund.de/en/laermbelastung" target="_blank" rel="noopener" class="text-blue-600 hover:underline">органов здравоохранения</a>, громкие звуки повреждают чувствительные волосковые клетки во внутреннем ухе. Эти клетки не восстанавливаются, поэтому повреждение необратимо. Шум высокой интенсивности или длительности вызывает:
+                        <strong>Как шум вредит слуху:</strong> Громкие звуки могут повреждать чувствительные волосковые клетки во внутреннем ухе. Эти клетки не восстанавливаются, поэтому повреждение необратимо. Шум высокой интенсивности или длительности вызывает:
                     </p>
                     <ul class="list-disc list-inside space-y-1 ml-3 text-sm">
                         <li>Механическое повреждение волосковых клеток внутреннего уха</li>
@@ -598,6 +629,7 @@
                         <li>Потерю слуха, вызванную шумом (NIHL)</li>
                         <li>Тиннитус (звон в ушах) и проблемы с чувствительностью</li>
                     </ul>
+                    <p class="text-xs text-gray-600 mt-2">Справка: <a href="https://gesund.bund.de/en/laermbelastung" target="_blank" rel="noopener" class="text-blue-600 hover:underline">органы здравоохранения</a>.</p>
                     
                     <div class="mt-4 pt-4 border-t border-gray-100">
                         <h3 class="font-bold text-gray-900 mb-2 flex items-center">
@@ -611,12 +643,113 @@
                 </div>
             </section>
 
+            <section class="bg-white rounded-xl shadow-lg p-6">
+                <h2 class="text-xl font-bold text-gray-900 mb-3">Чем мы отличаемся от других онлайн-шумомеров</h2>
+                <p class="text-sm text-gray-600 mb-4">Упор на воспроизводимые проверки и понятную документацию, а не только на “цифру в моменте”.</p>
+                <ul class="text-sm text-gray-700 space-y-2 list-disc list-inside">
+                    <li><strong>Отчет создается на устройстве:</strong> «Сохранить отчет» формирует файл локально и не загружает сырой звук.</li>
+                    <li><strong>Больше контекста:</strong> спектр частот + график истории для трендов и всплесков.</li>
+                    <li><strong>Система повторяемых измерений:</strong> SOP-советы, примеры отчетов и шаблон лога для сопоставимых условий.</li>
+                    <li><strong>Прозрачность:</strong> <a href="../methodology.html" class="text-blue-600 hover:underline font-semibold">Methodology</a> и <a href="../changelog.html" class="text-blue-600 hover:underline font-semibold">Changelog</a> описывают подход и изменения.</li>
+                    <li><strong>Конфиденциальность:</strong> <a href="../privacy.html" class="text-blue-600 hover:underline font-semibold">Privacy</a> — схема потока данных и сторонние сервисы.</li>
+                </ul>
+                <div class="mt-4 grid sm:grid-cols-3 gap-3">
+                    <div class="rounded-xl border border-gray-200 bg-gray-50 p-4">
+                        <div class="text-xs font-semibold text-gray-900">1) Микрофон</div>
+                        <div class="mt-1 text-xs text-gray-600">Доступ контролируется браузером.</div>
+                    </div>
+                    <div class="rounded-xl border border-gray-200 bg-gray-50 p-4">
+                        <div class="text-xs font-semibold text-gray-900">2) Локальная обработка</div>
+                        <div class="mt-1 text-xs text-gray-600">RMS, спектр и история считаются в браузере.</div>
+                    </div>
+                    <div class="rounded-xl border border-gray-200 bg-gray-50 p-4">
+                        <div class="text-xs font-semibold text-gray-900">3) Сохранение отчета</div>
+                        <div class="mt-1 text-xs text-gray-600">Файл создается из статистики текущей сессии.</div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="example-reports" class="bg-white rounded-xl shadow-lg p-6">
+                <div class="flex items-start justify-between gap-4 flex-wrap">
+                    <div class="min-w-[220px]">
+                        <h2 class="text-xl font-bold text-gray-900">Примеры отчетов (как интерпретировать)</h2>
+                        <p class="text-sm text-gray-600 mt-1">Статические превью из того же шаблона «Сохранить отчет», чтобы показать min/avg/max и воспроизводимую рутину фиксации.</p>
+                    </div>
+                </div>
+
+                <div class="mt-4 grid lg:grid-cols-3 gap-4">
+                    <div class="rounded-xl border border-gray-200 bg-gray-50 p-4">
+                        <div class="flex items-center justify-between gap-3">
+                            <h3 class="font-semibold text-gray-900">Спальня ночью — панельный дом, базовый фон</h3>
+                            <span class="text-xs font-semibold text-green-700 bg-green-100 px-2 py-0.5 rounded-full">Низкий</span>
+                        </div>
+                        <div class="mt-3 rounded-lg overflow-hidden border border-gray-200 bg-white">
+                            <div class="aspect-[4/3] bg-gray-100">
+                                <img src="../images/ru/report-example-bedroom.png" alt="Превью примера отчета — спальня ночью" class="w-full h-full object-cover" loading="lazy">
+                            </div>
+                        </div>
+                        <p class="mt-3 text-xs text-gray-700">Интерпретация: max часто отражает краткие события (лифт, дверь в подъезде, шаги). Для сна важнее сравнивать avg при одинаковых условиях.</p>
+                        <ul class="mt-3 text-xs text-gray-700 space-y-1 list-disc list-inside">
+                            <li>Измеряйте в одно и то же время (например, после 23:00).</li>
+                            <li>Отмечайте окна и вентиляцию/кондиционер.</li>
+                            <li>Повторите 3× и сравнивайте avg.</li>
+                        </ul>
+                    </div>
+
+                    <div class="rounded-xl border border-gray-200 bg-gray-50 p-4">
+                        <div class="flex items-center justify-between gap-3">
+                            <h3 class="font-semibold text-gray-900">Пылесос (ковёр vs ламинат) — 1 м</h3>
+                            <span class="text-xs font-semibold text-amber-800 bg-amber-100 px-2 py-0.5 rounded-full">Повышенный</span>
+                        </div>
+                        <div class="mt-3 rounded-lg overflow-hidden border border-gray-200 bg-white">
+                            <div class="aspect-[4/3] bg-gray-100">
+                                <img src="../images/ru/report-example-vacuum.png" alt="Превью примера отчета — тест пылесоса" class="w-full h-full object-cover" loading="lazy">
+                            </div>
+                        </div>
+                        <p class="mt-3 text-xs text-gray-700">Интерпретация: удобно сравнивать режимы и покрытие пола. Главное — фиксировать расстояние и условия, а не гнаться за «абсолютным» числом.</p>
+                        <ul class="mt-3 text-xs text-gray-700 space-y-1 list-disc list-inside">
+                            <li>Запишите режим и тип пола.</li>
+                            <li>Отметьте точку (1 м) и ориентацию телефона.</li>
+                            <li>Сравнивайте avg по нескольким запускам.</li>
+                        </ul>
+                    </div>
+
+                    <div class="rounded-xl border border-gray-200 bg-gray-50 p-4">
+                        <div class="flex items-center justify-between gap-3">
+                            <h3 class="font-semibold text-gray-900">Проспект/двор (окно приоткрыто)</h3>
+                            <span class="text-xs font-semibold text-red-700 bg-red-100 px-2 py-0.5 rounded-full">Громкий</span>
+                        </div>
+                        <div class="mt-3 rounded-lg overflow-hidden border border-gray-200 bg-white">
+                            <div class="aspect-[4/3] bg-gray-100">
+                                <img src="../images/ru/report-example-traffic.png" alt="Превью примера отчета — шум улицы" class="w-full h-full object-cover" loading="lazy">
+                            </div>
+                        </div>
+                        <p class="mt-3 text-xs text-gray-700">Интерпретация: уличный шум меняется (маршрутки, грузовики, сигнал). Для сравнения — одно место, одна и та же минута, одинаковые условия окна.</p>
+                        <ul class="mt-3 text-xs text-gray-700 space-y-1 list-disc list-inside">
+                            <li>Разделяйте будни/выходные и время суток.</li>
+                            <li>Отмечайте положение окна (закрыто/приоткрыто).</li>
+                            <li>avg — экспозиция, max — события.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mt-5 rounded-xl border border-gray-200 bg-gray-50 p-4">
+                    <div>
+                        <h3 class="font-semibold text-gray-900">Шаблон журнала измерений (copy/paste)</h3>
+                        <p class="text-xs text-gray-600 mt-1">Чтобы сравнения по дням и устройствам были более воспроизводимыми.</p>
+                    </div>
+                    <pre class="mt-3 text-xs bg-white border border-gray-200 rounded-lg p-3 overflow-x-auto text-gray-800">date,time,location,distance,device,avg_db,max_db,notes
+2026-03-23,21:30,bedroom,1m,phone,34,48,window closed; HVAC off
+2026-03-24,21:30,bedroom,1m,phone,36,52,window closed; light rain
+2026-03-25,21:30,bedroom,1m,phone,33,46,window closed; quiet night</pre>
+                </div>
+            </section>
+
             <!-- Health Impact -->
             <section class="bg-white rounded-xl shadow-lg p-6">
                 <h2 class="text-xl font-bold text-gray-900 mb-3">Влияние шумового загрязнения на здоровье</h2>
                 <p class="text-sm text-gray-600 mb-4">
-                    Помимо потери слуха, хроническое воздействие шума влияет на общее состояние здоровья. Источник: 
-                    <a href="https://www.who.int/europe/news-room/fact-sheets/item/noise" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">ВОЗ Европа</a>
+                    Шум — это не только слух: хроническое воздействие может влиять на сон, стресс и общее состояние здоровья. Справка: <a href="https://www.who.int/europe/news-room/fact-sheets/item/noise" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">ВОЗ Европа</a>.
                 </p>
                 <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition">
@@ -658,7 +791,7 @@
                 </div>
                 
                 <div class="mt-4 p-4 bg-gradient-to-r from-red-50 to-orange-50 rounded-lg border border-red-200">
-                    <h4 class="font-semibold text-sm text-gray-900 mb-2">🛡️ Советы по защите (от NIOSH/CDC):</h4>
+                    <h4 class="font-semibold text-sm text-gray-900 mb-2">🛡️ Практические советы по защите</h4>
                     <ul class="text-xs text-gray-700 space-y-1 ml-4 list-disc">
                         <li>Держите ежедневное воздействие шума ниже <strong>70 дБ</strong>, когда это возможно</li>
                         <li>Используйте защиту слуха (беруши/наушники) в средах ≥85 дБ</li>
@@ -666,6 +799,7 @@
                         <li>Используйте инструменты мониторинга шума для отслеживания и управления уровнями звука</li>
                         <li>Давайте ушам периоды отдыха после воздействия громкого шума</li>
                     </ul>
+                    <p class="text-xs text-gray-600 mt-3">Справка: <a href="https://www.cdc.gov/niosh/noise/about/noise.html" target="_blank" rel="noopener" class="text-blue-700 hover:underline font-semibold">NIOSH/CDC</a>.</p>
                 </div>
             </section>
 
@@ -749,6 +883,14 @@
                         </ul>
                     </div>
                 </div>
+                <div class="mt-4 rounded-xl border border-gray-200 bg-gray-50 p-4">
+                    <h3 class="font-semibold text-gray-900 mb-2">Локальные ориентиры (Россия)</h3>
+                    <ul class="text-sm text-gray-700 space-y-2 list-disc list-inside">
+                        <li>Практика и нормы могут различаться по регионам и типам источников. Для обращения обычно полезнее серия записей (даты/время/среднее), чем один замер.</li>
+                        <li>Справочная точка по санитарным вопросам: <a href="https://rospotrebnadzor.ru/" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">Роспотребнадзор</a></li>
+                        <li>В многоквартирных домах часто начинают с управляющей компании/ТСЖ и приложения измерений с контекстом.</li>
+                    </ul>
+                </div>
             </section>
 
             <!-- Technical Insight Section -->
@@ -788,7 +930,7 @@
                     </div>
                     <div class="border-l-4 border-blue-500 pl-4">
                         <h3 class="font-semibold text-sm text-gray-900 mb-1">Какой уровень шума безопасен?</h3>
-                        <p class="text-xs text-gray-600 mb-1">Согласно <strong>NIOSH/CDC</strong>, уровень шума ниже <strong>70 дБ</strong>, как правило, безопасен для длительного воздействия. Предел профессионального воздействия составляет <strong>85 дБ в течение 8 часов</strong>. Уровни выше 85 дБ могут вызвать повреждение слуха при длительном воздействии, а все, что выше 120 дБ, может нанести немедленный вред.</p>
+                        <p class="text-xs text-gray-600 mb-1">Практическое правило: старайтесь держать длительные уровни ниже <strong>70 дБ</strong>, а при приближении к <strong>85 дБ</strong> следите за временем воздействия (при росте уровня «безопасное» время быстро сокращается).</p>
                         <a href="https://www.cdc.gov/niosh/noise/about/noise.html" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline">Руководство NIOSH →</a>
                     </div>
                     <div class="border-l-4 border-blue-500 pl-4">
@@ -1019,7 +1161,7 @@
           "name": "Какой уровень шума безопасен?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Согласно NIOSH/CDC, уровень шума ниже 70 дБ, как правило, безопасен для длительного воздействия. Предел профессионального воздействия составляет 85 дБ в течение 8 часов. Уровни выше 85 дБ могут вызвать повреждение слуха при длительном воздействии, а все, что выше 120 дБ, может нанести немедленный вред."
+            "text": "Практическое правило: старайтесь держать длительные уровни ниже 70 дБ, а при приближении к 85 дБ следите за временем воздействия (при росте уровня «безопасное» время быстро сокращается)."
           }
         },
         {
@@ -1120,6 +1262,71 @@
             };
             
             SoundMeter.init(ruTranslations);
+
+            const initExposureCalculator = () => {
+                const inputEl = document.getElementById('exposureDbInput');
+                const rangeEl = document.getElementById('exposureDbRange');
+                const resultEl = document.getElementById('exposureCalcResult');
+                const noteEl = document.getElementById('exposureCalcNote');
+                if (!inputEl || !rangeEl || !resultEl || !noteEl) return;
+
+                const clamp = (n, min, max) => Math.min(max, Math.max(min, n));
+
+                const formatDuration = (minutes) => {
+                    if (!Number.isFinite(minutes) || minutes <= 0) return 'меньше 1 минуты';
+                    if (minutes < 1) return 'меньше 1 минуты';
+                    if (minutes < 60) return `${Math.round(minutes)} мин`;
+                    const hours = minutes / 60;
+                    if (hours < 24) {
+                        const rounded = Math.round(hours * 10) / 10;
+                        return `${rounded} ч`;
+                    }
+                    return '24+ ч';
+                };
+
+                const computeMinutes = (db) => {
+                    const baseDb = 85;
+                    const baseMinutes = 8 * 60;
+                    const exchangeRate = 3;
+                    const factor = Math.pow(2, (baseDb - db) / exchangeRate);
+                    return baseMinutes * factor;
+                };
+
+                const render = (db) => {
+                    const value = clamp(db, 40, 130);
+                    inputEl.value = String(value);
+                    rangeEl.value = String(value);
+
+                    const minutes = computeMinutes(value);
+                    resultEl.textContent = formatDuration(minutes);
+
+                    if (value >= 120) {
+                        noteEl.textContent = 'При очень высоких уровнях риск может быть мгновенным. Увеличьте дистанцию, сократите экспозицию и используйте защиту слуха.';
+                        return;
+                    }
+                    if (value >= 85) {
+                        noteEl.textContent = 'Выше 85 дБ безопасное время быстро падает. Используйте среднее значение и учитывайте длительность, а не краткие пики.';
+                        return;
+                    }
+                    if (value >= 70) {
+                        noteEl.textContent = 'Этот диапазон часто встречается в быту, но длительная экспозиция может утомлять. Используйте воспроизводимую методику измерений.';
+                        return;
+                    }
+                    noteEl.textContent = 'Низкие уровни обычно имеют низкий риск, но важны комфорт и сон. Измеряйте последовательно для сравнения.';
+                };
+
+                const parseDb = (raw) => {
+                    const n = Number.parseFloat(String(raw));
+                    return Number.isFinite(n) ? n : 85;
+                };
+
+                inputEl.addEventListener('input', () => render(parseDb(inputEl.value)));
+                rangeEl.addEventListener('input', () => render(parseDb(rangeEl.value)));
+
+                render(parseDb(inputEl.value));
+            };
+
+            initExposureCalculator();
         
             // Mobile Main Menu Toggle
             const menuBtn = document.getElementById('mobile-menu-btn');

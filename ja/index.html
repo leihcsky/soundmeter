@@ -489,8 +489,39 @@
             <section class="bg-white rounded-xl shadow-lg p-6">
                 <h2 class="text-xl font-bold text-gray-900 mb-3">デシベルレベル別の安全な暴露時間</h2>
                 <p class="text-sm text-gray-600 mb-4">
-                    <a href="https://www.cdc.gov/niosh/noise/about/noise.html" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">NIOSH/CDC</a>によると、騒音レベルが高いほど、安全な暴露時間は短くなります。
+                    この表と下の計算は、dBと時間の関係を素早く把握し、条件を揃えた比較に使うための目安です（法令・規格の測定ではありません）。参照：<a href="https://www.cdc.gov/niosh/noise/about/noise.html" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">NIOSH/CDC</a>。
                 </p>
+
+                <div class="mb-5 rounded-xl border border-gray-200 bg-gray-50 p-4">
+                    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+                        <div class="min-w-[220px]">
+                            <h3 class="font-semibold text-gray-900">クイック暴露時間計算</h3>
+                            <p class="text-xs text-gray-600 mt-1">85 dB = 8時間、3 dB交換率で1日の最大暴露時間を推定します（目安であり、法令・規格の測定ではありません）。</p>
+                        </div>
+                        <div class="w-full md:w-[420px]">
+                            <label for="exposureDbInput" class="block text-xs font-semibold text-gray-700">騒音レベル（dB）</label>
+                            <div class="mt-1 flex items-center gap-3">
+                                <input id="exposureDbInput" type="number" inputmode="decimal" min="40" max="130" step="0.5" value="85" class="w-24 rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-blue-300">
+                                <input id="exposureDbRange" type="range" min="40" max="130" step="0.5" value="85" class="flex-1">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 grid md:grid-cols-2 gap-4">
+                        <div class="rounded-lg bg-white border border-gray-200 p-4">
+                            <div class="text-xs text-gray-500">推定：1日の最大暴露時間</div>
+                            <div id="exposureCalcResult" class="mt-1 text-2xl font-extrabold text-gray-900">8時間</div>
+                            <div id="exposureCalcNote" class="mt-2 text-xs text-gray-600">85 dBの目安は8時間。+3 dBごとに安全時間は約半分になります。</div>
+                        </div>
+                        <div class="rounded-lg bg-white border border-gray-200 p-4">
+                            <div class="text-xs text-gray-500">使い方のポイント</div>
+                            <ul class="mt-2 text-xs text-gray-700 space-y-1 list-disc list-inside">
+                                <li>判断には平均値（短いピークではなく）を使うのが安定です。</li>
+                                <li>比較するなら距離・位置・条件を揃えます。</li>
+                                <li>規制・法令対応には、認証機器と手順に従ってください。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
                 
                 <div class="space-y-3">
                     <!-- 70 dB -->
@@ -585,11 +616,11 @@
                     </p>
                     <div class="bg-amber-50 border-l-4 border-amber-500 p-3 my-3">
                         <p class="text-sm">
-                            <strong>🏥 WHOの推奨:</strong> <a href="https://www.who.int/news-room/questions-and-answers/item/deafness-and-hearing-loss-safe-listening" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">世界保健機関（WHO）</a>は、聴力低下を防ぐために騒音レベルを長期間<strong>70 dB</strong>以下に保つことを推奨しています。85 dBを超える音は、長時間の暴露で聴覚障害を引き起こす可能性があります。
+                            <strong>🏥 WHOの背景:</strong> 高い騒音への長時間暴露は、聴覚リスクと関連します。実用的には、安定したレベルを低く保ち、レベルが上がる場面では「暴露時間」を管理するのが有効です。参照：<a href="https://www.who.int/news-room/questions-and-answers/item/deafness-and-hearing-loss-safe-listening" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">世界保健機関（WHO）</a>。
                         </p>
                     </div>
                     <p>
-                        <strong>騒音が聴力を損なう仕組み:</strong> <a href="https://gesund.bund.de/en/laermbelastung" target="_blank" rel="noopener" class="text-blue-600 hover:underline">保健当局</a>によると、大きな音は内耳の繊細な有毛細胞を損傷します。これらの細胞は再生しないため、損傷は永久的です。高強度または長時間の騒音は以下を引き起こします：
+                        <strong>騒音が聴力を損なう仕組み:</strong> 大きな音は内耳の繊細な有毛細胞を損傷する可能性があります。これらの細胞は再生しないため、損傷は永久的です。高強度または長時間の騒音は以下を引き起こします：
                     </p>
                     <ul class="list-disc list-inside space-y-1 ml-3 text-sm">
                         <li>内耳有毛細胞への物理的損傷</li>
@@ -597,6 +628,7 @@
                         <li>騒音性難聴（NIHL）</li>
                         <li>耳鳴りや過敏症</li>
                     </ul>
+                    <p class="text-xs text-gray-600 mt-2">参考：<a href="https://gesund.bund.de/en/laermbelastung" target="_blank" rel="noopener" class="text-blue-600 hover:underline">保健当局</a>。</p>
                     
                     <div class="mt-4 pt-4 border-t border-gray-100">
                         <h3 class="font-bold text-gray-900 mb-2 flex items-center">
@@ -610,12 +642,113 @@
                 </div>
             </section>
 
+            <section class="bg-white rounded-xl shadow-lg p-6">
+                <h2 class="text-xl font-bold text-gray-900 mb-3">他のオンライン騒音計との違い</h2>
+                <p class="text-sm text-gray-600 mb-4">単なるリアルタイム数値ではなく、再現性のある比較と記録に重点を置いています。</p>
+                <ul class="text-sm text-gray-700 space-y-2 list-disc list-inside">
+                    <li><strong>端末内でレポート生成：</strong>「レポートを保存」は端末上でファイルを生成し、マイクの生音（raw audio）をアップロードしません。</li>
+                    <li><strong>可視化：</strong>周波数スペクトル＋履歴グラフで、傾向とピークを把握できます。</li>
+                    <li><strong>再現性のためのガイド：</strong>SOPのコツ、サンプルレポート、ログテンプレで測定条件を揃えやすくします。</li>
+                    <li><strong>透明性：</strong><a href="../methodology.html" class="text-blue-600 hover:underline font-semibold">Methodology</a> と <a href="../changelog.html" class="text-blue-600 hover:underline font-semibold">Changelog</a> で方法と変更点を公開。</li>
+                    <li><strong>プライバシー：</strong><a href="../privacy.html" class="text-blue-600 hover:underline font-semibold">Privacy</a> にデータフローと利用サービスを記載。</li>
+                </ul>
+                <div class="mt-4 grid sm:grid-cols-3 gap-3">
+                    <div class="rounded-xl border border-gray-200 bg-gray-50 p-4">
+                        <div class="text-xs font-semibold text-gray-900">1）マイク入力</div>
+                        <div class="mt-1 text-xs text-gray-600">許可はブラウザで管理されます。</div>
+                    </div>
+                    <div class="rounded-xl border border-gray-200 bg-gray-50 p-4">
+                        <div class="text-xs font-semibold text-gray-900">2）ブラウザ内処理</div>
+                        <div class="mt-1 text-xs text-gray-600">RMS、スペクトル、履歴をローカル計算。</div>
+                    </div>
+                    <div class="rounded-xl border border-gray-200 bg-gray-50 p-4">
+                        <div class="text-xs font-semibold text-gray-900">3）レポート保存</div>
+                        <div class="mt-1 text-xs text-gray-600">セッション統計から端末にファイル生成。</div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="example-reports" class="bg-white rounded-xl shadow-lg p-6">
+                <div class="flex items-start justify-between gap-4 flex-wrap">
+                    <div class="min-w-[220px]">
+                        <h2 class="text-xl font-bold text-gray-900">サンプルレポート（読み方）</h2>
+                        <p class="text-sm text-gray-600 mt-1">「レポートを保存」と同じテンプレートの静的プレビューです。min/avg/maxの見方と、再現性のある記録方法の例を示します。</p>
+                    </div>
+                </div>
+
+                <div class="mt-4 grid lg:grid-cols-3 gap-4">
+                    <div class="rounded-xl border border-gray-200 bg-gray-50 p-4">
+                        <div class="flex items-center justify-between gap-3">
+                            <h3 class="font-semibold text-gray-900">寝室（深夜）– マンションの生活音チェック</h3>
+                            <span class="text-xs font-semibold text-green-700 bg-green-100 px-2 py-0.5 rounded-full">低</span>
+                        </div>
+                        <div class="mt-3 rounded-lg overflow-hidden border border-gray-200 bg-white">
+                            <div class="aspect-[4/3] bg-gray-100">
+                                <img src="../images/ja/report-example-bedroom.png" alt="サンプルレポート - 寝室（深夜）" class="w-full h-full object-cover" loading="lazy">
+                            </div>
+                        </div>
+                        <p class="mt-3 text-xs text-gray-700">解釈：maxは一瞬のイベント（上階の足音、廊下のドア音）になりがちです。体感に近いのは、同じ時間帯・同じ条件での平均値です。</p>
+                        <ul class="mt-3 text-xs text-gray-700 space-y-1 list-disc list-inside">
+                            <li>同じ時刻（例：0時前後）に測定。</li>
+                            <li>窓の開閉と換気扇/エアコンの状態を記録。</li>
+                            <li>3回測って平均値で比較。</li>
+                        </ul>
+                    </div>
+
+                    <div class="rounded-xl border border-gray-200 bg-gray-50 p-4">
+                        <div class="flex items-center justify-between gap-3">
+                            <h3 class="font-semibold text-gray-900">掃除機（強/弱・ロボット）– 1m</h3>
+                            <span class="text-xs font-semibold text-amber-800 bg-amber-100 px-2 py-0.5 rounded-full">高め</span>
+                        </div>
+                        <div class="mt-3 rounded-lg overflow-hidden border border-gray-200 bg-white">
+                            <div class="aspect-[4/3] bg-gray-100">
+                                <img src="../images/ja/report-example-vacuum.png" alt="サンプルレポート - 掃除機の比較" class="w-full h-full object-cover" loading="lazy">
+                            </div>
+                        </div>
+                        <p class="mt-3 text-xs text-gray-700">解釈：モード（強/弱）や床材、吸い込み口の違いで変わります。「同じ条件で比較する」用途に向きます。</p>
+                        <ul class="mt-3 text-xs text-gray-700 space-y-1 list-disc list-inside">
+                            <li>床（フローリング/カーペット）とモードを記録。</li>
+                            <li>距離（1m）と位置を固定。</li>
+                            <li>平均値で比較（ピークは参考程度）。</li>
+                        </ul>
+                    </div>
+
+                    <div class="rounded-xl border border-gray-200 bg-gray-50 p-4">
+                        <div class="flex items-center justify-between gap-3">
+                            <h3 class="font-semibold text-gray-900">幹線道路・電車（窓開け）</h3>
+                            <span class="text-xs font-semibold text-red-700 bg-red-100 px-2 py-0.5 rounded-full">うるさい</span>
+                        </div>
+                        <div class="mt-3 rounded-lg overflow-hidden border border-gray-200 bg-white">
+                            <div class="aspect-[4/3] bg-gray-100">
+                                <img src="../images/ja/report-example-traffic.png" alt="サンプルレポート - 道路・電車の騒音" class="w-full h-full object-cover" loading="lazy">
+                            </div>
+                        </div>
+                        <p class="mt-3 text-xs text-gray-700">解釈：道路や線路沿いは変動が大きいので、同じ時刻・同じ位置で「窓開け/窓閉め」を60秒で比較すると差が見えやすいです。</p>
+                        <ul class="mt-3 text-xs text-gray-700 space-y-1 list-disc list-inside">
+                            <li>平日と休日を分けて測定。</li>
+                            <li>窓の状態と時間帯（朝/夜）を記録。</li>
+                            <li>平均値は暴露、最大値はイベント。</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mt-5 rounded-xl border border-gray-200 bg-gray-50 p-4">
+                    <div>
+                        <h3 class="font-semibold text-gray-900">測定ログ用テンプレート（コピー&ペースト）</h3>
+                        <p class="text-xs text-gray-600 mt-1">日や端末が変わっても比較しやすい記録形式です。</p>
+                    </div>
+                    <pre class="mt-3 text-xs bg-white border border-gray-200 rounded-lg p-3 overflow-x-auto text-gray-800">date,time,location,distance,device,avg_db,max_db,notes
+2026-03-23,21:30,bedroom,1m,phone,34,48,window closed; HVAC off
+2026-03-24,21:30,bedroom,1m,phone,36,52,window closed; light rain
+2026-03-25,21:30,bedroom,1m,phone,33,46,window closed; quiet night</pre>
+                </div>
+            </section>
+
             <!-- Health Impact -->
             <section class="bg-white rounded-xl shadow-lg p-6">
                 <h2 class="text-xl font-bold text-gray-900 mb-3">騒音公害の健康への影響</h2>
                 <p class="text-sm text-gray-600 mb-4">
-                    難聴だけでなく、慢性的な騒音暴露は全体的な健康に影響を与えます。出典: 
-                    <a href="https://www.who.int/europe/news-room/fact-sheets/item/noise" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">WHO ヨーロッパ</a>
+                    騒音は聴力だけの問題ではなく、慢性的な暴露は睡眠やストレスなど全体的な健康にも影響し得ます。参考：<a href="https://www.who.int/europe/news-room/fact-sheets/item/noise" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">WHO ヨーロッパ</a>。
                 </p>
                 <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition">
@@ -657,7 +790,7 @@
                 </div>
                 
                 <div class="mt-4 p-4 bg-gradient-to-r from-red-50 to-orange-50 rounded-lg border border-red-200">
-                    <h4 class="font-semibold text-sm text-gray-900 mb-2">🛡️ 保護のヒント (NIOSH/CDCより):</h4>
+                    <h4 class="font-semibold text-sm text-gray-900 mb-2">🛡️ 実用的な保護のヒント</h4>
                     <ul class="text-xs text-gray-700 space-y-1 ml-4 list-disc">
                         <li>可能な限り、毎日の騒音暴露を<strong>70dB</strong>以下に抑える</li>
                         <li>85dB以上の環境では耳の保護具（耳栓/イヤーマフ）を着用する</li>
@@ -665,6 +798,7 @@
                         <li>騒音監視ツールを使用して音量レベルを追跡および管理する</li>
                         <li>大きな音にさらされた後は、耳に休息期間を与える</li>
                     </ul>
+                    <p class="text-xs text-gray-600 mt-3">参考：<a href="https://www.cdc.gov/niosh/noise/about/noise.html" target="_blank" rel="noopener" class="text-blue-700 hover:underline font-semibold">NIOSH/CDC</a>。</p>
                 </div>
             </section>
 
@@ -748,6 +882,14 @@
                         </ul>
                     </div>
                 </div>
+                <div class="mt-4 rounded-xl border border-gray-200 bg-gray-50 p-4">
+                    <h3 class="font-semibold text-gray-900 mb-2">日本向けの参考リンク</h3>
+                    <ul class="text-sm text-gray-700 space-y-2 list-disc list-inside">
+                        <li>騒音の扱いは、用途（生活騒音/工事/事業所など）や自治体の条例で手続きが変わることがあります。まずは同条件の記録を複数回集めるのが有効です。</li>
+                        <li>国の情報（環境省・騒音）：<a href="https://www.env.go.jp/air/noise/" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">環境省</a></li>
+                        <li>相談先は自治体の環境・生活衛生担当（市区町村）になるケースが多いです。</li>
+                    </ul>
+                </div>
             </section>
 
             <!-- Technical Insight Section -->
@@ -787,7 +929,7 @@
                     </div>
                     <div class="border-l-4 border-blue-500 pl-4">
                         <h3 class="font-semibold text-sm text-gray-900 mb-1">安全な騒音レベルとは何ですか？</h3>
-                        <p class="text-xs text-gray-600 mb-1">NIOSH/CDCによると、<strong>70dB</strong>以下の騒音レベルは一般的に長時間の暴露でも安全です。職業上の暴露限度は<strong>8時間で85dB</strong>です。85dBを超えると長時間の暴露で聴覚障害を引き起こす可能性があり、120dBを超えると即座に害を及ぼす可能性があります。</p>
+                        <p class="text-xs text-gray-600 mb-1">実用的な目安として、長く続くレベルはできるだけ<strong>70dB</strong>未満に抑え、<strong>85dB</strong>付近では「暴露時間」を重視してください（レベルが上がるほど安全時間は急速に短くなります）。</p>
                         <a href="https://www.cdc.gov/niosh/noise/about/noise.html" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline">NIOSH ガイドライン →</a>
                     </div>
                     <div class="border-l-4 border-blue-500 pl-4">
@@ -1019,7 +1161,7 @@
           "name": "安全とされる騒音レベルはどのくらいですか？",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "NIOSH/CDC によると、70 dB 未満の騒音レベルは長時間の暴露でも一般的に安全とされています。職業上の暴露限度は 85 dB・8 時間です。85 dB を超えるレベルに長時間さらされると聴覚障害の原因となり、120 dB を超えるレベルでは短時間でも即座にダメージを与える可能性があります。"
+            "text": "実用的な目安として、長く続くレベルはできるだけ 70 dB 未満に抑え、85 dB 付近では暴露時間を重視してください（レベルが上がるほど安全時間は急速に短くなります）。"
           }
         },
         {
@@ -1111,6 +1253,71 @@
                 console.error('SoundMeter library not loaded');
                 alert('エラー: SoundMeterライブラリを読み込めませんでした。ページを再読み込みしてください。');
             }
+
+            const initExposureCalculator = () => {
+                const inputEl = document.getElementById('exposureDbInput');
+                const rangeEl = document.getElementById('exposureDbRange');
+                const resultEl = document.getElementById('exposureCalcResult');
+                const noteEl = document.getElementById('exposureCalcNote');
+                if (!inputEl || !rangeEl || !resultEl || !noteEl) return;
+
+                const clamp = (n, min, max) => Math.min(max, Math.max(min, n));
+
+                const formatDuration = (minutes) => {
+                    if (!Number.isFinite(minutes) || minutes <= 0) return '1分未満';
+                    if (minutes < 1) return '1分未満';
+                    if (minutes < 60) return `${Math.round(minutes)}分`;
+                    const hours = minutes / 60;
+                    if (hours < 24) {
+                        const rounded = Math.round(hours * 10) / 10;
+                        return `${rounded}時間`;
+                    }
+                    return '24時間以上';
+                };
+
+                const computeMinutes = (db) => {
+                    const baseDb = 85;
+                    const baseMinutes = 8 * 60;
+                    const exchangeRate = 3;
+                    const factor = Math.pow(2, (baseDb - db) / exchangeRate);
+                    return baseMinutes * factor;
+                };
+
+                const render = (db) => {
+                    const value = clamp(db, 40, 130);
+                    inputEl.value = String(value);
+                    rangeEl.value = String(value);
+
+                    const minutes = computeMinutes(value);
+                    resultEl.textContent = formatDuration(minutes);
+
+                    if (value >= 120) {
+                        noteEl.textContent = '非常に高いレベルでは、リスクが即時的になり得ます。距離を取り、暴露時間を短くし、聴覚保護具を使用してください。';
+                        return;
+                    }
+                    if (value >= 85) {
+                        noteEl.textContent = '85 dBを超えると安全時間は急激に短くなります。短いピークではなく平均値と暴露時間を重視してください。';
+                        return;
+                    }
+                    if (value >= 70) {
+                        noteEl.textContent = '日常でもあり得る範囲ですが、長時間では疲労につながる場合があります。再現性のある手順で測定してください。';
+                        return;
+                    }
+                    noteEl.textContent = '低いレベルは一般に低リスクですが、快適さや睡眠の質も重要です。条件を揃えて比較しましょう。';
+                };
+
+                const parseDb = (raw) => {
+                    const n = Number.parseFloat(String(raw));
+                    return Number.isFinite(n) ? n : 85;
+                };
+
+                inputEl.addEventListener('input', () => render(parseDb(inputEl.value)));
+                rangeEl.addEventListener('input', () => render(parseDb(rangeEl.value)));
+
+                render(parseDb(inputEl.value));
+            };
+
+            initExposureCalculator();
         
             // Mobile Main Menu Toggle
             const menuBtn = document.getElementById('mobile-menu-btn');

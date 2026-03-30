@@ -496,8 +496,39 @@
             <section class="bg-white rounded-xl shadow-lg p-6">
                 <h2 class="text-xl font-bold text-gray-900 mb-3">Säker exponeringstid</h2>
                 <p class="text-sm text-gray-600 mb-4">
-                    Enligt <a href="https://www.cdc.gov/niosh/noise/about/noise.html" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">NIOSH/CDC</a> är säker exponeringstid kortare ju högre ljudnivån är.
+                    Tabellen och kalkylen nedan är en snabb översikt för att förstå hur nivå och tid hänger ihop, och för att göra jämförbara mätningar över tid. Den är avsedd som vägledning, inte som efterlevnadsmätning. Referens: <a href="https://www.cdc.gov/niosh/noise/about/noise.html" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">NIOSH/CDC</a>.
                 </p>
+
+                <div class="mb-5 rounded-xl border border-gray-200 bg-gray-50 p-4">
+                    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+                        <div class="min-w-[220px]">
+                            <h3 class="font-semibold text-gray-900">Snabb exponeringskalkyl</h3>
+                            <p class="text-xs text-gray-600 mt-1">Uppskattar maximal daglig exponeringstid med 85 dB = 8 timmar och 3 dB-regeln (riktvärde, inte för efterlevnad).</p>
+                        </div>
+                        <div class="w-full md:w-[420px]">
+                            <label for="exposureDbInput" class="block text-xs font-semibold text-gray-700">Ljudnivå (dB)</label>
+                            <div class="mt-1 flex items-center gap-3">
+                                <input id="exposureDbInput" type="number" inputmode="decimal" min="40" max="130" step="0.5" value="85" class="w-24 rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-blue-300">
+                                <input id="exposureDbRange" type="range" min="40" max="130" step="0.5" value="85" class="flex-1">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 grid md:grid-cols-2 gap-4">
+                        <div class="rounded-lg bg-white border border-gray-200 p-4">
+                            <div class="text-xs text-gray-500">Uppskattad maximal daglig exponering</div>
+                            <div id="exposureCalcResult" class="mt-1 text-2xl font-extrabold text-gray-900">8 timmar</div>
+                            <div id="exposureCalcNote" class="mt-2 text-xs text-gray-600">Vid 85 dB är 8 timmar ett vanligt riktvärde. Varje +3 dB halverar tiden.</div>
+                        </div>
+                        <div class="rounded-lg bg-white border border-gray-200 p-4">
+                            <div class="text-xs text-gray-500">Så använder du</div>
+                            <ul class="mt-2 text-xs text-gray-700 space-y-1 list-disc list-inside">
+                                <li>Använd medelvärdet (inte korta toppar) för beslut.</li>
+                                <li>Håll avstånd och setup konstant för jämförelser.</li>
+                                <li>För myndighetskrav: använd certifierad utrustning och dokumenterade rutiner.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
                 <div class="space-y-3">
                     <!-- 70 dB -->
                     <div class="fade-in-up">
@@ -594,7 +625,7 @@
                         </p>
                     </div>
                     <p>
-                        <strong>Hur buller skadar hörseln:</strong> Enligt <a href="https://gesund.bund.de/en/laermbelastung" target="_blank" rel="noopener" class="text-blue-600 hover:underline">hälsomyndigheter</a> skadar höga ljud de känsliga hårcellerna i innerörat. Dessa celler regenereras inte, så skadan är permanent. Högintensivt eller långvarigt buller orsakar:
+                        <strong>Hur buller skadar hörseln:</strong> Höga ljud kan skada de känsliga hårcellerna i innerörat. Dessa celler regenereras inte, så skadan är permanent. Högintensivt eller långvarigt buller kan orsaka:
                     </p>
                     <ul class="list-disc list-inside space-y-1 ml-3 text-sm">
                         <li>Mekanisk skada på innerörats hårceller</li>
@@ -602,6 +633,7 @@
                         <li>Bullerorsakad hörselnedsättning (NIHL)</li>
                         <li>Tinnitus (ringande i öronen) och känslighetsproblem</li>
                     </ul>
+                    <p class="text-xs text-gray-600 mt-2">Referens: <a href="https://gesund.bund.de/en/laermbelastung" target="_blank" rel="noopener" class="text-blue-600 hover:underline">hälsomyndigheter</a>.</p>
                     
                     <div class="mt-4 pt-4 border-t border-gray-100">
                         <h3 class="font-bold text-gray-900 mb-2 flex items-center">
@@ -615,12 +647,113 @@
                 </div>
             </section>
 
+            <section class="bg-white rounded-xl shadow-lg p-6">
+                <h2 class="text-xl font-bold text-gray-900 mb-3">Vad som skiljer oss från andra online-ljudmätare</h2>
+                <p class="text-sm text-gray-600 mb-4">Byggt för reproducerbara jämförelser och tydlig dokumentation – inte bara ett live-tal.</p>
+                <ul class="text-sm text-gray-700 space-y-2 list-disc list-inside">
+                    <li><strong>Rapport skapas lokalt:</strong> “Spara Rapport” genererar filen på din enhet och laddar inte upp rått ljud.</li>
+                    <li><strong>Mer än ett värde:</strong> frekvensspektrum + historik för att se trender och toppar.</li>
+                    <li><strong>Vägledning för jämförbara mätningar:</strong> SOP-tips, exempelrapporter och loggmall för konsekventa upplägg.</li>
+                    <li><strong>Transparens:</strong> se <a href="../methodology.html" class="text-blue-600 hover:underline font-semibold">Methodology</a> och <a href="../changelog.html" class="text-blue-600 hover:underline font-semibold">Changelog</a> för metod och förändringar.</li>
+                    <li><strong>Integritet:</strong> läs <a href="../privacy.html" class="text-blue-600 hover:underline font-semibold">Privacy</a> (dataflöde och tredjepartstjänster).</li>
+                </ul>
+                <div class="mt-4 grid sm:grid-cols-3 gap-3">
+                    <div class="rounded-xl border border-gray-200 bg-gray-50 p-4">
+                        <div class="text-xs font-semibold text-gray-900">1) Mikrofon</div>
+                        <div class="mt-1 text-xs text-gray-600">Behörighet styrs av webbläsaren.</div>
+                    </div>
+                    <div class="rounded-xl border border-gray-200 bg-gray-50 p-4">
+                        <div class="text-xs font-semibold text-gray-900">2) Lokal bearbetning</div>
+                        <div class="mt-1 text-xs text-gray-600">RMS, spektrum och historik beräknas i webbläsaren.</div>
+                    </div>
+                    <div class="rounded-xl border border-gray-200 bg-gray-50 p-4">
+                        <div class="text-xs font-semibold text-gray-900">3) Spara rapport</div>
+                        <div class="mt-1 text-xs text-gray-600">Fil skapas från sessionsstatistik på din enhet.</div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="example-reports" class="bg-white rounded-xl shadow-lg p-6">
+                <div class="flex items-start justify-between gap-4 flex-wrap">
+                    <div class="min-w-[220px]">
+                        <h2 class="text-xl font-bold text-gray-900">Exempelrapporter (tolka resultat)</h2>
+                        <p class="text-sm text-gray-600 mt-1">Statiska förhandsvisningar från samma “Spara Rapport”-mall för att visa min/medel/max och en reproducerbar loggrutin.</p>
+                    </div>
+                </div>
+
+                <div class="mt-4 grid lg:grid-cols-3 gap-4">
+                    <div class="rounded-xl border border-gray-200 bg-gray-50 p-4">
+                        <div class="flex items-center justify-between gap-3">
+                            <h3 class="font-semibold text-gray-900">Sovrum (natt) – ventilation & basnivå</h3>
+                            <span class="text-xs font-semibold text-green-700 bg-green-100 px-2 py-0.5 rounded-full">Låg</span>
+                        </div>
+                        <div class="mt-3 rounded-lg overflow-hidden border border-gray-200 bg-white">
+                            <div class="aspect-[4/3] bg-gray-100">
+                                <img src="../images/sv/report-example-bedroom.png" alt="Exempelrapport - sovrum på natten" class="w-full h-full object-cover" loading="lazy">
+                            </div>
+                        </div>
+                        <p class="mt-3 text-xs text-gray-700">Tolkning: max kan vara en kort händelse (dörr i trapphus, steg). För sömn är medelvärdet i ett jämförbart tidsfönster oftast mer relevant.</p>
+                        <ul class="mt-3 text-xs text-gray-700 space-y-1 list-disc list-inside">
+                            <li>Mät samma tid varje kväll (t.ex. 23:00).</li>
+                            <li>Notera fönsterläge och ventilation/fläkt.</li>
+                            <li>Upprepa 3× och jämför medel.</li>
+                        </ul>
+                    </div>
+
+                    <div class="rounded-xl border border-gray-200 bg-gray-50 p-4">
+                        <div class="flex items-center justify-between gap-3">
+                            <h3 class="font-semibold text-gray-900">Dammsugare (eco vs max) – 1 m</h3>
+                            <span class="text-xs font-semibold text-amber-800 bg-amber-100 px-2 py-0.5 rounded-full">Förhöjd</span>
+                        </div>
+                        <div class="mt-3 rounded-lg overflow-hidden border border-gray-200 bg-white">
+                            <div class="aspect-[4/3] bg-gray-100">
+                                <img src="../images/sv/report-example-vacuum.png" alt="Exempelrapport - dammsugartest" class="w-full h-full object-cover" loading="lazy">
+                            </div>
+                        </div>
+                        <p class="mt-3 text-xs text-gray-700">Tolkning: bra för att jämföra lägen, munstycken eller olika golv. Det är en jämförelsemetod snarare än ett absolut facit.</p>
+                        <ul class="mt-3 text-xs text-gray-700 space-y-1 list-disc list-inside">
+                            <li>Notera golvtyp (matta vs hårt).</li>
+                            <li>Notera läge (eco/max).</li>
+                            <li>Markera position och jämför medel.</li>
+                        </ul>
+                    </div>
+
+                    <div class="rounded-xl border border-gray-200 bg-gray-50 p-4">
+                        <div class="flex items-center justify-between gap-3">
+                            <h3 class="font-semibold text-gray-900">Buss & genomfart (fönster på glänt)</h3>
+                            <span class="text-xs font-semibold text-red-700 bg-red-100 px-2 py-0.5 rounded-full">Hög</span>
+                        </div>
+                        <div class="mt-3 rounded-lg overflow-hidden border border-gray-200 bg-white">
+                            <div class="aspect-[4/3] bg-gray-100">
+                                <img src="../images/sv/report-example-traffic.png" alt="Exempelrapport - trafik och buss" class="w-full h-full object-cover" loading="lazy">
+                            </div>
+                        </div>
+                        <p class="mt-3 text-xs text-gray-700">Tolkning: ljud från väg varierar (bussar, mopeder, plogning). För jämförelse: samma plats, samma tid, samma 60-sekundersfönster.</p>
+                        <ul class="mt-3 text-xs text-gray-700 space-y-1 list-disc list-inside">
+                            <li>Mät morgon och kväll separat.</li>
+                            <li>Notera fönsterläge (stängt/på glänt).</li>
+                            <li>Medel för exponering, max för händelser.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mt-5 rounded-xl border border-gray-200 bg-gray-50 p-4">
+                    <div>
+                        <h3 class="font-semibold text-gray-900">Mätlogg-mall (copy/paste)</h3>
+                        <p class="text-xs text-gray-600 mt-1">För mer reproducerbara jämförelser mellan dagar och enheter.</p>
+                    </div>
+                    <pre class="mt-3 text-xs bg-white border border-gray-200 rounded-lg p-3 overflow-x-auto text-gray-800">date,time,location,distance,device,avg_db,max_db,notes
+2026-03-23,21:30,bedroom,1m,phone,34,48,window closed; HVAC off
+2026-03-24,21:30,bedroom,1m,phone,36,52,window closed; light rain
+2026-03-25,21:30,bedroom,1m,phone,33,46,window closed; quiet night</pre>
+                </div>
+            </section>
+
             <!-- Health Impact -->
             <section class="bg-white rounded-xl shadow-lg p-6">
                 <h2 class="text-xl font-bold text-gray-900 mb-3">Hälsopåverkan av Bullerföroreningar</h2>
                 <p class="text-sm text-gray-600 mb-4">
-                    Utöver hörselnedsättning påverkar kronisk bullerexponering den allmänna hälsan. Källa: 
-                    <a href="https://www.who.int/europe/news-room/fact-sheets/item/noise" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">WHO Europa</a>
+                    Buller handlar inte bara om hörsel – långvarig exponering kan påverka sömn, stress och allmän hälsa. Referens: <a href="https://www.who.int/europe/news-room/fact-sheets/item/noise" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">WHO Europa</a>.
                 </p>
                 <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition">
@@ -667,7 +800,7 @@
                 </div>
                 
                 <div class="mt-4 p-4 bg-gradient-to-r from-red-50 to-orange-50 rounded-lg border border-red-200">
-                    <h4 class="font-semibold text-sm text-gray-900 mb-2">🛡️ Skyddstips (från NIOSH/CDC):</h4>
+                    <h4 class="font-semibold text-sm text-gray-900 mb-2">🛡️ Praktiska skyddstips</h4>
                     <ul class="text-xs text-gray-700 space-y-1 ml-4 list-disc">
                         <li>Håll daglig bullerexponering under <strong>70 dB</strong> när det är möjligt</li>
                         <li>Använd hörselskydd (öronproppar/kåpor) i miljöer ≥85 dB</li>
@@ -675,6 +808,7 @@
                         <li>Använd bullermätningsverktyg för att spåra och hantera ljudnivåer</li>
                         <li>Ge dina öron viloperioder efter exponering för högt buller</li>
                     </ul>
+                    <p class="text-xs text-gray-600 mt-3">Referens: <a href="https://www.cdc.gov/niosh/noise/about/noise.html" target="_blank" rel="noopener" class="text-blue-700 hover:underline font-semibold">NIOSH/CDC</a>.</p>
                 </div>
             </section>
 
@@ -758,6 +892,14 @@
                         </ul>
                     </div>
                 </div>
+                <div class="mt-4 rounded-xl border border-gray-200 bg-gray-50 p-4">
+                    <h3 class="font-semibold text-gray-900 mb-2">Lokala resurser (Sverige)</h3>
+                    <ul class="text-sm text-gray-700 space-y-2 list-disc list-inside">
+                        <li>Regler och riktvärden kan bero på miljö (inomhus/utomhus) och kommunala bedömningar. För ärenden hjälper det ofta att visa en logg med tid, plats och återkommande medelvärden.</li>
+                        <li>Hälsoperspektiv: <a href="https://www.folkhalsomyndigheten.se/folkhalsorapportering-statistik/folkhalsans-utveckling/miljohalsa/buller/" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">Folkhälsomyndigheten (buller)</a></li>
+                        <li>Miljöinformation: <a href="https://www.naturvardsverket.se/amnesomraden/buller/" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">Naturvårdsverket (buller)</a></li>
+                    </ul>
+                </div>
             </section>
 
             <!-- Technical Insight Section -->
@@ -797,7 +939,7 @@
                     </div>
                     <div class="border-l-4 border-blue-500 pl-4">
                         <h3 class="font-semibold text-sm text-gray-900 mb-1">Vad är en säker ljudnivå?</h3>
-                        <p class="text-xs text-gray-600 mb-1">Enligt <strong>NIOSH/CDC</strong> är ljudnivåer under <strong>70 dB</strong> generellt säkra för långvarig exponering. Gränsvärdet för yrkesmässig exponering är <strong>85 dB i 8 timmar</strong>. Nivåer över 85 dB kan orsaka hörselskador vid långvarig exponering, och allt över 120 dB kan orsaka omedelbar skada.</p>
+                        <p class="text-xs text-gray-600 mb-1">En praktisk tumregel är att hålla långvariga nivåer under <strong>70 dB</strong> när det går, och att fokusera på exponeringstid när du närmar dig <strong>85 dB</strong> – då halveras säker tid snabbt vid ökande nivå.</p>
                         <a href="https://www.cdc.gov/niosh/noise/about/noise.html" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline">NIOSH Riktlinjer →</a>
                     </div>
                     <div class="border-l-4 border-blue-500 pl-4">
@@ -1028,7 +1170,7 @@
           "name": "Vad är en säker ljudnivå?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Enligt NIOSH/CDC är ljudnivåer under 70 dB i allmänhet säkra vid långvarig exponering. Gränsen för yrkesmässig exponering är 85 dB under 8 timmar. Nivåer över 85 dB kan orsaka hörselskador vid långvarig exponering."
+            "text": "En praktisk tumregel är att hålla långvariga nivåer under 70 dB när det går, och att fokusera på exponeringstid när du närmar dig 85 dB – då halveras säker tid snabbt vid ökande nivå."
           }
         },
         {
@@ -1113,6 +1255,71 @@
             };
             
             SoundMeter.init(svTranslations);
+
+            const initExposureCalculator = () => {
+                const inputEl = document.getElementById('exposureDbInput');
+                const rangeEl = document.getElementById('exposureDbRange');
+                const resultEl = document.getElementById('exposureCalcResult');
+                const noteEl = document.getElementById('exposureCalcNote');
+                if (!inputEl || !rangeEl || !resultEl || !noteEl) return;
+
+                const clamp = (n, min, max) => Math.min(max, Math.max(min, n));
+
+                const formatDuration = (minutes) => {
+                    if (!Number.isFinite(minutes) || minutes <= 0) return '< 1 minut';
+                    if (minutes < 1) return '< 1 minut';
+                    if (minutes < 60) return `${Math.round(minutes)} minuter`;
+                    const hours = minutes / 60;
+                    if (hours < 24) {
+                        const rounded = Math.round(hours * 10) / 10;
+                        return `${rounded} timmar`;
+                    }
+                    return '24+ timmar';
+                };
+
+                const computeMinutes = (db) => {
+                    const baseDb = 85;
+                    const baseMinutes = 8 * 60;
+                    const exchangeRate = 3;
+                    const factor = Math.pow(2, (baseDb - db) / exchangeRate);
+                    return baseMinutes * factor;
+                };
+
+                const render = (db) => {
+                    const value = clamp(db, 40, 130);
+                    inputEl.value = String(value);
+                    rangeEl.value = String(value);
+
+                    const minutes = computeMinutes(value);
+                    resultEl.textContent = formatDuration(minutes);
+
+                    if (value >= 120) {
+                        noteEl.textContent = 'Vid mycket höga nivåer kan risken vara omedelbar. Öka avståndet, begränsa exponeringen och använd rätt hörselskydd.';
+                        return;
+                    }
+                    if (value >= 85) {
+                        noteEl.textContent = 'Över 85 dB minskar säker tid snabbt. Använd medelvärdet och fokusera på exponeringstid, inte korta toppar.';
+                        return;
+                    }
+                    if (value >= 70) {
+                        noteEl.textContent = 'Detta intervall är vanligt i vardagen, men lång exponering kan ge trötthet. Använd en reproducerbar mätrutin.';
+                        return;
+                    }
+                    noteEl.textContent = 'Lägre nivåer är oftast låg risk, men komfort och sömn är viktiga. Mät konsekvent för jämförelser.';
+                };
+
+                const parseDb = (raw) => {
+                    const n = Number.parseFloat(String(raw));
+                    return Number.isFinite(n) ? n : 85;
+                };
+
+                inputEl.addEventListener('input', () => render(parseDb(inputEl.value)));
+                rangeEl.addEventListener('input', () => render(parseDb(rangeEl.value)));
+
+                render(parseDb(inputEl.value));
+            };
+
+            initExposureCalculator();
         
             // Mobile Main Menu Toggle
             const menuBtn = document.getElementById('mobile-menu-btn');
