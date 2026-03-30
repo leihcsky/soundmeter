@@ -11,10 +11,10 @@
       gtag('config', 'G-VBFVZM0MP6');
     </script>
     <script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3293976111230987" crossorigin="anonymous"></script>
-    <meta name="description" content="Changelog for RealtimeSoundMeter.org: major updates to tools, content, accessibility, and methodology notes.">
+    <meta name="description" content="Validation protocol and public datasets for RealtimeSoundMeter: measurement SOP, device/browser matrix, data templates, and how to reproduce and submit verification runs.">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://realtimesoundmeter.org/changelog">
-    <title>Changelog - RealtimeSoundMeter.org</title>
+    <link rel="canonical" href="https://realtimesoundmeter.org/validation">
+    <title>Validation Protocol & Data - RealtimeSoundMeter.org</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link href="/css/style.css?v=3" rel="stylesheet">
 </head>
@@ -65,78 +65,93 @@
 
     <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
         <div class="bg-white rounded-2xl shadow-xl border border-gray-100 p-6 sm:p-10">
-            <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight mb-4">Changelog</h1>
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight mb-4">Validation Protocol &amp; Data</h1>
             <p class="text-gray-600 text-base leading-relaxed mb-8">
-                This page lists major changes to our tools, user-facing guidance, and accessibility improvements. Minor copy edits and small styling tweaks may not always be logged.
+                “Accuracy” should be reviewable. This page defines a repeatable validation protocol, publishes data templates, and explains how to reproduce checks and submit verification runs.
             </p>
 
-            <div class="space-y-8">
-                <section class="border border-gray-200 rounded-2xl p-6">
-                    <div class="flex items-start justify-between gap-4">
-                        <h2 class="text-xl font-bold text-gray-900">2026-03-30</h2>
-                        <span class="text-xs text-gray-500">Localization differentiation updates</span>
+            <div class="space-y-10 text-gray-700">
+                <section class="bg-blue-50 rounded-2xl border border-blue-200 p-6">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-3">What this validation is (and isn’t)</h2>
+                    <div class="space-y-3 text-sm text-gray-800">
+                        <p>
+                            The goal is to measure <strong>repeatability</strong> and <strong>tracking</strong> under controlled setup, and to document how results vary by device and browser. It is not a claim of certification to IEC 61672 or legal-grade compliance.
+                        </p>
+                        <p>
+                            For definitions, limitations, and calibration guidance, see <a href="accuracy.html" class="text-blue-700 hover:underline font-semibold">Accuracy &amp; Calibration</a>.
+                        </p>
                     </div>
-                    <ul class="mt-4 list-disc list-inside space-y-2 text-sm text-gray-700">
-                        <li>Rewrote multi-language guidance to use original phrasing with reference links (less templated “According to …” copy).</li>
-                        <li>Added country-specific “local resources” sections across multiple language homepages to improve practical relevance.</li>
-                        <li>Customized the three sample report captions per locale (titles, interpretation notes, and measurement tips) to reflect more realistic local scenarios.</li>
-                        <li>Added a short “How we’re different” module on homepages with links to Methodology, Changelog, and Privacy.</li>
-                        <li>Added Accuracy &amp; Calibration and Validation Protocol pages with downloadable templates to make measurement claims more reviewable.</li>
-                    </ul>
                 </section>
 
-                <section class="border border-gray-200 rounded-2xl p-6">
-                    <div class="flex items-start justify-between gap-4">
-                        <h2 class="text-xl font-bold text-gray-900">2026-03-23</h2>
-                        <span class="text-xs text-gray-500">Localization and monetization updates</span>
+                <section>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Protocol (SOP)</h2>
+                    <div class="space-y-3 text-sm">
+                        <div class="bg-gray-50 rounded-xl border border-gray-200 p-4">
+                            <h3 class="font-semibold text-gray-900 mb-2">Setup</h3>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li>Use a steady source: tone (1 kHz), pink noise, or stable fan noise.</li>
+                                <li>Mark distance (e.g., 1 m) and keep microphone height consistent.</li>
+                                <li>Avoid corners and reflective surfaces for room-average checks.</li>
+                                <li>Disable audio enhancements if possible (OS-level noise suppression / AGC).</li>
+                            </ul>
+                        </div>
+                        <div class="bg-gray-50 rounded-xl border border-gray-200 p-4">
+                            <h3 class="font-semibold text-gray-900 mb-2">Runs</h3>
+                            <ol class="list-decimal list-inside space-y-2">
+                                <li>Baseline run: 60 seconds avg/min/max.</li>
+                                <li>Repeat baseline 3 times to measure repeatability.</li>
+                                <li>Change one variable (distance or door open) and repeat 60 seconds.</li>
+                                <li>If a reference meter is available: record its average in parallel.</li>
+                            </ol>
+                        </div>
                     </div>
-                    <ul class="mt-4 list-disc list-inside space-y-2 text-sm text-gray-700">
-                        <li>Added optional hardware recommendation sections and affiliate disclosures on French and German homepages.</li>
-                        <li>Improved localization consistency on multi-language homepages (removed leftover English UI references).</li>
-                        <li>Expanded privacy policy disclosure for ads, analytics, and affiliate links.</li>
-                    </ul>
                 </section>
 
-                <section class="border border-gray-200 rounded-2xl p-6">
-                    <div class="flex items-start justify-between gap-4">
-                        <h2 class="text-xl font-bold text-gray-900">2026-03-20</h2>
-                        <span class="text-xs text-gray-500">Site-wide documentation update</span>
+                <section>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Download templates</h2>
+                    <div class="grid md:grid-cols-2 gap-4 text-sm">
+                        <div class="bg-white rounded-xl border border-gray-200 p-4">
+                            <h3 class="font-semibold text-gray-900 mb-2">Device &amp; browser matrix</h3>
+                            <p class="text-gray-600 mb-3">List what you tested so results are comparable.</p>
+                            <a href="data/validation/device-matrix-template.csv" class="text-blue-600 hover:underline font-semibold">device-matrix-template.csv</a>
+                        </div>
+                        <div class="bg-white rounded-xl border border-gray-200 p-4">
+                            <h3 class="font-semibold text-gray-900 mb-2">Validation runs template</h3>
+                            <p class="text-gray-600 mb-3">Record runs (avg/min/max + context + optional reference).</p>
+                            <a href="data/validation/validation-runs-template.csv" class="text-blue-600 hover:underline font-semibold">validation-runs-template.csv</a>
+                        </div>
                     </div>
-                    <ul class="mt-4 list-disc list-inside space-y-2 text-sm text-gray-700">
-                        <li>Added site-level proof pages: Editorial Policy, Methodology, and Changelog.</li>
-                        <li>Improved homepage guidance with measurement workflow, common errors, and report documentation tips.</li>
-                        <li>Added at-home checklist (best results + safety) to the hearing test landing view.</li>
-                        <li>Added safety/setup and troubleshooting quick checks to the speaker test page.</li>
-                        <li>Aligned heading structure on multi-language homepages to match the main homepage and localized the hidden dashboard heading.</li>
-                    </ul>
                 </section>
 
-                <section class="border border-gray-200 rounded-2xl p-6">
-                    <div class="flex items-start justify-between gap-4">
-                        <h2 class="text-xl font-bold text-gray-900">2026-03-12</h2>
-                        <span class="text-xs text-gray-500">Content expansion</span>
+                <section>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">How to reproduce using our tools</h2>
+                    <div class="space-y-3 text-sm">
+                        <ol class="list-decimal list-inside space-y-2">
+                            <li>Open <a href="/" class="text-blue-600 hover:underline font-semibold">Online Sound Meter</a>.</li>
+                            <li>Optionally open <a href="/speaker-test-tones/" class="text-blue-600 hover:underline font-semibold">Speaker Test (tones)</a> in a second tab to generate a stable 1 kHz tone.</li>
+                            <li>Measure 60 seconds per run and save a report after each run for an artifact.</li>
+                            <li>Fill in the templates with run averages and context notes.</li>
+                            <li>Keep the same distance and placement across runs and record any changes explicitly.</li>
+                        </ol>
+                        <p>
+                            Practical measurement workflow: <a href="blog/how-to-measure-decibels-accurately.html" class="text-blue-600 hover:underline font-semibold">Measure decibels more reliably</a>.
+                        </p>
                     </div>
-                    <ul class="mt-4 list-disc list-inside space-y-2 text-sm text-gray-700">
-                        <li>Published additional educational articles and refreshed internal linking on core pages.</li>
-                        <li>Updated last-updated markers on authoritative sources sections.</li>
-                    </ul>
                 </section>
 
-                <section class="border border-gray-200 rounded-2xl p-6">
-                    <div class="flex items-start justify-between gap-4">
-                        <h2 class="text-xl font-bold text-gray-900">2026-02-05</h2>
-                        <span class="text-xs text-gray-500">Speaker test enhancements</span>
+                <section class="bg-amber-50 rounded-2xl border border-amber-200 p-6">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-3">Submission checklist (for verifiable evidence)</h2>
+                    <div class="space-y-3 text-sm text-gray-800">
+                        <ul class="list-disc list-inside space-y-2">
+                            <li>At least 3 baseline runs (60 seconds each) with the same setup</li>
+                            <li>At least 2 verification runs with one variable changed (distance or context)</li>
+                            <li>Saved report images (one per run) or screenshots including system clock</li>
+                            <li>Device + browser + OS listed in the device matrix template</li>
+                        </ul>
+                        <p>
+                            We will only summarize results that include enough context to be reproduced or audited.
+                        </p>
                     </div>
-                    <ul class="mt-4 list-disc list-inside space-y-2 text-sm text-gray-700">
-                        <li>Expanded speaker test tools and improved UI for stereo/polarity checks.</li>
-                    </ul>
-                </section>
-
-                <section class="bg-gray-50 rounded-2xl border border-gray-200 p-6">
-                    <h2 class="text-xl font-bold text-gray-900 mb-3">Questions or Corrections?</h2>
-                    <p class="text-sm text-gray-700">
-                        If you notice an issue or want to suggest an improvement, please use our <a href="contact.html" class="text-blue-600 hover:underline font-semibold">contact page</a>. For how we handle content quality and updates, see <a href="editorial-policy.html" class="text-blue-600 hover:underline font-semibold">Editorial Policy</a>.
-                    </p>
                 </section>
             </div>
         </div>
@@ -149,6 +164,8 @@
                     <a href="about.html" class="hover:text-blue-400">About</a>
                     <a href="editorial-policy.html" class="hover:text-blue-400">Editorial Policy</a>
                     <a href="methodology.html" class="hover:text-blue-400">Methodology</a>
+                    <a href="accuracy.html" class="hover:text-blue-400">Accuracy</a>
+                    <a href="validation.html" class="hover:text-blue-400">Validation</a>
                     <a href="changelog.html" class="hover:text-blue-400">Changelog</a>
                     <a href="terms.html" class="hover:text-blue-400">Terms of Use</a>
                     <a href="privacy.html" class="hover:text-blue-400">Privacy Policy</a>

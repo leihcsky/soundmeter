@@ -11,10 +11,10 @@
       gtag('config', 'G-VBFVZM0MP6');
     </script>
     <script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3293976111230987" crossorigin="anonymous"></script>
-    <meta name="description" content="Methodology for our online tools: how the sound meter, hearing test, and speaker test work, plus accuracy limits and privacy approach.">
+    <meta name="description" content="Accuracy and calibration guidance for RealtimeSoundMeter: what the meter measures, limitations, how to do reference-only calibration, and how to verify results responsibly.">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://realtimesoundmeter.org/methodology">
-    <title>Methodology - RealtimeSoundMeter.org</title>
+    <link rel="canonical" href="https://realtimesoundmeter.org/accuracy">
+    <title>Accuracy & Calibration - RealtimeSoundMeter.org</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link href="/css/style.css?v=3" rel="stylesheet">
 </head>
@@ -65,106 +65,110 @@
 
     <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
         <div class="bg-white rounded-2xl shadow-xl border border-gray-100 p-6 sm:p-10">
-            <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight mb-4">Methodology</h1>
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight mb-4">Accuracy &amp; Calibration</h1>
             <p class="text-gray-600 text-base leading-relaxed mb-8">
-                This page documents how our tools work at a high level, what they can and can’t do, and how to use them responsibly. These tools are designed for awareness, education, and screening—not for regulatory compliance.
+                This page explains what our Online Sound Meter can and can’t claim, how to do reference-only calibration, and how to collect measurements that are reproducible and reviewable. We prioritize transparency over “perfect numbers.”
             </p>
 
             <div class="space-y-10 text-gray-700">
-                <section>
-                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Online Sound Meter (Decibel Meter)</h2>
-                    <div class="space-y-3 text-sm">
+                <section class="bg-amber-50 rounded-2xl border border-amber-200 p-6">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-3">Important: Reference-only tool</h2>
+                    <div class="space-y-3 text-sm text-gray-800">
                         <p>
-                            Our sound meter uses your device microphone through the Web Audio API to estimate sound level changes over time. The reading is best interpreted as a relative indicator and trend (quiet vs. loud, changing over time), especially across different devices.
+                            This is not a certified Class 1 / Class 2 sound level meter. For legal enforcement, workplace compliance, or medical decisions, use certified instruments and qualified professionals.
                         </p>
-                        <div class="grid md:grid-cols-2 gap-4">
-                            <div class="bg-gray-50 rounded-xl border border-gray-200 p-4">
-                                <h3 class="font-semibold text-gray-900 mb-2">What It Measures</h3>
-                                <ul class="list-disc list-inside space-y-2">
-                                    <li>Real-time level estimates derived from microphone input.</li>
-                                    <li>Session statistics (min, average, max) for the current run.</li>
-                                    <li>Frequency visualization (for education and pattern spotting).</li>
-                                </ul>
-                            </div>
-                            <div class="bg-amber-50 rounded-xl border border-amber-200 p-4">
-                                <h3 class="font-semibold text-gray-900 mb-2">Known Limitations</h3>
-                                <ul class="list-disc list-inside space-y-2">
-                                    <li>Device microphones have different sensitivity and processing.</li>
-                                    <li>Automatic gain control may affect stability.</li>
-                                    <li>Room acoustics and distance can change readings significantly.</li>
-                                    <li>Not a calibrated Class 1/2 sound level meter.</li>
-                                </ul>
-                            </div>
-                        </div>
                         <p>
-                            For a practical measurement workflow, see <a href="blog/how-to-measure-decibels-accurately.html" class="text-blue-600 hover:underline font-semibold">How to Measure Decibels Accurately</a>. For reference-only calibration, see <a href="blog/phone-decibel-meter-calibration.html" class="text-blue-600 hover:underline font-semibold">Phone Decibel Meter Calibration</a>.
+                            For most everyday use, the most valuable output is often the <strong>repeatable difference</strong> between “before vs after” under the same setup.
                         </p>
                     </div>
                 </section>
 
                 <section>
-                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Online Hearing Test</h2>
-                    <div class="space-y-3 text-sm">
-                        <p>
-                            Our hearing test is an at-home screening tool inspired by pure tone audiometry. It estimates the softest level where you can “just barely” hear tones across multiple frequencies, separately for each ear.
-                        </p>
-                        <div class="grid md:grid-cols-2 gap-4">
-                            <div class="bg-gray-50 rounded-xl border border-gray-200 p-4">
-                                <h3 class="font-semibold text-gray-900 mb-2">How It Works</h3>
-                                <ul class="list-disc list-inside space-y-2">
-                                    <li>Uses a volume check step to avoid sudden loud playback.</li>
-                                    <li>Guides you through frequency steps to estimate thresholds.</li>
-                                    <li>Displays a report-style summary for self-screening.</li>
-                                </ul>
-                            </div>
-                            <div class="bg-amber-50 rounded-xl border border-amber-200 p-4">
-                                <h3 class="font-semibold text-gray-900 mb-2">Limits and Interpretation</h3>
-                                <ul class="list-disc list-inside space-y-2">
-                                    <li>Headphone model and fit can affect results.</li>
-                                    <li>Background noise can mask low-level tones.</li>
-                                    <li>Not a medical diagnosis; clinical audiometry remains the standard.</li>
-                                    <li>Use results to decide whether to seek professional testing.</li>
-                                </ul>
-                            </div>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">What the meter measures</h2>
+                    <div class="grid md:grid-cols-2 gap-4 text-sm">
+                        <div class="bg-gray-50 rounded-xl border border-gray-200 p-4">
+                            <h3 class="font-semibold text-gray-900 mb-2">Outputs you see</h3>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li>Real-time level estimate derived from microphone input</li>
+                                <li>Session stats: min, average, max for your current run</li>
+                                <li>Frequency spectrum + history visualization for context</li>
+                                <li>Saved report image generated locally on your device</li>
+                            </ul>
                         </div>
-                        <p>
-                            For guidance, see <a href="blog/hearing-test-guide.html" class="text-blue-600 hover:underline font-semibold">Hearing Test Guide</a> and <a href="blog/headphone-safety.html" class="text-blue-600 hover:underline font-semibold">Headphone Safety</a>.
-                        </p>
+                        <div class="bg-gray-50 rounded-xl border border-gray-200 p-4">
+                            <h3 class="font-semibold text-gray-900 mb-2">What it is best for</h3>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li>Before/after comparisons (new fan, insulation, closed window)</li>
+                                <li>Repeatable “is it getting worse?” tracking over days/weeks</li>
+                                <li>Documentation workflow (logs + reports + context notes)</li>
+                                <li>Education: spectrum patterns and burst behavior</li>
+                            </ul>
+                        </div>
                     </div>
                 </section>
 
                 <section>
-                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Speaker Test Tones</h2>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Why accuracy varies (and how to reduce error)</h2>
+                    <div class="grid md:grid-cols-2 gap-4 text-sm">
+                        <div class="bg-white rounded-xl border border-gray-200 p-4">
+                            <h3 class="font-semibold text-gray-900 mb-2">Top error sources</h3>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li>Microphone sensitivity and device tuning differences</li>
+                                <li>Operating system / browser audio processing (AGC, noise suppression)</li>
+                                <li>Distance, orientation, and placement near reflective surfaces</li>
+                                <li>Clipping/saturation at loud levels (phone mics often become nonlinear)</li>
+                            </ul>
+                        </div>
+                        <div class="bg-white rounded-xl border border-gray-200 p-4">
+                            <h3 class="font-semibold text-gray-900 mb-2">Most effective fixes</h3>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li>Measure a 60-second average, not a 1-second snapshot</li>
+                                <li>Keep the same position/height/orientation for comparisons</li>
+                                <li>Record context (room, windows, HVAC, distance markers)</li>
+                                <li>Repeat 3 runs and compare averages first</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p class="text-sm mt-4">
+                        Practical workflow: <a href="blog/how-to-measure-decibels-accurately.html" class="text-blue-600 hover:underline font-semibold">Measure decibels more reliably</a>.
+                    </p>
+                </section>
+
+                <section>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Reference-only calibration (offset) + verification</h2>
                     <div class="space-y-3 text-sm">
                         <p>
-                            Speaker test tones help verify stereo channel wiring, polarity (phase), and identify issues such as rattling or uneven frequency response. Our tools generate tones and noise in the browser and provide step-by-step guidance for common checks.
+                            If you have access to a trusted reference (a professional sound level meter or a known calibrator), you can do an offset calibration at a realistic level (often 70–90 dB). Then verify that your device tracks changes reasonably across a few positions.
                         </p>
-                        <div class="grid md:grid-cols-2 gap-4">
-                            <div class="bg-gray-50 rounded-xl border border-gray-200 p-4">
-                                <h3 class="font-semibold text-gray-900 mb-2">Typical Checks</h3>
-                                <ul class="list-disc list-inside space-y-2">
-                                    <li>Left/right channel identification</li>
-                                    <li>In-phase vs. out-of-phase polarity perception</li>
-                                    <li>Frequency sweeps for buzzing, dropouts, or resonances</li>
-                                </ul>
-                            </div>
-                            <div class="bg-amber-50 rounded-xl border border-amber-200 p-4">
-                                <h3 class="font-semibold text-gray-900 mb-2">Safe Use</h3>
-                                <ul class="list-disc list-inside space-y-2">
-                                    <li>Start low volume and increase gradually.</li>
-                                    <li>Use short bursts for high frequencies.</li>
-                                    <li>Stop if playback becomes uncomfortable.</li>
-                                </ul>
-                            </div>
+                        <div class="bg-gray-50 rounded-xl border border-gray-200 p-4">
+                            <h3 class="font-semibold text-gray-900 mb-2">Recommended steps</h3>
+                            <ol class="list-decimal list-inside space-y-2">
+                                <li>Pick a stable sound source (steady fan or tone/noise generator).</li>
+                                <li>Measure 60 seconds at an anchor point and record avg on both devices.</li>
+                                <li>Apply a single offset to align averages at the anchor point.</li>
+                                <li>Verify tracking at 0.5 m and 2 m (and one context change such as door open).</li>
+                            </ol>
                         </div>
                         <p>
-                            For a comprehensive workflow, see <a href="blog/how-to-test-speakers-headphones.html" class="text-blue-600 hover:underline font-semibold">How to Test Speakers and Headphones</a>.
+                            Detailed guide: <a href="blog/phone-decibel-meter-calibration.html" class="text-blue-600 hover:underline font-semibold">Phone Decibel Meter Calibration</a>.
+                        </p>
+                    </div>
+                </section>
+
+                <section class="bg-blue-50 rounded-2xl border border-blue-200 p-6">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-3">Verification evidence: protocols + public datasets</h2>
+                    <div class="space-y-3 text-sm text-gray-800">
+                        <p>
+                            To make accuracy claims reviewable, we publish a validation protocol, a device/browser matrix, and data templates for runs that can be replicated by others.
+                        </p>
+                        <p>
+                            See: <a href="validation.html" class="text-blue-700 hover:underline font-semibold">Validation Protocol &amp; Data</a>.
                         </p>
                     </div>
                 </section>
 
                 <section class="bg-green-50 rounded-2xl border border-green-200 p-6">
-                    <h2 class="text-2xl font-bold text-gray-900 mb-3">Privacy and Data Processing</h2>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-3">Privacy and data flow</h2>
                     <div class="space-y-3 text-sm text-gray-800">
                         <p>
                             Audio processing runs locally in your browser. We do not record or upload raw microphone audio. “Save Report” generates a file on your device using summary statistics from your current session.

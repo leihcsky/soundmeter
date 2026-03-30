@@ -91,49 +91,61 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://realtimesoundmeter.org/about.html</loc>
+    <loc>https://realtimesoundmeter.org/about</loc>
     <lastmod>2026-03-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://realtimesoundmeter.org/editorial-policy.html</loc>
+    <loc>https://realtimesoundmeter.org/editorial-policy</loc>
     <lastmod>2026-03-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://realtimesoundmeter.org/methodology.html</loc>
+    <loc>https://realtimesoundmeter.org/methodology</loc>
     <lastmod>2026-03-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://realtimesoundmeter.org/changelog.html</loc>
+    <loc>https://realtimesoundmeter.org/changelog</loc>
     <lastmod>2026-03-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://realtimesoundmeter.org/terms.html</loc>
+    <loc>https://realtimesoundmeter.org/accuracy</loc>
+    <lastmod>2026-03-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://realtimesoundmeter.org/validation</loc>
+    <lastmod>2026-03-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://realtimesoundmeter.org/terms</loc>
     <lastmod>2026-03-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://realtimesoundmeter.org/privacy.html</loc>
+    <loc>https://realtimesoundmeter.org/privacy</loc>
     <lastmod>2026-03-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://realtimesoundmeter.org/disclaimer.html</loc>
+    <loc>https://realtimesoundmeter.org/disclaimer</loc>
     <lastmod>2026-03-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://realtimesoundmeter.org/contact.html</loc>
+    <loc>https://realtimesoundmeter.org/contact</loc>
     <lastmod>2026-03-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>

@@ -1,0 +1,3 @@
+matrix_id,device_type,device_model,os,browser,browser_version,mic,notes
+EX-MATRIX-001,Phone,iPhone 13,iOS 17,Safari,,Built-in,Disable audio enhancements if available
+EX-MATRIX-001,Phone,Pixel 7,Android 14,Chrome,,Built-in,Use the same tab and permissions across runs
