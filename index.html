@@ -497,8 +497,39 @@
             <section class="bg-white rounded-xl shadow-lg p-6">
                 <h2 class="text-xl font-bold text-gray-900 mb-3">Safe Exposure Time by Decibel Level</h2>
                 <p class="text-sm text-gray-600 mb-4">
-                    According to <a href="https://www.cdc.gov/niosh/noise/about/noise.html" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">NIOSH/CDC</a>, the higher the noise level, the shorter the safe exposure time.
+                    This table is a quick screening view of how daily noise dose changes with level. It uses the NIOSH 3 dB exchange rate approach and is intended for awareness and repeatable comparisons, not compliance measurements. Source: <a href="https://www.cdc.gov/niosh/noise/about/noise.html" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">NIOSH/CDC</a>.
                 </p>
+
+                <div class="mb-5 rounded-xl border border-gray-200 bg-gray-50 p-4">
+                    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+                        <div class="min-w-[220px]">
+                            <h3 class="font-semibold text-gray-900">Quick Exposure Calculator</h3>
+                            <p class="text-xs text-gray-600 mt-1">Estimate a maximum daily exposure time using 85 dB = 8 hours and the 3 dB exchange rate.</p>
+                        </div>
+                        <div class="w-full md:w-[420px]">
+                            <label for="exposureDbInput" class="block text-xs font-semibold text-gray-700">Noise level (dB)</label>
+                            <div class="mt-1 flex items-center gap-3">
+                                <input id="exposureDbInput" type="number" inputmode="decimal" min="40" max="130" step="0.5" value="85" class="w-24 rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-blue-300">
+                                <input id="exposureDbRange" type="range" min="40" max="130" step="0.5" value="85" class="flex-1">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4 grid md:grid-cols-2 gap-4">
+                        <div class="rounded-lg bg-white border border-gray-200 p-4">
+                            <div class="text-xs text-gray-500">Estimated maximum daily exposure</div>
+                            <div id="exposureCalcResult" class="mt-1 text-2xl font-extrabold text-gray-900">8 hours</div>
+                            <div id="exposureCalcNote" class="mt-2 text-xs text-gray-600">At 85 dB, a common screening limit is 8 hours. Every +3 dB halves time.</div>
+                        </div>
+                        <div class="rounded-lg bg-white border border-gray-200 p-4">
+                            <div class="text-xs text-gray-500">How to use this</div>
+                            <ul class="mt-2 text-xs text-gray-700 space-y-1 list-disc list-inside">
+                                <li>Use the average level (not a brief spike) for better decisions.</li>
+                                <li>Keep distance and setup consistent when comparing changes.</li>
+                                <li>If you need regulatory compliance, use certified equipment and documented procedures.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
                 
                 <div class="space-y-3">
                     <!-- 70 dB -->
@@ -695,11 +726,11 @@
                     </p>
                     <div class="bg-amber-50 border-l-4 border-amber-500 p-3 my-3">
                         <p class="text-sm">
-                            <strong>🏥 WHO Recommendation:</strong> The <a href="https://www.who.int/news-room/questions-and-answers/item/deafness-and-hearing-loss-safe-listening" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">World Health Organization</a> recommends keeping noise levels below <strong>70 dB</strong> for extended periods to prevent hearing loss. Sounds above 85 dB can cause hearing damage with prolonged exposure.
+                            <strong>🏥 WHO context:</strong> Long-term exposure to high noise is associated with hearing risk. A practical target for everyday environments is to keep sustained levels comfortably below the “risk zone” and focus on exposure time when levels rise. Reference: <a href="https://www.who.int/news-room/questions-and-answers/item/deafness-and-hearing-loss-safe-listening" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">World Health Organization</a>.
                         </p>
                     </div>
                     <p>
-                        <strong>How noise damages hearing:</strong> According to <a href="https://gesund.bund.de/en/laermbelastung" target="_blank" rel="noopener" class="text-blue-600 hover:underline">health authorities</a>, loud sounds damage the delicate hair cells in your inner ear. These cells don't regenerate, so damage is permanent. High-intensity or long-duration noise causes:
+                        <strong>How noise damages hearing:</strong> Loud sounds can damage the delicate hair cells in your inner ear. These cells don’t regenerate, so damage is permanent. Overview reference: <a href="https://gesund.bund.de/en/laermbelastung" target="_blank" rel="noopener" class="text-blue-600 hover:underline">health authorities</a>.
                     </p>
                     <ul class="list-disc list-inside space-y-1 ml-3 text-sm">
                         <li>Mechanical damage to inner ear hair cells</li>
@@ -720,12 +751,93 @@
                 </div>
             </section>
 
+            <section id="example-reports" class="bg-white rounded-xl shadow-lg p-6">
+                <div class="flex items-start justify-between gap-4 flex-wrap">
+                    <div class="min-w-[220px]">
+                        <h2 class="text-xl font-bold text-gray-900">Example Reports (How to Interpret Results)</h2>
+                        <p class="text-sm text-gray-600 mt-1">These are example outputs from the same “Save Report” template, shown as static previews for fast loading.</p>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <a href="#recommended-hardware" class="text-sm text-blue-700 hover:underline font-semibold">Repeatability tips →</a>
+                        <a href="blog/noise-dispute-evidence-guide.html" class="text-sm text-blue-600 hover:underline font-semibold">Evidence workflow →</a>
+                    </div>
+                </div>
+
+                <div class="mt-4 grid lg:grid-cols-3 gap-4">
+                    <div class="rounded-xl border border-gray-200 bg-gray-50 p-4">
+                        <div class="flex items-center justify-between gap-3">
+                            <h3 class="font-semibold text-gray-900">Bedroom baseline (night)</h3>
+                            <span class="text-xs font-semibold text-green-700 bg-green-100 px-2 py-0.5 rounded-full">Low</span>
+                        </div>
+                        <div class="mt-3 rounded-lg overflow-hidden border border-gray-200 bg-white">
+                            <div class="aspect-[4/3] bg-gray-100 flex items-center justify-center">
+                                <img src="images/en/report-example-bedroom.png" alt="Example sound level report preview - bedroom baseline" class="w-full h-full object-cover" loading="lazy">
+                            </div>
+                        </div>
+                        <p class="mt-3 text-xs text-gray-700">Interpretation: the max is usually a short spike (door, cough). For sleep comfort, avg and repeatability matter more than a single max.</p>
+                        <ul class="mt-3 text-xs text-gray-700 space-y-1 list-disc list-inside">
+                            <li>Measure 60 seconds.</li>
+                            <li>Repeat 3× and compare averages.</li>
+                            <li>Write down room + window state.</li>
+                        </ul>
+                    </div>
+
+                    <div class="rounded-xl border border-gray-200 bg-gray-50 p-4">
+                        <div class="flex items-center justify-between gap-3">
+                            <h3 class="font-semibold text-gray-900">Vacuum test (1 m)</h3>
+                            <span class="text-xs font-semibold text-amber-800 bg-amber-100 px-2 py-0.5 rounded-full">Elevated</span>
+                        </div>
+                        <div class="mt-3 rounded-lg overflow-hidden border border-gray-200 bg-white">
+                            <div class="aspect-[4/3] bg-gray-100 flex items-center justify-center">
+                                <img src="images/en/report-example-vacuum.png" alt="Example sound level report preview - vacuum test" class="w-full h-full object-cover" loading="lazy">
+                            </div>
+                        </div>
+                        <p class="mt-3 text-xs text-gray-700">Interpretation: small distance changes can swing readings. Treat this as a “compare before/after” measurement rather than an absolute SPL number.</p>
+                        <ul class="mt-3 text-xs text-gray-700 space-y-1 list-disc list-inside">
+                            <li>Keep distance fixed (mark it).</li>
+                            <li>Keep device orientation unchanged.</li>
+                            <li>Compare avg across runs.</li>
+                        </ul>
+                    </div>
+
+                    <div class="rounded-xl border border-gray-200 bg-gray-50 p-4">
+                        <div class="flex items-center justify-between gap-3">
+                            <h3 class="font-semibold text-gray-900">Street traffic (window open)</h3>
+                            <span class="text-xs font-semibold text-red-700 bg-red-100 px-2 py-0.5 rounded-full">Loud</span>
+                        </div>
+                        <div class="mt-3 rounded-lg overflow-hidden border border-gray-200 bg-white">
+                            <div class="aspect-[4/3] bg-gray-100 flex items-center justify-center">
+                                <img src="images/en/report-example-traffic.png" alt="Example sound level report preview - street traffic" class="w-full h-full object-cover" loading="lazy">
+                            </div>
+                        </div>
+                        <p class="mt-3 text-xs text-gray-700">Interpretation: traffic is bursty. A stable method is to compare “window open vs closed” at the same time of day using the same 60-second window.</p>
+                        <ul class="mt-3 text-xs text-gray-700 space-y-1 list-disc list-inside">
+                            <li>Measure at consistent times.</li>
+                            <li>Note location + context in the PDF.</li>
+                            <li>Use avg for exposure, max for peak events.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mt-5 rounded-xl border border-gray-200 bg-gray-50 p-4">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+                        <div>
+                            <h3 class="font-semibold text-gray-900">Copy/paste measurement log template</h3>
+                            <p class="text-xs text-gray-600 mt-1">Use this to make your reports more repeatable across days and devices.</p>
+                        </div>
+                    </div>
+                    <pre class="mt-3 text-xs bg-white border border-gray-200 rounded-lg p-3 overflow-x-auto text-gray-800">date,time,location,distance,device,avg_db,max_db,notes
+2026-03-23,21:30,bedroom,1m,phone,34,48,window closed; HVAC off
+2026-03-24,21:30,bedroom,1m,phone,36,52,window closed; light rain
+2026-03-25,21:30,bedroom,1m,phone,33,46,window closed; quiet night</pre>
+                </div>
+            </section>
+
             <!-- Health Impact -->
             <section class="bg-white rounded-xl shadow-lg p-6">
                 <h2 class="text-xl font-bold text-gray-900 mb-3">Health Impact of Noise Pollution</h2>
                 <p class="text-sm text-gray-600 mb-4">
-                    Beyond hearing loss, chronic noise exposure affects overall health. Source: 
-                    <a href="https://www.who.int/europe/news-room/fact-sheets/item/noise" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">WHO Europe</a>
+                    Noise isn’t only about hearing—long-term exposure can affect sleep, stress, and overall health. Reference: <a href="https://www.who.int/europe/news-room/fact-sheets/item/noise" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">WHO Europe</a>.
                 </p>
                 <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     <div class="border border-gray-200 rounded-lg p-4 hover:shadow-md transition">
@@ -767,7 +879,7 @@
                 </div>
                 
                 <div class="mt-4 p-4 bg-gradient-to-r from-red-50 to-orange-50 rounded-lg border border-red-200">
-                    <h4 class="font-semibold text-sm text-gray-900 mb-2">🛡️ Protection Tips (from NIOSH/CDC):</h4>
+                    <h4 class="font-semibold text-sm text-gray-900 mb-2">🛡️ Practical protection tips</h4>
                     <ul class="text-xs text-gray-700 space-y-1 ml-4 list-disc">
                         <li>Keep daily noise exposure below <strong>70 dB</strong> when possible</li>
                         <li>Wear ear protection (earplugs/earmuffs) in ≥85 dB environments</li>
@@ -775,6 +887,7 @@
                         <li>Use noise monitoring tools to track and manage sound levels</li>
                         <li>Give your ears rest periods after loud noise exposure</li>
                     </ul>
+                    <p class="text-xs text-gray-600 mt-3">Reference: <a href="https://www.cdc.gov/niosh/noise/about/noise.html" target="_blank" rel="noopener" class="text-blue-600 hover:underline font-semibold">NIOSH/CDC</a>.</p>
                 </div>
             </section>
 
@@ -872,7 +985,7 @@
                     </div>
                     <div class="border-l-4 border-blue-500 pl-4">
                         <h3 class="font-semibold text-sm text-gray-900 mb-1">What is a safe noise level?</h3>
-                        <p class="text-xs text-gray-600 mb-1">According to <strong>NIOSH/CDC</strong>, noise levels below <strong>70 dB</strong> are generally safe for prolonged exposure. The occupational exposure limit is <strong>85 dB for 8 hours</strong>. Levels above 85 dB can cause hearing damage with extended exposure, and anything above 120 dB can cause immediate harm.</p>
+                        <p class="text-xs text-gray-600 mb-1">A practical rule is to keep daily average exposure as low as reasonably possible and pay attention once you’re near the occupational screening zone. A common reference point is <strong>85 dB for 8 hours</strong> with a 3 dB exchange rate; above that, safe time drops quickly.</p>
                         <a href="https://www.cdc.gov/niosh/noise/about/noise.html" target="_blank" rel="noopener" class="text-xs text-blue-600 hover:underline">NIOSH Guidelines →</a>
                     </div>
                     <div class="border-l-4 border-blue-500 pl-4">
@@ -895,7 +1008,7 @@
             <section class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl shadow-lg p-6 border border-blue-200">
                 <h2 class="text-xl font-bold text-gray-900 mb-3">📚 Authoritative Sources & References</h2>
                 <p class="text-sm text-gray-700 mb-4">
-                    All information on this page is based on guidelines and research from internationally recognized health and safety organizations:
+                    We use primary health and safety sources to build our screening guidance, explain limitations, and link readers to official recommendations:
                 </p>
                 <div class="grid md:grid-cols-2 gap-3">
                     <a href="https://www.cdc.gov/niosh/noise/about/noise.html" target="_blank" rel="noopener" class="block p-3 bg-white rounded-lg border border-gray-200 hover:shadow-md transition">
@@ -918,11 +1031,10 @@
                         <h3 class="font-semibold text-sm text-gray-900 mb-1">🇪🇺 WHO Europe</h3>
                         <p class="text-xs text-gray-600">Environmental Noise and Health Effects Research</p>
                     </a>
-                    <a href="https://www.forbes.com/health/hearing-aids/decibel-levels/" target="_blank" rel="noopener" class="block p-3 bg-white rounded-lg border border-gray-200 hover:shadow-md transition">
-                        <h3 class="font-semibold text-sm text-gray-900 mb-1">📰 Forbes Health</h3>
-                        <p class="text-xs text-gray-600">Decibel Levels and Hearing Health Guide</p>
-                    </a>
                 </div>
+                <p class="text-xs text-gray-600 mt-4">
+                    Additional reading: <a href="https://www.forbes.com/health/hearing-aids/decibel-levels/" target="_blank" rel="noopener" class="text-blue-700 hover:underline font-semibold">Decibel levels overview</a>.
+                </p>
                 <p class="text-xs text-gray-600 mt-4 italic">
                     Last updated: January 2026. We continuously review our content against the latest scientific guidelines to ensure accuracy.
                 </p>
@@ -1320,7 +1432,71 @@
                 errorMic: 'Unable to access microphone. Please ensure you have granted microphone permissions.',
                 errorReport: 'Could not generate report. Please try again.'
             };
-            
+
+            const initExposureCalculator = () => {
+                const inputEl = document.getElementById('exposureDbInput');
+                const rangeEl = document.getElementById('exposureDbRange');
+                const resultEl = document.getElementById('exposureCalcResult');
+                const noteEl = document.getElementById('exposureCalcNote');
+                if (!inputEl || !rangeEl || !resultEl || !noteEl) return;
+
+                const clamp = (n, min, max) => Math.min(max, Math.max(min, n));
+
+                const formatDuration = (minutes) => {
+                    if (!Number.isFinite(minutes) || minutes <= 0) return '< 1 minute';
+                    if (minutes < 1) return '< 1 minute';
+                    if (minutes < 60) return `${Math.round(minutes)} minutes`;
+                    const hours = minutes / 60;
+                    if (hours < 24) {
+                        const rounded = Math.round(hours * 10) / 10;
+                        return `${rounded} hours`;
+                    }
+                    return '24+ hours';
+                };
+
+                const computeMinutes = (db) => {
+                    const baseDb = 85;
+                    const baseMinutes = 8 * 60;
+                    const exchangeRate = 3;
+                    const factor = Math.pow(2, (baseDb - db) / exchangeRate);
+                    return baseMinutes * factor;
+                };
+
+                const render = (db) => {
+                    const value = clamp(db, 40, 130);
+                    inputEl.value = String(value);
+                    rangeEl.value = String(value);
+
+                    const minutes = computeMinutes(value);
+                    resultEl.textContent = formatDuration(minutes);
+
+                    if (value >= 120) {
+                        noteEl.textContent = 'At very high levels, risk can be immediate. Keep distance, limit exposure, and use proper hearing protection.';
+                        return;
+                    }
+                    if (value >= 85) {
+                        noteEl.textContent = 'Above 85 dB, safe time drops quickly. Use the average level and focus on exposure time, not brief spikes.';
+                        return;
+                    }
+                    if (value >= 70) {
+                        noteEl.textContent = 'This range is often comfortable for many everyday settings, but long exposure can still contribute to fatigue. Use repeatable methods.';
+                        return;
+                    }
+                    noteEl.textContent = 'Lower levels are generally low risk for daily exposure, but focus on sleep quality, comfort, and repeatable comparisons.';
+                };
+
+                const parseDb = (raw) => {
+                    const n = Number.parseFloat(String(raw));
+                    return Number.isFinite(n) ? n : 85;
+                };
+
+                inputEl.addEventListener('input', () => render(parseDb(inputEl.value)));
+                rangeEl.addEventListener('input', () => render(parseDb(rangeEl.value)));
+
+                render(parseDb(inputEl.value));
+            };
+
+            initExposureCalculator();
             SoundMeter.init(enTranslations);
         });
     </script>
