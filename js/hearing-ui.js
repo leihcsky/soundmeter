@@ -12,11 +12,6 @@ const HearingUI = {
         left: {},
         right: {}
     },
-    userProfile: {
-        ageGroup: null,
-        gender: null,
-        device: 'over-ear'
-    },
     
     // Config
     sliderMax: 100, // Volume range 0-100
@@ -30,50 +25,9 @@ const HearingUI = {
     bindEvents: function() {
         // --- Landing ---
         document.getElementById('btn-start-intro').addEventListener('click', () => {
-            this.switchView('view-questionnaire');
-            if (typeof gtag === 'function') {
-                gtag('event', 'hearing_test_start');
-            }
-        });
-
-        // --- Questionnaire ---
-        // Age Selection
-        document.querySelectorAll('.q-btn-age').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                // Toggle active state
-                document.querySelectorAll('.q-btn-age').forEach(b => b.classList.remove('bg-blue-100', 'border-blue-500', 'text-blue-700'));
-                e.target.classList.add('bg-blue-100', 'border-blue-500', 'text-blue-700');
-                this.userProfile.ageGroup = e.target.dataset.value;
-                this.checkQuestionnaireComplete();
-            });
-        });
-
-        // Gender Selection
-        document.querySelectorAll('.q-btn-gender').forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                document.querySelectorAll('.q-btn-gender').forEach(b => b.classList.remove('bg-blue-100', 'border-blue-500', 'text-blue-700'));
-                e.target.classList.add('bg-blue-100', 'border-blue-500', 'text-blue-700');
-                this.userProfile.gender = e.target.dataset.value;
-                this.checkQuestionnaireComplete();
-            });
-        });
-
-        // Device Selection
-        document.getElementById('q-device').addEventListener('change', (e) => {
-            this.userProfile.device = e.target.value;
-        });
-
-        // Submit Questionnaire
-        document.getElementById('btn-submit-questionnaire').addEventListener('click', () => {
             this.switchView('view-calibration');
-            this.test.init(); // Init AudioContext
-            if (typeof gtag === 'function') {
-                gtag('event', 'hearing_questionnaire_complete', {
-                    'age_group': this.userProfile.ageGroup,
-                    'gender': this.userProfile.gender,
-                    'device': this.userProfile.device
-                });
-            }
+            this.test.init();
+            if (typeof gtag === 'function') gtag('event', 'hearing_test_start');
         });
 
         // --- Calibration ---
@@ -156,23 +110,6 @@ const HearingUI = {
                  scale: 2, // High resolution
                  useCORS: true,
                  backgroundColor: '#ffffff',
-                 onclone: (clonedDoc) => {
-                     const el = clonedDoc.getElementById('hearing-age-display');
-                     if (el) {
-                         // Force visibility and styling for capture
-                         el.classList.remove('hidden');
-                         el.style.display = 'block'; 
-                         el.style.opacity = '1';
-                         el.style.visibility = 'visible';
-                         
-                         // Ensure text colors are forced (sometimes helpful)
-                        const valEl = clonedDoc.getElementById('hearing-age-value');
-                        if (valEl) {
-                            valEl.style.color = '#2563eb'; // blue-600
-                            valEl.style.marginBottom = '30px'; // Force extra space to avoid overlap
-                        }
-                     }
-                 },
                  ignoreElements: (element) => {
                      // Ignore elements if needed, but we selected a specific div so it should be fine
                      return false; 
@@ -181,7 +118,7 @@ const HearingUI = {
                  const link = document.createElement('a');
                  const now = new Date();
                  const dateStr = now.toISOString().slice(0,10);
-                 link.download = `Hearing-Test-Report-${dateStr}.png`;
+                 link.download = `Hearing-Self-Check-Report-${dateStr}.png`;
                  link.href = canvas.toDataURL('image/png');
                  link.click();
                  
@@ -203,15 +140,8 @@ const HearingUI = {
         });
     },
 
-    checkQuestionnaireComplete: function() {
-        const btn = document.getElementById('btn-submit-questionnaire');
-        if (this.userProfile.ageGroup && this.userProfile.gender) {
-            btn.removeAttribute('disabled');
-        }
-    },
-
     switchView: function(viewId) {
-        ['view-landing', 'view-questionnaire', 'view-calibration', 'view-test', 'view-intermission', 'view-result'].forEach(id => {
+        ['view-landing', 'view-calibration', 'view-test', 'view-intermission', 'view-result'].forEach(id => {
             document.getElementById(id).classList.add('hidden');
         });
         document.getElementById(viewId).classList.remove('hidden');
@@ -278,16 +208,7 @@ const HearingUI = {
 
     recordResult: function(sliderVal) {
         const freq = this.test.frequencies[this.currentFreqIndex];
-        
-        // Map Slider (0-100) to Approximate dB HL (-10 to 90)
-        // Slider 0 = Silence
-        // Slider 10 = 0 dB
-        // Slider 100 = 90 dB
-        // Formula: dB = SliderVal - 10
-        let db = sliderVal - 10;
-        if (db < -10) db = -10; // Cap floor
-        
-        this.results[this.currentEar][freq] = db;
+        this.results[this.currentEar][freq] = sliderVal;
         
         // Stop Tone
         this.test.stopTone();
@@ -313,72 +234,51 @@ const HearingUI = {
     },
 
     analyzeResults: function() {
-        // Calculate PTA (500, 1k, 2k, 4k)
-        const calcPTA = (data) => {
-            const sum = (data[500]||0) + (data[1000]||0) + (data[2000]||0) + (data[4000]||0);
-            return sum / 4;
+        const formatLevel = (n) => `${Math.round(n)}/100`;
+
+        const calcAvg = (data, freqs) => {
+            const vals = freqs.map(f => data[f]).filter(v => Number.isFinite(v));
+            if (!vals.length) return null;
+            return vals.reduce((a, b) => a + b, 0) / vals.length;
         };
 
-        const leftPTA = calcPTA(this.results.left);
-        const rightPTA = calcPTA(this.results.right);
+        const speechFreqs = [500, 1000, 2000, 4000];
+        const leftAvg = calcAvg(this.results.left, speechFreqs);
+        const rightAvg = calcAvg(this.results.right, speechFreqs);
 
-        const getStatus = (pta) => {
-            if (pta <= 20) return "Normal Hearing";
-            if (pta <= 40) return "Mild Hearing Loss";
-            if (pta <= 60) return "Moderate Hearing Loss";
-            if (pta <= 80) return "Severe Hearing Loss";
-            return "Profound Hearing Loss";
-        };
+        const leftSummary = leftAvg === null ? '--' : formatLevel(leftAvg);
+        const rightSummary = rightAvg === null ? '--' : formatLevel(rightAvg);
 
-        document.getElementById('result-left-text').innerHTML = `<strong>${getStatus(leftPTA)}</strong> (Avg: ${Math.round(leftPTA)} dB)`;
-        document.getElementById('result-right-text').innerHTML = `<strong>${getStatus(rightPTA)}</strong> (Avg: ${Math.round(rightPTA)} dB)`;
+        const diffs = speechFreqs
+            .map((f) => {
+                const l = this.results.left[f];
+                const r = this.results.right[f];
+                if (!Number.isFinite(l) || !Number.isFinite(r)) return null;
+                return { f, d: l - r };
+            })
+            .filter(Boolean);
 
-        // --- Hearing Age Calculation ---
-        // Based on High Freq Average (2k, 4k, 8k)
-        const calcHFA = (data) => ((data[2000]||0) + (data[4000]||0) + (data[8000]||0)) / 3;
-        const avgHFA = (calcHFA(this.results.left) + calcHFA(this.results.right)) / 2;
-        
-        let hearingAge = 20;
-        
-        // Base logic: 
-        // < 10dB -> <20
-        // Every 1dB above 10 adds ~1.2 years
-        if (avgHFA > 10) {
-            hearingAge += (avgHFA - 10) * 1.2;
-        }
-        
-        // Gender Adjustment: Men lose high freq faster. 
-        // If a woman has the same loss as a man, her hearing is "older" relative to her gender norms.
-        if (this.userProfile.gender === 'female') {
-            hearingAge += 5; 
-        }
+        const largest = diffs.reduce((acc, cur) => {
+            if (!acc) return cur;
+            return Math.abs(cur.d) > Math.abs(acc.d) ? cur : acc;
+        }, null);
 
-        // Cap
-        hearingAge = Math.min(90, Math.max(18, Math.round(hearingAge)));
-        
-        // Display
-        const ageDisplay = document.getElementById('hearing-age-display');
-        ageDisplay.classList.remove('hidden');
-        document.getElementById('hearing-age-value').textContent = hearingAge + " years";
-        
-        const ageComment = document.getElementById('hearing-age-comment');
-        if (hearingAge <= 30) {
-            ageComment.textContent = "Excellent! Your ears are young.";
-            ageComment.className = "text-sm font-medium text-green-600";
-        } else if (hearingAge <= 50) {
-            ageComment.textContent = "Good. Normal for an adult.";
-            ageComment.className = "text-sm font-medium text-blue-600";
-        } else {
-            ageComment.textContent = "Signs of aging detected. Protect your ears.";
-            ageComment.className = "text-sm font-medium text-orange-600";
-        }
+        const showDiff = largest && Math.abs(largest.d) >= 15;
+        const leftDiff = showDiff
+            ? ` Largest difference at ${largest.f}Hz: Left needed ${largest.d > 0 ? 'higher' : 'lower'} level (Δ ${Math.round(Math.abs(largest.d))}/100).`
+            : '';
+        const rightDiff = showDiff
+            ? ` Largest difference at ${largest.f}Hz: Right needed ${largest.d > 0 ? 'lower' : 'higher'} level (Δ ${Math.round(Math.abs(largest.d))}/100).`
+            : '';
+
+        document.getElementById('result-left-text').textContent = `Average threshold setting (500–4000Hz): ${leftSummary}.${leftDiff}`;
+        document.getElementById('result-right-text').textContent = `Average threshold setting (500–4000Hz): ${rightSummary}.${rightDiff}`;
 
         // GA Event: Test Complete
         if (typeof gtag === 'function') {
             gtag('event', 'hearing_test_complete', {
-                'hearing_age': hearingAge,
-                'left_pta': Math.round(leftPTA),
-                'right_pta': Math.round(rightPTA)
+                'left_avg_level': leftAvg === null ? null : Math.round(leftAvg),
+                'right_avg_level': rightAvg === null ? null : Math.round(rightAvg)
             });
         }
     },
@@ -424,9 +324,9 @@ const HearingUI = {
                 scales: {
                     y: {
                         reverse: true,
-                        min: -10,
-                        max: 90,
-                        title: { display: true, text: 'Hearing Level (dB)' },
+                        min: 0,
+                        max: 100,
+                        title: { display: true, text: 'Relative threshold setting (0–100)' },
                         grid: { color: '#f3f4f6' }
                     },
                     x: {
