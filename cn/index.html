@@ -307,6 +307,11 @@
                                     <span class="text-gray-500 whitespace-nowrap">平均值: <b id="avgValue" class="text-blue-600">--</b></span>
                                     <span class="text-gray-500 whitespace-nowrap">最大值: <b id="maxValue" class="text-red-600">--</b></span>
                                 </div>
+                                <div class="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-gray-500">
+                                    <span id="calibrationStatus" class="whitespace-nowrap">对齐：默认</span>
+                                    <button id="openCalibrationBtn" type="button" class="text-blue-700 hover:underline font-semibold">对齐读数</button>
+                                    <a href="../accuracy" class="text-gray-600 hover:text-blue-700 hover:underline font-semibold">原理说明</a>
+                                </div>
                             </div>
                         </div>
 
@@ -322,7 +327,7 @@
                                 <p class="leading-relaxed"><strong class="text-blue-700">使用技巧：</strong> 为了获得准确的环境分析结果，建议持续测量至少 30-60 秒，以平滑突发噪音的影响。</p>
                             </div>
                             <p class="text-xs text-gray-600 italic">
-                                <strong>注：</strong> 读数仅供参考。安静房间 ≈ 30-40 dB，正常交谈 ≈ 60 dB，繁忙交通 ≈ 80 dB。
+                                <strong>注：</strong> 读数为参考估计。不同设备麦克风灵敏度不同，读数可能整体偏高或偏低；若基线不合理，可使用“对齐读数”。安静房间 ≈ 30–40 dB，正常交谈 ≈ 60 dB，繁忙交通 ≈ 80 dB。
                             </p>
                         </div>
                     </div>
@@ -1210,6 +1215,45 @@
     }
     </script>
 
+    <div id="calibrationModal" class="fixed inset-0 z-50 hidden" role="dialog" aria-modal="true" aria-labelledby="calibrationTitle">
+        <div class="absolute inset-0 bg-black/40"></div>
+        <div class="relative max-w-lg mx-auto mt-20 sm:mt-28 px-4">
+            <div class="bg-white rounded-2xl shadow-xl border border-gray-200 p-5 sm:p-6">
+                <div class="flex items-start justify-between gap-3 mb-3">
+                    <div>
+                        <h3 id="calibrationTitle" class="text-lg sm:text-xl font-extrabold text-gray-900">对齐本设备（可选）</h3>
+                        <p class="text-xs sm:text-sm text-gray-600 mt-1">请在同一位置使用可信的参考设备测量。对齐会将偏移量保存在本机浏览器中。</p>
+                    </div>
+                    <button id="calibrationCloseBtn" type="button" class="text-gray-500 hover:text-gray-900 p-1" aria-label="关闭">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                    </button>
+                </div>
+
+                <div class="bg-gray-50 border border-gray-200 rounded-xl p-4">
+                    <div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-gray-600">
+                        <span class="whitespace-nowrap">当前平均值：<b id="calibrationCurrentAvg" class="text-gray-900">--</b> dB</span>
+                    </div>
+                    <div class="mt-3">
+                        <label for="calibrationReferenceDb" class="block text-xs font-semibold text-gray-700 mb-1">参考设备平均值（dB）</label>
+                        <input id="calibrationReferenceDb" type="number" inputmode="decimal" step="0.1" min="20" max="130" placeholder="例如：38.5" class="w-full px-3 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-400 focus:border-blue-400 outline-none text-sm">
+                        <p class="text-xs text-gray-500 mt-2">建议持续测量 30–60 秒，对齐平均值而非峰值。</p>
+                    </div>
+                </div>
+
+                <p id="calibrationMsg" class="text-xs text-gray-600 mt-3"></p>
+                <div class="mt-2 text-xs text-gray-500 space-y-1">
+                    <p><strong>对齐会做什么：</strong>用一个常量偏移量，让你的平均读数更接近参考设备。</p>
+                    <p><strong>对齐不会做什么：</strong>不代表测量已获得认证，不适用于合规/执法用途。</p>
+                </div>
+
+                <div class="mt-4 flex flex-col sm:flex-row gap-2">
+                    <button id="calibrationSaveBtn" type="button" disabled class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2.5 px-4 rounded-xl shadow-sm disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-blue-600">保存对齐</button>
+                    <button id="calibrationResetBtn" type="button" class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold py-2.5 px-4 rounded-xl border border-gray-300">重置</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- JavaScript -->
     <script src="../js/sound-meter.js"></script>
     <script src="../js/visualizer.js"></script>
@@ -1251,6 +1295,176 @@
             };
             
             SoundMeter.init(cnTranslations);
+
+            const calibrationI18n = {
+                statusDefault: '对齐：默认',
+                statusOffset: (delta) => `对齐：${delta >= 0 ? '+' : '−'}${Math.abs(delta).toFixed(1)} dB`,
+                msgEnterNumber: '请输入参考设备的平均分贝数值。',
+                msgEnterRange: '请输入合理的参考平均值（20–130 dB）。',
+                msgStartFirst: '请先开始测量，并等待平均值稳定后再对齐（建议 30–60 秒）。',
+                msgWaitAvg: '请等待几秒让平均值出来后再保存。',
+                msgSaveFailed: '保存失败，请重试。',
+                msgResetDone: '已重置本设备的对齐设置。'
+            };
+
+            const openCalibrationBtn = document.getElementById('openCalibrationBtn');
+            const calibrationStatus = document.getElementById('calibrationStatus');
+            const calibrationModal = document.getElementById('calibrationModal');
+            const calibrationCloseBtn = document.getElementById('calibrationCloseBtn');
+            const calibrationSaveBtn = document.getElementById('calibrationSaveBtn');
+            const calibrationResetBtn = document.getElementById('calibrationResetBtn');
+            const calibrationReferenceDb = document.getElementById('calibrationReferenceDb');
+            const calibrationCurrentAvg = document.getElementById('calibrationCurrentAvg');
+            const calibrationMsg = document.getElementById('calibrationMsg');
+
+            const parseNumber = (raw) => {
+                const n = Number.parseFloat(String(raw));
+                return Number.isFinite(n) ? n : null;
+            };
+
+            const getCurrentAvg = () => {
+                const avgEl = document.getElementById('avgValue');
+                const avg = avgEl ? parseNumber(avgEl.textContent) : null;
+                return avg !== null && avg > 0 ? avg : null;
+            };
+
+            const getCurrentEstimate = () => {
+                const avg = getCurrentAvg();
+                if (avg !== null) return avg;
+                const valueEl = document.getElementById('decibelValue');
+                const v = valueEl ? parseNumber(valueEl.textContent) : null;
+                return v;
+            };
+
+            const updateCalibrationSaveEnabled = () => {
+                if (!calibrationSaveBtn) return;
+                const hasAvg = getCurrentAvg() !== null;
+                const isMeasuring = !!(SoundMeter && SoundMeter.isRunning);
+                calibrationSaveBtn.disabled = !(isMeasuring && hasAvg);
+            };
+
+            const updateCalibrationStatus = () => {
+                if (!calibrationStatus) return;
+                let stored = null;
+                try {
+                    stored = localStorage.getItem('soundmeter_calibration_offset_db');
+                } catch (_) {}
+                const offset = stored !== null ? parseNumber(stored) : null;
+                if (offset === null) {
+                    calibrationStatus.textContent = calibrationI18n.statusDefault;
+                    return;
+                }
+                const baseOffset = SoundMeter && typeof SoundMeter.getDefaultCalibrationOffsetDb === 'function'
+                    ? SoundMeter.getDefaultCalibrationOffsetDb()
+                    : 80;
+                const delta = offset - baseOffset;
+                if (!Number.isFinite(delta) || Math.abs(delta) < 0.05) {
+                    calibrationStatus.textContent = calibrationI18n.statusDefault;
+                    return;
+                }
+                calibrationStatus.textContent = calibrationI18n.statusOffset(delta);
+            };
+
+            const closeCalibrationModal = () => {
+                if (!calibrationModal) return;
+                calibrationModal.classList.add('hidden');
+            };
+
+            const refreshCalibrationModalReadings = () => {
+                if (!calibrationModal || calibrationModal.classList.contains('hidden')) return;
+                const avg = getCurrentAvg();
+                if (calibrationCurrentAvg) calibrationCurrentAvg.textContent = avg === null ? '--' : avg.toFixed(1);
+            };
+
+            const openCalibrationModal = () => {
+                if (!calibrationModal) return;
+                if (calibrationReferenceDb) calibrationReferenceDb.value = '';
+                if (calibrationMsg) {
+                    calibrationMsg.textContent = !SoundMeter || !SoundMeter.isRunning ? calibrationI18n.msgStartFirst : '';
+                }
+                updateCalibrationSaveEnabled();
+                calibrationModal.classList.remove('hidden');
+                refreshCalibrationModalReadings();
+            };
+
+            if (openCalibrationBtn) openCalibrationBtn.addEventListener('click', () => openCalibrationModal());
+            if (calibrationCloseBtn) calibrationCloseBtn.addEventListener('click', () => closeCalibrationModal());
+            if (calibrationModal) {
+                calibrationModal.addEventListener('click', (e) => {
+                    if (e.target === calibrationModal.firstElementChild) closeCalibrationModal();
+                });
+            }
+
+            if (calibrationSaveBtn && calibrationReferenceDb) {
+                calibrationSaveBtn.addEventListener('click', () => {
+                    const reference = parseNumber(calibrationReferenceDb.value);
+                    if (reference === null) {
+                        if (calibrationMsg) calibrationMsg.textContent = calibrationI18n.msgEnterNumber;
+                        return;
+                    }
+                    if (reference < 20 || reference > 130) {
+                        if (calibrationMsg) calibrationMsg.textContent = calibrationI18n.msgEnterRange;
+                        return;
+                    }
+                    if (!SoundMeter || !SoundMeter.isRunning) {
+                        if (calibrationMsg) calibrationMsg.textContent = calibrationI18n.msgStartFirst;
+                        return;
+                    }
+                    const current = getCurrentEstimate();
+                    if (current === null || current <= 0) {
+                        if (calibrationMsg) calibrationMsg.textContent = calibrationI18n.msgWaitAvg;
+                        return;
+                    }
+                    const offsetOld = typeof SoundMeter.getCalibrationOffsetDb === 'function' ? SoundMeter.getCalibrationOffsetDb() : SoundMeter.calibrationOffsetDb;
+                    let offsetNew = offsetOld + (reference - current);
+                    if (!Number.isFinite(offsetNew)) {
+                        if (calibrationMsg) calibrationMsg.textContent = calibrationI18n.msgSaveFailed;
+                        return;
+                    }
+                    offsetNew = Math.max(60, Math.min(200, offsetNew));
+                    if (typeof SoundMeter.saveCalibrationOffsetDb === 'function') {
+                        SoundMeter.saveCalibrationOffsetDb(offsetNew);
+                    } else {
+                        try {
+                            localStorage.setItem('soundmeter_calibration_offset_db', String(offsetNew));
+                        } catch (_) {}
+                        SoundMeter.calibrationOffsetDb = offsetNew;
+                    }
+                    updateCalibrationStatus();
+                    closeCalibrationModal();
+                });
+            }
+
+            if (calibrationResetBtn) {
+                calibrationResetBtn.addEventListener('click', () => {
+                    if (typeof SoundMeter.resetCalibrationOffsetDb === 'function') {
+                        SoundMeter.resetCalibrationOffsetDb();
+                    } else {
+                        try {
+                            localStorage.removeItem('soundmeter_calibration_offset_db');
+                        } catch (_) {}
+                        SoundMeter.calibrationOffsetDb = 80;
+                    }
+                    updateCalibrationStatus();
+                    closeCalibrationModal();
+                });
+            }
+
+            if (calibrationReferenceDb) {
+                calibrationReferenceDb.addEventListener('input', () => updateCalibrationSaveEnabled());
+            }
+            window.addEventListener('sound-meter-update', () => {
+                if (calibrationModal && !calibrationModal.classList.contains('hidden')) {
+                    updateCalibrationSaveEnabled();
+                    refreshCalibrationModalReadings();
+                }
+            });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') closeCalibrationModal();
+            });
+
+            updateCalibrationStatus();
+            updateCalibrationSaveEnabled();
 
             const initExposureCalculator = () => {
                 const inputEl = document.getElementById('exposureDbInput');

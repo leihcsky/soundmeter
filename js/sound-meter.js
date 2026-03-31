@@ -10,6 +10,7 @@ const SoundMeter = {
     maxValue: 0,
     readings: [],
     translations: {},
+    defaultCalibrationOffsetDb: 80,
     calibrationOffsetDb: 80,
     aWeightPowerWeights: null,
     aWeightPowerSum: 0,
@@ -217,7 +218,7 @@ const SoundMeter = {
             if (Number.isFinite(this.calibrationOffsetDb)) return this.calibrationOffsetDb;
         }
         if (Number.isFinite(this.calibrationOffsetDb)) return this.calibrationOffsetDb;
-        return 80;
+        return this.defaultCalibrationOffsetDb;
     },
 
     saveCalibrationOffsetDb: function(offsetDb) {
@@ -229,10 +230,14 @@ const SoundMeter = {
     },
 
     resetCalibrationOffsetDb: function() {
-        this.calibrationOffsetDb = 80;
+        this.calibrationOffsetDb = this.defaultCalibrationOffsetDb;
         try {
             localStorage.removeItem('soundmeter_calibration_offset_db');
         } catch (_) {}
+    },
+
+    getDefaultCalibrationOffsetDb: function() {
+        return this.defaultCalibrationOffsetDb;
     },
 
     getCalibrationOffsetDb: function() {

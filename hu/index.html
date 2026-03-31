@@ -153,7 +153,7 @@
                     </a>
                     <a href="/blog/" class="text-gray-500 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors inline-flex items-center gap-2">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path></svg>
-                        Blog
+                        Cikkek
                     </a>
                     <!-- Language Switcher -->
                     <div class="relative inline-block text-left group">
@@ -251,14 +251,14 @@
             <a href="/hu/" class="block px-3 py-2 rounded-md text-base font-medium text-blue-600 bg-blue-50">Kezdőlap</a>
             <a href="/online-hearing-test/" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Hallásteszt</a>
             <a href="/speaker-test-tones/" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Hangszóró teszt</a>
-            <a href="/blog/" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Blog</a>
+            <a href="/blog/" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Cikkek</a>
         </div>
     </div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 bg-gray-50 sm:bg-white">
         <div class="text-center">
             <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-3">
-                Online Zajszintmérő (Decibelmérő)
+                Webes zajszintmérő (decibelmérő)
             </h1>
             <p class="text-sm sm:text-base text-gray-600">
                 Valós idejű környezeti zajszint észlelés a mikrofon segítségével.
@@ -298,11 +298,16 @@
                                     <div class="text-2xl sm:text-3xl text-gray-400 font-medium">dB</div>
                                 </div>
                                 
-                                <div id="statusText" class="text-xl sm:text-2xl font-bold text-gray-800 leading-tight">Kattintson a "Start" gombra</div>
+                                <div id="statusText" class="text-xl sm:text-2xl font-bold text-gray-800 leading-tight">Kattintson a „Mérés indítása” gombra</div>
                                 <div id="statistics" class="hidden flex flex-wrap items-center gap-x-4 gap-y-1 text-sm mt-2">
                                     <span class="text-gray-500">Min: <b id="minValue" class="text-green-600">--</b></span>
                                     <span class="text-gray-500">Átl: <b id="avgValue" class="text-blue-600">--</b></span>
                                     <span class="text-gray-500">Max: <b id="maxValue" class="text-red-600">--</b></span>
+                                </div>
+                                <div class="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-gray-500">
+                                    <span id="calibrationStatus" class="whitespace-nowrap">Igazítás: Alapértelmezett</span>
+                                    <button id="openCalibrationBtn" type="button" class="text-blue-700 hover:underline font-semibold">Mérés igazítása</button>
+                                    <a href="../accuracy" class="text-gray-600 hover:text-blue-700 hover:underline font-semibold">Hogyan működik</a>
                                 </div>
                             </div>
                         </div>
@@ -319,7 +324,7 @@
                                 <p class="leading-relaxed"><strong class="text-blue-700">Profi tipp:</strong> A pontos környezeti elemzéshez mérjen legalább 30-60 másodpercig a hirtelen zajok kiszűrése érdekében.</p>
                             </div>
                             <p class="text-xs text-gray-400 italic">
-                                <strong>Megjegyzés:</strong> Becsült értékek. Csendes szoba ≈ 30-40 dB, beszélgetés ≈ 60 dB, forgalom ≈ 80 dB.
+                                <strong>Megjegyzés:</strong> Referencia-becslés. A mikrofonok eltérnek; ha az alapérték furcsa, használja a „Mérés igazítása” funkciót. Csendes szoba ≈ 30–40 dB, beszélgetés ≈ 60 dB, forgalom ≈ 80 dB.
                             </p>
                         </div>
                     </div>
@@ -1192,6 +1197,45 @@
     }
     </script>
 
+    <div id="calibrationModal" class="fixed inset-0 z-50 hidden" role="dialog" aria-modal="true" aria-labelledby="calibrationTitle">
+        <div class="absolute inset-0 bg-black/40"></div>
+        <div class="relative max-w-lg mx-auto mt-20 sm:mt-28 px-4">
+            <div class="bg-white rounded-2xl shadow-xl border border-gray-200 p-5 sm:p-6">
+                <div class="flex items-start justify-between gap-3 mb-3">
+                    <div>
+                        <h3 id="calibrationTitle" class="text-lg sm:text-xl font-extrabold text-gray-900">Eszköz igazítása (opcionális)</h3>
+                        <p class="text-xs sm:text-sm text-gray-600 mt-1">Használjon megbízható referencia mérőt ugyanazon a helyen. Az eltolás csak ezen az eszközön, ebben a böngészőben kerül mentésre.</p>
+                    </div>
+                    <button id="calibrationCloseBtn" type="button" class="text-gray-500 hover:text-gray-900 p-1" aria-label="Bezárás">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                    </button>
+                </div>
+
+                <div class="bg-gray-50 border border-gray-200 rounded-xl p-4">
+                    <div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-gray-600">
+                        <span class="whitespace-nowrap">Jelenlegi átlag: <b id="calibrationCurrentAvg" class="text-gray-900">--</b> dB</span>
+                    </div>
+                    <div class="mt-3">
+                        <label for="calibrationReferenceDb" class="block text-xs font-semibold text-gray-700 mb-1">Referencia átlag (dB)</label>
+                        <input id="calibrationReferenceDb" type="number" inputmode="decimal" step="0.1" min="20" max="130" placeholder="pl. 38,5" class="w-full px-3 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-400 focus:border-blue-400 outline-none text-sm">
+                        <p class="text-xs text-gray-500 mt-2">Tipp: mérjen 30–60 mp-ig, és az átlagot igazítsa, ne a csúcsokat.</p>
+                    </div>
+                </div>
+
+                <p id="calibrationMsg" class="text-xs text-gray-600 mt-3"></p>
+                <div class="mt-2 text-xs text-gray-500 space-y-1">
+                    <p><strong>Mit csinál:</strong> konstans eltolást alkalmaz, hogy az átlag kövesse a referencia mérőt.</p>
+                    <p><strong>Mit nem csinál:</strong> nem minősíti a mérést jogi vagy munkahelyi megfelelőségre.</p>
+                </div>
+
+                <div class="mt-4 flex flex-col sm:flex-row gap-2">
+                    <button id="calibrationSaveBtn" type="button" disabled class="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2.5 px-4 rounded-xl shadow-sm disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-blue-600">Mentés</button>
+                    <button id="calibrationResetBtn" type="button" class="flex-1 bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold py-2.5 px-4 rounded-xl shadow-sm border border-gray-300">Visszaállítás</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- JavaScript -->
     <script src="../js/sound-meter.js"></script>
     <script src="../js/visualizer.js"></script>
@@ -1247,6 +1291,175 @@
             };
             
             SoundMeter.init(huTranslations);
+
+            const calibrationI18n = {
+                statusDefault: 'Igazítás: Alapértelmezett',
+                statusOffset: (delta) => `Igazítás: ${delta >= 0 ? '+' : '−'}${Math.abs(delta).toFixed(1)} dB`,
+                msgEnterNumber: 'Adja meg a referencia átlagot (dB).',
+                msgEnterRange: 'Adjon meg reális referencia átlagot (20–130 dB).',
+                msgStartFirst: 'Indítsa el a mérést, és várjon, amíg az átlag stabilizálódik (30–60 mp).',
+                msgWaitAvg: 'Várjon pár másodpercet, amíg megjelenik az átlag, majd próbálja újra.',
+                msgSaveFailed: 'Sikertelen mentés. Próbálja újra.'
+            };
+
+            const openCalibrationBtn = document.getElementById('openCalibrationBtn');
+            const calibrationStatus = document.getElementById('calibrationStatus');
+            const calibrationModal = document.getElementById('calibrationModal');
+            const calibrationCloseBtn = document.getElementById('calibrationCloseBtn');
+            const calibrationSaveBtn = document.getElementById('calibrationSaveBtn');
+            const calibrationResetBtn = document.getElementById('calibrationResetBtn');
+            const calibrationReferenceDb = document.getElementById('calibrationReferenceDb');
+            const calibrationCurrentAvg = document.getElementById('calibrationCurrentAvg');
+            const calibrationMsg = document.getElementById('calibrationMsg');
+
+            const parseNumber = (raw) => {
+                const n = Number.parseFloat(String(raw));
+                return Number.isFinite(n) ? n : null;
+            };
+
+            const getCurrentAvg = () => {
+                const avgEl = document.getElementById('avgValue');
+                const avg = avgEl ? parseNumber(avgEl.textContent) : null;
+                return avg !== null && avg > 0 ? avg : null;
+            };
+
+            const getCurrentEstimate = () => {
+                const avg = getCurrentAvg();
+                if (avg !== null) return avg;
+                const valueEl = document.getElementById('decibelValue');
+                const v = valueEl ? parseNumber(valueEl.textContent) : null;
+                return v;
+            };
+
+            const updateCalibrationSaveEnabled = () => {
+                if (!calibrationSaveBtn) return;
+                const hasAvg = getCurrentAvg() !== null;
+                const isMeasuring = !!(SoundMeter && SoundMeter.isRunning);
+                calibrationSaveBtn.disabled = !(isMeasuring && hasAvg);
+            };
+
+            const updateCalibrationStatus = () => {
+                if (!calibrationStatus) return;
+                let stored = null;
+                try {
+                    stored = localStorage.getItem('soundmeter_calibration_offset_db');
+                } catch (_) {}
+                const offset = stored !== null ? parseNumber(stored) : null;
+                if (offset === null) {
+                    calibrationStatus.textContent = calibrationI18n.statusDefault;
+                    return;
+                }
+                const baseOffset = SoundMeter && typeof SoundMeter.getDefaultCalibrationOffsetDb === 'function'
+                    ? SoundMeter.getDefaultCalibrationOffsetDb()
+                    : 80;
+                const delta = offset - baseOffset;
+                if (!Number.isFinite(delta) || Math.abs(delta) < 0.05) {
+                    calibrationStatus.textContent = calibrationI18n.statusDefault;
+                    return;
+                }
+                calibrationStatus.textContent = calibrationI18n.statusOffset(delta);
+            };
+
+            const closeCalibrationModal = () => {
+                if (!calibrationModal) return;
+                calibrationModal.classList.add('hidden');
+            };
+
+            const refreshCalibrationModalReadings = () => {
+                if (!calibrationModal || calibrationModal.classList.contains('hidden')) return;
+                const avg = getCurrentAvg();
+                if (calibrationCurrentAvg) calibrationCurrentAvg.textContent = avg === null ? '--' : avg.toFixed(1);
+            };
+
+            const openCalibrationModal = () => {
+                if (!calibrationModal) return;
+                if (calibrationReferenceDb) calibrationReferenceDb.value = '';
+                if (calibrationMsg) {
+                    calibrationMsg.textContent = !SoundMeter || !SoundMeter.isRunning ? calibrationI18n.msgStartFirst : '';
+                }
+                updateCalibrationSaveEnabled();
+                calibrationModal.classList.remove('hidden');
+                refreshCalibrationModalReadings();
+            };
+
+            if (openCalibrationBtn) openCalibrationBtn.addEventListener('click', () => openCalibrationModal());
+            if (calibrationCloseBtn) calibrationCloseBtn.addEventListener('click', () => closeCalibrationModal());
+            if (calibrationModal) {
+                calibrationModal.addEventListener('click', (e) => {
+                    if (e.target === calibrationModal.firstElementChild) closeCalibrationModal();
+                });
+            }
+
+            if (calibrationSaveBtn && calibrationReferenceDb) {
+                calibrationSaveBtn.addEventListener('click', () => {
+                    const reference = parseNumber(calibrationReferenceDb.value);
+                    if (reference === null) {
+                        if (calibrationMsg) calibrationMsg.textContent = calibrationI18n.msgEnterNumber;
+                        return;
+                    }
+                    if (reference < 20 || reference > 130) {
+                        if (calibrationMsg) calibrationMsg.textContent = calibrationI18n.msgEnterRange;
+                        return;
+                    }
+                    if (!SoundMeter || !SoundMeter.isRunning) {
+                        if (calibrationMsg) calibrationMsg.textContent = calibrationI18n.msgStartFirst;
+                        return;
+                    }
+                    const current = getCurrentEstimate();
+                    if (current === null || current <= 0) {
+                        if (calibrationMsg) calibrationMsg.textContent = calibrationI18n.msgWaitAvg;
+                        return;
+                    }
+                    const offsetOld = typeof SoundMeter.getCalibrationOffsetDb === 'function' ? SoundMeter.getCalibrationOffsetDb() : SoundMeter.calibrationOffsetDb;
+                    let offsetNew = offsetOld + (reference - current);
+                    if (!Number.isFinite(offsetNew)) {
+                        if (calibrationMsg) calibrationMsg.textContent = calibrationI18n.msgSaveFailed;
+                        return;
+                    }
+                    offsetNew = Math.max(60, Math.min(200, offsetNew));
+                    if (typeof SoundMeter.saveCalibrationOffsetDb === 'function') {
+                        SoundMeter.saveCalibrationOffsetDb(offsetNew);
+                    } else {
+                        try {
+                            localStorage.setItem('soundmeter_calibration_offset_db', String(offsetNew));
+                        } catch (_) {}
+                        SoundMeter.calibrationOffsetDb = offsetNew;
+                    }
+                    updateCalibrationStatus();
+                    closeCalibrationModal();
+                });
+            }
+
+            if (calibrationResetBtn) {
+                calibrationResetBtn.addEventListener('click', () => {
+                    if (typeof SoundMeter.resetCalibrationOffsetDb === 'function') {
+                        SoundMeter.resetCalibrationOffsetDb();
+                    } else {
+                        try {
+                            localStorage.removeItem('soundmeter_calibration_offset_db');
+                        } catch (_) {}
+                        SoundMeter.calibrationOffsetDb = 80;
+                    }
+                    updateCalibrationStatus();
+                    closeCalibrationModal();
+                });
+            }
+
+            if (calibrationReferenceDb) {
+                calibrationReferenceDb.addEventListener('input', () => updateCalibrationSaveEnabled());
+            }
+            window.addEventListener('sound-meter-update', () => {
+                if (calibrationModal && !calibrationModal.classList.contains('hidden')) {
+                    updateCalibrationSaveEnabled();
+                    refreshCalibrationModalReadings();
+                }
+            });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') closeCalibrationModal();
+            });
+
+            updateCalibrationStatus();
+            updateCalibrationSaveEnabled();
 
             const initExposureCalculator = () => {
                 const inputEl = document.getElementById('exposureDbInput');
