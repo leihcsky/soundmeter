@@ -140,6 +140,17 @@
                         <p>
                             If you have access to a trusted reference (a professional sound level meter or a known calibrator), you can do an offset calibration at a realistic level (often 70–90 dB). Then verify that your device tracks changes reasonably across a few positions.
                         </p>
+                        <div class="bg-white rounded-xl border border-gray-200 p-4">
+                            <h3 class="font-semibold text-gray-900 mb-2">Align reading (in the app)</h3>
+                            <ol class="list-decimal list-inside space-y-2">
+                                <li>Start measuring and wait until the average stabilizes (30–60 seconds).</li>
+                                <li>Open <strong>Align reading</strong> on the homepage and enter your reference device’s average.</li>
+                                <li>Save. Your browser stores a constant offset for this device only (you can reset anytime).</li>
+                            </ol>
+                            <p class="mt-3 text-gray-600">
+                                This improves day-to-day usefulness on one device. It does not certify measurements for legal or workplace compliance.
+                            </p>
+                        </div>
                         <div class="bg-gray-50 rounded-xl border border-gray-200 p-4">
                             <h3 class="font-semibold text-gray-900 mb-2">Recommended steps</h3>
                             <ol class="list-decimal list-inside space-y-2">
@@ -152,6 +163,28 @@
                         <p>
                             Detailed guide: <a href="blog/phone-decibel-meter-calibration.html" class="text-blue-600 hover:underline font-semibold">Phone Decibel Meter Calibration</a>.
                         </p>
+                    </div>
+                </section>
+
+                <section>
+                    <h2 class="text-2xl font-bold text-gray-900 mb-4">Algorithm summary (high level)</h2>
+                    <div class="grid md:grid-cols-2 gap-4 text-sm">
+                        <div class="bg-gray-50 rounded-xl border border-gray-200 p-4">
+                            <h3 class="font-semibold text-gray-900 mb-2">Core idea</h3>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li>Compute signal energy over time (similar to an average/Leq workflow).</li>
+                                <li>Apply an A-weighting adjustment so results are closer to a dBA-style reading.</li>
+                                <li>Apply a constant offset (optional) to align one device to a trusted reference.</li>
+                            </ul>
+                        </div>
+                        <div class="bg-gray-50 rounded-xl border border-gray-200 p-4">
+                            <h3 class="font-semibold text-gray-900 mb-2">Important limitation</h3>
+                            <ul class="list-disc list-inside space-y-2">
+                                <li>Browser and OS audio processing can change the microphone signal.</li>
+                                <li>Different microphones have different sensitivity and frequency response.</li>
+                                <li>Without external calibration, absolute dB values may be shifted.</li>
+                            </ul>
+                        </div>
                     </div>
                 </section>
 

@@ -2,6 +2,7 @@
 const SoundMeter = {
     audioContext: null,
     analyser: null,
+    levelAnalyser: null,
     microphone: null,
     javascriptNode: null,
     isRunning: false,
@@ -9,6 +10,12 @@ const SoundMeter = {
     maxValue: 0,
     readings: [],
     translations: {},
+    calibrationOffsetDb: 80,
+    aWeightPowerWeights: null,
+    aWeightPowerSum: 0,
+    leqPower: null,
+    lastDbEstimate: null,
+    timeDomainData: null,
 
     init: function(translations) {
         this.translations = translations;
@@ -55,20 +62,33 @@ const SoundMeter = {
             
             this.audioContext = new (window.AudioContext || window.webkitAudioContext)();
             this.analyser = this.audioContext.createAnalyser();
+            this.levelAnalyser = this.audioContext.createAnalyser();
             this.microphone = this.audioContext.createMediaStreamSource(stream);
             this.javascriptNode = this.audioContext.createScriptProcessor(2048, 1, 1);
 
             this.analyser.smoothingTimeConstant = 0.8;
             this.analyser.fftSize = 2048;
+            this.levelAnalyser.smoothingTimeConstant = 0;
+            this.levelAnalyser.fftSize = 2048;
+            this.levelAnalyser.minDecibels = -120;
+            this.levelAnalyser.maxDecibels = -10;
+            this.timeDomainData = new Float32Array(this.levelAnalyser.fftSize);
+
+            this.calibrationOffsetDb = this.loadCalibrationOffsetDb();
+            this.precomputeAWeighting();
 
             this.microphone.connect(this.analyser);
+            this.microphone.connect(this.levelAnalyser);
             this.analyser.connect(this.javascriptNode);
+            this.levelAnalyser.connect(this.javascriptNode);
             this.javascriptNode.connect(this.audioContext.destination);
             
             // Reset statistics
             this.minValue = Infinity;
             this.maxValue = 0;
             this.readings = [];
+            this.leqPower = null;
+            this.lastDbEstimate = null;
             
             // Show statistics
             const statsEl = document.getElementById('statistics');
@@ -80,36 +100,7 @@ const SoundMeter = {
             this.javascriptNode.onaudioprocess = () => {
                 if (!this.isRunning) return;
 
-                const array = new Uint8Array(this.analyser.frequencyBinCount);
-                this.analyser.getByteFrequencyData(array);
-                
-                // Calculate weighted average
-                let sum = 0;
-                for (let i = 0; i < array.length; i++) {
-                    sum += array[i];
-                }
-                const average = sum / array.length;
-                
-                // Convert to decibels with improved calibration
-                let db;
-                
-                if (average < 0.5) {
-                    db = 25;
-                } else if (average < 2) {
-                    db = 25 + (average / 2) * 10;
-                } else if (average < 10) {
-                    db = 35 + ((average - 2) / 8) * 15;
-                } else if (average < 30) {
-                    db = 50 + ((average - 10) / 20) * 15;
-                } else if (average < 60) {
-                    db = 65 + ((average - 30) / 30) * 15;
-                } else if (average < 100) {
-                    db = 80 + ((average - 60) / 40) * 15;
-                } else {
-                    db = 95 + Math.min((average - 100) / 10, 30);
-                }
-                
-                db = Math.max(25, Math.min(130, db));
+                const db = this.computeDbAEstimate();
                 
                 // Update statistics
                 this.updateStatistics(db);
@@ -140,6 +131,7 @@ const SoundMeter = {
             this.javascriptNode.onaudioprocess = null;
         }
         if (this.analyser) this.analyser.disconnect();
+        if (this.levelAnalyser) this.levelAnalyser.disconnect();
         if (this.microphone) this.microphone.disconnect();
         if (this.audioContext) this.audioContext.close();
 
@@ -203,6 +195,157 @@ const SoundMeter = {
         window.dispatchEvent(new CustomEvent('sound-meter-update', { 
             detail: { db: db } 
         }));
+    },
+
+    loadCalibrationOffsetDb: function() {
+        try {
+            const params = new URLSearchParams(window.location.search);
+            const rawParam = params.get('cal');
+            if (rawParam !== null && rawParam !== '') {
+                const n = Number.parseFloat(rawParam);
+                if (Number.isFinite(n)) {
+                    localStorage.setItem('soundmeter_calibration_offset_db', String(n));
+                    return n;
+                }
+            }
+            const stored = localStorage.getItem('soundmeter_calibration_offset_db');
+            if (stored !== null && stored !== '') {
+                const n = Number.parseFloat(stored);
+                if (Number.isFinite(n)) return n;
+            }
+        } catch (_) {
+            if (Number.isFinite(this.calibrationOffsetDb)) return this.calibrationOffsetDb;
+        }
+        if (Number.isFinite(this.calibrationOffsetDb)) return this.calibrationOffsetDb;
+        return 80;
+    },
+
+    saveCalibrationOffsetDb: function(offsetDb) {
+        if (!Number.isFinite(offsetDb)) return;
+        this.calibrationOffsetDb = offsetDb;
+        try {
+            localStorage.setItem('soundmeter_calibration_offset_db', String(offsetDb));
+        } catch (_) {}
+    },
+
+    resetCalibrationOffsetDb: function() {
+        this.calibrationOffsetDb = 80;
+        try {
+            localStorage.removeItem('soundmeter_calibration_offset_db');
+        } catch (_) {}
+    },
+
+    getCalibrationOffsetDb: function() {
+        return this.calibrationOffsetDb;
+    },
+
+    precomputeAWeighting: function() {
+        if (!this.audioContext || !this.levelAnalyser) return;
+        const sampleRate = this.audioContext.sampleRate;
+        const fftSize = this.levelAnalyser.fftSize;
+        const binCount = this.levelAnalyser.frequencyBinCount;
+
+        const weights = new Float32Array(binCount);
+        let sum = 0;
+        for (let i = 0; i < binCount; i++) {
+            const f = (i * sampleRate) / fftSize;
+            if (f <= 0) {
+                weights[i] = 0;
+                continue;
+            }
+            const aDb = this.aWeightingDb(f);
+            const w = Math.pow(10, aDb / 10);
+            weights[i] = w;
+            sum += w;
+        }
+        this.aWeightPowerWeights = weights;
+        this.aWeightPowerSum = sum > 0 ? sum : 1;
+    },
+
+    aWeightingDb: function(fHz) {
+        const f2 = fHz * fHz;
+        const f1 = 20.598997;
+        const f2c = 107.65265;
+        const f3 = 737.86223;
+        const f4 = 12194.217;
+        const f1_2 = f1 * f1;
+        const f2c_2 = f2c * f2c;
+        const f3_2 = f3 * f3;
+        const f4_2 = f4 * f4;
+
+        const numerator = f4_2 * f4_2 * f2 * f2;
+        const denom1 = (f2 + f1_2);
+        const denom2 = Math.sqrt((f2 + f2c_2) * (f2 + f3_2));
+        const denom3 = (f2 + f4_2);
+        const ra = numerator / (denom1 * denom2 * denom3);
+
+        const a = 20 * Math.log10(ra) + 2.0;
+        return a;
+    },
+
+    computeDbAEstimate: function() {
+        if (!this.levelAnalyser || !this.aWeightPowerWeights) return 25;
+        if (!this.timeDomainData) this.timeDomainData = new Float32Array(this.levelAnalyser.fftSize);
+
+        this.levelAnalyser.getFloatTimeDomainData(this.timeDomainData);
+        let mean = 0;
+        for (let i = 0; i < this.timeDomainData.length; i++) {
+            mean += this.timeDomainData[i];
+        }
+        mean /= this.timeDomainData.length;
+
+        let sumSquares = 0;
+        for (let i = 0; i < this.timeDomainData.length; i++) {
+            const x = this.timeDomainData[i] - mean;
+            sumSquares += x * x;
+        }
+
+        const meanSquare = sumSquares / this.timeDomainData.length;
+        const rms = Math.sqrt(meanSquare);
+        if (!(rms > 0)) return 25;
+
+        const framePower = rms * rms;
+
+        const binCount = this.levelAnalyser.frequencyBinCount;
+        const freqDb = new Float32Array(binCount);
+        this.levelAnalyser.getFloatFrequencyData(freqDb);
+
+        let sumWeightedPower = 0;
+        const weights = this.aWeightPowerWeights;
+        const floorDb = Number.isFinite(this.levelAnalyser.minDecibels) ? this.levelAnalyser.minDecibels : -100;
+        let sumUnweightedPower = 0;
+        for (let i = 0; i < binCount; i++) {
+            let db = freqDb[i];
+            if (!Number.isFinite(db)) db = floorDb;
+            if (db < floorDb) db = floorDb;
+            const power = Math.pow(10, db / 10);
+            sumUnweightedPower += power;
+            sumWeightedPower += power * weights[i];
+        }
+
+        let ratio = 1;
+        if (sumUnweightedPower > 0 && sumWeightedPower > 0) {
+            ratio = sumWeightedPower / sumUnweightedPower;
+            if (!Number.isFinite(ratio) || ratio <= 0) ratio = 1;
+            ratio = Math.max(0.01, Math.min(100, ratio));
+        }
+
+        const framePowerA = framePower * ratio;
+
+        const alpha = 0.85;
+        if (this.leqPower === null) {
+            this.leqPower = framePowerA;
+        } else {
+            this.leqPower = alpha * this.leqPower + (1 - alpha) * framePowerA;
+        }
+
+        if (!(this.leqPower > 0)) return 25;
+
+        const dbFsA = 10 * Math.log10(this.leqPower);
+        const dbAEstimate = dbFsA + this.calibrationOffsetDb;
+        const result = Math.max(0, Math.min(130, dbAEstimate));
+        this.lastDbEstimate = result;
+        return result;
     },
 
     getExposureWarning: function(db) {
