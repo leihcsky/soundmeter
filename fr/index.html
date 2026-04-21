@@ -1065,34 +1065,66 @@
             </div>
         </section>
     </main>
-
     <!-- Footer -->
-    <footer class="bg-gray-900 text-white mt-8">
+    <footer id="site-footer" class="bg-gray-900 text-white mt-8">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-            <div class="text-center">
-                <p class="text-base font-semibold mb-2">Sonomètre - Détection du Bruit Environnemental</p>
-                <p class="text-sm text-gray-400 mb-4">Protégez votre audition en surveillant les niveaux de bruit dans votre environnement.</p>
-                <div class="flex justify-center gap-6 text-sm mb-4">
-                    <a href="../about.html" class="hover:text-blue-400 transition">À propos</a>
-                    <a href="../editorial-policy.html" class="hover:text-blue-400 transition">Politique éditoriale</a>
-                    <a href="../methodology.html" class="hover:text-blue-400 transition">Méthodologie</a>
-                    <a href="../changelog.html" class="hover:text-blue-400 transition">Journal des modifications</a>
-                    <a href="../terms.html" class="hover:text-blue-400 transition">Conditions d'utilisation</a>
-                    <a href="../privacy.html" class="hover:text-blue-400 transition">Politique de confidentialité</a>
-                    <a href="../disclaimer.html" class="hover:text-blue-400 transition">Avis de non-responsabilité</a>
-                    <a href="../contact.html" class="hover:text-blue-400 transition">Contact</a>
-                </div>
-                
-                <div class="flex justify-center mb-6">
-                    <a href="https://toolfame.com/item/realtime-sound-meter" target="_blank" rel="noopener noreferrer"> 
-                        <img src="https://toolfame.com/badge-light.svg" alt="En vedette sur toolfame.com" style="height: 30px; width: auto;" /> 
-                    </a>
-                </div>
-
-                <p class="text-xs text-gray-500">© 2026 RealtimeSoundMeter.org. Tous droits réservés.</p>
+            <div class="text-center mb-6">
+                <p class="text-base font-semibold">Sound Meter - Environmental Noise Detection</p>
+                <p class="text-sm text-gray-400 mt-1">Protect your hearing by monitoring noise levels in your environment.</p>
             </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-sm">
+                <div>
+                    <p class="text-xs font-bold tracking-wide text-gray-400 uppercase mb-2">Tools</p>
+                    <div class="space-y-1">
+                        <a href="/" class="block hover:text-blue-400 transition">Sound Meter</a>
+                        <a href="/online-hearing-test/" class="block hover:text-blue-400 transition">Hearing Test</a>
+                        <a href="/speaker-test-tones/" class="block hover:text-blue-400 transition">Speaker Test</a>
+                        <a href="/blog/" class="block hover:text-blue-400 transition">Blog</a>
+                    </div>
+                </div>
+                <div>
+                    <p class="text-xs font-bold tracking-wide text-gray-400 uppercase mb-2">Trust &amp; Quality</p>
+                    <div class="space-y-1">
+                        <a href="../about.html" class="block hover:text-blue-400 transition">About</a>
+                        <a href="../editorial-policy.html" class="block hover:text-blue-400 transition">Editorial Policy</a>
+                        <a href="../methodology.html" class="block hover:text-blue-400 transition">Methodology</a>
+                        <a href="../accuracy.html" class="block hover:text-blue-400 transition">Accuracy &amp; Calibration</a>
+                        <a href="../validation.html" class="block hover:text-blue-400 transition">Validation Protocol</a>
+                        <a href="../changelog.html" class="block hover:text-blue-400 transition">Changelog</a>
+                    </div>
+                </div>
+                <div>
+                    <p class="text-xs font-bold tracking-wide text-gray-400 uppercase mb-2">Legal &amp; Contact</p>
+                    <div class="space-y-1">
+                        <a href="../terms.html" class="block hover:text-blue-400 transition">Terms of Use</a>
+                        <a href="../privacy.html" class="block hover:text-blue-400 transition">Privacy Policy</a>
+                        <a href="../disclaimer.html" class="block hover:text-blue-400 transition">Disclaimer</a>
+                        <a href="../contact.html" class="block hover:text-blue-400 transition">Contact</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex justify-center my-6">
+                <a href="https://toolfame.com/item/realtime-sound-meter" target="_blank" rel="noopener noreferrer">
+                    <img src="https://toolfame.com/badge-light.svg" alt="Featured on toolfame.com" style="height: 30px; width: auto;" />
+                </a>
+            </div>
+
+            <p class="text-center text-xs text-gray-500">© 2026 RealtimeSoundMeter.org. All rights reserved.</p>
         </div>
     </footer>
+
+    <div id="floatingStartContainer" class="fixed bottom-4 left-0 right-0 z-50 hidden flex justify-center px-4 pointer-events-none">
+        <button id="floatingStartBtn" type="button" class="pointer-events-auto w-full max-w-xs bg-blue-500 hover:bg-blue-600 text-white font-semibold py-4 px-6 rounded-xl shadow-lg transform transition active:scale-95 text-base disabled:opacity-60 disabled:cursor-not-allowed">Start Measuring</button>
+    </div>
+
+    <button id="backToTopBtn" type="button" aria-label="Back to top" class="fixed right-4 bottom-4 z-[60] hidden w-14 h-14 rounded-full bg-blue-600 hover:bg-blue-700 text-white shadow-xl ring-1 ring-blue-300/70 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500 flex items-center justify-center">
+        <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+            <path d="M12 15V9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M9.5 11.5L12 9l2.5 2.5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+    </button>
 
     <!-- Hidden Report Template -->
     <div id="reportTemplate" class="fixed -left-[9999px] top-0 bg-white p-8 w-[600px]" style="font-family: sans-serif;">
@@ -1614,5 +1646,80 @@
             }
                 });
     </script>
+
+    <!-- floating-start-and-top-sync -->
+<script>
+(function () {
+    const init = () => {
+        const startBtn = document.getElementById('startBtn');
+        const floatingStartContainer = document.getElementById('floatingStartContainer');
+        const floatingStartBtn = document.getElementById('floatingStartBtn');
+        const backToTopBtn = document.getElementById('backToTopBtn');
+        const siteFooter = document.getElementById('site-footer');
+
+        const updateBottomOffsets = () => {
+            const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+            let extraBottom = 0;
+            if (siteFooter) {
+                const footerRect = siteFooter.getBoundingClientRect();
+                if (footerRect.top < viewportHeight) {
+                    extraBottom = Math.ceil(viewportHeight - footerRect.top) + 12;
+                }
+            }
+            if (floatingStartContainer) floatingStartContainer.style.bottom = `${16 + extraBottom}px`;
+            if (backToTopBtn) backToTopBtn.style.bottom = `${16 + extraBottom}px`;
+        };
+
+        if (startBtn && floatingStartContainer && floatingStartBtn && typeof IntersectionObserver !== 'undefined') {
+            const syncFloatingButton = () => {
+                floatingStartBtn.textContent = (startBtn.textContent || '').trim() || 'Start Measuring';
+                floatingStartBtn.disabled = !!startBtn.disabled;
+                floatingStartBtn.classList.remove('bg-blue-500', 'hover:bg-blue-600', 'bg-red-500', 'hover:bg-red-600');
+                if (startBtn.classList.contains('bg-red-500')) {
+                    floatingStartBtn.classList.add('bg-red-500', 'hover:bg-red-600');
+                } else {
+                    floatingStartBtn.classList.add('bg-blue-500', 'hover:bg-blue-600');
+                }
+            };
+
+            const io = new IntersectionObserver(([entry]) => {
+                floatingStartContainer.classList.toggle('hidden', entry.isIntersecting);
+            }, { threshold: 0.15 });
+            io.observe(startBtn);
+
+            const mo = new MutationObserver(syncFloatingButton);
+            mo.observe(startBtn, { attributes: true, childList: true, characterData: true, subtree: true });
+
+            floatingStartBtn.addEventListener('click', () => {
+                startBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                startBtn.click();
+            });
+
+            syncFloatingButton();
+        }
+
+        if (backToTopBtn) {
+            const toggleBackToTop = () => {
+                backToTopBtn.classList.toggle('hidden', window.scrollY < 280);
+            };
+            toggleBackToTop();
+            window.addEventListener('scroll', toggleBackToTop, { passive: true });
+            backToTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+
+        updateBottomOffsets();
+        window.addEventListener('scroll', updateBottomOffsets, { passive: true });
+        window.addEventListener('resize', updateBottomOffsets);
+    };
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init, { once: true });
+    } else {
+        init();
+    }
+})();
+</script>
 </body>
 </html>
