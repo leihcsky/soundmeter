@@ -50,6 +50,17 @@
     </script>
 
     <link href="/css/style.css" rel="stylesheet">
+<style>
+        #nav-hearing-panel { min-width: 19rem; opacity: 0; visibility: hidden; pointer-events: none; transition: opacity 0.14s ease, visibility 0.14s ease; }
+        #nav-hearing-wrap:focus-within #nav-hearing-panel { opacity: 1; visibility: visible; pointer-events: auto; }
+        #nav-hearing-wrap:focus-within #nav-hearing-btn { color: #2563eb; background-color: #eff6ff; }
+        #nav-hearing-wrap:focus-within #nav-hearing-chevron { transform: rotate(180deg); }
+        @media (hover: hover) {
+            #nav-hearing-wrap:hover #nav-hearing-panel { opacity: 1; visibility: visible; pointer-events: auto; }
+            #nav-hearing-wrap:hover #nav-hearing-btn { color: #2563eb; background-color: #eff6ff; }
+            #nav-hearing-wrap:hover #nav-hearing-chevron { transform: rotate(180deg); }
+        }
+    </style>
 </head>
 <body class="bg-gray-50 min-h-screen">
     <header class="bg-white shadow-md border-b border-gray-300">
@@ -59,16 +70,25 @@
                     <img src="../logo.svg" alt="Sound Meter" class="h-10 w-auto sm:h-12">
                     <span class="sr-only">RealtimeSoundMeter.org</span>
                 </a>
-                <nav class="hidden md:flex items-center gap-6">
-                    <a href="/" class="text-gray-500 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors inline-flex items-center gap-2">
+                <nav aria-label="Primary" class="hidden md:flex items-center space-x-8">
+                    <a href="/" class="text-gray-500 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors inline-flex items-center gap-2 whitespace-nowrap">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
                         Home
                     </a>
-                    <a href="/online-hearing-test/" class="text-gray-500 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors inline-flex items-center gap-2">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 002 2h2a2 2 0 002-2z"></path></svg>
-                        Hearing Test
-                    </a>
-                    <a href="/speaker-test-tones/" class="text-gray-500 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors inline-flex items-center gap-2">
+                    <div class="relative" id="nav-hearing-wrap">
+                        <button type="button" id="nav-hearing-btn" class="text-gray-500 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors inline-flex items-center gap-1 whitespace-nowrap" aria-expanded="false" aria-haspopup="true" aria-controls="nav-hearing-panel">
+                            <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 002 2h2a2 2 0 002-2z"></path></svg>
+                            Hearing
+                            <svg id="nav-hearing-chevron" class="w-4 h-4 shrink-0 text-gray-400 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div id="nav-hearing-panel" class="absolute left-0 top-full z-50 pt-1" role="menu" aria-labelledby="nav-hearing-btn">
+                            <div class="rounded-lg border border-gray-200 bg-white py-1 shadow-lg ring-1 ring-black/5">
+                                <a href="/online-hearing-test/" role="menuitem" class="block whitespace-nowrap px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600">Online hearing test</a>
+                                <a href="/hearing-age-test/" role="menuitem" class="block whitespace-nowrap px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600">Hearing age test</a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="/speaker-test-tones/" class="text-gray-500 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors inline-flex items-center gap-2 whitespace-nowrap">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
                         Speaker Test
                     </a>
@@ -88,9 +108,16 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg z-50">
             <div class="px-2 pt-2 pb-3 space-y-1">
-                 <a href="/online-hearing-test/" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Hearing Test</a>
-                 <a href="/speaker-test-tones/" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Speaker Test</a>
-                 <a href="/blog/" class="block px-3 py-2 rounded-md text-base font-medium text-blue-600 bg-blue-50">Blog</a>
+                 <a href="/" class="flex items-center gap-2 px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Home</a>
+                <details class="group mobile-nav-hearing">
+                    <summary class="flex cursor-pointer list-none items-center gap-2 px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 marker:content-none">Hearing</summary>
+                    <div class="mt-1 space-y-0 border-l-2 border-gray-100 ml-4 pl-3 py-1">
+                        <a href="/online-hearing-test/" class="block py-2 text-sm font-medium text-gray-600 hover:text-blue-600">Online hearing test</a>
+                        <a href="/hearing-age-test/" class="block py-2 text-sm font-medium text-gray-600 hover:text-blue-600">Hearing age test</a>
+                    </div>
+                </details>
+                <a href="/speaker-test-tones/" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Speaker Test</a>
+                <a href="/blog/" class="block px-3 py-2 rounded-md text-base font-medium text-blue-600 bg-blue-50">Blog</a>
             </div>
         </div>
             </div>
@@ -330,11 +357,15 @@
         // Mobile menu toggle
         const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
-        if(btn && menu) {
-            btn.addEventListener('click', () => {
-                menu.classList.toggle('hidden');
-            });
-        }
+        const hearingWrap = document.getElementById('nav-hearing-wrap');
+        const hearingBtn = document.getElementById('nav-hearing-btn');
+        const hearingPanel = document.getElementById('nav-hearing-panel');
+
+        const setExpanded = (buttonEl, expanded) => { if (!buttonEl) return; buttonEl.setAttribute('aria-expanded', expanded ? 'true' : 'false'); };
+        const closeMenu = () => { if (!btn || !menu) return; menu.classList.add('hidden'); setExpanded(btn, false); };
+        const setHearingExpanded = (open) => { if (!hearingBtn) return; hearingBtn.setAttribute('aria-expanded', open ? 'true' : 'false'); };
+        if (hearingWrap && hearingBtn && hearingPanel) { hearingWrap.addEventListener('mouseenter', () => setHearingExpanded(true)); hearingWrap.addEventListener('mouseleave', () => setHearingExpanded(false)); hearingWrap.addEventListener('focusin', () => setHearingExpanded(true)); hearingWrap.addEventListener('focusout', (e) => { if (!hearingWrap.contains(e.relatedTarget)) setHearingExpanded(false); }); }
+        if (btn && menu) { btn.addEventListener('click', (e) => { e.stopPropagation(); menu.classList.toggle('hidden'); setExpanded(btn, !menu.classList.contains('hidden')); }); document.addEventListener('click', (e) => { if (!btn.contains(e.target) && !menu.contains(e.target)) closeMenu(); }); }
     </script>
 </body>
 </html>
