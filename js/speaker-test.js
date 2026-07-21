@@ -15,12 +15,14 @@ class SpeakerTest {
         this.activeNoise = null;
         this.sweepOsc = null;
         this.activeSource = null; // General tracker
+        this.stereoGain = null;
 
         // State
         this.isPlayingTone = false;
         this.isPlayingSweep = false;
         this.currentNoiseType = null; // 'white' | 'pink' | null
         this.currentStereoSide = null;
+        this.stereoAnnounceTimer = null;
 
         // DOM Elements
         this.els = {
@@ -186,11 +188,21 @@ class SpeakerTest {
     }
 
     stopAll() {
+        // Stop stereo announce / pulse scheduling
+        if (this.stereoAnnounceTimer) {
+            clearInterval(this.stereoAnnounceTimer);
+            this.stereoAnnounceTimer = null;
+        }
+
         // Stop Oscillators
         if (this.activeOsc) {
             try { this.activeOsc.stop(); } catch(e){}
             this.activeOsc.disconnect();
             this.activeOsc = null;
+        }
+        if (this.stereoGain) {
+            try { this.stereoGain.disconnect(); } catch(e){}
+            this.stereoGain = null;
         }
         if (this.sweepOsc) {
             try { this.sweepOsc.stop(); } catch(e){}
@@ -285,8 +297,44 @@ class SpeakerTest {
         }
     }
 
+    /**
+     * Schedule a repeating on/off pulse on a GainNode for a more audible L/R cue.
+     * Keeps playing until stopAll() clears stereoAnnounceTimer.
+     */
+    startStereoPulse(gainNode, peakGain = 1) {
+        const pulseOn = 0.45;  // seconds audible
+        const pulseOff = 0.25; // seconds silent
+        const period = pulseOn + pulseOff;
+
+        const schedulePulse = (startAt) => {
+            const g = gainNode.gain;
+            g.cancelScheduledValues(startAt);
+            g.setValueAtTime(0, startAt);
+            g.linearRampToValueAtTime(peakGain, startAt + 0.02);
+            g.setValueAtTime(peakGain, startAt + pulseOn - 0.03);
+            g.linearRampToValueAtTime(0, startAt + pulseOn);
+        };
+
+        const now = this.audioCtx.currentTime;
+        // Prime a few pulses ahead so the AudioParam timeline stays filled
+        for (let i = 0; i < 4; i++) {
+            schedulePulse(now + i * period);
+        }
+
+        let nextIndex = 4;
+        this.stereoAnnounceTimer = setInterval(() => {
+            if (!this.audioCtx || !this.stereoGain) return;
+            const t = this.audioCtx.currentTime;
+            // Keep ~2–3 periods ahead of the playhead
+            while (now + nextIndex * period < t + period * 3) {
+                schedulePulse(now + nextIndex * period);
+                nextIndex++;
+            }
+        }, Math.floor(period * 1000));
+    }
+
     async playStereo(side) {
-        // Toggle if same side
+        // Toggle off if same side is already playing
         if (this.currentStereoSide === side) {
             this.stopAll();
             return;
@@ -298,57 +346,50 @@ class SpeakerTest {
 
         const osc = this.audioCtx.createOscillator();
         const gain = this.audioCtx.createGain();
-        // Use ChannelMerger for strict left/right separation
+        // Strict left/right separation via ChannelMerger
         const merger = this.audioCtx.createChannelMerger(2);
 
-        osc.type = 'sine';
-        osc.frequency.value = 440; // Standard A4 note
-        
-        // Envelope to avoid clicking
-        const now = this.audioCtx.currentTime;
-        gain.gain.setValueAtTime(0, now);
-        gain.gain.linearRampToValueAtTime(0.5, now + 0.1);
-        gain.gain.linearRampToValueAtTime(0, now + 1.5);
+        // 1 kHz square: easier to localize than a soft 440 Hz sine, and
+        // subjectively louder / clearer (closer to competitor speaker tests).
+        osc.type = 'square';
+        osc.frequency.value = 1000;
 
-        // Connect oscillator to gain
+        // Bypass quieter masterGain (0.5). Peak kept under 1.0 to avoid clipping.
+        const peakGain = 0.7;
+        gain.gain.value = 0;
+
         osc.connect(gain);
 
-        // Route gain output to specific channel of merger
+        // Explicit silence on the unused channel avoids accidental mono fold-down
+        const silent = this.audioCtx.createGain();
+        silent.gain.value = 0;
+        osc.connect(silent);
+
         if (side === 'left') {
-            gain.connect(merger, 0, 0); // Input 0 -> Channel 0 (Left)
+            gain.connect(merger, 0, 0);
+            silent.connect(merger, 0, 1);
         } else {
-            gain.connect(merger, 0, 1); // Input 0 -> Channel 1 (Right)
+            silent.connect(merger, 0, 0);
+            gain.connect(merger, 0, 1);
         }
 
-        // Connect merger to master
-        merger.connect(this.masterGain);
+        merger.connect(this.analyser);
 
-        osc.start(now);
-        osc.stop(now + 1.5);
-        
+        osc.start();
         this.activeOsc = osc;
+        this.stereoGain = gain;
+        this.startStereoPulse(gain, peakGain);
 
-        // Show Visualizer
         this.setVisualizer(true);
 
-        // UI Feedback
-        this.els.statusStereo.textContent = `Playing ${side.toUpperCase()} Channel...`;
-        
-        // Add visual active state
+        const label = side === 'left' ? 'LEFT' : 'RIGHT';
+        this.els.statusStereo.textContent = `Playing ${label} — click again to stop`;
+
         const activeBtn = side === 'left' ? this.els.btnLeft : this.els.btnRight;
         const otherBtn = side === 'left' ? this.els.btnRight : this.els.btnLeft;
-        
+
         if (activeBtn) activeBtn.classList.add('playing');
         if (otherBtn) otherBtn.classList.remove('playing');
-
-        setTimeout(() => {
-            if (this.currentStereoSide === side) {
-                this.els.statusStereo.textContent = '';
-                if (activeBtn) activeBtn.classList.remove('playing');
-                this.setVisualizer(false);
-                this.currentStereoSide = null;
-            }
-        }, 1500);
     }
 
     async playPolarity(type) {
