@@ -258,7 +258,7 @@
             <div class="text-center mb-12 max-w-3xl mx-auto">
                 <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-6 tracking-tight">Speaker Test Tones</h1>
                 <p class="text-xl text-gray-600 leading-relaxed">
-                    Use our free online audio tools to test your speakers, headphones, and subwoofer. Check stereo separation, frequency response, and polarity.
+                    Free online sound test for speakers, headphones, and subwoofers. Check stereo separation, frequency response, and polarity—right in your browser.
                 </p>
             </div>
 
@@ -543,8 +543,26 @@
 
             </div>
 
+            <!-- Post-test: app/site silent while this page works -->
+            <section class="mt-16 max-w-3xl mx-auto bg-white rounded-2xl shadow-lg border border-gray-100 p-6 sm:p-8">
+                <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3">If this sound test works but an app or website is still silent</h2>
+                <p class="text-sm text-gray-600 mb-4 leading-relaxed">
+                    Hearing tones on this page means your speakers (and browser audio path) are working. If YouTube, Zoom, Discord, or another site is still muted, the problem is usually that app—not your hardware.
+                </p>
+                <ul class="text-sm text-gray-700 space-y-2 list-disc list-inside mb-4">
+                    <li>Check the tab or player mute icon, and any in-page volume slider (common on video sites).</li>
+                    <li>On Windows or macOS, open system sound settings and confirm the browser or app isn’t muted under per-app volume.</li>
+                    <li>Confirm the same output device is selected in the app (speakers vs HDMI TV vs headset) as in the OS.</li>
+                    <li>Close other apps that may lock the device (calls, games, DAWs), then retry the silent site.</li>
+                </ul>
+                <p class="text-sm text-gray-600">
+                    Still stuck after these checks?
+                    <a href="../blog/how-to-test-speakers-headphones.html" class="text-blue-600 hover:underline font-semibold">Full testing checklist →</a>
+                </p>
+            </section>
+
             <!-- Content / SEO Section -->
-            <div class="mt-16 bg-white rounded-3xl p-8 sm:p-12 border border-gray-200">
+            <div class="mt-12 bg-white rounded-3xl p-8 sm:p-12 border border-gray-200">
                 <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">How to Use the Speaker Test Online</h2>
                 <div class="prose prose-blue max-w-none text-gray-600">
                     <div class="grid md:grid-cols-2 gap-12">
@@ -599,6 +617,14 @@
                         <h3 class="text-xl font-bold text-gray-900 mb-2">How do I test if my speakers are working properly?</h3>
                         <p class="text-gray-600 leading-relaxed">
                             Use our free online speaker test tool above. Start with the <strong>Left / Right Stereo Test</strong> to verify that sound is coming from the correct speaker. Then, run the <strong>Frequency Sweep Test</strong> to ensure your speakers can reproduce both deep bass and high treble without distortion or rattling.
+                        </p>
+                    </div>
+
+                    <!-- FAQ: sound test vs app silence -->
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Does a successful sound test mean my speakers are fine?</h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            Yes—if you can hear the left/right tones or sweep on this page, your speakers and the browser audio path are working. If a specific website or program is still silent, focus on that app’s mute state, volume mixer, and output-device settings rather than replacing hardware.
                         </p>
                     </div>
 
@@ -732,6 +758,13 @@
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Use our free online speaker test tool above. Start with the Left / Right Stereo Test to verify that sound is coming from the correct speaker. Then, run the Frequency Sweep Test to ensure your speakers can reproduce both deep bass and high treble without distortion or rattling."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Does a successful sound test mean my speakers are fine?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes—if you can hear the left/right tones or sweep on this page, your speakers and the browser audio path are working. If a specific website or program is still silent, focus on that app’s mute state, volume mixer, and output-device settings rather than replacing hardware."
         }
       }, {
         "@type": "Question",
