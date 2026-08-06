@@ -253,6 +253,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://realtimesoundmeter.org/blog/safe-decibel-levels</loc>
+    <lastmod>2026-08-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://realtimesoundmeter.org/blog/phone-decibel-meter-calibration</loc>
     <lastmod>2026-03-12</lastmod>
     <changefreq>monthly</changefreq>
