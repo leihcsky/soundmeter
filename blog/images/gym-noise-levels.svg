@@ -1,0 +1,38 @@
+<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="400" fill="#f8fafc"/>
+  
+  <!-- Gauge / Level indicators -->
+  <g transform="translate(70, 70)">
+    <rect x="0" y="0" width="200" height="210" rx="16" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+    <circle cx="100" cy="75" r="45" fill="#fef2f2" stroke="#ef4444" stroke-width="4"/>
+    <text x="100" y="75" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="900" fill="#dc2626" text-anchor="middle">98-105</text>
+    <text x="100" y="95" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="bold" fill="#dc2626" text-anchor="middle">dBA</text>
+    <text x="100" y="145" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="bold" fill="#0f172a" text-anchor="middle">Spin &amp; HIIT Classes</text>
+    <text x="100" y="170" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#64748b" text-anchor="middle">Enclosed studio + speakers</text>
+    <text x="100" y="192" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="bold" fill="#dc2626" text-anchor="middle">Safe limit: &lt; 15 mins</text>
+  </g>
+
+  <g transform="translate(300, 70)">
+    <rect x="0" y="0" width="200" height="210" rx="16" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+    <circle cx="100" cy="75" r="45" fill="#fffbeb" stroke="#f59e0b" stroke-width="4"/>
+    <text x="100" y="75" font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="900" fill="#d97706" text-anchor="middle">85-92</text>
+    <text x="100" y="95" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="bold" fill="#d97706" text-anchor="middle">dBA</text>
+    <text x="100" y="145" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="bold" fill="#0f172a" text-anchor="middle">General Gym Floor</text>
+    <text x="100" y="170" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#64748b" text-anchor="middle">Weights clanging, loud PA</text>
+    <text x="100" y="192" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="bold" fill="#d97706" text-anchor="middle">Safe limit: ~1-2 hours</text>
+  </g>
+
+  <g transform="translate(530, 70)">
+    <rect x="0" y="0" width="200" height="210" rx="16" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+    <circle cx="100" cy="75" r="45" fill="#f0fdf4" stroke="#16a34a" stroke-width="4"/>
+    <text x="100" y="75" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="900" fill="#16a34a" text-anchor="middle">-16 dB</text>
+    <text x="100" y="95" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="bold" fill="#16a34a" text-anchor="middle">HI-FI FILTER</text>
+    <text x="100" y="145" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="bold" fill="#0f172a" text-anchor="middle">With Hi-Fi Earplugs</text>
+    <text x="100" y="170" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#64748b" text-anchor="middle">Brings 102 dB down to ~86 dB</text>
+    <text x="100" y="192" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="bold" fill="#16a34a" text-anchor="middle">Cues clear, ears safe</text>
+  </g>
+
+  <!-- Title -->
+  <text x="400" y="325" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="bold" fill="#0f172a" text-anchor="middle">How Loud Are Gyms and Spin Classes?</text>
+  <text x="400" y="355" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#64748b" text-anchor="middle">Real workout decibel levels, post-class ear ringing (TTS), and practical hearing protection</text>
+</svg>

@@ -1,0 +1,25 @@
+<svg width="800" height="400" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="400" fill="#f8fafc"/>
+  
+  <!-- Left card: Absorption vs Blocking -->
+  <rect x="60" y="70" width="310" height="210" rx="16" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+  <rect x="80" y="90" width="120" height="28" rx="6" fill="#eff6ff"/>
+  <text x="140" y="109" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="bold" fill="#2563eb" text-anchor="middle">ABSORPTION</text>
+  <text x="80" y="150" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="bold" fill="#1e293b">Room Echo &amp; High Pitch</text>
+  <text x="80" y="180" font-family="system-ui, -apple-system, sans-serif" font-size="36" font-weight="900" fill="#2563eb">-2 to -4 <tspan font-size="20" font-weight="bold" fill="#64748b">dBA</tspan></text>
+  <text x="80" y="215" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#64748b">Reduces indoor reverb &amp; flutter echo</text>
+  <text x="80" y="235" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#16a34a" font-weight="bold">&#x2713; Noticeable tone softening</text>
+
+  <!-- Right card: Low frequency reality -->
+  <rect x="430" y="70" width="310" height="210" rx="16" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+  <rect x="450" y="90" width="120" height="28" rx="6" fill="#fef2f2"/>
+  <text x="510" y="109" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="bold" fill="#dc2626" text-anchor="middle">SOUND BLOCKING</text>
+  <text x="450" y="150" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="bold" fill="#1e293b">Traffic &amp; Low Hum</text>
+  <text x="450" y="180" font-family="system-ui, -apple-system, sans-serif" font-size="36" font-weight="900" fill="#dc2626">~0 to -1 <tspan font-size="20" font-weight="bold" fill="#64748b">dBA</tspan></text>
+  <text x="450" y="215" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#64748b">Cannot stop bass, engines or vibrations</text>
+  <text x="450" y="235" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#dc2626" font-weight="bold">&#x2717; Air gaps leak sound freely</text>
+
+  <!-- Bottom title -->
+  <text x="400" y="325" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="bold" fill="#0f172a" text-anchor="middle">Do Soundproof Curtains Actually Work?</text>
+  <text x="400" y="355" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#64748b" text-anchor="middle">Decibel Test Reality: Heavy fabrics absorb room echo, but mass and airtight seals block noise</text>
+</svg>
