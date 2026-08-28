@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="https://schema.org/WebApplication">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Google tag (gtag.js) -->
+    <script defer src="https://www.googletagmanager.com/gtag/js?id=G-VBFVZM0MP6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-VBFVZM0MP6');
+    </script>
+
+    <script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3293976111230987"
+     crossorigin="anonymous"></script>
+
+    <!-- Primary Meta Tags -->
+    <title>Online Tone Generator - Free Audio Frequency Generator</title>
+    <meta name="title" content="Online Tone Generator - Free Audio Frequency Generator">
+    <meta name="description" content="Free online tone generator and audio frequency generator. Play pure sine, square, and triangle sound waves with exact Hz tuning and note picker.">
+    <meta name="keywords" content="online tone generator, frequency generator, online frequency generator, tone generator online, audio frequency generator, pure tone generator, sound frequency generator, sine wave generator, hz sound generator, 440 hz tone">
+    <meta name="author" content="RealtimeSoundMeter.org">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://realtimesoundmeter.org/tone-generator/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://realtimesoundmeter.org/tone-generator/">
+    <meta property="og:title" content="Online Tone Generator - Free Audio Frequency Generator">
+    <meta property="og:description" content="Free online tone generator and audio frequency generator. Play pure sine, square, and triangle sound waves with exact Hz tuning and note picker.">
+    <meta property="og:image" content="https://realtimesoundmeter.org/apple-touch-icon.svg">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://realtimesoundmeter.org/tone-generator/">
+    <meta name="twitter:title" content="Online Tone Generator - Free Audio Frequency Generator">
+    <meta name="twitter:description" content="Free online tone generator and audio frequency generator. Play pure sine, square, and triangle sound waves with exact Hz tuning and note picker.">
+    <meta name="twitter:image" content="https://realtimesoundmeter.org/apple-touch-icon.svg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="icon" type="image/svg+xml" sizes="32x32" href="../favicon-32x32.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.svg">
+    
+    <!-- Tailwind CSS -->
+    <link href="/css/style.css" rel="stylesheet">
+    
+    <style>
+        /* General Slider Reset */
+        input[type=range] {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 100%;
+            background: transparent;
+        }
+        input[type=range]:focus {
+            outline: none;
+        }
+
+        /* 1. Main Frequency Logarithmic Slider (Tall, Prominent, Szynalski-style High Usability) */
+        #freq-slider {
+            height: 38px;
+            cursor: pointer;
+            padding: 0;
+            margin: 0;
+        }
+        #freq-slider::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 18px;
+            cursor: pointer;
+            background: linear-gradient(to right, #dbeafe 0%, #bfdbfe 30%, #93c5fd 70%, #60a5fa 100%);
+            border-radius: 9999px;
+            border: 1px solid #93c5fd;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.06);
+        }
+        #freq-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            height: 34px;
+            width: 34px;
+            border-radius: 50%;
+            background: #2563eb;
+            cursor: grab;
+            margin-top: -8px;
+            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.4), 0 1px 3px rgba(0,0,0,0.2);
+            border: 3.5px solid #ffffff;
+            transition: transform 0.1s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.1s ease, box-shadow 0.1s ease;
+        }
+        #freq-slider::-webkit-slider-thumb:hover {
+            background: #1d4ed8;
+            transform: scale(1.15);
+            box-shadow: 0 6px 14px rgba(29, 78, 216, 0.5), 0 2px 4px rgba(0,0,0,0.25);
+        }
+        #freq-slider::-webkit-slider-thumb:active {
+            cursor: grabbing;
+            transform: scale(1.08);
+            background: #1e40af;
+        }
+        #freq-slider::-moz-range-track {
+            width: 100%;
+            height: 18px;
+            cursor: pointer;
+            background: linear-gradient(to right, #dbeafe 0%, #bfdbfe 30%, #93c5fd 70%, #60a5fa 100%);
+            border-radius: 9999px;
+            border: 1px solid #93c5fd;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.06);
+        }
+        #freq-slider::-moz-range-thumb {
+            height: 34px;
+            width: 34px;
+            border-radius: 50%;
+            background: #2563eb;
+            cursor: grab;
+            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.4), 0 1px 3px rgba(0,0,0,0.2);
+            border: 3.5px solid #ffffff;
+            transition: transform 0.1s ease, background-color 0.1s ease;
+        }
+
+        /* 2. Secondary Sliders: Volume & Pan (Slim, Subtle) */
+        #volume-slider, #pan-slider {
+            height: 24px;
+        }
+        #volume-slider::-webkit-slider-runnable-track, #pan-slider::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 6px;
+            cursor: pointer;
+            background: #e5e7eb;
+            border-radius: 3px;
+        }
+        #volume-slider::-webkit-slider-thumb, #pan-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            height: 18px;
+            width: 18px;
+            border-radius: 50%;
+            background: #3b82f6;
+            cursor: pointer;
+            margin-top: -6px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+            border: 2px solid #ffffff;
+            transition: transform 0.1s ease;
+        }
+        #volume-slider::-webkit-slider-thumb:hover, #pan-slider::-webkit-slider-thumb:hover {
+            transform: scale(1.15);
+            background: #2563eb;
+        }
+
+        /* Hide number spin buttons on freq input */
+        input[type=number]::-webkit-inner-spin-button, 
+        input[type=number]::-webkit-outer-spin-button { 
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+
+        /* Nav Dropdown for Hearing & Audio Tools */
+        #nav-hearing-panel,
+        #nav-audio-panel {
+            min-width: 17rem;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.14s ease, visibility 0.14s ease;
+        }
+        #nav-hearing-wrap:focus-within #nav-hearing-panel,
+        #nav-audio-wrap:focus-within #nav-audio-panel {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+        #nav-hearing-wrap:focus-within #nav-hearing-btn,
+        #nav-audio-wrap:focus-within #nav-audio-btn {
+            color: #2563eb;
+            background-color: #eff6ff;
+        }
+        #nav-hearing-wrap:focus-within #nav-hearing-chevron,
+        #nav-audio-wrap:focus-within #nav-audio-chevron {
+            transform: rotate(180deg);
+        }
+        @media (hover: hover) {
+            #nav-hearing-wrap:hover #nav-hearing-panel,
+            #nav-audio-wrap:hover #nav-audio-panel {
+                opacity: 1;
+                visibility: visible;
+                pointer-events: auto;
+            }
+            #nav-hearing-wrap:hover #nav-hearing-btn,
+            #nav-audio-wrap:hover #nav-audio-btn {
+                color: #2563eb;
+                background-color: #eff6ff;
+            }
+            #nav-hearing-wrap:hover #nav-hearing-chevron,
+            #nav-audio-wrap:hover #nav-audio-chevron {
+                transform: rotate(180deg);
+            }
+        }
+
+        /* SVG Icon sizing fix for uncompiled utilities */
+        .icon-sm {
+            width: 16px;
+            height: 16px;
+            min-width: 16px;
+            min-height: 16px;
+        }
+        .icon-md {
+            width: 20px;
+            height: 20px;
+            min-width: 20px;
+            min-height: 20px;
+        }
+        .icon-lg {
+            width: 22px;
+            height: 22px;
+            min-width: 22px;
+            min-height: 22px;
+        }
+        .icon-xs {
+            width: 12px;
+            height: 12px;
+            min-width: 12px;
+            min-height: 12px;
+        }
+        .icon-xxs {
+            width: 10px;
+            height: 10px;
+            min-width: 10px;
+            min-height: 10px;
+        }
+
+        /* Responsive Top Controls Toolbar */
+        .top-control-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            width: 100%;
+        }
+        @media (min-width: 768px) {
+            .top-control-group {
+                display: contents;
+            }
+        }
+
+        /* Desktop Fixed Widths */
+        @media (min-width: 768px) {
+            .btn-fixed-play {
+                width: 124px !important;
+                min-width: 124px !important;
+                max-width: 124px !important;
+            }
+            .btn-fixed-freq {
+                width: 216px !important;
+                min-width: 216px !important;
+                max-width: 216px !important;
+            }
+            .btn-fixed-note {
+                width: 148px !important;
+                min-width: 148px !important;
+                max-width: 148px !important;
+            }
+            .btn-fixed-wave {
+                width: 156px !important;
+                min-width: 156px !important;
+                max-width: 156px !important;
+            }
+            .btn-fixed-copy {
+                width: 116px !important;
+                min-width: 116px !important;
+                max-width: 116px !important;
+            }
+        }
+
+        /* Note Selector Modal / Dialog (Spacious, Expanded, Crystal Clear) */
+        .note-table-header {
+            display: grid;
+            grid-template-columns: 56px repeat(12, 1fr);
+            gap: 8px;
+            margin-bottom: 8px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #e2e8f0;
+            min-width: 660px;
+        }
+        .note-header-cell {
+            font-size: 13px;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-weight: 800;
+            color: #334155;
+            text-align: center;
+        }
+        .note-oct-row {
+            display: grid;
+            grid-template-columns: 56px repeat(12, 1fr);
+            gap: 8px;
+            align-items: center;
+            margin-bottom: 6px;
+            min-width: 660px;
+        }
+        .note-oct-label {
+            font-size: 12px;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-weight: 800;
+            color: #1e293b;
+            text-align: center;
+            background-color: #f1f5f9;
+            border-radius: 8px;
+            padding: 7px 0;
+            border: 1px solid #cbd5e1;
+        }
+        .note-grid-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 36px;
+            padding: 0;
+            font-size: 13px;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            font-weight: 700;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            user-select: none;
+            border: 1.5px solid transparent;
+        }
+        @media (max-width: 640px) {
+            .note-table-header, .note-oct-row {
+                min-width: 540px;
+                gap: 5px;
+                grid-template-columns: 44px repeat(12, 1fr);
+            }
+            .note-header-cell {
+                font-size: 11px;
+            }
+            .note-oct-label {
+                font-size: 11px;
+                padding: 6px 0;
+                border-radius: 6px;
+            }
+            .note-grid-btn {
+                height: 32px;
+                font-size: 11px;
+                border-radius: 6px;
+            }
+        }
+        .note-grid-btn.note-natural {
+            background-color: #ffffff;
+            color: #1e293b;
+            border-color: #cbd5e1;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+        }
+        .note-grid-btn.note-natural:hover {
+            background-color: #eff6ff;
+            color: #1d4ed8;
+            border-color: #3b82f6;
+            transform: translateY(-1.5px);
+            box-shadow: 0 4px 8px rgba(59, 130, 246, 0.25);
+        }
+        .note-grid-btn.note-sharp {
+            background-color: #0f172a;
+            color: #ffffff;
+            border-color: #0f172a;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        .note-grid-btn.note-sharp:hover {
+            background-color: #2563eb;
+            border-color: #1d4ed8;
+            transform: translateY(-1.5px);
+            box-shadow: 0 4px 8px rgba(37, 99, 235, 0.35);
+        }
+        .note-grid-btn.note-active {
+            background-color: #2563eb !important;
+            color: #ffffff !important;
+            border-color: #1d4ed8 !important;
+            box-shadow: 0 0 0 3px #93c5fd, 0 4px 8px rgba(37, 99, 235, 0.4) !important;
+            font-weight: 900 !important;
+            transform: scale(1.06);
+            z-index: 2;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen font-sans text-gray-800 flex flex-col">
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 bg-white text-blue-700 px-4 py-2 rounded-lg shadow-lg ring-2 ring-blue-500">
+        Skip to content
+    </a>
+
+    <!-- Header (Consistent with full site header) -->
+    <header class="bg-white shadow-md border-b border-gray-300 relative z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 relative">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <a href="/" class="flex items-center gap-2">
+                        <img src="../logo.svg" alt="Sound Meter" class="h-10 w-auto sm:h-12">
+                    </a>
+                </div>
+
+                <!-- Navigation -->
+                <nav aria-label="Primary" class="hidden md:flex items-center space-x-8">
+                    <a href="/" class="text-gray-500 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors inline-flex items-center gap-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                        Home
+                    </a>
+                    <div class="relative" id="nav-hearing-wrap">
+                        <button type="button" id="nav-hearing-btn" class="text-gray-500 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors inline-flex items-center gap-1 whitespace-nowrap" aria-expanded="false" aria-haspopup="true" aria-controls="nav-hearing-panel">
+                            <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 002 2h2a2 2 0 002-2z"></path></svg>
+                            Hearing
+                            <svg id="nav-hearing-chevron" class="w-4 h-4 shrink-0 text-gray-400 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div id="nav-hearing-panel" class="absolute left-0 top-full z-50 pt-1" role="menu" aria-labelledby="nav-hearing-btn">
+                            <div class="rounded-lg border border-gray-200 bg-white py-1 shadow-lg ring-1 ring-black/5">
+                                <a href="/online-hearing-test/" role="menuitem" class="block whitespace-nowrap px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600">Online hearing test</a>
+                                <a href="/hearing-age-test/" role="menuitem" class="block whitespace-nowrap px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600">Hearing age test</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative" id="nav-audio-wrap">
+                        <button type="button" id="nav-audio-btn" class="text-blue-600 bg-blue-50 px-3 py-2 rounded-md text-sm font-medium transition-colors inline-flex items-center gap-1 whitespace-nowrap" aria-expanded="false" aria-haspopup="true" aria-controls="nav-audio-panel">
+                            <svg class="w-4 h-4 shrink-0 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"/></svg>
+                            Audio Tools
+                            <svg id="nav-audio-chevron" class="w-4 h-4 shrink-0 text-blue-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div id="nav-audio-panel" class="absolute left-0 top-full z-50 pt-1" role="menu" aria-labelledby="nav-audio-btn">
+                            <div class="rounded-lg border border-gray-200 bg-white py-1 shadow-lg ring-1 ring-black/5">
+                                <a href="/tone-generator/" role="menuitem" class="block whitespace-nowrap px-4 py-2.5 text-sm text-blue-600 bg-blue-50 font-semibold">Online Tone Generator</a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="/speaker-test-tones/" class="text-gray-500 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors inline-flex items-center gap-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+                        Speaker Test
+                    </a>
+                    <a href="/blog/" class="text-gray-500 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors inline-flex items-center gap-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path></svg>
+                        Blog
+                    </a>
+                </nav>
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" type="button" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false" class="text-gray-700 hover:text-gray-900 rounded-full p-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" role="navigation" aria-label="Mobile" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg z-50">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="/" class="flex items-center gap-2 px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">
+                    <svg class="w-5 h-5 shrink-0 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                    Home
+                </a>
+                <details class="group mobile-nav-hearing">
+                    <summary class="flex cursor-pointer list-none items-center gap-2 px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 marker:content-none [&::-webkit-details-marker]:hidden">
+                        <svg class="w-5 h-5 shrink-0 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 002 2h2a2 2 0 002-2z"></path></svg>
+                        Hearing
+                        <svg class="ml-auto w-4 h-4 shrink-0 text-gray-400 transition group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </summary>
+                    <div class="mt-1 space-y-0 border-l-2 border-gray-100 ml-4 pl-3 py-1">
+                        <a href="/online-hearing-test/" class="block py-2 text-sm font-medium text-gray-600 hover:text-blue-600">Online hearing test</a>
+                        <a href="/hearing-age-test/" class="block py-2 text-sm font-medium text-gray-600 hover:text-blue-600">Hearing age test</a>
+                    </div>
+                </details>
+                <details class="group mobile-nav-audio" open>
+                    <summary class="flex cursor-pointer list-none items-center gap-2 px-3 py-2 rounded-md text-base font-medium text-blue-600 bg-blue-50 marker:content-none [&::-webkit-details-marker]:hidden">
+                        <svg class="w-5 h-5 shrink-0 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"/></svg>
+                        Audio Tools
+                        <svg class="ml-auto w-4 h-4 shrink-0 text-blue-500 transition group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </summary>
+                    <div class="mt-1 space-y-0 border-l-2 border-blue-200 ml-4 pl-3 py-1">
+                        <a href="/tone-generator/" class="block py-2 text-sm font-medium text-blue-600 font-semibold">Online Tone Generator</a>
+                    </div>
+                </details>
+                <a href="/speaker-test-tones/" class="flex items-center gap-2 px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">
+                    <svg class="w-5 h-5 shrink-0 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+                    Speaker Test
+                </a>
+                <a href="/blog/" class="flex items-center gap-2 px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">
+                    <svg class="w-5 h-5 shrink-0 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path></svg>
+                    Blog
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" class="flex-grow max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6 w-full">
+        
+        <!-- Header Title Section -->
+        <div class="text-center mb-6">
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 tracking-tight mb-2">
+                Online Tone Generator
+            </h1>
+            <p class="text-sm sm:text-base text-gray-600 max-w-2xl mx-auto">
+                A free <strong>online tone generator &amp; audio frequency generator</strong>. Generate pure sound frequencies and precise waveforms from <strong>20 Hz to 20,000 Hz</strong> directly in your browser.
+            </p>
+        </div>
+
+        <!-- Tone Generator Interactive Tool Card (Clean, High Usability) -->
+        <div class="bg-white rounded-2xl shadow-xl border border-gray-100 p-5 sm:p-7 mb-8 relative">
+            
+            <!-- Row 1: Top Controls Toolbar: Responsive & Fixed-Dimension (Play, Frequency Input, Note Picker, Waveform, Copy) -->
+            <div class="flex flex-col md:flex-row md:flex-nowrap items-center justify-between gap-2.5 sm:gap-3 mb-6 w-full">
+                
+                <!-- Group A: Play Button + Frequency Stepper Input -->
+                <div class="top-control-group">
+                    <!-- 1. Play / Stop Button -->
+                    <button id="play-btn" type="button" class="btn-fixed-play flex-1 md:flex-initial h-12 px-4 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm sm:text-base shadow-sm hover:shadow-md transform active:scale-95 transition flex items-center justify-center gap-2 flex-shrink-0 cursor-pointer select-none" style="min-height: 48px;">
+                        <svg id="play-icon" class="icon-lg fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                        <svg id="stop-icon" class="icon-md fill-current hidden" viewBox="0 0 24 24"><path d="M6 6h12v12H6z"/></svg>
+                        <span id="play-text">Play</span>
+                        <span class="text-[10px] bg-blue-800/80 text-blue-100 px-1.5 py-0.5 rounded font-mono hidden sm:inline ml-0.5">Space</span>
+                    </button>
+
+                    <!-- 2. Frequency Input with Left/Right Arrow Steppers (◀ [ 440 Hz ] ▶) -->
+                    <div class="btn-fixed-freq flex-1 md:flex-initial flex items-center justify-between bg-gray-50 border border-gray-200 rounded-xl px-2 py-1 shadow-inner flex-shrink-0 h-12" style="min-height: 48px;">
+                        <!-- Left Arrow Step (-1 Hz) -->
+                        <button id="btn-arrow-minus-1" type="button" class="w-8 h-9 flex items-center justify-center rounded-lg hover:bg-gray-200 text-gray-700 hover:text-blue-600 transition font-bold flex-shrink-0 cursor-pointer select-none" title="Decrease 1 Hz (Hold to repeat)">
+                            <svg class="icon-sm" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
+                        </button>
+
+                        <!-- Number Input + Hz Label (Centered & Fixed Width) -->
+                        <div class="flex items-center justify-center px-1 flex-1">
+                            <input id="freq-input" type="number" min="20" max="20000" step="any" value="440" 
+                                   class="text-xl sm:text-2xl font-black text-gray-900 bg-transparent text-center focus:outline-none font-mono selection:bg-blue-200 p-0 w-24"
+                                   style="min-width: 80px;"
+                                   aria-label="Frequency in Hertz">
+                            <span class="text-sm font-bold text-gray-500 font-mono ml-0.5 flex-shrink-0">Hz</span>
+                        </div>
+
+                        <!-- Right Arrow Step (+1 Hz) -->
+                        <button id="btn-arrow-plus-1" type="button" class="w-8 h-9 flex items-center justify-center rounded-lg hover:bg-gray-200 text-gray-700 hover:text-blue-600 transition font-bold flex-shrink-0 cursor-pointer select-none" title="Increase 1 Hz (Hold to repeat)">
+                            <svg class="icon-sm" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Group B: Note Selector + Waveform + Copy Link -->
+                <div class="top-control-group">
+                    <!-- 3. Standalone Musical Note Selector Button -->
+                    <button id="note-select-btn" type="button" class="btn-fixed-note flex-1 md:flex-initial group flex items-center justify-between h-12 px-3 rounded-xl bg-blue-50 hover:bg-blue-100 border border-blue-200 text-blue-700 transition flex-shrink-0 shadow-xs cursor-pointer select-none" style="min-height: 48px;" title="Click to open Musical Note Picker (C1–C8)">
+                        <svg class="icon-sm text-blue-600 group-hover:scale-110 transition-transform flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"/>
+                        </svg>
+                        <div class="flex items-center justify-center gap-1 font-mono flex-1 px-1 overflow-hidden">
+                            <span class="text-xs text-blue-500 font-semibold uppercase tracking-wider hidden sm:inline">Note:</span>
+                            <span id="current-note-name" class="text-sm sm:text-base font-extrabold tracking-tight text-blue-800">A4</span>
+                            <span id="current-cents-display" class="text-[10px] text-blue-600/90 font-mono hidden"></span>
+                        </div>
+                        <svg class="icon-xxs text-blue-500 group-hover:text-blue-700 transition-transform flex-shrink-0 opacity-80" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+
+                    <!-- 4. Waveform Selector Dropdown -->
+                    <div class="btn-fixed-wave flex-1 md:flex-initial flex items-center bg-gray-100 hover:bg-gray-200/90 rounded-xl border border-gray-200 transition px-2.5 h-12 flex-shrink-0" style="min-height: 48px;">
+                        <span id="wave-icon-display" class="flex items-center justify-center mr-1.5 flex-shrink-0">
+                            <!-- Injected SVG -->
+                            <svg class="w-4 h-4 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M3 12c3-9 6-9 9 0s6 9 9 0"/></svg>
+                        </span>
+                        <select id="wave-select" class="w-full bg-transparent text-gray-800 text-xs font-bold py-1.5 cursor-pointer focus:outline-none" aria-label="Select Waveform">
+                            <option value="sine">Sine (Pure)</option>
+                            <option value="square">Square</option>
+                            <option value="triangle">Triangle</option>
+                            <option value="sawtooth">Sawtooth</option>
+                        </select>
+                    </div>
+
+                    <!-- 5. Copy Link Button -->
+                    <div class="btn-fixed-copy relative flex-shrink-0">
+                        <button id="btn-copy-link" type="button" class="w-full h-12 px-3 rounded-xl bg-gray-100 hover:bg-blue-50 hover:text-blue-600 text-gray-700 text-xs font-semibold flex items-center justify-center gap-1.5 transition cursor-pointer select-none" style="min-height: 48px;" title="Copy link to current frequency &amp; settings">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                            <span class="hidden sm:inline">Copy Link</span>
+                        </button>
+                        <div id="copy-toast" class="opacity-0 pointer-events-none transition-opacity duration-200 absolute right-0 -top-9 bg-gray-900 text-white text-[11px] font-medium py-1 px-3 rounded-md shadow-lg whitespace-nowrap z-30">
+                            Link copied!
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Row 2: Frequency Logarithmic Slider -->
+            <div class="mb-4">
+                <input id="freq-slider" type="range" min="0" max="1000" step="1" value="500" 
+                       class="w-full cursor-pointer h-3 rounded-lg accent-blue-600 block"
+                       aria-label="Frequency logarithmic slider">
+                <div class="flex justify-between text-xs font-semibold text-gray-400 mt-1 font-mono px-1">
+                    <span>20 Hz</span>
+                    <span>100 Hz</span>
+                    <span>500 Hz</span>
+                    <span>1,000 Hz</span>
+                    <span>5,000 Hz</span>
+                    <span>10 kHz</span>
+                    <span>20 kHz</span>
+                </div>
+            </div>
+
+            <!-- Row 2.5: Mini Real-time Dynamic Oscilloscope Capsule (High-Tech Audio Visualizer) -->
+            <div class="mb-4 bg-slate-900 rounded-xl p-2.5 sm:p-3 border border-slate-800 shadow-inner flex flex-col gap-1.5 relative overflow-hidden group">
+                <!-- Top Status Header of Oscilloscope -->
+                <div class="flex items-center justify-between text-[11px] font-mono z-10 px-0.5">
+                    <div class="flex items-center gap-1.5 sm:gap-2 overflow-hidden">
+                        <span id="scope-status-dot" class="w-2 h-2 rounded-full bg-slate-600 transition-all duration-300 flex-shrink-0"></span>
+                        <span id="scope-status-text" class="text-slate-400 font-bold uppercase tracking-wider text-[10px] flex-shrink-0">Idle • Oscilloscope</span>
+                        <span class="text-slate-700 hidden sm:inline">&bull;</span>
+                        <span id="scope-wave-info" class="text-slate-300 font-semibold text-[10px] sm:text-[11px] truncate">Sine Wave &bull; 440.00 Hz</span>
+                    </div>
+                    <div class="flex items-center gap-1.5 sm:gap-2 text-slate-400 text-[10px] flex-shrink-0">
+                        <span id="scope-period-val">Period: 2.27 ms</span>
+                        <span class="hidden md:inline text-slate-700">&bull;</span>
+                        <span id="scope-wavelength-val" class="hidden md:inline">λ ≈ 0.78 m</span>
+                    </div>
+                </div>
+
+                <!-- Canvas Visualizer Display (Comfortably Spacious on Mobile & Sleek on Desktop) -->
+                <div class="relative w-full h-20 sm:h-16 bg-slate-950/90 rounded-lg overflow-hidden border border-slate-800/80 flex items-center justify-center">
+                    <canvas id="scope-canvas" class="w-full h-full block cursor-crosshair"></canvas>
+                </div>
+            </div>
+
+            <!-- Row 3: Frequency Stepping Controls (Steps: ×½, ×2, -10Hz, -1Hz, +1Hz, +10Hz) -->
+            <div class="py-3 border-t border-gray-100">
+                <div class="flex flex-wrap items-center gap-2 sm:gap-2.5">
+                    <span class="text-xs font-bold text-gray-400 uppercase tracking-wider mr-1 select-none">Steps:</span>
+                    
+                    <!-- Octave Shifts -->
+                    <button id="btn-octave-down" type="button" class="h-8 px-3 rounded-lg bg-blue-50 hover:bg-blue-100/90 text-blue-700 text-xs font-bold font-mono transition-all border border-blue-200 shadow-xs hover:shadow-sm active:scale-95 flex items-center justify-center cursor-pointer select-none" title="Halve Frequency (&times;&frac12; Octave)">&times;&frac12; Octave</button>
+                    <button id="btn-octave-up" type="button" class="h-8 px-3 rounded-lg bg-blue-50 hover:bg-blue-100/90 text-blue-700 text-xs font-bold font-mono transition-all border border-blue-200 shadow-xs hover:shadow-sm active:scale-95 flex items-center justify-center cursor-pointer select-none" title="Double Frequency (&times;2 Octave)">&times;2 Octave</button>
+                    
+                    <div class="h-5 w-px bg-gray-200 mx-0.5 hidden sm:block"></div>
+
+                    <!-- Fine Hz Steps -->
+                    <button id="btn-step-minus-10" type="button" class="h-8 px-3 rounded-lg bg-white hover:bg-gray-50 text-gray-800 hover:text-blue-600 text-xs font-mono font-semibold transition-all border border-gray-200 shadow-xs hover:shadow-sm hover:border-gray-300 active:scale-95 flex items-center justify-center cursor-pointer select-none" title="Decrease by 10 Hz (Hold to repeat)">-10 Hz</button>
+                    <button id="btn-step-minus-1" type="button" class="h-8 px-3 rounded-lg bg-white hover:bg-gray-50 text-gray-800 hover:text-blue-600 text-xs font-mono font-semibold transition-all border border-gray-200 shadow-xs hover:shadow-sm hover:border-gray-300 active:scale-95 flex items-center justify-center cursor-pointer select-none" title="Decrease by 1 Hz (Hold to repeat)">-1 Hz</button>
+                    <button id="btn-step-plus-1" type="button" class="h-8 px-3 rounded-lg bg-white hover:bg-gray-50 text-gray-800 hover:text-blue-600 text-xs font-mono font-semibold transition-all border border-gray-200 shadow-xs hover:shadow-sm hover:border-gray-300 active:scale-95 flex items-center justify-center cursor-pointer select-none" title="Increase by 1 Hz (Hold to repeat)">+1 Hz</button>
+                    <button id="btn-step-plus-10" type="button" class="h-8 px-3 rounded-lg bg-white hover:bg-gray-50 text-gray-800 hover:text-blue-600 text-xs font-mono font-semibold transition-all border border-gray-200 shadow-xs hover:shadow-sm hover:border-gray-300 active:scale-95 flex items-center justify-center cursor-pointer select-none" title="Increase by 10 Hz (Hold to repeat)">+10 Hz</button>
+                </div>
+            </div>
+
+            <!-- Row 4: Volume & Stereo Pan Balance (Left: Volume, Right: Pan) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-center py-4 border-t border-b border-gray-100">
+                <!-- Left Column: Volume Slider -->
+                <div class="flex items-center gap-3 bg-gray-50/80 px-4 py-2.5 rounded-xl border border-gray-200/80">
+                    <div class="flex items-center gap-1.5 flex-shrink-0 text-gray-700 font-bold text-xs uppercase tracking-wider">
+                        <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+                        <span>Volume</span>
+                    </div>
+                    <input id="volume-slider" type="range" min="0" max="100" value="50" class="w-full cursor-pointer" aria-label="Volume Level">
+                    <span id="volume-val" class="text-xs font-mono font-bold text-gray-800 w-11 text-right">50%</span>
+                </div>
+
+                <!-- Right Column: Stereo Pan Balance -->
+                <div class="flex items-center gap-3 bg-gray-50/80 px-4 py-2.5 rounded-xl border border-gray-200/80">
+                    <div class="flex items-center gap-1.5 flex-shrink-0 text-gray-700 font-bold text-xs uppercase tracking-wider font-mono">
+                        <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path></svg>
+                        <span>Pan</span>
+                    </div>
+                    <input id="pan-slider" type="range" min="-1" max="1" step="0.05" value="0" class="w-full cursor-pointer" aria-label="Stereo Pan Balance">
+                    <span id="pan-val" class="text-xs font-mono font-bold text-gray-800 w-14 text-right">Center</span>
+                </div>
+            </div>
+
+            <!-- Row 5: Popular Frequency Presets (Horizontal Pills) -->
+            <div class="pt-4 flex flex-wrap items-center justify-between gap-2">
+                <span class="text-xs font-bold text-gray-400 uppercase tracking-wider">Presets:</span>
+                <div class="flex flex-wrap items-center gap-1.5">
+                    <button type="button" data-freq="40" class="preset-btn py-1.5 px-3 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-medium transition border border-gray-200">40 Hz <span class="text-[10px] text-gray-400">(Sub)</span></button>
+                    <button type="button" data-freq="125" class="preset-btn py-1.5 px-3 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-medium transition border border-gray-200">125 Hz <span class="text-[10px] text-gray-400">(Bass)</span></button>
+                    <button type="button" data-freq="432" class="preset-btn py-1.5 px-3 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-medium transition border border-gray-200">432 Hz <span class="text-[10px] text-gray-400">(Verdi)</span></button>
+                    <button type="button" data-freq="440" class="preset-btn py-1.5 px-3 rounded-full bg-blue-600 text-white border-blue-600 text-xs font-bold transition shadow-sm ring-2 ring-blue-300">440 Hz <span class="text-[10px] text-blue-100">(Concert A)</span></button>
+                    <button type="button" data-freq="1000" class="preset-btn py-1.5 px-3 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-medium transition border border-gray-200">1 kHz <span class="text-[10px] text-gray-400">(Ref)</span></button>
+                    <button type="button" data-freq="3000" class="preset-btn py-1.5 px-3 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-medium transition border border-gray-200">3 kHz <span class="text-[10px] text-gray-400">(Speech)</span></button>
+                    <button type="button" data-freq="8000" class="preset-btn py-1.5 px-3 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-medium transition border border-gray-200">8 kHz <span class="text-[10px] text-gray-400">(Tinnitus)</span></button>
+                    <button type="button" data-freq="15000" class="preset-btn py-1.5 px-3 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-700 text-xs font-medium transition border border-gray-200">15 kHz <span class="text-[10px] text-gray-400">(Treble)</span></button>
+                </div>
+            </div>
+
+            <!-- Spacious Musical Note Selector Modal / Dialog Overlay -->
+            <div id="note-dropdown" class="hidden fixed inset-0 z-50 overflow-y-auto bg-black/50 backdrop-blur-xs transition-opacity duration-200 p-2 sm:p-4 md:p-6 flex items-start sm:items-center justify-center" role="dialog" aria-modal="true" aria-labelledby="note-modal-title">
+                <div class="bg-white rounded-2xl sm:rounded-3xl shadow-2xl border border-gray-200 p-4 sm:p-6 md:p-7 w-full max-w-4xl my-auto flex flex-col max-h-[92vh] sm:max-h-[88vh] transform transition-all">
+                    <!-- Modal Header (Fixed at Top of Modal Card) -->
+                    <div class="flex items-center justify-between pb-3 mb-3 border-b border-gray-100 flex-shrink-0">
+                        <div class="flex items-center gap-2.5 sm:gap-3">
+                            <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-bold flex-shrink-0">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"></path></svg>
+                            </div>
+                            <div>
+                                <h3 id="note-modal-title" class="text-sm sm:text-base md:text-lg font-extrabold text-gray-900 leading-tight">Select Musical Note (12-TET Standard)</h3>
+                                <p class="text-[11px] sm:text-xs text-gray-500">Concert pitch A4 = 440 Hz &bull; Click any note to jump to its exact frequency</p>
+                            </div>
+                        </div>
+                        <button id="note-modal-close" type="button" class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-gray-100 hover:bg-gray-200 text-gray-500 hover:text-gray-900 flex items-center justify-center transition cursor-pointer flex-shrink-0" title="Close (Esc)">
+                            <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                        </button>
+                    </div>
+
+                    <!-- Matrix Content Grid (Generous 12-column table with smooth 2D scrolling) -->
+                    <div id="note-grid" class="overflow-x-auto overflow-y-auto flex-1 min-h-0 pb-2" style="-webkit-overflow-scrolling: touch;">
+                        <!-- Populated dynamically via JS: 7 rows x 12 columns spacious matrix -->
+                    </div>
+
+                    <!-- Modal Footer Hint (Fixed at Bottom of Modal Card) -->
+                    <div class="flex flex-wrap items-center justify-between gap-2 pt-3 mt-2 border-t border-gray-100 text-[11px] sm:text-xs text-gray-500 flex-shrink-0">
+                        <div class="flex items-center gap-3">
+                            <span class="inline-flex items-center gap-1.5"><span class="w-3.5 h-3.5 rounded bg-white border border-gray-300 inline-block"></span> White keys (Natural)</span>
+                            <span class="inline-flex items-center gap-1.5"><span class="w-3.5 h-3.5 rounded bg-gray-900 inline-block"></span> Dark keys (Sharps #)</span>
+                        </div>
+                        <span class="font-mono text-gray-400 hidden sm:inline">Press <kbd class="px-1.5 py-0.5 bg-gray-100 border border-gray-300 rounded text-[10px] text-gray-600 font-bold">Esc</kbd> or click outside to close</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Safety Warning Notice (Compact Clean Banner) -->
+        <div class="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-xl mb-12 shadow-sm text-xs sm:text-sm text-amber-900">
+            <p>
+                <strong>Hearing &amp; Speaker Safety Note:</strong> Human hearing sensitivity decreases sharply at very low (&lt;30 Hz) and very high (&gt;10,000 Hz) frequencies. <em>Do not raise your volume excessively</em> if you cannot hear high or low pitches, as powerful ultrasonic or infrasonic sound waves can cause hearing fatigue or speaker driver damage. Always calibrate your volume to a comfortable level using 1,000 Hz.
+            </p>
+        </div>
+
+        <!-- Comprehensive Educational & On-Page SEO Content -->
+        <article class="space-y-12">
+            
+            <!-- Section 1: How to Use & Shortcuts -->
+            <section class="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 sm:p-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    How to Use the Online Tone &amp; Frequency Generator
+                </h2>
+                <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                    Our free online tone generator and audio frequency generator produces clean, mathematically precise sound signals directly inside your web browser using the <strong>Web Audio API</strong>. No software installation, plugins, or sign-ups required.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-gray-50 rounded-xl p-5 border border-gray-100">
+                        <div class="w-8 h-8 rounded-lg bg-blue-100 text-blue-600 font-bold flex items-center justify-center mb-3">1</div>
+                        <h3 class="font-bold text-gray-900 text-sm mb-1">Select Frequency &amp; Waveform</h3>
+                        <p class="text-xs text-gray-600">Drag the smooth logarithmic slider, type any number into the Hz box, pick musical notes (C1–C8), or use presets like 440 Hz.</p>
+                    </div>
+                    <div class="bg-gray-50 rounded-xl p-5 border border-gray-100">
+                        <div class="w-8 h-8 rounded-lg bg-blue-100 text-blue-600 font-bold flex items-center justify-center mb-3">2</div>
+                        <h3 class="font-bold text-gray-900 text-sm mb-1">Toggle Play &amp; Adjust Volume</h3>
+                        <p class="text-xs text-gray-600">Click <em>Play</em> or hit <kbd class="px-1 py-0.5 bg-gray-200 rounded text-[10px] font-mono">Space</kbd>. Adjust volume and stereo pan balance to test left or right ears independently.</p>
+                    </div>
+                    <div class="bg-gray-50 rounded-xl p-5 border border-gray-100">
+                        <div class="w-8 h-8 rounded-lg bg-blue-100 text-blue-600 font-bold flex items-center justify-center mb-3">3</div>
+                        <h3 class="font-bold text-gray-900 text-sm mb-1">Fine-Tune or Share</h3>
+                        <p class="text-xs text-gray-600">Use step buttons (&plusmn;1 Hz, &plusmn;10 Hz) or octaves (&times;&frac12;, &times;2). Click <em>Copy Link</em> to share your exact frequency with colleagues or students.</p>
+                    </div>
+                </div>
+
+                <!-- Keyboard Shortcuts Reference Table -->
+                <h3 class="text-base font-bold text-gray-900 mb-3">Keyboard Shortcuts Reference</h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-xs border border-gray-200 rounded-lg overflow-hidden">
+                        <thead class="bg-gray-50 text-gray-700 font-bold">
+                            <tr>
+                                <th class="p-3 border-b border-gray-200">Key Combination</th>
+                                <th class="p-3 border-b border-gray-200">Action</th>
+                                <th class="p-3 border-b border-gray-200">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-100">
+                            <tr>
+                                <td class="p-3 font-mono font-bold text-blue-700">Space</td>
+                                <td class="p-3 font-medium">Play / Stop Tone</td>
+                                <td class="p-3 text-gray-500">Instantly toggles audio playback on or off.</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-mono font-bold text-blue-700">&larr; / &rarr; (Left / Right Arrow)</td>
+                                <td class="p-3 font-medium">Adjust Frequency &plusmn;1 Hz</td>
+                                <td class="p-3 text-gray-500">Fine-tunes the pitch up or down by 1 Hertz.</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-mono font-bold text-blue-700">Shift + &larr; / &rarr;</td>
+                                <td class="p-3 font-medium">Step Frequency &plusmn;10 Hz</td>
+                                <td class="p-3 text-gray-500">Medium frequency pitch stepping.</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-mono font-bold text-blue-700">Ctrl + &larr; / &rarr;</td>
+                                <td class="p-3 font-medium">Step Frequency &plusmn;100 Hz</td>
+                                <td class="p-3 text-gray-500">Rapid octave and harmonic jumping.</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-mono font-bold text-blue-700">&uarr; / &darr; (Up / Down Arrow)</td>
+                                <td class="p-3 font-medium">Volume Control</td>
+                                <td class="p-3 text-gray-500">Increases or decreases playback volume by 5%.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Section 2: Waveform Types -->
+            <section class="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 sm:p-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"></path></svg>
+                    Understanding Audio Waveforms: Pure vs Harmonic Tones
+                </h2>
+                <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                    In acoustics and sound synthesis, different waveforms contain different harmonic spectrum profiles. While a pure sine wave contains only one fundamental frequency, other shapes produce rich overtone structures:
+                </p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div class="p-4 rounded-xl border border-blue-100 bg-blue-50/40">
+                        <h3 class="font-bold text-blue-900 text-sm mb-1 flex items-center gap-1.5">
+                            <span class="w-2.5 h-2.5 rounded-full bg-blue-600"></span>
+                            Sine Wave (Pure Tone)
+                        </h3>
+                        <p class="text-xs text-gray-600 leading-relaxed">
+                            The simplest and cleanest acoustic wave. It contains <strong>zero harmonic distortion</strong> and only exists at the exact frequency specified. Ideal for scientific audiometry, tinnitus matching, and finding exact room resonance modes.
+                        </p>
+                    </div>
+
+                    <div class="p-4 rounded-xl border border-purple-100 bg-purple-50/40">
+                        <h3 class="font-bold text-purple-900 text-sm mb-1 flex items-center gap-1.5">
+                            <span class="w-2.5 h-2.5 rounded-full bg-purple-600"></span>
+                            Square Wave (Rich Odd Harmonics)
+                        </h3>
+                        <p class="text-xs text-gray-600 leading-relaxed">
+                            Alternates instantly between maximum positive and negative amplitudes. Contains strong <strong>odd-numbered harmonics</strong> (3rd, 5th, 7th), resulting in a hollow, buzzy, retro-arcade tone used for digital signal clock testing and synthesizer lead design.
+                        </p>
+                    </div>
+
+                    <div class="p-4 rounded-xl border border-teal-100 bg-teal-50/40">
+                        <h3 class="font-bold text-teal-900 text-sm mb-1 flex items-center gap-1.5">
+                            <span class="w-2.5 h-2.5 rounded-full bg-teal-600"></span>
+                            Triangle Wave (Mellow Overtones)
+                        </h3>
+                        <p class="text-xs text-gray-600 leading-relaxed">
+                            Also contains only odd harmonics, but their power drops off much faster (\(1/f^2\)). It sounds smoother and warmer than a square wave, closely resembling the acoustic timbre of a wooden flute or soft vibraphone.
+                        </p>
+                    </div>
+
+                    <div class="p-4 rounded-xl border border-amber-100 bg-amber-50/40">
+                        <h3 class="font-bold text-amber-900 text-sm mb-1 flex items-center gap-1.5">
+                            <span class="w-2.5 h-2.5 rounded-full bg-amber-600"></span>
+                            Sawtooth Wave (Full Harmonic Spectrum)
+                        </h3>
+                        <p class="text-xs text-gray-600 leading-relaxed">
+                            Ramps up smoothly and drops instantly. Contains <strong>all integer harmonics</strong> (both even and odd). It creates a sharp, biting timbre similar to bowed strings (violin/cello) or brass instruments, perfect for filter sweeps and audio gear stress-testing.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: Practical Applications -->
+            <section class="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 sm:p-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                    Top Practical Applications for an Online Tone &amp; Frequency Generator
+                </h2>
+
+                <div class="space-y-6 text-sm text-gray-700">
+                    <div>
+                        <h3 class="text-base font-bold text-gray-900 mb-1.5">1. Musical Instrument Tuning &amp; Concert Pitch (A440 vs A432)</h3>
+                        <p class="leading-relaxed">
+                            Musicians and instrument makers use pure reference tones from a frequency generator to tune guitars, violins, pianos, and synthesizers by ear. By playing a 440 Hz reference tone (the international standard Concert A4 pitch), you can adjust your instrument until the rhythmic "beating" sensation disappears. You can also explore historical Verdi tuning (432 Hz) or solfeggio frequencies.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-base font-bold text-gray-900 mb-1.5">2. Subwoofer &amp; Speaker Acoustic Frequency Response</h3>
+                        <p class="leading-relaxed">
+                            Curious about how deep your subwoofer or studio monitors can really reproduce bass? Using our audio frequency generator, start playing a tone around 100 Hz and slowly sweep down to 40 Hz, 30 Hz, and 20 Hz. When the sound vanishes or transitions into audible cabinet rattling or port chuffing, you have identified the physical low-frequency cut-off of your sound system. You can also visit our <a href="../speaker-test-tones/" class="text-blue-600 hover:underline font-semibold">Speaker Test Online</a> for channel balance and polarity tests.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-base font-bold text-gray-900 mb-1.5">3. Tinnitus Frequency Pitch Matching &amp; Masking Therapy</h3>
+                        <p class="leading-relaxed">
+                            Many people suffering from subjective pure-tone tinnitus hear a constant high-pitched ringing (often between 4,000 Hz and 9,000 Hz). By adjusting our sound frequency generator and volume to match your internal ringing, you can document your exact pitch. This enables audiologists to design tailored acoustic notch therapy or masking sounds. Check our detailed guide on <a href="../blog/tinnitus-frequency-pitch-matching.html" class="text-blue-600 hover:underline font-semibold">Tinnitus Pitch Matching &amp; Masking</a>.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-base font-bold text-gray-900 mb-1.5">4. Hearing Limits &amp; High-Frequency Cut-Off Checks</h3>
+                        <p class="leading-relaxed">
+                            As humans age, the microscopic stereocilia hair cells inside the inner ear naturally degrade, beginning with high frequencies (presbycusis). A high-frequency generator helps you discover where your hearing drops off. While young children can often hear up to 18,000–20,000 Hz, most adults over 35 top out around 14,000–16,000 Hz. For an automated test of your highest audible frequency, try our <a href="../hearing-age-test/" class="text-blue-600 hover:underline font-semibold">Hearing Age Test</a> or take our full clinical-grade <a href="../online-hearing-test/" class="text-blue-600 hover:underline font-semibold">Online Hearing Test</a>.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h3 class="text-base font-bold text-gray-900 mb-1.5">5. Identifying Room Modes &amp; Resonant Frequencies</h3>
+                        <p class="leading-relaxed">
+                            Every room has physical dimensions that create acoustic standing waves (room modes). When you play low tones between 40 Hz and 200 Hz with this frequency sound generator through speakers and walk around your room, you will notice certain spots where the bass suddenly gets dramatically louder (antinodes) or completely vanishes (nulls). Pinpointing these frequencies helps audio engineers place bass traps and acoustic foam effectively.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 4: Frequency Reference Table -->
+            <section class="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 sm:p-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                    Standard Audio Frequency Reference Chart
+                </h2>
+                <p class="text-gray-600 text-sm mb-6">
+                    A quick reference guide linking common frequency ranges to real-world acoustic phenomena, musical instruments, and human perception:
+                </p>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-xs border border-gray-200 rounded-lg overflow-hidden">
+                        <thead class="bg-gray-50 text-gray-700 font-bold">
+                            <tr>
+                                <th class="p-3 border-b border-gray-200">Frequency Band</th>
+                                <th class="p-3 border-b border-gray-200">Typical Range</th>
+                                <th class="p-3 border-b border-gray-200">Acoustic Characteristics &amp; Instruments</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-100">
+                            <tr>
+                                <td class="p-3 font-semibold text-gray-900">Sub-Bass</td>
+                                <td class="p-3 font-mono text-blue-700">20 Hz – 60 Hz</td>
+                                <td class="p-3 text-gray-600">Felt more than heard. Kick drum thumps, pipe organs, movie explosion rumble. Hard for small speakers to reproduce.</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-semibold text-gray-900">Bass</td>
+                                <td class="p-3 font-mono text-blue-700">60 Hz – 250 Hz</td>
+                                <td class="p-3 text-gray-600">Rhythm and fullness. Bass guitar, cello, male speaking fundamental pitch. Room resonances often occur here.</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-semibold text-gray-900">Low Midrange</td>
+                                <td class="p-3 font-mono text-blue-700">250 Hz – 500 Hz</td>
+                                <td class="p-3 text-gray-600">Warmth and body. Middle C (C4 ≈ 261.6 Hz), acoustic guitar, piano body resonance.</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-semibold text-gray-900">Midrange</td>
+                                <td class="p-3 font-mono text-blue-700">500 Hz – 2,000 Hz</td>
+                                <td class="p-3 text-gray-600">Human speech clarity. Most everyday sounds, brass, horns, telephone voice spectrum (300–3400 Hz).</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-semibold text-gray-900">Upper Midrange</td>
+                                <td class="p-3 font-mono text-blue-700">2,000 Hz – 4,000 Hz</td>
+                                <td class="p-3 text-gray-600">Peak human ear sensitivity due to ear canal acoustic resonance. Consonant articulation (T, K, P, S).</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-semibold text-gray-900">Presence / Treble</td>
+                                <td class="p-3 font-mono text-blue-700">4,000 Hz – 8,000 Hz</td>
+                                <td class="p-3 text-gray-600">Definition, clarity, and brightness. Violin harmonics, snare drum snap, common tinnitus ringing frequencies.</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-semibold text-gray-900">Air / Brilliance</td>
+                                <td class="p-3 font-mono text-blue-700">8,000 Hz – 20,000 Hz</td>
+                                <td class="p-3 text-gray-600">Sparkle and ambient space. Cymbal shimmer, high-frequency hearing limits. First region lost to age-related hearing decline.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Section 5: FAQ -->
+            <section class="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 sm:p-8">
+                <h2 class="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    Frequently Asked Questions (FAQ)
+                </h2>
+
+                <div class="space-y-4">
+                    <details class="group border border-gray-200 rounded-xl p-4 bg-gray-50/50 open:bg-white transition" open>
+                        <summary class="font-bold text-gray-900 cursor-pointer list-none flex justify-between items-center text-sm">
+                            <span>What is a pure tone generator?</span>
+                            <span class="text-blue-600 font-bold group-open:rotate-180 transition-transform">&#9662;</span>
+                        </summary>
+                        <p class="mt-3 text-xs sm:text-sm text-gray-600 leading-relaxed">
+                            A pure tone generator is an electronic or digital sound synthesizer that produces a steady audio signal composed of a single sinusoidal waveform. Unlike speech or musical chords, a pure tone contains no harmonics, making it the international standard benchmark for acoustic measurements, audiometry, and sound equipment calibration.
+                        </p>
+                    </details>
+
+                    <details class="group border border-gray-200 rounded-xl p-4 bg-gray-50/50 open:bg-white transition">
+                        <summary class="font-bold text-gray-900 cursor-pointer list-none flex justify-between items-center text-sm">
+                            <span>What is the difference between a tone generator and a frequency generator?</span>
+                            <span class="text-blue-600 font-bold group-open:rotate-180 transition-transform">&#9662;</span>
+                        </summary>
+                        <p class="mt-3 text-xs sm:text-sm text-gray-600 leading-relaxed">
+                            In acoustics and audio testing, <strong>tone generator</strong> and <strong>frequency generator</strong> are used interchangeably to describe tools that produce continuous sound at a specific pitch in Hertz (Hz). In a broader laboratory context, a frequency generator can generate RF or electrical test signals, whereas an audio tone generator specifically focuses on the human audible frequency spectrum (20 Hz to 20,000 Hz) using sound waves.
+                        </p>
+                    </details>
+
+                    <details class="group border border-gray-200 rounded-xl p-4 bg-gray-50/50 open:bg-white transition">
+                        <summary class="font-bold text-gray-900 cursor-pointer list-none flex justify-between items-center text-sm">
+                            <span>Why is 440 Hz the standard concert pitch?</span>
+                            <span class="text-blue-600 font-bold group-open:rotate-180 transition-transform">&#9662;</span>
+                        </summary>
+                        <p class="mt-3 text-xs sm:text-sm text-gray-600 leading-relaxed">
+                            In 1939, an international conference established <strong>440 Hz (A4)</strong> as the global tuning standard for musical instruments. This ensures that an orchestra or musical ensemble playing together worldwide sounds in harmony regardless of where their instruments were manufactured.
+                        </p>
+                    </details>
+
+                    <details class="group border border-gray-200 rounded-xl p-4 bg-gray-50/50 open:bg-white transition">
+                        <summary class="font-bold text-gray-900 cursor-pointer list-none flex justify-between items-center text-sm">
+                            <span>Why can't I hear tones below 30 Hz or above 16,000 Hz?</span>
+                            <span class="text-blue-600 font-bold group-open:rotate-180 transition-transform">&#9662;</span>
+                        </summary>
+                        <p class="mt-3 text-xs sm:text-sm text-gray-600 leading-relaxed">
+                            There are two main reasons: First, human ears naturally lose sensitivity to extreme low and high frequencies (described by the Fletcher-Munson equal-loudness contours), and natural aging gradually reduces upper-frequency hearing. Additionally, consumer laptop speakers and small earbuds physically cannot produce deep bass or ultra-high treble without extreme distortion.
+                        </p>
+                    </details>
+
+                    <details class="group border border-gray-200 rounded-xl p-4 bg-gray-50/50 open:bg-white transition">
+                        <summary class="font-bold text-gray-900 cursor-pointer list-none flex justify-between items-center text-sm">
+                            <span>Can I play multiple tones simultaneously for binaural beats or chords?</span>
+                            <span class="text-blue-600 font-bold group-open:rotate-180 transition-transform">&#9662;</span>
+                        </summary>
+                        <p class="mt-3 text-xs sm:text-sm text-gray-600 leading-relaxed">
+                            Yes! You can open this Online Tone Generator in two or more browser tabs at the same time. For example, set Tab 1 to 440 Hz panned 100% Left, and Tab 2 to 444 Hz panned 100% Right. When listening through stereo headphones, your brain will perceive a 4 Hz binaural beat.
+                        </p>
+                    </details>
+
+                    <details class="group border border-gray-200 rounded-xl p-4 bg-gray-50/50 open:bg-white transition">
+                        <summary class="font-bold text-gray-900 cursor-pointer list-none flex justify-between items-center text-sm">
+                            <span>Is this online tone generator accurate and safe?</span>
+                            <span class="text-blue-600 font-bold group-open:rotate-180 transition-transform">&#9662;</span>
+                        </summary>
+                        <p class="mt-3 text-xs sm:text-sm text-gray-600 leading-relaxed">
+                            Yes. As an online audio frequency generator, the sound waves are synthesized using 64-bit floating-point Web Audio oscillator algorithms clocked directly by your hardware sound card, providing sub-Hertz mathematical accuracy. Smooth gain ramping prevents clicks or pops when starting or stopping tones.
+                        </p>
+                    </details>
+                </div>
+            </section>
+
+            <!-- Section 6: Related Tools Navigation -->
+            <section class="bg-gradient-to-r from-blue-50 via-indigo-50 to-blue-50 rounded-2xl border border-blue-100 p-6 sm:p-8">
+                <h2 class="text-xl font-bold text-gray-900 mb-2">Explore More Free Audio &amp; Hearing Tools</h2>
+                <p class="text-xs sm:text-sm text-gray-600 mb-6">Explore our suite of on-device browser audio testing utilities:</p>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <a href="../online-hearing-test/" class="bg-white p-4 rounded-xl border border-gray-200 hover:border-blue-500 hover:shadow-md transition group">
+                        <h3 class="font-bold text-sm text-gray-900 group-hover:text-blue-600 mb-1">Online Hearing Test &rarr;</h3>
+                        <p class="text-xs text-gray-500">Comprehensive frequency audiogram screening across speech octaves.</p>
+                    </a>
+                    <a href="../hearing-age-test/" class="bg-white p-4 rounded-xl border border-gray-200 hover:border-blue-500 hover:shadow-md transition group">
+                        <h3 class="font-bold text-sm text-gray-900 group-hover:text-blue-600 mb-1">Hearing Age Test &rarr;</h3>
+                        <p class="text-xs text-gray-500">Find your highest audible frequency and estimate biological ear age.</p>
+                    </a>
+                    <a href="../speaker-test-tones/" class="bg-white p-4 rounded-xl border border-gray-200 hover:border-blue-500 hover:shadow-md transition group">
+                        <h3 class="font-bold text-sm text-gray-900 group-hover:text-blue-600 mb-1">Speaker Test Online &rarr;</h3>
+                        <p class="text-xs text-gray-500">Check stereo L/R channels, speaker polarity phase, and frequency sweep.</p>
+                    </a>
+                </div>
+            </section>
+
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer id="site-footer" class="bg-gray-900 text-white mt-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="text-center mb-6">
+                <p class="text-base font-semibold">Sound Meter - Environmental Noise Detection</p>
+                <p class="text-sm text-gray-400 mt-1">Protect your hearing by monitoring noise levels in your environment.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-sm">
+                <div>
+                    <p class="text-xs font-bold tracking-wide text-gray-400 uppercase mb-2">Tools</p>
+                    <div class="space-y-1">
+                        <a href="/" class="block hover:text-blue-400 transition">Sound Meter</a>
+                        <a href="/online-hearing-test/" class="block hover:text-blue-400 transition">Hearing Test</a>
+                        <a href="/hearing-age-test/" class="block hover:text-blue-400 transition">Hearing Age Test</a>
+                        <a href="/speaker-test-tones/" class="block hover:text-blue-400 transition">Speaker Test</a>
+                        <a href="/blog/" class="block hover:text-blue-400 transition">Blog</a>
+                    </div>
+                </div>
+                <div>
+                    <p class="text-xs font-bold tracking-wide text-gray-400 uppercase mb-2">Trust &amp; Quality</p>
+                    <div class="space-y-1">
+                        <a href="../about.html" class="block hover:text-blue-400 transition">About</a>
+                        <a href="../editorial-policy.html" class="block hover:text-blue-400 transition">Editorial Policy</a>
+                        <a href="../methodology.html" class="block hover:text-blue-400 transition">Methodology</a>
+                        <a href="../accuracy.html" class="block hover:text-blue-400 transition">Accuracy &amp; Calibration</a>
+                        <a href="../validation.html" class="block hover:text-blue-400 transition">Validation Protocol</a>
+                        <a href="../changelog.html" class="block hover:text-blue-400 transition">Changelog</a>
+                    </div>
+                </div>
+                <div>
+                    <p class="text-xs font-bold tracking-wide text-gray-400 uppercase mb-2">Legal &amp; Contact</p>
+                    <div class="space-y-1">
+                        <a href="../terms.html" class="block hover:text-blue-400 transition">Terms of Use</a>
+                        <a href="../privacy.html" class="block hover:text-blue-400 transition">Privacy Policy</a>
+                        <a href="../disclaimer.html" class="block hover:text-blue-400 transition">Disclaimer</a>
+                        <a href="../contact.html" class="block hover:text-blue-400 transition">Contact</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-wrap justify-center items-center gap-4 my-6">
+                <a href="https://toolfame.com/item/realtime-sound-meter" target="_blank" rel="noopener noreferrer">
+                    <img src="https://toolfame.com/badge-light.svg" alt="Featured on toolfame.com" style="height: 30px; width: auto; display: block;" />
+                </a>
+                <a href="https://startupfa.me/s/realtimesoundmeter?utm_source=realtimesoundmeter.org" target="_blank" rel="noopener noreferrer">
+                    <img src="https://startupfa.me/badges/featured/default.webp" alt="RealtimeSoundMeter - Featured on Startup Fame" style="height: 30px; width: auto; display: block;" />
+                </a>
+            </div>
+
+            <p class="text-center text-xs text-gray-500">&copy; 2026 RealtimeSoundMeter.org. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Structured Data - FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "What is a pure tone generator?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A pure tone generator is an electronic or digital sound synthesizer that produces a steady audio signal composed of a single sinusoidal waveform. Unlike speech or musical chords, a pure tone contains no harmonics, making it the international standard benchmark for acoustic measurements, audiometry, and sound equipment calibration."
+        }
+      }, {
+        "@type": "Question",
+        "name": "What is the difference between a tone generator and a frequency generator?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "In acoustics and audio testing, tone generator and frequency generator are used interchangeably to describe tools that produce continuous sound at a specific pitch in Hertz (Hz). In a broader laboratory context, a frequency generator can generate RF or electrical test signals, whereas an audio tone generator specifically focuses on the human audible frequency spectrum (20 Hz to 20,000 Hz) using sound waves."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Why is 440 Hz the standard concert pitch?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "In 1939, an international conference established 440 Hz (A4) as the global tuning standard for musical instruments. This ensures that an orchestra or musical ensemble playing together worldwide sounds in harmony regardless of where their instruments were manufactured."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Why can't I hear tones below 30 Hz or above 16,000 Hz?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Human ears naturally lose sensitivity to extreme low and high frequencies (described by the Fletcher-Munson equal-loudness contours), and natural aging gradually reduces upper-frequency hearing. Additionally, consumer laptop speakers and small earbuds physically cannot produce deep bass or ultra-high treble without extreme distortion."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Can I play multiple tones simultaneously for binaural beats or chords?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! You can open this Online Tone Generator in two or more browser tabs at the same time. For example, set Tab 1 to 440 Hz panned 100% Left, and Tab 2 to 444 Hz panned 100% Right. When listening through stereo headphones, your brain will perceive a 4 Hz binaural beat."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Is this online tone generator accurate and safe?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. As an online audio frequency generator, the sound waves are synthesized using 64-bit floating-point Web Audio oscillator algorithms clocked directly by your hardware sound card, providing sub-Hertz mathematical accuracy. Smooth gain ramping prevents clicks or pops when starting or stopping tones."
+        }
+      }]
+    }
+    </script>
+
+    <!-- Structured Data - WebApplication -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Online Tone Generator",
+      "alternateName": "Online Frequency Generator",
+      "url": "https://realtimesoundmeter.org/tone-generator/",
+      "description": "Free online tone generator and audio frequency generator to play pure sound frequencies from 20 Hz to 20,000 Hz. Generate sine, square, triangle, and sawtooth waves with exact frequency tuning, musical note selector, and presets.",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "All modern browsers",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    }
+    </script>
+
+    <!-- Scripts -->
+    <script src="../js/tone-generator.js"></script>
+    <script>
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const hearingWrap = document.getElementById('nav-hearing-wrap');
+        const hearingBtn = document.getElementById('nav-hearing-btn');
+        const hearingPanel = document.getElementById('nav-hearing-panel');
+        const audioWrap = document.getElementById('nav-audio-wrap');
+        const audioBtn = document.getElementById('nav-audio-btn');
+        const audioPanel = document.getElementById('nav-audio-panel');
+
+        const setExpanded = (buttonEl, expanded) => {
+            if (!buttonEl) return;
+            buttonEl.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        };
+
+        const closeMenu = () => {
+            if (!btn || !menu) return;
+            menu.classList.add('hidden');
+            setExpanded(btn, false);
+            btn.setAttribute('aria-label', 'Open menu');
+        };
+
+        const setHearingExpanded = (open) => {
+            if (!hearingBtn) return;
+            hearingBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        };
+
+        const setAudioExpanded = (open) => {
+            if (!audioBtn) return;
+            audioBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        };
+
+        if (hearingWrap && hearingBtn && hearingPanel) {
+            hearingWrap.addEventListener('mouseenter', () => setHearingExpanded(true));
+            hearingWrap.addEventListener('mouseleave', () => setHearingExpanded(false));
+            hearingWrap.addEventListener('focusin', () => setHearingExpanded(true));
+            hearingWrap.addEventListener('focusout', (e) => {
+                if (!hearingWrap.contains(e.relatedTarget)) {
+                    setHearingExpanded(false);
+                }
+            });
+        }
+
+        if (audioWrap && audioBtn && audioPanel) {
+            audioWrap.addEventListener('mouseenter', () => setAudioExpanded(true));
+            audioWrap.addEventListener('mouseleave', () => setAudioExpanded(false));
+            audioWrap.addEventListener('focusin', () => setAudioExpanded(true));
+            audioWrap.addEventListener('focusout', (e) => {
+                if (!audioWrap.contains(e.relatedTarget)) {
+                    setAudioExpanded(false);
+                }
+            });
+        }
+
+        if (btn && menu) {
+            setExpanded(btn, !menu.classList.contains('hidden'));
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const willBeHidden = menu.classList.toggle('hidden');
+                const isExpanded = !willBeHidden;
+                setExpanded(btn, isExpanded);
+                btn.setAttribute('aria-label', isExpanded ? 'Close menu' : 'Open menu');
+            });
+
+            document.addEventListener('click', (e) => {
+                if (!btn.contains(e.target) && !menu.contains(e.target)) {
+                    closeMenu();
+                }
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    closeMenu();
+                }
+            });
+        }
+    </script>
+</body>
+</html>

@@ -50,15 +50,15 @@
     </script>
 
     <link href="/css/style.css" rel="stylesheet">
-<style>
-        #nav-hearing-panel { min-width: 19rem; opacity: 0; visibility: hidden; pointer-events: none; transition: opacity 0.14s ease, visibility 0.14s ease; }
-        #nav-hearing-wrap:focus-within #nav-hearing-panel { opacity: 1; visibility: visible; pointer-events: auto; }
-        #nav-hearing-wrap:focus-within #nav-hearing-btn { color: #2563eb; background-color: #eff6ff; }
-        #nav-hearing-wrap:focus-within #nav-hearing-chevron { transform: rotate(180deg); }
+    <style>
+        #nav-hearing-panel, #nav-audio-panel { min-width: 17rem; opacity: 0; visibility: hidden; pointer-events: none; transition: opacity 0.14s ease, visibility 0.14s ease; }
+        #nav-hearing-wrap:focus-within #nav-hearing-panel, #nav-audio-wrap:focus-within #nav-audio-panel { opacity: 1; visibility: visible; pointer-events: auto; }
+        #nav-hearing-wrap:focus-within #nav-hearing-btn, #nav-audio-wrap:focus-within #nav-audio-btn { color: #2563eb; background-color: #eff6ff; }
+        #nav-hearing-wrap:focus-within #nav-hearing-chevron, #nav-audio-wrap:focus-within #nav-audio-chevron { transform: rotate(180deg); }
         @media (hover: hover) {
-            #nav-hearing-wrap:hover #nav-hearing-panel { opacity: 1; visibility: visible; pointer-events: auto; }
-            #nav-hearing-wrap:hover #nav-hearing-btn { color: #2563eb; background-color: #eff6ff; }
-            #nav-hearing-wrap:hover #nav-hearing-chevron { transform: rotate(180deg); }
+            #nav-hearing-wrap:hover #nav-hearing-panel, #nav-audio-wrap:hover #nav-audio-panel { opacity: 1; visibility: visible; pointer-events: auto; }
+            #nav-hearing-wrap:hover #nav-hearing-btn, #nav-audio-wrap:hover #nav-audio-btn { color: #2563eb; background-color: #eff6ff; }
+            #nav-hearing-wrap:hover #nav-hearing-chevron, #nav-audio-wrap:hover #nav-audio-chevron { transform: rotate(180deg); }
         }
     </style>
 </head>
@@ -85,6 +85,18 @@
                             <div class="rounded-lg border border-gray-200 bg-white py-1 shadow-lg ring-1 ring-black/5">
                                 <a href="/online-hearing-test/" role="menuitem" class="block whitespace-nowrap px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600">Online hearing test</a>
                                 <a href="/hearing-age-test/" role="menuitem" class="block whitespace-nowrap px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600">Hearing age test</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative" id="nav-audio-wrap">
+                        <button type="button" id="nav-audio-btn" class="text-gray-500 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors inline-flex items-center gap-1 whitespace-nowrap" aria-expanded="false" aria-haspopup="true" aria-controls="nav-audio-panel">
+                            <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"/></svg>
+                            Audio Tools
+                            <svg id="nav-audio-chevron" class="w-4 h-4 shrink-0 text-gray-400 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div id="nav-audio-panel" class="absolute left-0 top-full z-50 pt-1" role="menu" aria-labelledby="nav-audio-btn">
+                            <div class="rounded-lg border border-gray-200 bg-white py-1 shadow-lg ring-1 ring-black/5">
+                                <a href="/tone-generator/" role="menuitem" class="block whitespace-nowrap px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600">Online Tone Generator</a>
                             </div>
                         </div>
                     </div>
@@ -117,6 +129,12 @@
                     <a href="/hearing-age-test/" class="block py-2 text-sm font-medium text-gray-600 hover:text-blue-600">Hearing age test</a>
                 </div>
             </details>
+            <details class="group mobile-nav-audio" id="mobile-nav-audio-wrap">
+                <summary class="flex cursor-pointer list-none items-center gap-2 px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 marker:content-none">Audio Tools</summary>
+                <div class="mt-1 space-y-0 border-l-2 border-gray-100 ml-4 pl-3 py-1">
+                    <a href="/tone-generator/" class="block py-2 text-sm font-medium text-gray-600 hover:text-blue-600">Online Tone Generator</a>
+                </div>
+            </details>
             <a href="/speaker-test-tones/" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Speaker Test</a>
             <a href="/blog/" class="block px-3 py-2 rounded-md text-base font-medium text-blue-600 bg-blue-50">Blog</a>
         </div>
@@ -128,11 +146,17 @@
         const hearingWrap = document.getElementById('nav-hearing-wrap');
         const hearingBtn = document.getElementById('nav-hearing-btn');
         const hearingPanel = document.getElementById('nav-hearing-panel');
+        const navAudioWrap = document.getElementById('nav-audio-wrap');
+        const navAudioBtn = document.getElementById('nav-audio-btn');
+        const navAudioPanel = document.getElementById('nav-audio-panel');
 
         const setExpanded = (buttonEl, expanded) => { if (!buttonEl) return; buttonEl.setAttribute('aria-expanded', expanded ? 'true' : 'false'); };
         const closeMenu = () => { if (!btn || !menu) return; menu.classList.add('hidden'); setExpanded(btn, false); };
         const setHearingExpanded = (open) => { if (!hearingBtn) return; hearingBtn.setAttribute('aria-expanded', open ? 'true' : 'false'); };
+        const setAudioExpanded = (open) => { if (!navAudioBtn) return; navAudioBtn.setAttribute('aria-expanded', open ? 'true' : 'false'); };
+
         if (hearingWrap && hearingBtn && hearingPanel) { hearingWrap.addEventListener('mouseenter', () => setHearingExpanded(true)); hearingWrap.addEventListener('mouseleave', () => setHearingExpanded(false)); hearingWrap.addEventListener('focusin', () => setHearingExpanded(true)); hearingWrap.addEventListener('focusout', (e) => { if (!hearingWrap.contains(e.relatedTarget)) setHearingExpanded(false); }); }
+        if (navAudioWrap && navAudioBtn && navAudioPanel) { navAudioWrap.addEventListener('mouseenter', () => setAudioExpanded(true)); navAudioWrap.addEventListener('mouseleave', () => setAudioExpanded(false)); navAudioWrap.addEventListener('focusin', () => setAudioExpanded(true)); navAudioWrap.addEventListener('focusout', (e) => { if (!navAudioWrap.contains(e.relatedTarget)) setAudioExpanded(false); }); }
         if (btn && menu) { btn.addEventListener('click', (e) => { e.stopPropagation(); menu.classList.toggle('hidden'); setExpanded(btn, !menu.classList.contains('hidden')); }); document.addEventListener('click', (e) => { if (!btn.contains(e.target) && !menu.contains(e.target)) closeMenu(); }); }
     </script>
 
@@ -391,6 +415,8 @@
                     <div class="space-y-1">
                         <a href="/" class="block hover:text-blue-400 transition">Sound Meter</a>
                         <a href="/online-hearing-test/" class="block hover:text-blue-400 transition">Hearing Test</a>
+                        <a href="/hearing-age-test/" class="block hover:text-blue-400 transition">Hearing Age Test</a>
+                        <a href="/tone-generator/" class="block hover:text-blue-400 transition">Tone Generator</a>
                         <a href="/speaker-test-tones/" class="block hover:text-blue-400 transition">Speaker Test</a>
                         <a href="/blog/" class="block hover:text-blue-400 transition">Blog</a>
                     </div>
