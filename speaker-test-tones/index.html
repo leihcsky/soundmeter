@@ -284,36 +284,53 @@
         <!-- Tools Grid -->
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-16">
             <!-- Intro Section -->
-            <div class="text-center mb-12 max-w-3xl mx-auto">
-                <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-6 tracking-tight">Speaker Test Tones</h1>
+            <div class="text-center mb-8 max-w-3xl mx-auto">
+                <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-4 tracking-tight">Speaker Test Tones</h1>
                 <p class="text-xl text-gray-600 leading-relaxed">
                     Free online sound test for speakers, headphones, and subwoofers. Check stereo separation, frequency response, and polarity—right in your browser.
                 </p>
+                <p class="mt-3 text-base text-gray-500">
+                    Test your speakers instantly. Play a sound, check your left and right channels, and troubleshoot audio problems.
+                </p>
             </div>
 
-            <section class="grid lg:grid-cols-2 gap-6 mb-12 max-w-5xl mx-auto">
-                <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-6">
-                    <h2 class="text-xl font-bold text-gray-900 mb-3">Safety and Setup</h2>
-                    <ul class="text-sm text-gray-700 space-y-2 list-disc list-inside">
-                        <li>Start with a low volume (10–20%) before playing any tone.</li>
-                        <li>Use short bursts for high-frequency tests; avoid prolonged loud playback.</li>
-                        <li>For polarity and bass tests, sit centered between speakers at a consistent distance.</li>
-                        <li>If you hear rattling or buzzing, reduce volume and check for loose items and speaker placement.</li>
-                    </ul>
+            <!-- Quick Speaker Sound Test (first interactive block) -->
+            <section id="quick-speaker-sound-test" class="bg-white rounded-2xl shadow-lg border border-blue-100 mb-12 overflow-hidden">
+                <div class="p-6 sm:p-8 border-b border-gray-100 bg-gradient-to-r from-blue-50 to-white">
+                    <div class="flex items-center gap-3 mb-2">
+                        <div class="bg-blue-600 p-2 rounded-lg text-white shadow-lg shadow-blue-200">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+                        </div>
+                        <h2 class="text-2xl font-bold text-gray-900">Quick Speaker Sound Test</h2>
+                    </div>
+                    <p class="text-gray-600 text-sm">Click Play to check if your speakers or headphones produce sound.</p>
                 </div>
-                <div class="bg-gray-50 rounded-2xl border border-gray-200 p-6">
-                    <h2 class="text-xl font-bold text-gray-900 mb-3">Troubleshooting Quick Checks</h2>
-                    <ul class="text-sm text-gray-700 space-y-2 list-disc list-inside">
-                        <li>No sound: verify browser audio permissions, output device selection, and mute switches.</li>
-                        <li>Left/right feels swapped: re-check OS audio balance and physical wiring.</li>
-                        <li>Weak bass in “in phase”: speakers may be wired out of phase or too far apart.</li>
-                        <li>High tones missing: it can be speaker limits, EQ, or natural hearing roll-off.</li>
-                    </ul>
-                    <a href="../blog/how-to-test-speakers-headphones.html" class="inline-flex mt-3 text-sm text-blue-600 hover:underline font-semibold">Full testing checklist →</a>
+                <div class="p-6 sm:p-10">
+                    <div class="max-w-lg mx-auto text-center">
+                        <p class="mb-4 text-sm text-amber-800 bg-amber-50 border border-amber-100 rounded-lg px-3 py-2">
+                            Start at low volume (about 10–20%) before playing any tone.
+                            <a href="#safety-and-setup" class="font-semibold text-amber-900 underline underline-offset-2 hover:text-amber-950">Safety tips</a>
+                        </p>
+                        <p id="quick-test-status" class="text-sm font-medium text-gray-500 mb-4 min-h-5" aria-live="polite">Ready</p>
+                        <button type="button" id="btn-quick-test" class="w-full sm:w-auto min-w-[220px] min-h-[52px] px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white text-lg font-bold rounded-xl shadow-md transition active:scale-[0.98] inline-flex items-center justify-center gap-2">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            Play Test Sound
+                        </button>
+
+                        <div id="quick-test-feedback" class="mt-8 hidden">
+                            <p class="text-base font-semibold text-gray-900 mb-4">Did you hear the test sound?</p>
+                            <div class="flex flex-col sm:flex-row gap-3 justify-center">
+                                <button type="button" id="btn-quick-heard-yes" class="min-h-[44px] px-5 py-2.5 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-xl transition">Yes, I heard it</button>
+                                <button type="button" id="btn-quick-heard-no" class="min-h-[44px] px-5 py-2.5 bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold rounded-xl border border-gray-200 transition">No sound</button>
+                            </div>
+                        </div>
+
+                        <div id="quick-test-result" class="mt-6 text-sm text-gray-600 leading-relaxed hidden" aria-live="polite"></div>
+                    </div>
                 </div>
             </section>
 
-            <!-- Tool 1: Stereo Check (Redesigned) -->
+            <!-- Left / Right Stereo Test -->
             <div class="bg-white rounded-2xl shadow-lg border border-gray-100 mb-12">
                 <div class="p-6 sm:p-8 border-b border-gray-100">
                     <div class="flex items-center gap-3 mb-2">
@@ -322,16 +339,16 @@
                         </div>
                         <h2 class="text-2xl font-bold text-gray-900">Left / Right Stereo Test</h2>
                     </div>
-                    <p class="text-gray-600 text-sm">Click Left or Right to play a loud test tone on that channel only. Click again to stop.</p>
+                    <p class="text-gray-600 text-sm">Click Left, Right, or Both to test channel output. Click the active button again to stop.</p>
                 </div>
 
                 <!-- Interactive Stage -->
                 <div class="bg-gray-50 p-6 sm:p-10 relative rounded-b-2xl">
-                    <div class="max-w-3xl mx-auto">
-                        <div class="flex flex-col sm:flex-row justify-center items-center gap-12 sm:gap-32">
+                    <div class="max-w-4xl mx-auto">
+                        <div class="flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-8 lg:gap-12">
                             
                             <!-- Left Speaker -->
-                            <button id="btn-test-left" class="relative group w-full sm:w-48 aspect-square flex flex-col items-center justify-center bg-white rounded-3xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border-2 border-transparent hover:border-blue-500 overflow-visible">
+                            <button type="button" id="btn-test-left" aria-pressed="false" class="relative group w-full sm:w-44 lg:w-48 aspect-square flex flex-col items-center justify-center bg-white rounded-3xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border-2 border-transparent hover:border-blue-500 overflow-visible">
                                 <div class="absolute inset-0 bg-blue-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl"></div>
                                 <div class="relative z-40 flex flex-col items-center">
                                     <!-- Speaker Icon Container -->
@@ -360,13 +377,25 @@
                                 <div class="playing-pulse absolute inset-0 bg-blue-400 opacity-0 rounded-3xl pointer-events-none z-0"></div>
                             </button>
 
-                            <!-- Center User Icon (Visual Anchor) -->
-                            <div class="hidden sm:flex flex-col items-center justify-center opacity-20 scale-75">
-                                <svg class="w-16 h-16 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
-                            </div>
+                            <!-- Both Channels -->
+                            <button type="button" id="btn-test-both" aria-pressed="false" class="relative group w-full sm:w-44 lg:w-48 aspect-square flex flex-col items-center justify-center bg-white rounded-3xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border-2 border-transparent hover:border-indigo-500 overflow-visible">
+                                <div class="absolute inset-0 bg-indigo-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl"></div>
+                                <div class="relative z-40 flex flex-col items-center">
+                                    <div class="relative w-20 h-20 mb-4 flex items-center justify-center">
+                                        <div class="w-20 h-20 rounded-2xl bg-gray-100 group-hover:bg-indigo-100 text-gray-400 group-hover:text-indigo-600 flex items-center justify-center transition-all duration-300 shadow-inner group-hover:scale-110 z-10 relative bg-white">
+                                            <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15.536 8.464a5 5 0 010 7.072M12 6v12M8.464 8.464a5 5 0 000 7.072M4 9v6h3l4 4V5L7 9H4z"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <span class="text-xl font-black text-gray-800 group-hover:text-indigo-600 transition-colors">BOTH</span>
+                                </div>
+                                <div class="active-indicator absolute inset-0 border-4 border-indigo-500 rounded-3xl opacity-0 transition-opacity duration-200 pointer-events-none z-30"></div>
+                                <div class="playing-pulse absolute inset-0 bg-indigo-400 opacity-0 rounded-3xl pointer-events-none z-0"></div>
+                            </button>
 
                             <!-- Right Speaker -->
-                            <button id="btn-test-right" class="relative group w-full sm:w-48 aspect-square flex flex-col items-center justify-center bg-white rounded-3xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border-2 border-transparent hover:border-red-500 overflow-visible">
+                            <button type="button" id="btn-test-right" aria-pressed="false" class="relative group w-full sm:w-44 lg:w-48 aspect-square flex flex-col items-center justify-center bg-white rounded-3xl shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border-2 border-transparent hover:border-red-500 overflow-visible">
                                 <div class="absolute inset-0 bg-red-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl"></div>
                                 <div class="relative z-40 flex flex-col items-center">
                                     <!-- Speaker Icon Container -->
@@ -396,10 +425,98 @@
                             </button>
 
                         </div>
-                        <div id="stereo-status" class="mt-8 text-center text-lg font-medium text-gray-500 min-h-6 transition-all duration-300"></div>
+                        <div id="stereo-status" class="mt-8 text-center text-lg font-medium text-gray-500 min-h-6 transition-all duration-300" aria-live="polite"></div>
+
+                        <div class="mt-6 max-w-xl mx-auto">
+                            <details id="stereo-wrong-side" class="group rounded-xl border border-gray-200 bg-white">
+                                <summary class="cursor-pointer list-none px-4 py-3 text-sm font-semibold text-gray-800 flex items-center justify-between gap-2 marker:content-none">
+                                    <span>Sound coming from the wrong side?</span>
+                                    <svg class="w-4 h-4 text-gray-400 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                                </summary>
+                                <div class="px-4 pb-4 text-sm text-gray-600 space-y-2">
+                                    <ul class="list-disc list-inside space-y-1">
+                                        <li>Check that headphones are worn with L on the left ear and R on the right.</li>
+                                        <li>Check system mono audio settings (mono mixes left and right together).</li>
+                                        <li>Confirm the selected audio output device in your OS or browser.</li>
+                                        <li>Some mobile devices may fold stereo into mono—physical channel separation is not guaranteed on every device.</li>
+                                    </ul>
+                                </div>
+                            </details>
+                        </div>
                     </div>
                 </div>
             </div>
+
+            <!-- Speaker Troubleshooting -->
+            <section id="speaker-troubleshooting" class="mb-12 max-w-5xl mx-auto scroll-mt-24">
+                <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 sm:p-8">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-2">Speaker Troubleshooting</h2>
+                    <p class="text-sm text-gray-600 mb-6">Use these checks if you hear no sound, only one side, or distortion. This is guidance—not an automatic diagnosis.</p>
+
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div id="troubleshoot-no-sound">
+                            <h3 class="text-base font-bold text-gray-900 mb-2">No Sound</h3>
+                            <ul class="text-sm text-gray-700 space-y-2 list-disc list-inside">
+                                <li>Check device volume.</li>
+                                <li>Check browser tab mute.</li>
+                                <li>Check the selected audio output device.</li>
+                                <li>Disconnect Bluetooth devices if necessary.</li>
+                                <li>Check system audio settings.</li>
+                                <li>Try another browser or device.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="text-base font-bold text-gray-900 mb-2">Only One Speaker Works</h3>
+                            <ul class="text-sm text-gray-700 space-y-2 list-disc list-inside">
+                                <li>Test left and right separately above.</li>
+                                <li>Check stereo balance.</li>
+                                <li>Check mono audio settings.</li>
+                                <li>Check headset connection and wiring.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="text-base font-bold text-gray-900 mb-2">Sound Is Distorted</h3>
+                            <ul class="text-sm text-gray-700 space-y-2 list-disc list-inside">
+                                <li>Lower playback volume.</li>
+                                <li>Test at moderate volume.</li>
+                                <li>Check speaker connections.</li>
+                                <li>Try a different output device.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 pt-6 border-t border-gray-100">
+                        <h3 class="text-base font-bold text-gray-900 mb-2">If this sound test works but an app or website is still silent</h3>
+                        <ul class="text-sm text-gray-700 space-y-2 list-disc list-inside mb-3">
+                            <li>Check the tab or player mute icon, and any in-page volume slider.</li>
+                            <li>Confirm the browser or app isn’t muted under per-app volume.</li>
+                            <li>Confirm the same output device is selected in the app as in the OS.</li>
+                            <li>Close other apps that may lock the device, then retry.</li>
+                        </ul>
+                        <a href="../blog/how-to-test-speakers-headphones.html" class="inline-flex text-sm text-blue-600 hover:underline font-semibold">Full testing checklist →</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Safety before advanced tests (HF / sweep / polarity) -->
+            <section id="safety-and-setup" class="mb-12 max-w-3xl mx-auto scroll-mt-24">
+                <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-6">
+                    <h2 class="text-xl font-bold text-gray-900 mb-3">Safety and Setup</h2>
+                    <ul class="text-sm text-gray-700 space-y-2 list-disc list-inside">
+                        <li>Start with a low volume (10–20%) before playing any tone.</li>
+                        <li>Use short bursts for high-frequency tests; avoid prolonged loud playback.</li>
+                        <li>For polarity and bass tests, sit centered between speakers at a consistent distance.</li>
+                        <li>If you hear rattling or buzzing, reduce volume and check for loose items and speaker placement.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Advanced Speaker Test Tones -->
+            <section id="advanced-speaker-tests" class="mb-4">
+                <div class="mb-6 max-w-3xl">
+                    <h2 class="text-2xl sm:text-3xl font-bold text-gray-900">Advanced Speaker Test Tones</h2>
+                    <p class="mt-2 text-sm text-gray-600">Frequency limits, polarity, sine tones, sweeps, and noise generators for deeper diagnostics.</p>
+                </div>
 
             <!-- HERO: Golden Ear Challenge -->
             <div class="mb-12 bg-white rounded-2xl shadow-xl border border-blue-100 overflow-hidden relative">
@@ -571,23 +688,6 @@
                 </div>
 
             </div>
-
-            <!-- Post-test: app/site silent while this page works -->
-            <section class="mt-16 max-w-3xl mx-auto bg-white rounded-2xl shadow-lg border border-gray-100 p-6 sm:p-8">
-                <h2 class="text-xl sm:text-2xl font-bold text-gray-900 mb-3">If this sound test works but an app or website is still silent</h2>
-                <p class="text-sm text-gray-600 mb-4 leading-relaxed">
-                    Hearing tones on this page means your speakers (and browser audio path) are working. If YouTube, Zoom, Discord, or another site is still muted, the problem is usually that app—not your hardware.
-                </p>
-                <ul class="text-sm text-gray-700 space-y-2 list-disc list-inside mb-4">
-                    <li>Check the tab or player mute icon, and any in-page volume slider (common on video sites).</li>
-                    <li>On Windows or macOS, open system sound settings and confirm the browser or app isn’t muted under per-app volume.</li>
-                    <li>Confirm the same output device is selected in the app (speakers vs HDMI TV vs headset) as in the OS.</li>
-                    <li>Close other apps that may lock the device (calls, games, DAWs), then retry the silent site.</li>
-                </ul>
-                <p class="text-sm text-gray-600">
-                    Still stuck after these checks?
-                    <a href="../blog/how-to-test-speakers-headphones.html" class="text-blue-600 hover:underline font-semibold">Full testing checklist →</a>
-                </p>
             </section>
 
             <!-- Content / SEO Section -->
@@ -847,7 +947,7 @@
     </script>
 
     <!-- Scripts -->
-    <script src="../js/speaker-test.js"></script>
+    <script src="../js/speaker-test.js?v=20261116"></script>
     <script>
         const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
