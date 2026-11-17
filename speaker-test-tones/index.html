@@ -218,6 +218,7 @@
                         <div id="nav-audio-panel" class="absolute left-0 top-full z-50 pt-1" role="menu" aria-labelledby="nav-audio-btn">
                             <div class="rounded-lg border border-gray-200 bg-white py-1 shadow-lg ring-1 ring-black/5">
                                 <a href="/tone-generator/" role="menuitem" class="block whitespace-nowrap px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600">Online Tone Generator</a>
+                                <a href="/microphone-test/" role="menuitem" class="block whitespace-nowrap px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600">Microphone Test</a>
                             </div>
                         </div>
                     </div>
@@ -265,6 +266,7 @@
                     </summary>
                     <div class="mt-1 space-y-0 border-l-2 border-gray-100 ml-4 pl-3 py-1">
                         <a href="/tone-generator/" class="block py-2 text-sm font-medium text-gray-600 hover:text-blue-600">Online Tone Generator</a>
+                        <a href="/microphone-test/" class="block py-2 text-sm font-medium text-gray-600 hover:text-blue-600">Microphone Test</a>
                     </div>
                 </details>
                  <a href="./" class="flex items-center gap-2 px-3 py-2 rounded-md text-base font-medium text-blue-600 bg-blue-50">
@@ -700,7 +702,7 @@
                             <p class="mb-4">Use the <strong>Stereo Test</strong> to identify if your speakers are wired correctly. When you click "Left", sound should only come from your left speaker/earbud. If you hear it from the right (or both), your wiring or settings may be incorrect.</p>
                             
                             <h3 class="text-xl font-bold text-gray-900 mb-3">2. Test Frequency Response &amp; Custom Hz</h3>
-                            <p class="mb-4">The <strong>Frequency Sweep</strong> plays a tone starting from deep bass (20Hz) rising to high treble (20kHz). For continuous custom Hz testing, note picking, or oscilloscope waveform inspection, you can also use our dedicated <a href="/tone-generator/" class="text-blue-600 font-semibold hover:underline">Online Tone Generator</a>.</p>
+                            <p class="mb-4">The <strong>Frequency Sweep</strong> plays a tone starting from deep bass (20Hz) rising to high treble (20kHz). For continuous custom Hz testing, note picking, or oscilloscope waveform inspection, you can also use our dedicated <a href="/tone-generator/" class="text-blue-600 font-semibold hover:underline">Online Tone Generator</a>. To confirm your headset or USB mic is picking up voice before a call, use the <a href="/microphone-test/" class="text-blue-600 font-semibold hover:underline">Microphone Test</a>.</p>
                             <ul class="list-disc pl-5 space-y-2">
                                 <li><strong>Bass limit:</strong> When do you start hearing the rumble?</li>
                                 <li><strong>Resonance:</strong> Does your room or speaker cabinet buzz at certain frequencies?</li>
@@ -736,6 +738,26 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Related Tools -->
+            <section class="mt-8 bg-gradient-to-r from-blue-50 via-indigo-50 to-blue-50 rounded-2xl border border-blue-100 p-6 sm:p-8">
+                <h2 class="text-xl font-bold text-gray-900 mb-2">Related Tools</h2>
+                <p class="text-xs sm:text-sm text-gray-600 mb-6">Check your mic input, tones, and room noise alongside speaker output:</p>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <a href="/microphone-test/" class="bg-white p-4 rounded-xl border border-gray-200 hover:border-blue-500 hover:shadow-md transition group">
+                        <h3 class="font-bold text-sm text-gray-900 group-hover:text-blue-600 mb-1">Microphone Test &rarr;</h3>
+                        <p class="text-xs text-gray-500">Live input levels, device switch, and short local voice playback.</p>
+                    </a>
+                    <a href="/tone-generator/" class="bg-white p-4 rounded-xl border border-gray-200 hover:border-blue-500 hover:shadow-md transition group">
+                        <h3 class="font-bold text-sm text-gray-900 group-hover:text-blue-600 mb-1">Online Tone Generator &rarr;</h3>
+                        <p class="text-xs text-gray-500">Play precise custom Hz tones for bass, tuning, and response checks.</p>
+                    </a>
+                    <a href="/" class="bg-white p-4 rounded-xl border border-gray-200 hover:border-blue-500 hover:shadow-md transition group">
+                        <h3 class="font-bold text-sm text-gray-900 group-hover:text-blue-600 mb-1">Sound Meter &rarr;</h3>
+                        <p class="text-xs text-gray-500">Estimate environmental noise levels with your microphone.</p>
+                    </a>
+                </div>
+            </section>
 
             <!-- FAQ Section -->
             <div class="mt-12 bg-white rounded-3xl p-8 sm:p-12 border border-gray-200">
@@ -817,6 +839,7 @@
                         <a href="/online-hearing-test/" class="hover:text-blue-400 transition">Hearing Test</a>
                         <a href="/hearing-age-test/" class="hover:text-blue-400 transition">Hearing Age Test</a>
                         <a href="/tone-generator/" class="hover:text-blue-400 transition">Tone Generator</a>
+                        <a href="/microphone-test/" class="hover:text-blue-400 transition">Microphone Test</a>
                         <a href="/speaker-test-tones/" class="hover:text-blue-400 transition">Speaker Test</a>
                         <a href="/blog/" class="hover:text-blue-400 transition">Blog</a>
                     </div>

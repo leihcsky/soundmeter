@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="https://schema.org/WebApplication">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google tag (gtag.js) -->
+    <script defer src="https://www.googletagmanager.com/gtag/js?id=G-VBFVZM0MP6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-VBFVZM0MP6');
+    </script>
+
+    <script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3293976111230987"
+     crossorigin="anonymous"></script>
+
+    <title>Mic Test Online – Check Your Microphone for Free</title>
+    <meta name="title" content="Mic Test Online – Check Your Microphone for Free">
+    <meta name="description" content="Free mic test online: check live levels, record a short sample, and fix common mic issues before Zoom or Teams. Private, no download.">
+    <meta name="author" content="RealtimeSoundMeter.org">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://realtimesoundmeter.org/microphone-test/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:url" content="https://realtimesoundmeter.org/microphone-test/">
+    <meta property="og:title" content="Mic Test Online – Check Your Microphone for Free">
+    <meta property="og:description" content="Free mic test online: live levels, short recording, and troubleshooting before your next call. Private, no download.">
+    <meta property="og:image" content="https://realtimesoundmeter.org/microphone-test/og-microphone-test.jpg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Mic Test Online – check your microphone in the browser">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://realtimesoundmeter.org/microphone-test/">
+    <meta name="twitter:title" content="Mic Test Online – Check Your Microphone for Free">
+    <meta name="twitter:description" content="Free mic test online: live levels, short recording, and troubleshooting before your next call.">
+    <meta name="twitter:image" content="https://realtimesoundmeter.org/microphone-test/og-microphone-test.jpg">
+    <meta name="twitter:image:alt" content="Mic Test Online – check your microphone in the browser">
+
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="icon" type="image/svg+xml" sizes="32x32" href="../favicon-32x32.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.svg">
+    <link href="/css/style.css" rel="stylesheet">
+
+    <style>
+        #nav-hearing-panel,
+        #nav-audio-panel {
+            min-width: 17rem;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.14s ease, visibility 0.14s ease;
+        }
+        #nav-hearing-wrap:focus-within #nav-hearing-panel,
+        #nav-audio-wrap:focus-within #nav-audio-panel {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+        #nav-hearing-wrap:focus-within #nav-hearing-btn,
+        #nav-audio-wrap:focus-within #nav-audio-btn {
+            color: #2563eb;
+            background-color: #eff6ff;
+        }
+        #nav-hearing-wrap:focus-within #nav-hearing-chevron,
+        #nav-audio-wrap:focus-within #nav-audio-chevron {
+            transform: rotate(180deg);
+        }
+        @media (hover: hover) {
+            #nav-hearing-wrap:hover #nav-hearing-panel,
+            #nav-audio-wrap:hover #nav-audio-panel {
+                opacity: 1;
+                visibility: visible;
+                pointer-events: auto;
+            }
+            #nav-hearing-wrap:hover #nav-hearing-btn,
+            #nav-audio-wrap:hover #nav-audio-btn {
+                color: #2563eb;
+                background-color: #eff6ff;
+            }
+            #nav-hearing-wrap:hover #nav-hearing-chevron,
+            #nav-audio-wrap:hover #nav-audio-chevron {
+                transform: rotate(180deg);
+            }
+        }
+        #mic-status[data-state="listening"] { color: #16a34a; }
+        #mic-status[data-state="requesting"] { color: #d97706; }
+        #mic-status[data-state="error"] { color: #dc2626; }
+        #mic-status[data-state="stopped"] { color: #64748b; }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen font-sans text-gray-800 flex flex-col">
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 bg-white text-blue-700 px-4 py-2 rounded-lg shadow-lg ring-2 ring-blue-500">
+        Skip to content
+    </a>
+
+    <header class="bg-white shadow-md border-b border-gray-300 relative z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16 relative">
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <a href="/" class="flex items-center gap-2">
+                        <img src="../logo.svg" alt="Sound Meter" class="h-10 w-auto sm:h-12">
+                    </a>
+                </div>
+
+                <nav aria-label="Primary" class="hidden md:flex items-center space-x-8">
+                    <a href="/" class="text-gray-500 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors inline-flex items-center gap-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                        Home
+                    </a>
+                    <div class="relative" id="nav-hearing-wrap">
+                        <button type="button" id="nav-hearing-btn" class="text-gray-500 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors inline-flex items-center gap-1 whitespace-nowrap" aria-expanded="false" aria-haspopup="true" aria-controls="nav-hearing-panel">
+                            <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 002 2h2a2 2 0 002-2z"></path></svg>
+                            Hearing
+                            <svg id="nav-hearing-chevron" class="w-4 h-4 shrink-0 text-gray-400 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div id="nav-hearing-panel" class="absolute left-0 top-full z-50 pt-1" role="menu" aria-labelledby="nav-hearing-btn">
+                            <div class="rounded-lg border border-gray-200 bg-white py-1 shadow-lg ring-1 ring-black/5">
+                                <a href="/online-hearing-test/" role="menuitem" class="block whitespace-nowrap px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600">Online hearing test</a>
+                                <a href="/hearing-age-test/" role="menuitem" class="block whitespace-nowrap px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600">Hearing age test</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative" id="nav-audio-wrap">
+                        <button type="button" id="nav-audio-btn" class="text-blue-600 bg-blue-50 px-3 py-2 rounded-md text-sm font-medium transition-colors inline-flex items-center gap-1 whitespace-nowrap" aria-expanded="false" aria-haspopup="true" aria-controls="nav-audio-panel" aria-current="page">
+                            <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"/></svg>
+                            Audio Tools
+                            <svg id="nav-audio-chevron" class="w-4 h-4 shrink-0 text-blue-500 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div id="nav-audio-panel" class="absolute left-0 top-full z-50 pt-1" role="menu" aria-labelledby="nav-audio-btn">
+                            <div class="rounded-lg border border-gray-200 bg-white py-1 shadow-lg ring-1 ring-black/5">
+                                <a href="/tone-generator/" role="menuitem" class="block whitespace-nowrap px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600">Online Tone Generator</a>
+                                <a href="/microphone-test/" role="menuitem" class="block whitespace-nowrap px-4 py-2.5 text-sm text-blue-600 bg-blue-50 font-semibold">Microphone Test</a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="/speaker-test-tones/" class="text-gray-500 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors inline-flex items-center gap-2 whitespace-nowrap">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+                        Speaker Test
+                    </a>
+                    <a href="/blog/" class="text-gray-500 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors inline-flex items-center gap-2 whitespace-nowrap">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path></svg>
+                        Blog
+                    </a>
+                </nav>
+
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" type="button" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false" class="text-gray-700 hover:text-gray-900 rounded-full p-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="mobile-menu" role="navigation" aria-label="Mobile" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg z-50">
+        <div class="px-2 pt-2 pb-3 space-y-1">
+            <a href="/" class="flex items-center gap-2 px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Home</a>
+            <details class="group mobile-nav-hearing">
+                <summary class="flex cursor-pointer list-none items-center gap-2 px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 marker:content-none">Hearing</summary>
+                <div class="mt-1 space-y-0 border-l-2 border-gray-100 ml-4 pl-3 py-1">
+                    <a href="/online-hearing-test/" class="block py-2 text-sm font-medium text-gray-600 hover:text-blue-600">Online hearing test</a>
+                    <a href="/hearing-age-test/" class="block py-2 text-sm font-medium text-gray-600 hover:text-blue-600">Hearing age test</a>
+                </div>
+            </details>
+            <details class="group mobile-nav-audio" open>
+                <summary class="flex cursor-pointer list-none items-center gap-2 px-3 py-2 rounded-md text-base font-medium text-blue-600 bg-blue-50 marker:content-none">Audio Tools</summary>
+                <div class="mt-1 space-y-0 border-l-2 border-gray-100 ml-4 pl-3 py-1">
+                    <a href="/tone-generator/" class="block py-2 text-sm font-medium text-gray-600 hover:text-blue-600">Online Tone Generator</a>
+                    <a href="/microphone-test/" class="block py-2 text-sm font-medium text-blue-600 font-semibold">Microphone Test</a>
+                </div>
+            </details>
+            <a href="/speaker-test-tones/" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Speaker Test</a>
+            <a href="/blog/" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Blog</a>
+        </div>
+    </div>
+
+    <main id="main-content" class="flex-grow">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-16">
+            <nav class="mb-6 text-sm text-gray-500" aria-label="Breadcrumb">
+                <ol class="flex flex-wrap items-center gap-1">
+                    <li><a href="/" class="hover:text-blue-600 transition-colors">Home</a></li>
+                    <li aria-hidden="true" class="text-gray-400">/</li>
+                    <li><a href="/tone-generator/" class="hover:text-blue-600 transition-colors">Audio Tools</a></li>
+                    <li aria-hidden="true" class="text-gray-400">/</li>
+                    <li class="text-gray-700 font-medium" aria-current="page">Mic Test</li>
+                </ol>
+            </nav>
+
+            <div class="text-center mb-8 max-w-3xl mx-auto">
+                <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-4 tracking-tight">Mic Test Online – Check Your Microphone</h1>
+                <p class="text-xl text-gray-600 leading-relaxed">
+                    Free <strong>mic test online</strong> for meetings and calls. Check live input levels, confirm the browser can hear you, record a short sample, and troubleshoot common mic problems—no download, audio stays on your device.
+                </p>
+                <p class="mt-3 text-base text-gray-500">
+                    Looking to <strong>test my mic</strong> before Zoom, Meet, or Teams? Start below, then optionally run Voice Quality Check for speaking level and background tips.
+                </p>
+            </div>
+
+            <!-- Primary test -->
+            <section id="mic-test-tool" class="bg-white rounded-2xl shadow-lg border border-blue-100 mb-10 overflow-hidden" aria-labelledby="mic-test-heading">
+                <div class="p-6 sm:p-8 border-b border-gray-100 bg-gradient-to-r from-blue-50 to-white">
+                    <div class="flex items-center gap-3 mb-2">
+                        <div class="bg-blue-600 p-2 rounded-lg text-white shadow-lg shadow-blue-200">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/></svg>
+                        </div>
+                        <h2 id="mic-test-heading" class="text-2xl font-bold text-gray-900">Start Microphone Test</h2>
+                    </div>
+                    <p class="text-gray-600 text-sm">Click Start, allow mic access, then speak. We show relative input level—not calibrated dB SPL.</p>
+                </div>
+
+                <div class="p-6 sm:p-10">
+                    <p id="mic-status" class="text-sm font-semibold text-gray-500 mb-3 min-h-5" data-state="ready" aria-live="polite">Ready</p>
+                    <p id="mic-error" class="hidden mb-4 text-sm text-red-700 bg-red-50 border border-red-100 rounded-lg px-3 py-2" role="alert"></p>
+                    <p id="mic-result" class="mb-6 text-sm font-medium border rounded-xl px-4 py-3 bg-gray-50 text-gray-700 border-gray-200" aria-live="polite">Click Start Microphone Test to begin.</p>
+
+                    <div class="flex flex-col lg:flex-row gap-3 lg:items-end mb-6 max-w-3xl mx-auto">
+                        <div class="flex flex-col sm:flex-row gap-3 shrink-0">
+                            <button type="button" id="btn-mic-start" class="w-full sm:w-auto min-w-[220px] min-h-[48px] px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white text-base font-bold rounded-xl shadow-md transition active:scale-[0.98] inline-flex items-center justify-center gap-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/></svg>
+                                Start Microphone Test
+                            </button>
+                            <button type="button" id="btn-mic-stop" class="hidden w-full sm:w-auto min-w-[120px] min-h-[48px] px-5 py-3 bg-gray-900 hover:bg-gray-700 text-white text-base font-bold rounded-xl shadow-md transition">
+                                Stop Test
+                            </button>
+                        </div>
+                        <div id="mic-device-wrap" class="hidden flex-1 min-w-0">
+                            <label for="mic-device-select" class="block text-xs font-medium text-gray-600 mb-1">Input device</label>
+                            <select id="mic-device-select" class="w-full min-h-[48px] rounded-xl border border-gray-300 bg-white px-3 py-2 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500"></select>
+                        </div>
+                    </div>
+                    <p id="mic-device-hint" class="hidden text-xs text-gray-500 text-center mb-6 max-w-3xl mx-auto">Device names often appear only after you grant permission.</p>
+
+                    <div class="max-w-3xl mx-auto mb-4">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="text-sm font-medium text-gray-700">Input level</span>
+                            <span id="mic-level-label" class="text-xs text-gray-500">0% relative input</span>
+                        </div>
+                        <div class="h-5 w-full rounded-full bg-gray-100 overflow-hidden border border-gray-200" role="meter" aria-label="Relative microphone input level" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                            <div id="mic-level-bar" class="h-full w-0 bg-green-500 transition-[width] duration-75 ease-out" style="width:0%"></div>
+                        </div>
+                        <p class="mt-2 text-xs text-gray-500">Relative digital level from your browser—not a calibrated sound pressure reading. For room noise in dB, use the <a href="/" class="text-blue-600 hover:underline font-semibold">Sound Meter</a>.</p>
+                    </div>
+
+                    <div class="max-w-3xl mx-auto mt-4 rounded-xl border border-gray-200 bg-slate-50 overflow-hidden">
+                        <canvas id="mic-waveform" class="w-full h-[120px] block" aria-hidden="true"></canvas>
+                    </div>
+
+                    <!-- Voice Quality Check (secondary; shown after sound detected) -->
+                    <div id="vq-entry" class="hidden max-w-3xl mx-auto mt-8 pt-6 border-t border-gray-100">
+                        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 rounded-2xl border border-blue-100 bg-blue-50/60 p-4 sm:p-5">
+                            <div>
+                                <h3 class="text-lg font-bold text-gray-900">Check Voice Quality</h3>
+                                <p class="text-sm text-gray-600 mt-1">Check your speaking level and background noise in about 15 seconds.</p>
+                            </div>
+                            <button type="button" id="btn-vq-open" class="shrink-0 min-h-[44px] px-5 py-2.5 bg-white hover:bg-gray-50 text-blue-700 font-semibold rounded-xl border border-blue-200 shadow-sm transition">
+                                Check Voice Quality
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="vq-panel" class="hidden max-w-3xl mx-auto mt-6 rounded-2xl border border-gray-200 bg-white p-5 sm:p-6 shadow-sm" aria-live="polite">
+                        <div class="flex items-start justify-between gap-3 mb-4">
+                            <div>
+                                <h3 id="vq-title" class="text-xl font-bold text-gray-900">Voice Quality Check</h3>
+                                <p id="vq-blurb" class="text-sm text-gray-600 mt-1">Use your normal speaking voice. Audio stays on your device — nothing is uploaded.</p>
+                            </div>
+                            <button type="button" id="btn-vq-cancel" class="text-sm font-semibold text-gray-600 hover:text-gray-900 min-h-[40px] px-3 rounded-lg hover:bg-gray-50">Cancel</button>
+                        </div>
+
+                        <div id="vq-prep" class="">
+                            <p class="text-sm text-gray-700 mb-4">We will ask you to stay quiet for 3 seconds, then speak normally for 5 seconds.</p>
+                            <button type="button" id="btn-vq-start" class="min-h-[44px] px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl transition">Start Check</button>
+                        </div>
+
+                        <div id="vq-progress" class="hidden">
+                            <p id="vq-step-label" class="text-base font-semibold text-gray-900 mb-2">Stay quiet for 3 seconds</p>
+                            <p id="vq-countdown" class="text-3xl font-extrabold text-blue-600 mb-3 tabular-nums" aria-live="assertive">3</p>
+                            <p id="vq-sample-line" class="hidden text-sm text-gray-600 italic mb-3">“Hello, I'm testing my microphone to make sure my voice is clear.”</p>
+                            <div class="h-2 w-full rounded-full bg-gray-100 overflow-hidden">
+                                <div id="vq-progress-bar" class="h-full w-0 bg-blue-600 transition-[width] duration-100"></div>
+                            </div>
+                        </div>
+
+                        <div id="vq-analyzing" class="hidden py-6 text-center">
+                            <p class="text-base font-semibold text-gray-800">Reviewing your microphone input…</p>
+                        </div>
+
+                        <div id="vq-results" class="hidden">
+                            <div class="flex items-center justify-between gap-3 mb-4">
+                                <h4 class="text-lg font-bold text-gray-900">Your Mic Check Results</h4>
+                                <span id="vq-overall" class="inline-flex items-center rounded-full bg-amber-100 text-amber-900 text-xs font-semibold px-2.5 py-1 shrink-0">Needs attention</span>
+                            </div>
+                            <ul id="vq-status-list" class="flex flex-col gap-3 text-sm text-gray-800 mb-5" role="list"></ul>
+                            <div id="vq-fix-primary" class="rounded-xl border border-amber-100 bg-amber-50 p-4 mb-3"></div>
+                            <div id="vq-fix-secondary" class="hidden rounded-xl border border-gray-200 bg-gray-50 p-4 mb-3"></div>
+                            <details id="vq-more-tips" class="hidden mb-4">
+                                <summary class="cursor-pointer text-sm font-semibold text-blue-700">More tips</summary>
+                                <div id="vq-fix-more" class="mt-3 space-y-3"></div>
+                            </details>
+                            <p class="text-xs text-gray-500 mb-4">This check estimates browser microphone input for troubleshooting — not room loudness in dB SPL, and not a guarantee for every meeting app. Use <strong>Test Again</strong> after you change settings.</p>
+                            <div class="flex flex-wrap gap-3">
+                                <button type="button" id="btn-vq-again" class="min-h-[44px] px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl transition">Test Again</button>
+                                <button type="button" id="btn-vq-back" class="min-h-[44px] px-5 py-2.5 bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold rounded-xl border border-gray-200 transition">Back to Basic Mic Test</button>
+                            </div>
+                        </div>
+
+                        <div id="vq-error" class="hidden">
+                            <p id="vq-error-text" class="text-sm text-red-700 bg-red-50 border border-red-100 rounded-xl px-4 py-3 mb-4" role="alert"></p>
+                            <button type="button" id="btn-vq-error-retry" class="min-h-[44px] px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-xl transition">Try Again</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Record / playback -->
+            <section id="mic-record-panel" class="bg-white rounded-2xl shadow-lg border border-gray-100 mb-10 p-6 sm:p-8 transition-opacity" aria-labelledby="mic-record-heading">
+                <h2 id="mic-record-heading" class="text-2xl font-bold text-gray-900 mb-2">Record &amp; Play Back</h2>
+                <p class="text-sm text-gray-600 mb-4">Optional voice check. Audio stays in this browser tab and is not uploaded.</p>
+                <p id="mic-support-note" class="hidden mb-4 text-sm text-amber-900 bg-amber-50 border border-amber-100 rounded-lg px-3 py-2">Recording or microphone APIs are limited in this browser. You can still try the live level test above.</p>
+                <p id="mic-record-status" class="text-sm text-gray-600 mb-3" aria-live="polite">Start the mic test before recording.</p>
+                <p class="text-sm font-mono text-gray-800 mb-4">Time: <span id="mic-record-timer">0:00</span> / 0:15</p>
+                <div class="flex flex-wrap gap-3 mb-4">
+                    <button type="button" id="btn-mic-record" class="min-h-[44px] px-5 py-2.5 bg-red-600 hover:bg-red-700 disabled:opacity-40 disabled:cursor-not-allowed text-white font-semibold rounded-xl transition">Record Voice</button>
+                    <button type="button" id="btn-mic-stop-record" class="hidden min-h-[44px] px-5 py-2.5 bg-gray-900 hover:bg-gray-700 text-white font-semibold rounded-xl transition">Stop Recording</button>
+                    <button type="button" id="btn-mic-play" class="min-h-[44px] px-5 py-2.5 bg-blue-600 hover:bg-blue-700 disabled:opacity-40 disabled:cursor-not-allowed text-white font-semibold rounded-xl transition">Play</button>
+                    <button type="button" id="btn-mic-delete" class="min-h-[44px] px-5 py-2.5 bg-gray-100 hover:bg-gray-200 disabled:opacity-40 disabled:cursor-not-allowed text-gray-800 font-semibold rounded-xl border border-gray-200 transition">Delete</button>
+                </div>
+                <audio id="mic-playback" class="w-full max-w-lg" controls playsinline></audio>
+            </section>
+
+            <!-- Troubleshooting -->
+            <section id="mic-troubleshooting" class="bg-white rounded-2xl shadow-lg border border-gray-100 mb-10 p-6 sm:p-8" aria-labelledby="mic-trouble-heading">
+                <h2 id="mic-trouble-heading" class="text-2xl font-bold text-gray-900 mb-4">Microphone Troubleshooting</h2>
+                <div class="space-y-3">
+                    <details class="group border border-gray-200 rounded-xl p-4">
+                        <summary class="cursor-pointer font-semibold text-gray-900 list-none flex items-center justify-between">No sound detected <span class="text-gray-400 group-open:rotate-180 transition">▼</span></summary>
+                        <ul class="mt-3 text-sm text-gray-600 space-y-2 list-disc pl-5">
+                            <li>Confirm the correct input in the device menu above (headset vs laptop mic).</li>
+                            <li>Unmute the mic in Windows / macOS sound settings and raise input volume.</li>
+                            <li>On Bluetooth headsets, set the headset as the default input—not only as output.</li>
+                            <li>Close Zoom, Teams, or other apps that may lock the microphone.</li>
+                        </ul>
+                    </details>
+                    <details class="group border border-gray-200 rounded-xl p-4">
+                        <summary class="cursor-pointer font-semibold text-gray-900 list-none flex items-center justify-between">Permission denied <span class="text-gray-400 group-open:rotate-180 transition">▼</span></summary>
+                        <ul class="mt-3 text-sm text-gray-600 space-y-2 list-disc pl-5">
+                            <li><strong>Chrome / Edge:</strong> click the lock or tune icon in the address bar → Site settings → Microphone → Allow, then reload.</li>
+                            <li><strong>Safari (Mac/iOS):</strong> Safari → Settings for This Website → Microphone → Allow.</li>
+                            <li><strong>Android Chrome:</strong> site permissions → Microphone → Allow.</li>
+                            <li>OS privacy: Windows Settings → Privacy → Microphone; macOS System Settings → Privacy &amp; Security → Microphone.</li>
+                        </ul>
+                    </details>
+                    <details class="group border border-gray-200 rounded-xl p-4">
+                        <summary class="cursor-pointer font-semibold text-gray-900 list-none flex items-center justify-between">Input too low or distorted <span class="text-gray-400 group-open:rotate-180 transition">▼</span></summary>
+                        <ul class="mt-3 text-sm text-gray-600 space-y-2 list-disc pl-5">
+                            <li>Move closer (about a hand’s width for headset mics; 15–30 cm for desk mics).</li>
+                            <li>Raise system input gain carefully—too high causes clipping/distortion.</li>
+                            <li>Disable conflicting “enhancements” or exclusive-mode apps if the level jumps wildly.</li>
+                            <li>Playback sounds fine but meetings don’t? Check the meeting app’s own mic picker separately.</li>
+                        </ul>
+                    </details>
+                </div>
+            </section>
+
+            <!-- How to -->
+            <section class="bg-white rounded-3xl p-8 sm:p-12 border border-gray-200 mb-10">
+                <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">How to Test Your Microphone Online</h2>
+                <div class="grid md:grid-cols-2 gap-10 text-gray-600">
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">1. Start and allow access</h3>
+                        <p class="mb-4">Press <strong>Start Microphone Test</strong> and approve the browser prompt. This online microphone test never asks for the mic until you click.</p>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">2. Watch the level and waveform</h3>
+                        <p class="mb-4">Speak normally. If the bar moves and you see “Microphone is receiving sound,” your selected input is working for the browser—a quick mic check before you join a call.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">3. Switch devices if needed</h3>
+                        <p class="mb-4">Use the input list to compare laptop, USB, and headset mics. Stop other apps if a device is busy. For placement tips, see <a href="/blog/how-to-measure-decibels-accurately.html" class="text-blue-600 font-semibold hover:underline">how to measure more accurately</a> and <a href="/blog/smartphone-decibel-accuracy.html" class="text-blue-600 font-semibold hover:underline">smartphone mic limits</a>.</p>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">4. Optional deeper checks</h3>
+                        <p class="mb-4">After the meter shows your mic is receiving sound, use <strong>Check Voice Quality</strong> for a short quiet + speaking check with suggested fixes. You can also record up to 15 seconds and play it back. Then test speakers with our <a href="/speaker-test-tones/" class="text-blue-600 font-semibold hover:underline">Speaker Test</a> or measure room noise with the <a href="/" class="text-blue-600 font-semibold hover:underline">Sound Meter</a>.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FAQ -->
+            <section class="bg-white rounded-3xl p-8 sm:p-12 border border-gray-200 mb-10">
+                <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Frequently Asked Questions</h2>
+                <div class="space-y-8 max-w-3xl mx-auto">
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Is this mic test free?</h3>
+                        <p class="text-gray-600 leading-relaxed">Yes. This free mic test runs in your browser with no install or account. Allow microphone access when prompted.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Do you upload my voice?</h3>
+                        <p class="text-gray-600 leading-relaxed">No. Live levels and any recording stay in your browser memory for this session. Stopping or leaving the page releases the mic and recording data.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Why does the level show a percent, not dB?</h3>
+                        <p class="text-gray-600 leading-relaxed">This online microphone test checks whether the mic receives sound. The bar is a relative digital input meter, not a calibrated SPL reading. Use our <a href="/" class="text-blue-600 hover:underline font-semibold">online sound meter</a> for environmental noise estimates.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Will this prove Zoom or Teams can hear me?</h3>
+                        <p class="text-gray-600 leading-relaxed">If this page detects your voice, the browser path works. Meeting apps still need the same device selected inside their own settings. Use this as a quick “test my mic” check before you join.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Can I test speakers here too?</h3>
+                        <p class="text-gray-600 leading-relaxed">Use the <a href="/speaker-test-tones/" class="text-blue-600 hover:underline font-semibold">Speaker Test</a> for left/right channels and tones, or the <a href="/tone-generator/" class="text-blue-600 hover:underline font-semibold">Tone Generator</a> for custom frequencies.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">What does Check Voice Quality do?</h3>
+                        <p class="text-gray-600 leading-relaxed">It is an optional ~10–15 second guided check: 3 seconds quiet, then about 5 seconds of normal speaking. You get plain-language results about speaking level, background input, and possible clipping—plus suggested fixes you can verify with Test Again. It measures browser digital input (not room dB SPL) and is not a lab or medical certificate.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Related tools -->
+            <section class="bg-gradient-to-r from-blue-50 via-indigo-50 to-blue-50 rounded-2xl border border-blue-100 p-6 sm:p-8">
+                <h2 class="text-xl font-bold text-gray-900 mb-2">Related Tools</h2>
+                <p class="text-xs sm:text-sm text-gray-600 mb-6">Pair this mic check with output and noise tools:</p>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <a href="/speaker-test-tones/" class="bg-white p-4 rounded-xl border border-gray-200 hover:border-blue-500 hover:shadow-md transition group">
+                        <h3 class="font-bold text-sm text-gray-900 group-hover:text-blue-600 mb-1">Speaker Test Online &rarr;</h3>
+                        <p class="text-xs text-gray-500">Check left/right channels, polarity, and frequency sweep.</p>
+                    </a>
+                    <a href="/tone-generator/" class="bg-white p-4 rounded-xl border border-gray-200 hover:border-blue-500 hover:shadow-md transition group">
+                        <h3 class="font-bold text-sm text-gray-900 group-hover:text-blue-600 mb-1">Online Tone Generator &rarr;</h3>
+                        <p class="text-xs text-gray-500">Play precise test tones at any frequency in the browser.</p>
+                    </a>
+                    <a href="/" class="bg-white p-4 rounded-xl border border-gray-200 hover:border-blue-500 hover:shadow-md transition group">
+                        <h3 class="font-bold text-sm text-gray-900 group-hover:text-blue-600 mb-1">Sound Meter &rarr;</h3>
+                        <p class="text-xs text-gray-500">Estimate environmental noise levels with your microphone.</p>
+                    </a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="bg-gray-900 text-white mt-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="text-center mb-6">
+                <p class="text-base font-semibold">Sound Meter - Environmental Noise Detection</p>
+                <p class="text-sm text-gray-400 mt-1">Protect your hearing by monitoring noise levels in your environment.</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-sm">
+                <div>
+                    <p class="text-xs font-bold tracking-wide text-gray-400 uppercase mb-2">Tools</p>
+                    <div class="flex flex-col items-start space-y-1">
+                        <a href="/" class="hover:text-blue-400 transition">Sound Meter</a>
+                        <a href="/online-hearing-test/" class="hover:text-blue-400 transition">Hearing Test</a>
+                        <a href="/hearing-age-test/" class="hover:text-blue-400 transition">Hearing Age Test</a>
+                        <a href="/tone-generator/" class="hover:text-blue-400 transition">Tone Generator</a>
+                        <a href="/microphone-test/" class="hover:text-blue-400 transition">Microphone Test</a>
+                        <a href="/speaker-test-tones/" class="hover:text-blue-400 transition">Speaker Test</a>
+                        <a href="/blog/" class="hover:text-blue-400 transition">Blog</a>
+                    </div>
+                </div>
+                <div>
+                    <p class="text-xs font-bold tracking-wide text-gray-400 uppercase mb-2">Trust &amp; Quality</p>
+                    <div class="flex flex-col items-start space-y-1">
+                        <a href="/about.html" class="hover:text-blue-400 transition">About</a>
+                        <a href="/editorial-policy.html" class="hover:text-blue-400 transition">Editorial Policy</a>
+                        <a href="/methodology.html" class="hover:text-blue-400 transition">Methodology</a>
+                        <a href="/accuracy.html" class="hover:text-blue-400 transition">Accuracy &amp; Calibration</a>
+                        <a href="/validation.html" class="hover:text-blue-400 transition">Validation Protocol</a>
+                        <a href="/changelog.html" class="hover:text-blue-400 transition">Changelog</a>
+                    </div>
+                </div>
+                <div>
+                    <p class="text-xs font-bold tracking-wide text-gray-400 uppercase mb-2">Legal &amp; Contact</p>
+                    <div class="flex flex-col items-start space-y-1">
+                        <a href="/terms.html" class="hover:text-blue-400 transition">Terms of Use</a>
+                        <a href="/privacy.html" class="hover:text-blue-400 transition">Privacy Policy</a>
+                        <a href="/disclaimer.html" class="hover:text-blue-400 transition">Disclaimer</a>
+                        <a href="/contact.html" class="hover:text-blue-400 transition">Contact</a>
+                    </div>
+                </div>
+            </div>
+            <p class="text-center text-xs text-gray-500 mt-6">© 2026 RealtimeSoundMeter.org. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Mic Test Online",
+      "alternateName": ["Microphone Test", "Mic Test", "Online Microphone Test"],
+      "url": "https://realtimesoundmeter.org/microphone-test/",
+      "image": "https://realtimesoundmeter.org/microphone-test/og-microphone-test.jpg",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Any",
+      "browserRequirements": "Requires a modern browser with microphone permission",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "description": "Free mic test online to check live microphone levels, record a short local sample, and troubleshoot common mic issues before video calls.",
+      "featureList": [
+        "Live microphone level meter and waveform",
+        "Device picker for laptop, USB, and headset mics",
+        "Optional local recording and playback",
+        "Optional Voice Quality Check with suggested fixes"
+      ],
+      "isAccessibleForFree": true,
+      "publisher": {
+        "@type": "Organization",
+        "name": "RealtimeSoundMeter.org",
+        "url": "https://realtimesoundmeter.org/"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://realtimesoundmeter.org/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Audio Tools",
+          "item": "https://realtimesoundmeter.org/tone-generator/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Mic Test",
+          "item": "https://realtimesoundmeter.org/microphone-test/"
+        }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is this mic test free?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. This free mic test runs in your browser with no install or account. Allow microphone access when prompted." }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you upload my voice?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. Live levels and any recording stay in your browser memory for this session. Stopping or leaving the page releases the mic and recording data." }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does the level show a percent, not dB?",
+          "acceptedAnswer": { "@type": "Answer", "text": "This online microphone test checks whether the mic receives sound. The bar is a relative digital input meter, not a calibrated SPL reading. Use the online sound meter for environmental noise estimates." }
+        },
+        {
+          "@type": "Question",
+          "name": "Will this prove Zoom or Teams can hear me?",
+          "acceptedAnswer": { "@type": "Answer", "text": "If this page detects your voice, the browser path works. Meeting apps still need the same device selected inside their own settings. Use this as a quick test-my-mic check before you join." }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I test speakers here too?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Use the Speaker Test for left/right channels and tones, or the Tone Generator for custom frequencies." }
+        },
+        {
+          "@type": "Question",
+          "name": "What does Check Voice Quality do?",
+          "acceptedAnswer": { "@type": "Answer", "text": "It is an optional ~10–15 second guided check: 3 seconds quiet, then about 5 seconds of normal speaking. You get plain-language results about speaking level, background input, and possible clipping—plus suggested fixes. It measures browser digital input (not room dB SPL) and is not a lab or medical certificate." }
+        }
+      ]
+    }
+    </script>
+
+    <script>
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const hearingWrap = document.getElementById('nav-hearing-wrap');
+        const hearingBtn = document.getElementById('nav-hearing-btn');
+        const hearingPanel = document.getElementById('nav-hearing-panel');
+        const navAudioWrap = document.getElementById('nav-audio-wrap');
+        const navAudioBtn = document.getElementById('nav-audio-btn');
+        const navAudioPanel = document.getElementById('nav-audio-panel');
+        const setExpanded = (el, open) => { if (el) el.setAttribute('aria-expanded', open ? 'true' : 'false'); };
+        if (hearingWrap && hearingBtn) {
+            hearingWrap.addEventListener('mouseenter', () => setExpanded(hearingBtn, true));
+            hearingWrap.addEventListener('mouseleave', () => setExpanded(hearingBtn, false));
+            hearingWrap.addEventListener('focusin', () => setExpanded(hearingBtn, true));
+            hearingWrap.addEventListener('focusout', (e) => { if (!hearingWrap.contains(e.relatedTarget)) setExpanded(hearingBtn, false); });
+        }
+        if (navAudioWrap && navAudioBtn) {
+            navAudioWrap.addEventListener('mouseenter', () => setExpanded(navAudioBtn, true));
+            navAudioWrap.addEventListener('mouseleave', () => setExpanded(navAudioBtn, false));
+            navAudioWrap.addEventListener('focusin', () => setExpanded(navAudioBtn, true));
+            navAudioWrap.addEventListener('focusout', (e) => { if (!navAudioWrap.contains(e.relatedTarget)) setExpanded(navAudioBtn, false); });
+        }
+        if (btn && menu) {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                menu.classList.toggle('hidden');
+                setExpanded(btn, !menu.classList.contains('hidden'));
+            });
+            document.addEventListener('click', (e) => {
+                if (!btn.contains(e.target) && !menu.contains(e.target)) {
+                    menu.classList.add('hidden');
+                    setExpanded(btn, false);
+                }
+            });
+        }
+    </script>
+    <script src="../js/mic-diagnostic-copy.js" defer></script>
+    <script src="../js/mic-voice-analysis.js" defer></script>
+    <script src="../js/mic-voice-rules.js" defer></script>
+    <script src="../js/microphone-test.js" defer></script>
+</body>
+</html>
