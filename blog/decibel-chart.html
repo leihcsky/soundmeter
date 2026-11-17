@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="https://schema.org/Article">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decibel Chart: Everyday Sound Levels &amp; What Your Meter Shows</title>
+    <meta name="title" content="Decibel Chart: Everyday Sound Levels &amp; What Your Meter Shows">
+    <meta name="description" content="Decibel chart of everyday sounds with typical ranges and distance. Use it to interpret your sound meter reading—from conversation to traffic, tools, and concerts.">
+    <meta name="author" content="RealtimeSoundMeter.org">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://realtimesoundmeter.org/blog/decibel-chart">
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://realtimesoundmeter.org/blog/decibel-chart">
+    <meta property="og:title" content="Decibel Chart: Everyday Sound Levels &amp; What Your Meter Shows">
+    <meta property="og:description" content="Everyday sound levels with ranges and distance—so you can make sense of what your sound meter shows.">
+    <meta property="og:image" content="https://realtimesoundmeter.org/blog/images/decibel-chart.svg">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <script defer src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3293976111230987"
+     crossorigin="anonymous"></script>
+    <meta name="twitter:url" content="https://realtimesoundmeter.org/blog/decibel-chart">
+    <meta name="twitter:title" content="Decibel Chart: Everyday Sound Levels &amp; What Your Meter Shows">
+    <meta name="twitter:description" content="Compare your sound meter reading to everyday levels—conversation, traffic, tools, concerts.">
+    <meta name="twitter:image" content="https://realtimesoundmeter.org/blog/images/decibel-chart.svg">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Decibel Chart: Everyday Sound Levels & What Your Meter Shows",
+      "datePublished": "2026-11-17",
+      "dateModified": "2026-11-17",
+      "author": {
+        "@type": "Organization",
+        "name": "RealtimeSoundMeter.org"
+      },
+      "image": "https://realtimesoundmeter.org/blog/images/decibel-chart.svg",
+      "publisher": {
+        "@type": "Organization",
+        "name": "RealtimeSoundMeter.org",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://realtimesoundmeter.org/logo.svg"
+        }
+      }
+    }
+    </script>
+
+    <link href="/css/style.css" rel="stylesheet">
+    <style>
+        #nav-hearing-panel, #nav-audio-panel { min-width: 17rem; opacity: 0; visibility: hidden; pointer-events: none; transition: opacity 0.14s ease, visibility 0.14s ease; }
+        #nav-hearing-wrap:focus-within #nav-hearing-panel, #nav-audio-wrap:focus-within #nav-audio-panel { opacity: 1; visibility: visible; pointer-events: auto; }
+        #nav-hearing-wrap:focus-within #nav-hearing-btn, #nav-audio-wrap:focus-within #nav-audio-btn { color: #2563eb; background-color: #eff6ff; }
+        #nav-hearing-wrap:focus-within #nav-hearing-chevron, #nav-audio-wrap:focus-within #nav-audio-chevron { transform: rotate(180deg); }
+        @media (hover: hover) {
+            #nav-hearing-wrap:hover #nav-hearing-panel, #nav-audio-wrap:hover #nav-audio-panel { opacity: 1; visibility: visible; pointer-events: auto; }
+            #nav-hearing-wrap:hover #nav-hearing-btn, #nav-audio-wrap:hover #nav-audio-btn { color: #2563eb; background-color: #eff6ff; }
+            #nav-hearing-wrap:hover #nav-hearing-chevron, #nav-audio-wrap:hover #nav-audio-chevron { transform: rotate(180deg); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <header class="bg-white shadow-md border-b border-gray-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="/" class="flex items-center gap-2">
+                    <img src="../logo.svg" alt="Sound Meter" class="h-10 w-auto sm:h-12">
+                    <span class="sr-only">RealtimeSoundMeter.org</span>
+                </a>
+                <nav aria-label="Primary" class="hidden md:flex items-center space-x-8">
+                    <a href="/" class="text-gray-500 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors inline-flex items-center gap-2 whitespace-nowrap">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                        Home
+                    </a>
+                    <div class="relative" id="nav-hearing-wrap">
+                        <button type="button" id="nav-hearing-btn" class="text-gray-500 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors inline-flex items-center gap-1 whitespace-nowrap" aria-expanded="false" aria-haspopup="true" aria-controls="nav-hearing-panel">
+                            <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 002 2h2a2 2 0 002-2z"></path></svg>
+                            Hearing
+                            <svg id="nav-hearing-chevron" class="w-4 h-4 shrink-0 text-gray-400 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div id="nav-hearing-panel" class="absolute left-0 top-full z-50 pt-1" role="menu" aria-labelledby="nav-hearing-btn">
+                            <div class="rounded-lg border border-gray-200 bg-white py-1 shadow-lg ring-1 ring-black/5">
+                                <a href="/online-hearing-test/" role="menuitem" class="block whitespace-nowrap px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600">Online hearing test</a>
+                                <a href="/hearing-age-test/" role="menuitem" class="block whitespace-nowrap px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600">Hearing age test</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative" id="nav-audio-wrap">
+                        <button type="button" id="nav-audio-btn" class="text-gray-500 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors inline-flex items-center gap-1 whitespace-nowrap" aria-expanded="false" aria-haspopup="true" aria-controls="nav-audio-panel">
+                            <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"/></svg>
+                            Audio Tools
+                            <svg id="nav-audio-chevron" class="w-4 h-4 shrink-0 text-gray-400 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div id="nav-audio-panel" class="absolute left-0 top-full z-50 pt-1" role="menu" aria-labelledby="nav-audio-btn">
+                            <div class="rounded-lg border border-gray-200 bg-white py-1 shadow-lg ring-1 ring-black/5">
+                                <a href="/tone-generator/" role="menuitem" class="block whitespace-nowrap px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-blue-600">Online Tone Generator</a>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="/speaker-test-tones/" class="text-gray-500 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors inline-flex items-center gap-2 whitespace-nowrap">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path></svg>
+                        Speaker Test
+                    </a>
+                    <a href="/blog/" class="text-blue-600 bg-blue-50 px-3 py-2 rounded-md text-sm font-medium inline-flex items-center gap-2" aria-current="page">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path></svg>
+                        Blog
+                    </a>
+                </nav>
+
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-500 hover:text-gray-900 focus:outline-none p-2">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg z-50">
+        <div class="px-2 pt-2 pb-3 space-y-1">
+            <a href="/" class="flex items-center gap-2 px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Home</a>
+            <details class="group mobile-nav-hearing">
+                <summary class="flex cursor-pointer list-none items-center gap-2 px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 marker:content-none">Hearing</summary>
+                <div class="mt-1 space-y-0 border-l-2 border-gray-100 ml-4 pl-3 py-1">
+                    <a href="/online-hearing-test/" class="block py-2 text-sm font-medium text-gray-600 hover:text-blue-600">Online hearing test</a>
+                    <a href="/hearing-age-test/" class="block py-2 text-sm font-medium text-gray-600 hover:text-blue-600">Hearing age test</a>
+                </div>
+            </details>
+            <details class="group mobile-nav-audio" id="mobile-nav-audio-wrap">
+                <summary class="flex cursor-pointer list-none items-center gap-2 px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-50 marker:content-none">Audio Tools</summary>
+                <div class="mt-1 space-y-0 border-l-2 border-gray-100 ml-4 pl-3 py-1">
+                    <a href="/tone-generator/" class="block py-2 text-sm font-medium text-gray-600 hover:text-blue-600">Online Tone Generator</a>
+                </div>
+            </details>
+            <a href="/speaker-test-tones/" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Speaker Test</a>
+            <a href="/blog/" class="block px-3 py-2 rounded-md text-base font-medium text-blue-600 bg-blue-50">Blog</a>
+        </div>
+    </div>
+
+    <script>
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const hearingWrap = document.getElementById('nav-hearing-wrap');
+        const hearingBtn = document.getElementById('nav-hearing-btn');
+        const hearingPanel = document.getElementById('nav-hearing-panel');
+        const navAudioWrap = document.getElementById('nav-audio-wrap');
+        const navAudioBtn = document.getElementById('nav-audio-btn');
+        const navAudioPanel = document.getElementById('nav-audio-panel');
+
+        const setExpanded = (buttonEl, expanded) => { if (!buttonEl) return; buttonEl.setAttribute('aria-expanded', expanded ? 'true' : 'false'); };
+        const closeMenu = () => { if (!btn || !menu) return; menu.classList.add('hidden'); setExpanded(btn, false); };
+        const setHearingExpanded = (open) => { if (!hearingBtn) return; hearingBtn.setAttribute('aria-expanded', open ? 'true' : 'false'); };
+        const setAudioExpanded = (open) => { if (!navAudioBtn) return; navAudioBtn.setAttribute('aria-expanded', open ? 'true' : 'false'); };
+
+        if (hearingWrap && hearingBtn && hearingPanel) { hearingWrap.addEventListener('mouseenter', () => setHearingExpanded(true)); hearingWrap.addEventListener('mouseleave', () => setHearingExpanded(false)); hearingWrap.addEventListener('focusin', () => setHearingExpanded(true)); hearingWrap.addEventListener('focusout', (e) => { if (!hearingWrap.contains(e.relatedTarget)) setHearingExpanded(false); }); }
+        if (navAudioWrap && navAudioBtn && navAudioPanel) { navAudioWrap.addEventListener('mouseenter', () => setAudioExpanded(true)); navAudioWrap.addEventListener('mouseleave', () => setAudioExpanded(false)); navAudioWrap.addEventListener('focusin', () => setAudioExpanded(true)); navAudioWrap.addEventListener('focusout', (e) => { if (!navAudioWrap.contains(e.relatedTarget)) setAudioExpanded(false); }); }
+        if (btn && menu) { btn.addEventListener('click', (e) => { e.stopPropagation(); menu.classList.toggle('hidden'); setExpanded(btn, !menu.classList.contains('hidden')); }); document.addEventListener('click', (e) => { if (!btn.contains(e.target) && !menu.contains(e.target)) closeMenu(); }); }
+    </script>
+
+    <main class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <nav class="flex text-sm text-gray-500 mb-6" aria-label="Breadcrumb">
+            <ol class="inline-flex items-center space-x-1 md:space-x-3">
+                <li class="inline-flex items-center">
+                    <a href="/" class="inline-flex items-center hover:text-blue-600 transition-colors">
+                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg>
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <div class="flex items-center">
+                        <svg class="w-5 h-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+                        <a href="/blog/" class="ml-1 md:ml-2 hover:text-blue-600 transition-colors">Blog</a>
+                    </div>
+                </li>
+                <li aria-current="page">
+                    <div class="flex items-center">
+                        <svg class="w-5 h-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+                        <span class="ml-1 md:ml-2 text-gray-400 truncate max-w-[150px] sm:max-w-xs">Decibel Chart</span>
+                    </div>
+                </li>
+            </ol>
+        </nav>
+
+        <article>
+            <div class="mb-6">
+                <img src="images/decibel-chart.svg" alt="Decibel chart visual: sound level ranges with distance and weighting cues" class="w-full h-64 md:h-96 object-cover rounded-2xl shadow-sm border border-gray-100">
+            </div>
+            <h1 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4">Decibel Chart: What Your Sound Meter Reading Means</h1>
+            <p class="text-sm text-gray-500 mb-6">Updated Nov 17, 2026 • 9 min read</p>
+
+            <div class="prose prose-blue max-w-none text-gray-700">
+                <p class="mb-6 leading-relaxed">
+                    Just measured <strong>65 dB</strong> or <strong>85 dB</strong> on a sound meter and wondering what that means in real life? Use this <strong>decibel chart</strong> to place your reading next to everyday sounds—conversation, traffic, tools, concerts—and decide whether the level is “normal for the situation,” something to limit, or something to step away from.
+                </p>
+
+                <div class="bg-blue-50 border border-blue-100 rounded-2xl p-5 sm:p-6 my-8 not-prose">
+                    <h2 class="text-lg font-bold text-gray-900 mb-3">Quick answer: what does my reading mean?</h2>
+                    <ul class="text-sm text-gray-700 space-y-2 list-disc list-inside">
+                        <li><strong>Under ~70 dBA:</strong> usually fine for long periods (quiet room → conversation → busy kitchen).</li>
+                        <li><strong>~70–85 dBA:</strong> noticeable; fine for a while, watch long continuous exposure.</li>
+                        <li><strong>~85 dBA and up:</strong> treat as “watch the clock” or use hearing protection.</li>
+                        <li><strong>100+ dBA:</strong> minutes matter—lower volume, move back, or leave.</li>
+                    </ul>
+                    <p class="text-xs text-gray-500 mt-4">For exposure-time details, see <a href="safe-decibel-levels.html" class="text-blue-700 font-semibold hover:underline">safe decibel levels</a>. Open the <a href="/" class="text-blue-700 font-semibold hover:underline">sound meter</a> to check your space.</p>
+                </div>
+
+                <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">Decibel chart of everyday sounds</h2>
+                <p class="mb-4 leading-relaxed">
+                    Compare your meter’s level to the ranges below. Numbers are typical <strong>A-weighted (dBA)</strong> bands from public health and education sources—not a promise that your phone will hit the exact same value.
+                </p>
+
+                <div class="overflow-x-auto my-6 not-prose">
+                    <table class="min-w-full text-sm border border-gray-200 rounded-xl overflow-hidden">
+                        <thead class="bg-gray-100 text-left">
+                            <tr>
+                                <th class="px-3 py-3 font-semibold text-gray-900">Sound</th>
+                                <th class="px-3 py-3 font-semibold text-gray-900">Typical range</th>
+                                <th class="px-3 py-3 font-semibold text-gray-900">Common distance</th>
+                                <th class="px-3 py-3 font-semibold text-gray-900">Easy to misread</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-100 text-gray-700">
+                            <tr>
+                                <td class="px-3 py-3">Threshold of hearing</td>
+                                <td class="px-3 py-3 font-semibold">~0 dBA</td>
+                                <td class="px-3 py-3">—</td>
+                                <td class="px-3 py-3 text-sm">Not a usable “target” for meters in a real room</td>
+                            </tr>
+                            <tr>
+                                <td class="px-3 py-3">Whisper / quiet library</td>
+                                <td class="px-3 py-3 font-semibold">25–40 dBA</td>
+                                <td class="px-3 py-3">Near listener</td>
+                                <td class="px-3 py-3 text-sm">HVAC alone can push a “quiet” room higher</td>
+                            </tr>
+                            <tr>
+                                <td class="px-3 py-3">Refrigerator hum</td>
+                                <td class="px-3 py-3 font-semibold">40–55 dBA</td>
+                                <td class="px-3 py-3">~1 m</td>
+                                <td class="px-3 py-3 text-sm">Closer to the compressor reads much louder</td>
+                            </tr>
+                            <tr>
+                                <td class="px-3 py-3">Normal conversation</td>
+                                <td class="px-3 py-3 font-semibold">60–70 dBA</td>
+                                <td class="px-3 py-3">~1 m / arm’s length</td>
+                                <td class="px-3 py-3 text-sm">Raised voice or noisy café pushes 75–80</td>
+                            </tr>
+                            <tr>
+                                <td class="px-3 py-3">Vacuum / dishwasher</td>
+                                <td class="px-3 py-3 font-semibold">65–80 dBA</td>
+                                <td class="px-3 py-3">~1–3 m</td>
+                                <td class="px-3 py-3 text-sm">Charts often list one number; real range is wide</td>
+                            </tr>
+                            <tr>
+                                <td class="px-3 py-3">City traffic / busy street</td>
+                                <td class="px-3 py-3 font-semibold">70–85 dBA</td>
+                                <td class="px-3 py-3">Curb / sidewalk</td>
+                                <td class="px-3 py-3 text-sm">Inside a car ≠ outside on the sidewalk</td>
+                            </tr>
+                            <tr>
+                                <td class="px-3 py-3">Lawn mower / power tools</td>
+                                <td class="px-3 py-3 font-semibold">80–100 dBA</td>
+                                <td class="px-3 py-3">Operator / ~1–3 ft</td>
+                                <td class="px-3 py-3 text-sm">Operator position is much louder than a neighbor’s yard</td>
+                            </tr>
+                            <tr>
+                                <td class="px-3 py-3">Motorcycle / subway / loud gym</td>
+                                <td class="px-3 py-3 font-semibold">90–110 dBA</td>
+                                <td class="px-3 py-3">Near source / platform</td>
+                                <td class="px-3 py-3 text-sm">Pass-by peaks look “high” even if average is lower</td>
+                            </tr>
+                            <tr>
+                                <td class="px-3 py-3">Concert / club / max headphones</td>
+                                <td class="px-3 py-3 font-semibold">95–115 dBA</td>
+                                <td class="px-3 py-3">Audience / ear canal</td>
+                                <td class="px-3 py-3 text-sm">Near speakers ≫ back of venue</td>
+                            </tr>
+                            <tr>
+                                <td class="px-3 py-3">Siren (nearby)</td>
+                                <td class="px-3 py-3 font-semibold">110–130 dBA</td>
+                                <td class="px-3 py-3">Close / roadside</td>
+                                <td class="px-3 py-3 text-sm">Short burst; distance collapses the number fast</td>
+                            </tr>
+                            <tr>
+                                <td class="px-3 py-3">Fireworks / gunshot (close)</td>
+                                <td class="px-3 py-3 font-semibold">140–160+ dB</td>
+                                <td class="px-3 py-3">Very close</td>
+                                <td class="px-3 py-3 text-sm">Usually <strong>peak / impulse</strong>, not a steady LAeq</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="mb-6 text-xs text-gray-500">
+                    Not medical or regulatory advice. Browser and phone meters are screening tools—see our <a href="methodology.html" class="text-blue-600 hover:underline">methodology</a> and <a href="accuracy.html" class="text-blue-600 hover:underline">accuracy notes</a>.
+                </p>
+
+                <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">How to read your sound meter with this chart</h2>
+                <ol class="list-decimal ml-6 mb-6 space-y-2">
+                    <li>Open the <a href="/" class="text-blue-600 hover:underline font-semibold">Online Sound Meter</a> and allow the microphone.</li>
+                    <li>Stand where you actually hear the sound (your desk, the crib, the sidewalk)—not pressed against the speaker or tucked in a pocket.</li>
+                    <li>Watch the level for <strong>20–30 seconds</strong>. Use the stable band you see most of the time, not a one-second spike (unless you are checking a slam, siren, or firework).</li>
+                    <li>Find that band on the chart. Ask: is this roughly what I’d expect for conversation / traffic / a tool—or is it surprisingly high for this place?</li>
+                    <li>If you land near <strong>85 dBA or higher</strong>, shorten the time, turn volume down, step back, or use protection—then check <a href="safe-decibel-levels.html" class="text-blue-600 hover:underline font-semibold">how long is safe</a>.</li>
+                </ol>
+
+                <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">Why your reading may not match the chart exactly</h2>
+                <p class="mb-4 leading-relaxed">
+                    A 5–15 dB difference from a table is common. It usually means the situation changed—not that your meter is “broken.”
+                </p>
+                <ul class="list-disc ml-6 mb-6 space-y-2">
+                    <li><strong>Distance:</strong> Charts often assume ~1 m or “arm’s length.” Closer to a vacuum or speaker reads much louder; farther away reads quieter.</li>
+                    <li><strong>Peak vs steady level:</strong> A door slam or bass hit can flash high while the room average stays lower. Use the steady reading for “how loud is this place.”</li>
+                    <li><strong>Room and phone:</strong> Hard kitchens bounce sound; cases and pockets block the mic. Hold the phone in open air.</li>
+                    <li><strong>dBA vs plain “dB”:</strong> Everyday charts and our meter are oriented around A-weighting. Mixing unlabeled “dB” apps with a dBA chart creates fake mismatch. More: <a href="dba-vs-dbc.html" class="text-blue-600 hover:underline font-semibold">dBA vs dBC</a>.</li>
+                </ul>
+                <div class="bg-amber-50 border border-amber-100 rounded-xl p-4 my-6 not-prose text-sm text-amber-950">
+                    <strong>Example:</strong> The chart says a vacuum is about 65–80 dBA at 1–3 m. If you measure 88 dBA with the phone near the motor, move back to a normal standing distance and recheck—you’ll often drop into the chart’s band.
+                </div>
+                <p class="mb-6 leading-relaxed text-sm text-gray-600">
+                    Better placement habits: <a href="how-to-measure-decibels-accurately.html" class="text-blue-600 hover:underline font-semibold">How to measure decibels more accurately</a>. Phone limits: <a href="smartphone-decibel-accuracy.html" class="text-blue-600 hover:underline font-semibold">Are smartphone meters accurate?</a>
+                </p>
+
+                <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">Distance tip (so the chart makes sense)</h2>
+                <p class="mb-4 leading-relaxed">
+                    When a chart lists a level “at about 1 m” and you stand farther away, expect a lower number.
+                </p>
+                <ul class="list-disc ml-6 mb-6 space-y-2">
+                    <li>Many small sources (appliance, speaker): roughly <strong>−6 dB when you double the distance</strong> outdoors.</li>
+                    <li>Steady road traffic: closer to <strong>−3 dB per doubling</strong>.</li>
+                    <li><strong>Practical takeaway:</strong> if a tool feels “chart-loud” only when you stand next to it, step back one more body length and measure again before deciding it is “always that loud.”</li>
+                </ul>
+
+                <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">What the number feels like</h2>
+                <ul class="list-disc ml-6 mb-6 space-y-2">
+                    <li>About <strong>+3 dB</strong> on the meter is often just noticeable.</li>
+                    <li>About <strong>+10 dB</strong> often feels roughly “twice as loud.”</li>
+                    <li>Hearing risk still tracks time as well as level—see the <a href="three-db-rule-explained.html" class="text-blue-600 hover:underline font-semibold">3 dB rule</a> and <a href="safe-decibel-levels.html" class="text-blue-600 hover:underline font-semibold">safe levels</a>.</li>
+                </ul>
+
+                <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">Next steps after you know the level</h2>
+                <ul class="list-disc ml-6 mb-8 space-y-2">
+                    <li>Need exposure time at 85 / 95 / 100 dBA? <a href="safe-decibel-levels.html" class="text-blue-600 hover:underline font-semibold">Safe Decibel Levels</a></li>
+                    <li>Headphones or earbuds: <a href="headphone-safety.html" class="text-blue-600 hover:underline font-semibold">How loud is too loud?</a></li>
+                    <li>Baby white-noise machine: measure at the crib—<a href="white-noise-machine-baby-safe-volume.html" class="text-blue-600 hover:underline font-semibold">safe volume guide</a></li>
+                    <li>Gym / spin class: <a href="gym-spin-class-noise-levels.html" class="text-blue-600 hover:underline font-semibold">typical levels &amp; hearing tips</a></li>
+                </ul>
+
+                <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4">FAQ</h2>
+                <h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">What is a decibel chart?</h3>
+                <p class="mb-6 leading-relaxed">
+                    A simple map of everyday sounds to approximate loudness (usually in dBA). Use it to interpret a sound meter reading—not as a lab certificate for your room.
+                </p>
+
+                <h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">Is 70 dB loud?</h3>
+                <p class="mb-6 leading-relaxed">
+                    Around 70 dBA is often like busy traffic or a vacuum a few steps away—clearly audible, usually okay for longer stretches if it is not much louder all day. Check <a href="safe-decibel-levels.html" class="text-blue-600 hover:underline">safe levels</a> if the sound runs for hours.
+                </p>
+
+                <h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">Is 85 dB dangerous?</h3>
+                <p class="mb-6 leading-relaxed">
+                    85 dBA is the usual “start watching how long you stay” zone (about an 8-hour occupational reference). Risk depends on both the level and how long you are exposed.
+                </p>
+
+                <h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">Why doesn’t my phone match the chart?</h3>
+                <p class="mb-6 leading-relaxed">
+                    Match distance first, use a steady reading (not one spike), keep the mic clear, and compare to a <strong>range</strong>—not a single printed number. Gaps of several dB are normal.
+                </p>
+
+                <h3 class="text-xl font-bold text-gray-800 mt-6 mb-3">Are fireworks really 140 dB?</h3>
+                <p class="mb-6 leading-relaxed">
+                    Close-up impulse peaks can reach that ballpark. Farther away—or looking at a longer average—the number drops a lot. Treat those chart lines as “very close, very short peaks,” not what you hear from across the park.
+                </p>
+
+                <div class="bg-gray-50 border border-gray-200 rounded-xl p-4 text-sm text-gray-600 not-prose">
+                    <strong class="text-gray-900">Sources (public references):</strong>
+                    <a href="https://www.nidcd.nih.gov/health/how-loud-too-loud" target="_blank" rel="noopener" class="text-blue-600 hover:underline">NIDCD</a>,
+                    <a href="https://www.cdc.gov/nceh/hearing_loss/infographic/" target="_blank" rel="noopener" class="text-blue-600 hover:underline">CDC Listen Up</a>,
+                    <a href="https://www.cdc.gov/niosh/noise/about/noise.html" target="_blank" rel="noopener" class="text-blue-600 hover:underline">NIOSH/CDC Noise</a>,
+                    <a href="https://www.ncbi.nlm.nih.gov/books/NBK20366/table/A542/?report=objectonly" target="_blank" rel="noopener" class="text-blue-600 hover:underline">NIH everyday sounds table</a>,
+                    Yale / university EHS comparison charts.
+                </div>
+            </div>
+
+            <div class="my-8 text-center border-t border-gray-200 pt-8">
+                <a href="/" class="inline-block px-6 py-3 rounded-lg bg-blue-600 text-white text-sm font-semibold hover:bg-blue-700 transition shadow-sm mb-6">Measure Your Level Now</a>
+
+                <div class="flex justify-center">
+                    <a href="/blog/" class="inline-flex items-center text-gray-600 hover:text-blue-600 font-medium transition-colors">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                        Back to All Articles
+                    </a>
+                </div>
+            </div>
+        </article>
+
+        <section class="mt-12 pt-12 border-t border-gray-200">
+            <h3 class="text-2xl font-bold text-gray-900 mb-6">Related Articles</h3>
+            <div class="grid md:grid-cols-3 gap-6">
+                <a href="safe-decibel-levels.html" class="group bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden border border-gray-100 flex flex-col">
+                    <div class="h-48 overflow-hidden">
+                        <img src="images/safe-decibel-levels.svg" alt="Safe Decibel Levels" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col">
+                        <h4 class="font-bold text-gray-900 group-hover:text-blue-600 transition-colors mb-2">Safe Decibel Levels</h4>
+                        <p class="text-sm text-gray-500 mt-auto">Exposure times &amp; safety bands</p>
+                    </div>
+                </a>
+                <a href="three-db-rule-explained.html" class="group bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden border border-gray-100 flex flex-col">
+                    <div class="h-48 overflow-hidden">
+                        <img src="images/three-db-rule.svg" alt="The 3 dB Rule Explained" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col">
+                        <h4 class="font-bold text-gray-900 group-hover:text-blue-600 transition-colors mb-2">The 3 dB Rule Explained</h4>
+                        <p class="text-sm text-gray-500 mt-auto">Why +3 dB halves safe time</p>
+                    </div>
+                </a>
+                <a href="how-to-measure-decibels-accurately.html" class="group bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden border border-gray-100 flex flex-col">
+                    <div class="h-48 overflow-hidden">
+                        <img src="images/smartphone-accuracy.svg" alt="How to Measure Decibels Accurately" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col">
+                        <h4 class="font-bold text-gray-900 group-hover:text-blue-600 transition-colors mb-2">Measure More Accurately</h4>
+                        <p class="text-sm text-gray-500 mt-auto">Placement &amp; averaging tips</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <section class="mt-12 pt-8 border-t border-gray-200">
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">About This Guide</h3>
+            <div class="text-sm text-gray-600 space-y-1">
+                <p><strong class="text-gray-900">Author:</strong> Max Ray (RealtimeSoundMeter.org)</p>
+                <p><strong class="text-gray-900">Last updated:</strong> November 17, 2026</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-4 mt-6">
+                <div class="bg-gray-50 rounded-xl border border-gray-200 p-4">
+                    <h4 class="font-semibold text-gray-900 mb-2">Related Tools</h4>
+                    <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+                        <li><a href="/" class="text-blue-600 hover:underline">Online Sound Meter</a></li>
+                        <li><a href="/online-hearing-test/" class="text-blue-600 hover:underline">Online Hearing Test</a></li>
+                        <li><a href="/speaker-test-tones/" class="text-blue-600 hover:underline">Speaker Test Tones</a></li>
+                    </ul>
+                </div>
+
+                <div class="bg-gray-50 rounded-xl border border-gray-200 p-4">
+                    <h4 class="font-semibold text-gray-900 mb-2">Key Takeaway</h4>
+                    <p class="text-sm text-gray-700">
+                        Place your meter reading in a band on the chart, check distance, and use a steady level—not a one-second spike.
+                    </p>
+                </div>
+
+                <div class="bg-gray-50 rounded-xl border border-gray-200 p-4">
+                    <h4 class="font-semibold text-gray-900 mb-2">References</h4>
+                    <ul class="list-disc list-inside text-sm text-gray-700 space-y-1">
+                        <li><a href="https://www.nidcd.nih.gov/health/how-loud-too-loud" target="_blank" rel="noopener" class="text-blue-600 hover:underline">NIDCD</a></li>
+                        <li><a href="https://www.cdc.gov/niosh/noise/about/noise.html" target="_blank" rel="noopener" class="text-blue-600 hover:underline">NIOSH/CDC Noise</a></li>
+                        <li><a href="https://www.ncbi.nlm.nih.gov/books/NBK20366/table/A542/?report=objectonly" target="_blank" rel="noopener" class="text-blue-600 hover:underline">NIH sound table</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-900 text-white mt-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-sm">
+                <div>
+                    <p class="text-xs font-bold tracking-wide text-gray-400 uppercase mb-2">Tools</p>
+                    <div class="flex flex-col items-start space-y-1">
+                        <a href="/" class="hover:text-blue-400 transition">Sound Meter</a>
+                        <a href="/online-hearing-test/" class="hover:text-blue-400 transition">Hearing Test</a>
+                        <a href="/hearing-age-test/" class="hover:text-blue-400 transition">Hearing Age Test</a>
+                        <a href="/tone-generator/" class="hover:text-blue-400 transition">Tone Generator</a>
+                        <a href="/speaker-test-tones/" class="hover:text-blue-400 transition">Speaker Test</a>
+                        <a href="/blog/" class="hover:text-blue-400 transition">Blog</a>
+                    </div>
+                </div>
+                <div>
+                    <p class="text-xs font-bold tracking-wide text-gray-400 uppercase mb-2">Trust &amp; Quality</p>
+                    <div class="flex flex-col items-start space-y-1">
+                        <a href="../about.html" class="hover:text-blue-400 transition">About</a>
+                        <a href="../editorial-policy.html" class="hover:text-blue-400 transition">Editorial Policy</a>
+                        <a href="../methodology.html" class="hover:text-blue-400 transition">Methodology</a>
+                        <a href="../accuracy.html" class="hover:text-blue-400 transition">Accuracy &amp; Calibration</a>
+                        <a href="../validation.html" class="hover:text-blue-400 transition">Validation Protocol</a>
+                        <a href="../changelog.html" class="hover:text-blue-400 transition">Changelog</a>
+                    </div>
+                </div>
+                <div>
+                    <p class="text-xs font-bold tracking-wide text-gray-400 uppercase mb-2">Legal &amp; Contact</p>
+                    <div class="flex flex-col items-start space-y-1">
+                        <a href="../terms.html" class="hover:text-blue-400 transition">Terms of Use</a>
+                        <a href="../privacy.html" class="hover:text-blue-400 transition">Privacy Policy</a>
+                        <a href="../disclaimer.html" class="hover:text-blue-400 transition">Disclaimer</a>
+                        <a href="../contact.html" class="hover:text-blue-400 transition">Contact</a>
+                    </div>
+                </div>
+            </div>
+            <p class="text-center text-xs text-gray-500 mt-6">© 2026 RealtimeSoundMeter.org</p>
+        </div>
+    </footer>
+</body>
+</html>
